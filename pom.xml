@@ -33,9 +33,9 @@
   </developers>
 
   <scm>
-    <connection>scm:git:https://github.com/jamm-pay/services.git</connection>
-    <developerConnection>scm:git:git@github.com:jamm-pay/services.git</developerConnection>
-    <url>https://github.com/jamm-pay/services/tree/main/packages/sdk/java</url>
+    <connection>scm:git:https://github.com/jamm-pay/java-sdk.git</connection>
+    <developerConnection>scm:git:git@github.com:jamm-pay/java-sdk.git</developerConnection>
+    <url>https://github.com/jamm-pay/java-sdk</url>
   </scm>
 
   <properties>

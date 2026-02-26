@@ -2,7 +2,7 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/jamm-pay/services/tree/main/packages/sdk/java">
+  <a href="https://docs.jamm-pay.jp">
     <img src="https://assets.jamm-pay.jp/brand/jamm_logo.png" alt="logo" width="120" height="120">
   </a>
   <h3 align="center">Jamm SDK - Java</h3>
@@ -11,6 +11,8 @@
     We strongly recommend using the SDK for backend integration in order to simplify and streamline your development process!
     <br />
     <a href="https://docs.jamm-pay.jp"><strong>Docs »</strong></a>
+    ·
+    <a href="https://github.com/jamm-pay/java-sdk/issues">Report Bug / Request Feature</a>
     <br />
     <br />
   </p>
@@ -188,6 +190,8 @@ JammClient client = Jamm.getClient();
 
 ## Development
 
+This SDK is published from the `jamm-pay/java-sdk` repository.
+
 ### Requirements
 
 - Java 11 or above
@@ -224,11 +228,18 @@ End-to-end tests:
 make e2e MERCHANT_CLIENT_ID=*** MERCHANT_CLIENT_SECRET=*** ENV=develop
 ```
 
+Some E2E tests require additional environment variables and will be skipped if not set:
+
+| Variable   | Description                              | Example          |
+|------------|------------------------------------------|------------------|
+| `CUSTOMER` | Customer ID for off-session payment test | `cus-xxxxxxxx`   |
+| `CHARGE`   | Charge ID for refund test                | `trx-xxxxxxxx`   |
+
 ### Built With
 
 [![Java][Java.com]][Java-url]
 
 [license-shield]: https://img.shields.io/badge/license-MIT-blue?style=for-the-badge
-[license-url]: https://github.com/jamm-pay/services/blob/main/packages/sdk/java/LICENSE
+[license-url]: https://github.com/jamm-pay/java-sdk/blob/main/LICENSE
 [Java.com]: https://img.shields.io/badge/java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white
 [Java-url]: https://openjdk.org

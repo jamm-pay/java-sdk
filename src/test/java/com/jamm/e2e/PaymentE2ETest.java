@@ -1,14 +1,21 @@
 package com.jamm.e2e;
 
+import com.api.v1.AsyncStatus;
 import com.api.v1.Buyer;
 import com.api.v1.InitialCharge;
+import com.api.v1.OffSessionPaymentAsyncRequest;
+import com.api.v1.OffSessionPaymentAsyncResponse;
 import com.api.v1.OnSessionPaymentRequest;
 import com.api.v1.OnSessionPaymentResponse;
+import com.api.v1.RefundRequest;
+import com.api.v1.RefundResponse;
 import com.api.v1.URL;
 import com.jamm.JammClient;
+import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PaymentE2ETest {
@@ -73,6 +80,51 @@ class PaymentE2ETest {
             assertTrue(response.getSuccess());
             assertTrue(response.hasData());
             assertTrue(response.getData().hasPaymentLink());
+        }
+    }
+
+    @Test
+    void offSessionPaymentAsync_startsAsyncCharge() {
+        String customerId = System.getenv("CUSTOMER");
+        Assumptions.assumeTrue(
+                customerId != null && !customerId.isBlank(),
+                "Skipping: set CUSTOMER env var (e.g. cus-xxxxxxxx)");
+
+        try (JammClient client = E2ETestHelper.createClient()) {
+            OffSessionPaymentAsyncRequest request = OffSessionPaymentAsyncRequest.newBuilder()
+                    .setCustomer(customerId)
+                    .setCharge(InitialCharge.newBuilder()
+                            .setPrice(100)
+                            .setDescription("Java SDK offSessionPaymentAsync E2E")
+                            .putMetadata("case", "off-session-async")
+                            .build())
+                    .build();
+
+            OffSessionPaymentAsyncResponse response = client.payments().offSessionPaymentAsync(request);
+
+            assertFalse(response.getRequestId().isEmpty());
+            assertFalse(response.getChargeId().isEmpty());
+            assertTrue(response.getChargeId().startsWith("trx-"));
+            assertEquals(AsyncStatus.ASYNC_STATUS_PENDING, response.getStatus());
+        }
+    }
+
+    @Test
+    void refund_refundsCharge() {
+        String chargeId = System.getenv("CHARGE");
+        Assumptions.assumeTrue(
+                chargeId != null && !chargeId.isBlank(),
+                "Skipping: set CHARGE env var (e.g. trx-xxxxxxxx)");
+
+        try (JammClient client = E2ETestHelper.createClient()) {
+            RefundRequest request = RefundRequest.newBuilder()
+                    .setChargeId(chargeId)
+                    .build();
+
+            RefundResponse response = client.payments().refund(request);
+
+            assertEquals(chargeId, response.getChargeId());
+            assertFalse(response.getRefundId().isEmpty());
         }
     }
 }
