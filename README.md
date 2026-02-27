@@ -1,4 +1,5 @@
 [![MIT License][license-shield]][license-url]
+[![Maven Central][maven-central-shield]][maven-central-url]
 
 <br />
 <div align="center">
@@ -241,5 +242,7 @@ Some E2E tests require additional environment variables and will be skipped if n
 
 [license-shield]: https://img.shields.io/badge/license-MIT-blue?style=for-the-badge
 [license-url]: https://github.com/jamm-pay/java-sdk/blob/main/LICENSE
+[maven-central-shield]: https://img.shields.io/badge/maven%20central-jp.jamm--pay%3Ajamm--sdk-brightgreen?style=for-the-badge
+[maven-central-url]: https://central.sonatype.com/artifact/jp.jamm-pay/jamm-sdk/overview
 [Java.com]: https://img.shields.io/badge/java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white
 [Java-url]: https://openjdk.org
