@@ -73,9 +73,17 @@ public enum EventType
    * Merchants should update their records to reflect the refund.
    * </pre>
    *
-   * <code>EVENT_TYPE_CHARGE_REFUND = 7;</code>
+   * <code>EVENT_TYPE_CHARGE_CANCEL = 7;</code>
    */
-  EVENT_TYPE_CHARGE_REFUND(7),
+  EVENT_TYPE_CHARGE_CANCEL(7),
+  /**
+   * <pre>
+   * Alias for EVENT_TYPE_CHARGE_CANCEL.
+   * </pre>
+   *
+   * <code>EVENT_TYPE_CHARGE_REFUND = 8;</code>
+   */
+  EVENT_TYPE_CHARGE_REFUND(8),
   /**
    * <pre>
    * Fired when a contract is activated.
@@ -171,9 +179,17 @@ public enum EventType
    * Merchants should update their records to reflect the refund.
    * </pre>
    *
-   * <code>EVENT_TYPE_CHARGE_REFUND = 7;</code>
+   * <code>EVENT_TYPE_CHARGE_CANCEL = 7;</code>
    */
-  public static final int EVENT_TYPE_CHARGE_REFUND_VALUE = 7;
+  public static final int EVENT_TYPE_CHARGE_CANCEL_VALUE = 7;
+  /**
+   * <pre>
+   * Alias for EVENT_TYPE_CHARGE_CANCEL.
+   * </pre>
+   *
+   * <code>EVENT_TYPE_CHARGE_REFUND = 8;</code>
+   */
+  public static final int EVENT_TYPE_CHARGE_REFUND_VALUE = 8;
   /**
    * <pre>
    * Fired when a contract is activated.
@@ -232,7 +248,8 @@ public enum EventType
       case 4: return EVENT_TYPE_CHARGE_UPDATED;
       case 5: return EVENT_TYPE_CHARGE_SUCCESS;
       case 6: return EVENT_TYPE_CHARGE_FAIL;
-      case 7: return EVENT_TYPE_CHARGE_REFUND;
+      case 7: return EVENT_TYPE_CHARGE_CANCEL;
+      case 8: return EVENT_TYPE_CHARGE_REFUND;
       case 20: return EVENT_TYPE_CONTRACT_ACTIVATED;
       case 30: return EVENT_TYPE_USER_ACCOUNT_DELETED;
       case 99: return EVENT_TYPE_TESTING;
