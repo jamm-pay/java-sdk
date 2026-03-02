@@ -70,29 +70,49 @@ public interface ChargeMessageOrBuilder extends
       getMerchantNameBytes();
 
   /**
+   * <pre>
+   * Original charge amount before discount and before any refund is applied.
+   * </pre>
+   *
    * <code>int32 initial_amount = 6 [json_name = "initialAmount", (.buf.validate.field) = { ... }</code>
    * @return The initialAmount.
    */
   int getInitialAmount();
 
   /**
+   * <pre>
+   * Discount amount deducted from the original charge amount.
+   * </pre>
+   *
    * <code>int32 discount = 7 [json_name = "discount", (.buf.validate.field) = { ... }</code>
    * @return The discount.
    */
   int getDiscount();
 
   /**
+   * <pre>
+   * Final charge amount after discount, before any refund is applied.
+   * </pre>
+   *
    * <code>int32 final_amount = 8 [json_name = "finalAmount", (.buf.validate.field) = { ... }</code>
    * @return The finalAmount.
    */
   int getFinalAmount();
 
   /**
+   * <pre>
+   * Total amount refunded for this charge when the charge has been refunded.
+   * </pre>
+   *
    * <code>optional int32 amount_refunded = 9 [json_name = "amountRefunded"];</code>
    * @return Whether the amountRefunded field is set.
    */
   boolean hasAmountRefunded();
   /**
+   * <pre>
+   * Total amount refunded for this charge when the charge has been refunded.
+   * </pre>
+   *
    * <code>optional int32 amount_refunded = 9 [json_name = "amountRefunded"];</code>
    * @return The amountRefunded.
    */
@@ -111,21 +131,52 @@ public interface ChargeMessageOrBuilder extends
       getCurrencyBytes();
 
   /**
+   * <pre>
+   * Timestamp when the charge or refund outcome was completed.
+   * </pre>
+   *
    * <code>optional string processed_at = 11 [json_name = "processedAt"];</code>
    * @return Whether the processedAt field is set.
    */
   boolean hasProcessedAt();
   /**
+   * <pre>
+   * Timestamp when the charge or refund outcome was completed.
+   * </pre>
+   *
    * <code>optional string processed_at = 11 [json_name = "processedAt"];</code>
    * @return The processedAt.
    */
   java.lang.String getProcessedAt();
   /**
+   * <pre>
+   * Timestamp when the charge or refund outcome was completed.
+   * </pre>
+   *
    * <code>optional string processed_at = 11 [json_name = "processedAt"];</code>
    * @return The bytes for processedAt.
    */
   com.google.protobuf.ByteString
       getProcessedAtBytes();
+
+  /**
+   * <pre>
+   * Jamm fee associated with this charge_refund event (refund uses refund fee; cancel uses 0).
+   * </pre>
+   *
+   * <code>optional int32 jamm_fee = 12 [json_name = "jammFee"];</code>
+   * @return Whether the jammFee field is set.
+   */
+  boolean hasJammFee();
+  /**
+   * <pre>
+   * Jamm fee associated with this charge_refund event (refund uses refund fee; cancel uses 0).
+   * </pre>
+   *
+   * <code>optional int32 jamm_fee = 12 [json_name = "jammFee"];</code>
+   * @return The jammFee.
+   */
+  int getJammFee();
 
   /**
    * <code>string created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
