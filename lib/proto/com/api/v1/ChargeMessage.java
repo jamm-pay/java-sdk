@@ -37,6 +37,7 @@ private static final long serialVersionUID = 0L;
     processedAt_ = "";
     createdAt_ = "";
     updatedAt_ = "";
+    originalTransactionJammFee_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -660,6 +661,95 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ORIGINAL_TRANSACTION_JAMM_FEE_FIELD_NUMBER = 15;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object originalTransactionJammFee_ = "";
+  /**
+   * <pre>
+   * Whether the original transaction's Jamm fee was waived (same-day cancel) or not (refund).
+   * Values: "waived", "not_waived".
+   * </pre>
+   *
+   * <code>optional string original_transaction_jamm_fee = 15 [json_name = "originalTransactionJammFee"];</code>
+   * @return Whether the originalTransactionJammFee field is set.
+   */
+  @java.lang.Override
+  public boolean hasOriginalTransactionJammFee() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <pre>
+   * Whether the original transaction's Jamm fee was waived (same-day cancel) or not (refund).
+   * Values: "waived", "not_waived".
+   * </pre>
+   *
+   * <code>optional string original_transaction_jamm_fee = 15 [json_name = "originalTransactionJammFee"];</code>
+   * @return The originalTransactionJammFee.
+   */
+  @java.lang.Override
+  public java.lang.String getOriginalTransactionJammFee() {
+    java.lang.Object ref = originalTransactionJammFee_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      originalTransactionJammFee_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Whether the original transaction's Jamm fee was waived (same-day cancel) or not (refund).
+   * Values: "waived", "not_waived".
+   * </pre>
+   *
+   * <code>optional string original_transaction_jamm_fee = 15 [json_name = "originalTransactionJammFee"];</code>
+   * @return The bytes for originalTransactionJammFee.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getOriginalTransactionJammFeeBytes() {
+    java.lang.Object ref = originalTransactionJammFee_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      originalTransactionJammFee_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CONSUMPTION_TAX_FIELD_NUMBER = 16;
+  private int consumptionTax_ = 0;
+  /**
+   * <pre>
+   * Consumption tax (10% of the Jamm fee).
+   * </pre>
+   *
+   * <code>optional int32 consumption_tax = 16 [json_name = "consumptionTax"];</code>
+   * @return Whether the consumptionTax field is set.
+   */
+  @java.lang.Override
+  public boolean hasConsumptionTax() {
+    return ((bitField0_ & 0x00000010) != 0);
+  }
+  /**
+   * <pre>
+   * Consumption tax (10% of the Jamm fee).
+   * </pre>
+   *
+   * <code>optional int32 consumption_tax = 16 [json_name = "consumptionTax"];</code>
+   * @return The consumptionTax.
+   */
+  @java.lang.Override
+  public int getConsumptionTax() {
+    return consumptionTax_;
+  }
+
   public static final int ERROR_FIELD_NUMBER = 20;
   private com.api.v1.Error error_;
   /**
@@ -668,7 +758,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasError() {
-    return ((bitField0_ & 0x00000008) != 0);
+    return ((bitField0_ & 0x00000020) != 0);
   }
   /**
    * <code>optional .api.v1.Error error = 20 [json_name = "error"];</code>
@@ -743,6 +833,12 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.GeneratedMessage.writeString(output, 14, updatedAt_);
     }
     if (((bitField0_ & 0x00000008) != 0)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 15, originalTransactionJammFee_);
+    }
+    if (((bitField0_ & 0x00000010) != 0)) {
+      output.writeInt32(16, consumptionTax_);
+    }
+    if (((bitField0_ & 0x00000020) != 0)) {
       output.writeMessage(20, getError());
     }
     getUnknownFields().writeTo(output);
@@ -803,6 +899,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.GeneratedMessage.computeStringSize(14, updatedAt_);
     }
     if (((bitField0_ & 0x00000008) != 0)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(15, originalTransactionJammFee_);
+    }
+    if (((bitField0_ & 0x00000010) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(16, consumptionTax_);
+    }
+    if (((bitField0_ & 0x00000020) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(20, getError());
     }
@@ -857,6 +960,16 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCreatedAt())) return false;
     if (!getUpdatedAt()
         .equals(other.getUpdatedAt())) return false;
+    if (hasOriginalTransactionJammFee() != other.hasOriginalTransactionJammFee()) return false;
+    if (hasOriginalTransactionJammFee()) {
+      if (!getOriginalTransactionJammFee()
+          .equals(other.getOriginalTransactionJammFee())) return false;
+    }
+    if (hasConsumptionTax() != other.hasConsumptionTax()) return false;
+    if (hasConsumptionTax()) {
+      if (getConsumptionTax()
+          != other.getConsumptionTax()) return false;
+    }
     if (hasError() != other.hasError()) return false;
     if (hasError()) {
       if (!getError()
@@ -907,6 +1020,14 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCreatedAt().hashCode();
     hash = (37 * hash) + UPDATED_AT_FIELD_NUMBER;
     hash = (53 * hash) + getUpdatedAt().hashCode();
+    if (hasOriginalTransactionJammFee()) {
+      hash = (37 * hash) + ORIGINAL_TRANSACTION_JAMM_FEE_FIELD_NUMBER;
+      hash = (53 * hash) + getOriginalTransactionJammFee().hashCode();
+    }
+    if (hasConsumptionTax()) {
+      hash = (37 * hash) + CONSUMPTION_TAX_FIELD_NUMBER;
+      hash = (53 * hash) + getConsumptionTax();
+    }
     if (hasError()) {
       hash = (37 * hash) + ERROR_FIELD_NUMBER;
       hash = (53 * hash) + getError().hashCode();
@@ -1062,6 +1183,8 @@ private static final long serialVersionUID = 0L;
       jammFee_ = 0;
       createdAt_ = "";
       updatedAt_ = "";
+      originalTransactionJammFee_ = "";
+      consumptionTax_ = 0;
       error_ = null;
       if (errorBuilder_ != null) {
         errorBuilder_.dispose();
@@ -1147,10 +1270,18 @@ private static final long serialVersionUID = 0L;
         result.updatedAt_ = updatedAt_;
       }
       if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.originalTransactionJammFee_ = originalTransactionJammFee_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.consumptionTax_ = consumptionTax_;
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
         result.error_ = errorBuilder_ == null
             ? error_
             : errorBuilder_.build();
-        to_bitField0_ |= 0x00000008;
+        to_bitField0_ |= 0x00000020;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -1224,6 +1355,14 @@ private static final long serialVersionUID = 0L;
         updatedAt_ = other.updatedAt_;
         bitField0_ |= 0x00002000;
         onChanged();
+      }
+      if (other.hasOriginalTransactionJammFee()) {
+        originalTransactionJammFee_ = other.originalTransactionJammFee_;
+        bitField0_ |= 0x00004000;
+        onChanged();
+      }
+      if (other.hasConsumptionTax()) {
+        setConsumptionTax(other.getConsumptionTax());
       }
       if (other.hasError()) {
         mergeError(other.getError());
@@ -1324,11 +1463,21 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00002000;
               break;
             } // case 114
+            case 122: {
+              originalTransactionJammFee_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 122
+            case 128: {
+              consumptionTax_ = input.readInt32();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 128
             case 162: {
               input.readMessage(
                   internalGetErrorFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00004000;
+              bitField0_ |= 0x00010000;
               break;
             } // case 162
             default: {
@@ -2251,6 +2400,171 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object originalTransactionJammFee_ = "";
+    /**
+     * <pre>
+     * Whether the original transaction's Jamm fee was waived (same-day cancel) or not (refund).
+     * Values: "waived", "not_waived".
+     * </pre>
+     *
+     * <code>optional string original_transaction_jamm_fee = 15 [json_name = "originalTransactionJammFee"];</code>
+     * @return Whether the originalTransactionJammFee field is set.
+     */
+    public boolean hasOriginalTransactionJammFee() {
+      return ((bitField0_ & 0x00004000) != 0);
+    }
+    /**
+     * <pre>
+     * Whether the original transaction's Jamm fee was waived (same-day cancel) or not (refund).
+     * Values: "waived", "not_waived".
+     * </pre>
+     *
+     * <code>optional string original_transaction_jamm_fee = 15 [json_name = "originalTransactionJammFee"];</code>
+     * @return The originalTransactionJammFee.
+     */
+    public java.lang.String getOriginalTransactionJammFee() {
+      java.lang.Object ref = originalTransactionJammFee_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        originalTransactionJammFee_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Whether the original transaction's Jamm fee was waived (same-day cancel) or not (refund).
+     * Values: "waived", "not_waived".
+     * </pre>
+     *
+     * <code>optional string original_transaction_jamm_fee = 15 [json_name = "originalTransactionJammFee"];</code>
+     * @return The bytes for originalTransactionJammFee.
+     */
+    public com.google.protobuf.ByteString
+        getOriginalTransactionJammFeeBytes() {
+      java.lang.Object ref = originalTransactionJammFee_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        originalTransactionJammFee_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Whether the original transaction's Jamm fee was waived (same-day cancel) or not (refund).
+     * Values: "waived", "not_waived".
+     * </pre>
+     *
+     * <code>optional string original_transaction_jamm_fee = 15 [json_name = "originalTransactionJammFee"];</code>
+     * @param value The originalTransactionJammFee to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOriginalTransactionJammFee(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      originalTransactionJammFee_ = value;
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the original transaction's Jamm fee was waived (same-day cancel) or not (refund).
+     * Values: "waived", "not_waived".
+     * </pre>
+     *
+     * <code>optional string original_transaction_jamm_fee = 15 [json_name = "originalTransactionJammFee"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOriginalTransactionJammFee() {
+      originalTransactionJammFee_ = getDefaultInstance().getOriginalTransactionJammFee();
+      bitField0_ = (bitField0_ & ~0x00004000);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether the original transaction's Jamm fee was waived (same-day cancel) or not (refund).
+     * Values: "waived", "not_waived".
+     * </pre>
+     *
+     * <code>optional string original_transaction_jamm_fee = 15 [json_name = "originalTransactionJammFee"];</code>
+     * @param value The bytes for originalTransactionJammFee to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOriginalTransactionJammFeeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      originalTransactionJammFee_ = value;
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+
+    private int consumptionTax_ ;
+    /**
+     * <pre>
+     * Consumption tax (10% of the Jamm fee).
+     * </pre>
+     *
+     * <code>optional int32 consumption_tax = 16 [json_name = "consumptionTax"];</code>
+     * @return Whether the consumptionTax field is set.
+     */
+    @java.lang.Override
+    public boolean hasConsumptionTax() {
+      return ((bitField0_ & 0x00008000) != 0);
+    }
+    /**
+     * <pre>
+     * Consumption tax (10% of the Jamm fee).
+     * </pre>
+     *
+     * <code>optional int32 consumption_tax = 16 [json_name = "consumptionTax"];</code>
+     * @return The consumptionTax.
+     */
+    @java.lang.Override
+    public int getConsumptionTax() {
+      return consumptionTax_;
+    }
+    /**
+     * <pre>
+     * Consumption tax (10% of the Jamm fee).
+     * </pre>
+     *
+     * <code>optional int32 consumption_tax = 16 [json_name = "consumptionTax"];</code>
+     * @param value The consumptionTax to set.
+     * @return This builder for chaining.
+     */
+    public Builder setConsumptionTax(int value) {
+
+      consumptionTax_ = value;
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Consumption tax (10% of the Jamm fee).
+     * </pre>
+     *
+     * <code>optional int32 consumption_tax = 16 [json_name = "consumptionTax"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearConsumptionTax() {
+      bitField0_ = (bitField0_ & ~0x00008000);
+      consumptionTax_ = 0;
+      onChanged();
+      return this;
+    }
+
     private com.api.v1.Error error_;
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.Error, com.api.v1.Error.Builder, com.api.v1.ErrorOrBuilder> errorBuilder_;
@@ -2259,7 +2573,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the error field is set.
      */
     public boolean hasError() {
-      return ((bitField0_ & 0x00004000) != 0);
+      return ((bitField0_ & 0x00010000) != 0);
     }
     /**
      * <code>optional .api.v1.Error error = 20 [json_name = "error"];</code>
@@ -2284,7 +2598,7 @@ private static final long serialVersionUID = 0L;
       } else {
         errorBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00004000;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -2298,7 +2612,7 @@ private static final long serialVersionUID = 0L;
       } else {
         errorBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00004000;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -2307,7 +2621,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeError(com.api.v1.Error value) {
       if (errorBuilder_ == null) {
-        if (((bitField0_ & 0x00004000) != 0) &&
+        if (((bitField0_ & 0x00010000) != 0) &&
           error_ != null &&
           error_ != com.api.v1.Error.getDefaultInstance()) {
           getErrorBuilder().mergeFrom(value);
@@ -2318,7 +2632,7 @@ private static final long serialVersionUID = 0L;
         errorBuilder_.mergeFrom(value);
       }
       if (error_ != null) {
-        bitField0_ |= 0x00004000;
+        bitField0_ |= 0x00010000;
         onChanged();
       }
       return this;
@@ -2327,7 +2641,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .api.v1.Error error = 20 [json_name = "error"];</code>
      */
     public Builder clearError() {
-      bitField0_ = (bitField0_ & ~0x00004000);
+      bitField0_ = (bitField0_ & ~0x00010000);
       error_ = null;
       if (errorBuilder_ != null) {
         errorBuilder_.dispose();
@@ -2340,7 +2654,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .api.v1.Error error = 20 [json_name = "error"];</code>
      */
     public com.api.v1.Error.Builder getErrorBuilder() {
-      bitField0_ |= 0x00004000;
+      bitField0_ |= 0x00010000;
       onChanged();
       return internalGetErrorFieldBuilder().getBuilder();
     }

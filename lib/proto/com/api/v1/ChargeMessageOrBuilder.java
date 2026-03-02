@@ -203,6 +203,57 @@ public interface ChargeMessageOrBuilder extends
       getUpdatedAtBytes();
 
   /**
+   * <pre>
+   * Whether the original transaction's Jamm fee was waived (same-day cancel) or not (refund).
+   * Values: "waived", "not_waived".
+   * </pre>
+   *
+   * <code>optional string original_transaction_jamm_fee = 15 [json_name = "originalTransactionJammFee"];</code>
+   * @return Whether the originalTransactionJammFee field is set.
+   */
+  boolean hasOriginalTransactionJammFee();
+  /**
+   * <pre>
+   * Whether the original transaction's Jamm fee was waived (same-day cancel) or not (refund).
+   * Values: "waived", "not_waived".
+   * </pre>
+   *
+   * <code>optional string original_transaction_jamm_fee = 15 [json_name = "originalTransactionJammFee"];</code>
+   * @return The originalTransactionJammFee.
+   */
+  java.lang.String getOriginalTransactionJammFee();
+  /**
+   * <pre>
+   * Whether the original transaction's Jamm fee was waived (same-day cancel) or not (refund).
+   * Values: "waived", "not_waived".
+   * </pre>
+   *
+   * <code>optional string original_transaction_jamm_fee = 15 [json_name = "originalTransactionJammFee"];</code>
+   * @return The bytes for originalTransactionJammFee.
+   */
+  com.google.protobuf.ByteString
+      getOriginalTransactionJammFeeBytes();
+
+  /**
+   * <pre>
+   * Consumption tax (10% of the Jamm fee).
+   * </pre>
+   *
+   * <code>optional int32 consumption_tax = 16 [json_name = "consumptionTax"];</code>
+   * @return Whether the consumptionTax field is set.
+   */
+  boolean hasConsumptionTax();
+  /**
+   * <pre>
+   * Consumption tax (10% of the Jamm fee).
+   * </pre>
+   *
+   * <code>optional int32 consumption_tax = 16 [json_name = "consumptionTax"];</code>
+   * @return The consumptionTax.
+   */
+  int getConsumptionTax();
+
+  /**
    * <code>optional .api.v1.Error error = 20 [json_name = "error"];</code>
    * @return Whether the error field is set.
    */

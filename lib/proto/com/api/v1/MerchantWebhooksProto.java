@@ -107,7 +107,7 @@ public final class MerchantWebhooksProto extends com.google.protobuf.GeneratedFi
       ".EventTypeB\006\272H\003\310\001\001R\teventType\0226\n\007content" +
       "\030\005 \001(\0132\024.google.protobuf.AnyB\006\272H\003\310\001\001R\007co" +
       "ntent\022B\n\ncreated_at\030\347\007 \001(\0132\032.google.prot" +
-      "obuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt\"\323\006\n\rCh" +
+      "obuf.TimestampB\006\272H\003\310\001\001R\tcreatedAt\"\377\007\n\rCh" +
       "argeMessage\022\"\n\002id\030\001 \001(\tB\022\272H\017r\n2\010^trx-.*$" +
       "\310\001\001R\002id\022.\n\010customer\030\002 \001(\tB\022\272H\017r\n2\010^cus-." +
       "*$\310\001\001R\010customer\022<\n\006status\030\003 \001(\0162\034.api.v1" +
@@ -123,43 +123,48 @@ public final class MerchantWebhooksProto extends com.google.protobuf.GeneratedFi
       "ocessedAt\210\001\001\022\036\n\010jamm_fee\030\014 \001(\005H\002R\007jammFe" +
       "e\210\001\001\022%\n\ncreated_at\030\r \001(\tB\006\272H\003\310\001\001R\tcreate" +
       "dAt\022%\n\nupdated_at\030\016 \001(\tB\006\272H\003\310\001\001R\tupdated" +
-      "At\022(\n\005error\030\024 \001(\0132\r.api.v1.ErrorH\003R\005erro" +
-      "r\210\001\001\"\214\001\n\006Status\022\026\n\022STATUS_UNSPECIFIED\020\000\022" +
-      "\022\n\016STATUS_SUCCESS\020\001\022\022\n\016STATUS_FAILURE\020\002\022" +
-      "\027\n\023STATUS_WAITING_EKYC\020\003\022\023\n\017STATUS_BLOCK" +
-      "ING\020\004\022\024\n\020STATUS_CANCELLED\020\005B\022\n\020_amount_r" +
-      "efundedB\017\n\r_processed_atB\013\n\t_jamm_feeB\010\n" +
-      "\006_error\"\300\001\n\017ContractMessage\022.\n\010customer\030" +
-      "\001 \001(\tB\022\272H\017r\n2\010^cus-.*$\310\001\001R\010customer\022%\n\nc" +
-      "reated_at\030\002 \001(\tB\006\272H\003\310\001\001R\tcreatedAt\022)\n\014ac" +
-      "tivated_at\030\003 \001(\tB\006\272H\003\310\001\001R\013activatedAt\022+\n" +
-      "\rmerchant_name\030\004 \001(\tB\006\272H\003\310\001\001R\014merchantNa" +
-      "me\"\266\001\n\022UserAccountMessage\022.\n\010customer\030\001 " +
-      "\001(\tB\022\272H\017r\n2\010^cus-.*$\310\001\001R\010customer\022\034\n\005ema" +
-      "il\030\002 \001(\tB\006\272H\003\310\001\001R\005email\022%\n\ndeleted_at\030\003 " +
-      "\001(\tB\006\272H\003\310\001\001R\tdeletedAt\022+\n\rmerchant_name\030" +
-      "\004 \001(\tB\006\272H\003\310\001\001R\014merchantName\"~\n\005Error\022\032\n\004" +
-      "code\030\001 \001(\tB\006\272H\003\310\001\001R\004code\022 \n\007message\030\002 \001(" +
-      "\tB\006\272H\003\310\001\001R\007message\0227\n\007details\030\003 \003(\0132\023.ap" +
-      "i.v1.ErrorDetailB\010\272H\005\222\001\002\010\001R\007details\"]\n\013E" +
-      "rrorDetail\022\032\n\004type\030\001 \001(\tB\006\272H\003\310\001\001R\004type\022\034" +
-      "\n\005value\030\002 \001(\tB\006\272H\003\310\001\001R\005value\022\024\n\005debug\030\003 " +
-      "\001(\tR\005debug*\274\002\n\tEventType\022\032\n\026EVENT_TYPE_U" +
-      "NSPECIFIED\020\000\022\035\n\031EVENT_TYPE_CHARGE_CREATE" +
-      "D\020\003\022\035\n\031EVENT_TYPE_CHARGE_UPDATED\020\004\022\035\n\031EV" +
-      "ENT_TYPE_CHARGE_SUCCESS\020\005\022\032\n\026EVENT_TYPE_" +
-      "CHARGE_FAIL\020\006\022\034\n\030EVENT_TYPE_CHARGE_CANCE" +
-      "L\020\007\022\034\n\030EVENT_TYPE_CHARGE_REFUND\020\010\022!\n\035EVE" +
-      "NT_TYPE_CONTRACT_ACTIVATED\020\024\022#\n\037EVENT_TY" +
-      "PE_USER_ACCOUNT_DELETED\020\036\022\026\n\022EVENT_TYPE_" +
-      "TESTING\020c2\254\001\n\016WebhookService\022H\n\005Error\022\024." +
-      "api.v1.ErrorRequest\032\025.api.v1.ErrorRespon" +
-      "se\"\022\202\323\344\223\002\014\"\007/errors:\001*\022P\n\007Message\022\026.api." +
-      "v1.MessageRequest\032\027.api.v1.MessageRespon" +
-      "se\"\024\202\323\344\223\002\016\"\t/webhooks:\001*By\n\ncom.api.v1B\025" +
-      "MerchantWebhooksProtoP\001Z\033api/proto/gen/a" +
-      "pi/v1;api_v1\242\002\003AXX\252\002\006Api.V1\312\002\006Api\\V1\342\002\022A" +
-      "pi\\V1\\GPBMetadata\352\002\007Api::V1b\006proto3"
+      "At\022F\n\035original_transaction_jamm_fee\030\017 \001(" +
+      "\tH\003R\032originalTransactionJammFee\210\001\001\022,\n\017co" +
+      "nsumption_tax\030\020 \001(\005H\004R\016consumptionTax\210\001\001" +
+      "\022(\n\005error\030\024 \001(\0132\r.api.v1.ErrorH\005R\005error\210" +
+      "\001\001\"\214\001\n\006Status\022\026\n\022STATUS_UNSPECIFIED\020\000\022\022\n" +
+      "\016STATUS_SUCCESS\020\001\022\022\n\016STATUS_FAILURE\020\002\022\027\n" +
+      "\023STATUS_WAITING_EKYC\020\003\022\023\n\017STATUS_BLOCKIN" +
+      "G\020\004\022\024\n\020STATUS_CANCELLED\020\005B\022\n\020_amount_ref" +
+      "undedB\017\n\r_processed_atB\013\n\t_jamm_feeB \n\036_" +
+      "original_transaction_jamm_feeB\022\n\020_consum" +
+      "ption_taxB\010\n\006_error\"\300\001\n\017ContractMessage\022" +
+      ".\n\010customer\030\001 \001(\tB\022\272H\017r\n2\010^cus-.*$\310\001\001R\010c" +
+      "ustomer\022%\n\ncreated_at\030\002 \001(\tB\006\272H\003\310\001\001R\tcre" +
+      "atedAt\022)\n\014activated_at\030\003 \001(\tB\006\272H\003\310\001\001R\013ac" +
+      "tivatedAt\022+\n\rmerchant_name\030\004 \001(\tB\006\272H\003\310\001\001" +
+      "R\014merchantName\"\266\001\n\022UserAccountMessage\022.\n" +
+      "\010customer\030\001 \001(\tB\022\272H\017r\n2\010^cus-.*$\310\001\001R\010cus" +
+      "tomer\022\034\n\005email\030\002 \001(\tB\006\272H\003\310\001\001R\005email\022%\n\nd" +
+      "eleted_at\030\003 \001(\tB\006\272H\003\310\001\001R\tdeletedAt\022+\n\rme" +
+      "rchant_name\030\004 \001(\tB\006\272H\003\310\001\001R\014merchantName\"" +
+      "~\n\005Error\022\032\n\004code\030\001 \001(\tB\006\272H\003\310\001\001R\004code\022 \n\007" +
+      "message\030\002 \001(\tB\006\272H\003\310\001\001R\007message\0227\n\007detail" +
+      "s\030\003 \003(\0132\023.api.v1.ErrorDetailB\010\272H\005\222\001\002\010\001R\007" +
+      "details\"]\n\013ErrorDetail\022\032\n\004type\030\001 \001(\tB\006\272H" +
+      "\003\310\001\001R\004type\022\034\n\005value\030\002 \001(\tB\006\272H\003\310\001\001R\005value" +
+      "\022\024\n\005debug\030\003 \001(\tR\005debug*\274\002\n\tEventType\022\032\n\026" +
+      "EVENT_TYPE_UNSPECIFIED\020\000\022\035\n\031EVENT_TYPE_C" +
+      "HARGE_CREATED\020\003\022\035\n\031EVENT_TYPE_CHARGE_UPD" +
+      "ATED\020\004\022\035\n\031EVENT_TYPE_CHARGE_SUCCESS\020\005\022\032\n" +
+      "\026EVENT_TYPE_CHARGE_FAIL\020\006\022\034\n\030EVENT_TYPE_" +
+      "CHARGE_CANCEL\020\007\022\034\n\030EVENT_TYPE_CHARGE_REF" +
+      "UND\020\010\022!\n\035EVENT_TYPE_CONTRACT_ACTIVATED\020\024" +
+      "\022#\n\037EVENT_TYPE_USER_ACCOUNT_DELETED\020\036\022\026\n" +
+      "\022EVENT_TYPE_TESTING\020c2\254\001\n\016WebhookService" +
+      "\022H\n\005Error\022\024.api.v1.ErrorRequest\032\025.api.v1" +
+      ".ErrorResponse\"\022\202\323\344\223\002\014\"\007/errors:\001*\022P\n\007Me" +
+      "ssage\022\026.api.v1.MessageRequest\032\027.api.v1.M" +
+      "essageResponse\"\024\202\323\344\223\002\016\"\t/webhooks:\001*By\n\n" +
+      "com.api.v1B\025MerchantWebhooksProtoP\001Z\033api" +
+      "/proto/gen/api/v1;api_v1\242\002\003AXX\252\002\006Api.V1\312" +
+      "\002\006Api\\V1\342\002\022Api\\V1\\GPBMetadata\352\002\007Api::V1b" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -205,7 +210,7 @@ public final class MerchantWebhooksProto extends com.google.protobuf.GeneratedFi
     internal_static_api_v1_ChargeMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_api_v1_ChargeMessage_descriptor,
-        new java.lang.String[] { "Id", "Customer", "Status", "Description", "MerchantName", "InitialAmount", "Discount", "FinalAmount", "AmountRefunded", "Currency", "ProcessedAt", "JammFee", "CreatedAt", "UpdatedAt", "Error", });
+        new java.lang.String[] { "Id", "Customer", "Status", "Description", "MerchantName", "InitialAmount", "Discount", "FinalAmount", "AmountRefunded", "Currency", "ProcessedAt", "JammFee", "CreatedAt", "UpdatedAt", "OriginalTransactionJammFee", "ConsumptionTax", "Error", });
     internal_static_api_v1_ContractMessage_descriptor =
       getDescriptor().getMessageType(6);
     internal_static_api_v1_ContractMessage_fieldAccessorTable = new
