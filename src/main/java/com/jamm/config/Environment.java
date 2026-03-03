@@ -1,5 +1,6 @@
 package com.jamm.config;
 
+import java.util.Locale;
 import java.util.Objects;
 
 /**
@@ -17,9 +18,17 @@ public class Environment {
     );
 
     /**
-     * Staging/Development environment.
+     * Staging environment.
      */
     public static final Environment STAGING = new Environment(
+            "https://merchant-identity.staging.jamm-pay.jp",
+            "https://api.staging.jamm-pay.jp"
+    );
+
+    /**
+     * Development environment.
+     */
+    public static final Environment DEVELOP = new Environment(
             "https://merchant-identity.develop.jamm-pay.jp",
             "https://api.develop.jamm-pay.jp"
     );
@@ -113,7 +122,7 @@ public class Environment {
             return PRODUCTION;
         }
 
-        switch (envName.toLowerCase()) {
+        switch (envName.toLowerCase(Locale.ROOT)) {
             case "prd":
             case "prod":
             case "production":
@@ -121,8 +130,9 @@ public class Environment {
             case "local":
                 return LOCAL;
             case "staging":
-            case "develop":
                 return STAGING;
+            case "develop":
+                return DEVELOP;
             case "testing":
             case "test":
                 return TESTING;

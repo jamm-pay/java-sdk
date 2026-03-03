@@ -19,6 +19,13 @@ class EnvironmentTest {
     @Test
     void testStagingEnvironment() {
         Environment env = Environment.STAGING;
+        assertEquals("https://merchant-identity.staging.jamm-pay.jp", env.getOauthBaseUrl());
+        assertEquals("https://api.staging.jamm-pay.jp", env.getApiBaseUrl());
+    }
+
+    @Test
+    void testDevelopEnvironment() {
+        Environment env = Environment.DEVELOP;
         assertEquals("https://merchant-identity.develop.jamm-pay.jp", env.getOauthBaseUrl());
         assertEquals("https://api.develop.jamm-pay.jp", env.getApiBaseUrl());
     }
@@ -46,11 +53,17 @@ class EnvironmentTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"staging", "develop"})
+    @ValueSource(strings = {"staging"})
     void testFromStringStaging(String envName) {
         Environment env = Environment.fromString(envName);
-        assertEquals(Environment.STAGING.getOauthBaseUrl(), env.getOauthBaseUrl());
-        assertEquals(Environment.STAGING.getApiBaseUrl(), env.getApiBaseUrl());
+        assertSame(Environment.STAGING, env);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"develop"})
+    void testFromStringDevelop(String envName) {
+        Environment env = Environment.fromString(envName);
+        assertSame(Environment.DEVELOP, env);
     }
 
     @Test
