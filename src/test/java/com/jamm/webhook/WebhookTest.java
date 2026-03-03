@@ -20,6 +20,10 @@ class WebhookTest {
         class ChargeMessages {
 
             private String buildChargeMessage(String eventType) {
+                return buildChargeMessage(eventType, null);
+            }
+
+            private String buildChargeMessage(String eventType, String extraFields) {
                 return "{" +
                     "\"id\": \"mwh-ct4i88q418in5emhfvcg\"," +
                     "\"signature\": \"sha256=aa7114c09d9275e035675947e0f56e1869b7b6a9d678f304db03da15c5c27beb\"," +
@@ -36,10 +40,20 @@ class WebhookTest {
                         "\"final_amount\": 297," +
                         "\"currency\": \"JPY\"," +
                         "\"processed_at\": \"2024-11-29T02:17:06Z\"," +
+                        formatExtraFields(extraFields) +
                         "\"created_at\": \"2024-11-29T02:17:05.595784Z\"," +
                         "\"updated_at\": \"2024-11-29T02:17:07.296241Z\"" +
                     "}" +
                 "}";
+            }
+
+            private String formatExtraFields(String extraFields) {
+                if (extraFields == null || extraFields.isBlank()) {
+                    return "";
+                }
+
+                String trimmed = extraFields.trim();
+                return trimmed.endsWith(",") ? trimmed : trimmed + ",";
             }
 
             @Test
@@ -89,9 +103,40 @@ class WebhookTest {
 
             @Test
             void parseChargeRefund() throws Exception {
-                String json = buildChargeMessage("EVENT_TYPE_CHARGE_REFUND");
+                String json = buildChargeMessage(
+                    "EVENT_TYPE_CHARGE_REFUND",
+                    "\"amount_refunded\": 300," +
+                        "\"jamm_fee\": 200," +
+                        "\"original_transaction_jamm_fee\": \"not_waived\""
+                );
                 Object result = Webhook.parse(json);
                 assertInstanceOf(ChargeMessage.class, result);
+                ChargeMessage charge = (ChargeMessage) result;
+                assertTrue(charge.hasAmountRefunded());
+                assertEquals(300, charge.getAmountRefunded());
+                assertTrue(charge.hasJammFee());
+                assertEquals(200, charge.getJammFee());
+                assertTrue(charge.hasOriginalTransactionJammFee());
+                assertEquals("not_waived", charge.getOriginalTransactionJammFee());
+            }
+
+            @Test
+            void parseChargeCancelAsRefundEvent() throws Exception {
+                String json = buildChargeMessage(
+                    "EVENT_TYPE_CHARGE_REFUND",
+                    "\"amount_refunded\": 300," +
+                        "\"jamm_fee\": 0," +
+                        "\"original_transaction_jamm_fee\": \"waived\""
+                );
+                Object result = Webhook.parse(json);
+                assertInstanceOf(ChargeMessage.class, result);
+                ChargeMessage charge = (ChargeMessage) result;
+                assertTrue(charge.hasAmountRefunded());
+                assertEquals(300, charge.getAmountRefunded());
+                assertTrue(charge.hasJammFee());
+                assertEquals(0, charge.getJammFee());
+                assertTrue(charge.hasOriginalTransactionJammFee());
+                assertEquals("waived", charge.getOriginalTransactionJammFee());
             }
         }
 

@@ -20,6 +20,7 @@ public final class PaymentOffSessionAsyncExample {
             OffSessionPaymentAsyncResponse asyncResponse = client.payments().offSessionPaymentAsync(request);
             ExampleHelper.printProto(asyncResponse);
 
+            // Fetch the latest charge snapshot using the async response charge ID.
             GetChargeResponse chargeResponse = client.payments().getCharge(asyncResponse.getChargeId());
             ExampleHelper.printProto(chargeResponse);
         }

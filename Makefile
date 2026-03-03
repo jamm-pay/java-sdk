@@ -38,6 +38,10 @@ e2e:
 		-e ENV=$(ENV) \
 		-e MERCHANT_CLIENT_ID=$(MERCHANT_CLIENT_ID) \
 		-e MERCHANT_CLIENT_SECRET=$(MERCHANT_CLIENT_SECRET) \
+		-e CUSTOMER=$(CUSTOMER) \
+		-e CHARGE_FULL_REFUND=$(CHARGE_FULL_REFUND) \
+		-e CHARGE_PARTIAL_REFUND=$(CHARGE_PARTIAL_REFUND) \
+		-e PARTIAL_REFUND_AMOUNT=$(PARTIAL_REFUND_AMOUNT) \
 		$(DOCKER_IMAGE) \
 		mvn test -Dtest=*E2ETest
 
@@ -91,6 +95,10 @@ example: examples-build
 		-e MERCHANT_CLIENT_SECRET=$(MERCHANT_CLIENT_SECRET) \
 		-e CUSTOMER=$(CUSTOMER) \
 		-e CHARGE=$(CHARGE) \
+		-e AMOUNT=$(AMOUNT) \
+		-e CHARGE_FULL_REFUND=$(CHARGE_FULL_REFUND) \
+		-e CHARGE_PARTIAL_REFUND=$(CHARGE_PARTIAL_REFUND) \
+		-e PARTIAL_REFUND_AMOUNT=$(PARTIAL_REFUND_AMOUNT) \
 		-e EMAIL=$(EMAIL) \
 		$(DOCKER_IMAGE) \
 		sh -lc 'java -cp "target/examples:target/classes:$$(cat target/classpath.txt)" $(EXAMPLE)'
@@ -114,6 +122,9 @@ help:
 	@echo ""
 	@echo "Example usage:"
 	@echo "  make example EXAMPLE=QuickstartExample ENV=develop MERCHANT_CLIENT_ID=*** MERCHANT_CLIENT_SECRET=*** EMAIL=you@example.com"
-	@echo "  make example EXAMPLE=PaymentOnSessionExample ENV=develop MERCHANT_CLIENT_ID=*** MERCHANT_CLIENT_SECRET=*** CUSTOMER=cus-***"
+	@echo "  make example EXAMPLE=PaymentOnSessionAddChargeExample ENV=develop MERCHANT_CLIENT_ID=*** MERCHANT_CLIENT_SECRET=*** CUSTOMER=cus-***"
+	@echo "  make example EXAMPLE=RefundExample ENV=develop MERCHANT_CLIENT_ID=*** MERCHANT_CLIENT_SECRET=*** CHARGE=trx-***"
+	@echo "  make example EXAMPLE=RefundExample ENV=develop MERCHANT_CLIENT_ID=*** MERCHANT_CLIENT_SECRET=*** CHARGE=trx-*** AMOUNT=50"
+	@echo "  make example EXAMPLE=RefundPartialExample ENV=develop MERCHANT_CLIENT_ID=*** MERCHANT_CLIENT_SECRET=*** CHARGE_PARTIAL_REFUND=trx-*** PARTIAL_REFUND_AMOUNT=50"
 	@echo ""
 	@echo "All commands run via Docker using $(DOCKER_IMAGE)"

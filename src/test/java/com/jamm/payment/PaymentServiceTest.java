@@ -30,7 +30,7 @@ import static org.mockito.Mockito.when;
 class PaymentServiceTest {
 
     @Test
-    void onSessionPayment_callsCorrectEndpoint() {
+    void onSessionPayment_contractWithCharge_callsCorrectEndpoint() {
         JammHttpClient http = mock(JammHttpClient.class);
         JammClient client = mock(JammClient.class);
         when(client.getHttpClient()).thenReturn(http);
@@ -41,6 +41,96 @@ class PaymentServiceTest {
                 .setPrice(100)
                 .setDescription("test charge")
                 .build())
+            .setRedirect(URL.newBuilder()
+                .setSuccessUrl("https://example.com/success")
+                .setFailureUrl("https://example.com/failure")
+                .build())
+            .build();
+
+        OnSessionPaymentResponse resp = OnSessionPaymentResponse.newBuilder()
+            .setSuccess(true)
+            .build();
+
+        when(http.post("/v1/payments/on-session", req, OnSessionPaymentResponse.class))
+            .thenReturn(resp);
+
+        PaymentService service = new PaymentService(client);
+        OnSessionPaymentResponse result = service.onSessionPayment(req);
+
+        assertTrue(result.getSuccess());
+    }
+
+    @Test
+    void onSessionPayment_addCharge_callsCorrectEndpoint() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        OnSessionPaymentRequest req = OnSessionPaymentRequest.newBuilder()
+            .setCustomer("cus-123")
+            .setCharge(InitialCharge.newBuilder()
+                .setPrice(100)
+                .setDescription("add charge")
+                .build())
+            .setRedirect(URL.newBuilder()
+                .setSuccessUrl("https://example.com/success")
+                .setFailureUrl("https://example.com/failure")
+                .build())
+            .build();
+
+        OnSessionPaymentResponse resp = OnSessionPaymentResponse.newBuilder()
+            .setSuccess(true)
+            .build();
+
+        when(http.post("/v1/payments/on-session", req, OnSessionPaymentResponse.class))
+            .thenReturn(resp);
+
+        PaymentService service = new PaymentService(client);
+        OnSessionPaymentResponse result = service.onSessionPayment(req);
+
+        assertTrue(result.getSuccess());
+    }
+
+    @Test
+    void onSessionPayment_contractWithoutCharge_callsCorrectEndpoint() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        OnSessionPaymentRequest req = OnSessionPaymentRequest.newBuilder()
+            .setBuyer(Buyer.newBuilder().setEmail("foo@example.com").build())
+            .setRedirect(URL.newBuilder()
+                .setSuccessUrl("https://example.com/success")
+                .setFailureUrl("https://example.com/failure")
+                .build())
+            .build();
+
+        OnSessionPaymentResponse resp = OnSessionPaymentResponse.newBuilder()
+            .setSuccess(true)
+            .build();
+
+        when(http.post("/v1/payments/on-session", req, OnSessionPaymentResponse.class))
+            .thenReturn(resp);
+
+        PaymentService service = new PaymentService(client);
+        OnSessionPaymentResponse result = service.onSessionPayment(req);
+
+        assertTrue(result.getSuccess());
+    }
+
+    @Test
+    void onSessionPayment_oneTime_callsCorrectEndpoint() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        OnSessionPaymentRequest req = OnSessionPaymentRequest.newBuilder()
+            .setBuyer(Buyer.newBuilder().setEmail("foo@example.com").build())
+            .setCharge(InitialCharge.newBuilder()
+                .setPrice(100)
+                .setDescription("one time payment")
+                .build())
+            .setOneTime(true)
             .setRedirect(URL.newBuilder()
                 .setSuccessUrl("https://example.com/success")
                 .setFailureUrl("https://example.com/failure")
@@ -214,7 +304,7 @@ class PaymentServiceTest {
     }
 
     @Test
-    void refund_callsCorrectEndpoint() {
+    void refund_withoutAmount_callsCorrectEndpoint() {
         JammHttpClient http = mock(JammHttpClient.class);
         JammClient client = mock(JammClient.class);
         when(client.getHttpClient()).thenReturn(http);
