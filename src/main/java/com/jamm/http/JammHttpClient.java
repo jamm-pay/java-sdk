@@ -246,7 +246,8 @@ public class JammHttpClient implements AutoCloseable {
                 for (String name : response.headers().names()) {
                     headers.put(name, response.header(name));
                 }
-                throw ApiException.fromResponse(response.code(), headers, responseBody);
+                String requestPath = request.url().encodedPath();
+                throw ApiException.fromResponse(response.code(), headers, responseBody, request.method(), requestPath);
             }
 
             if (responseType == Void.class || responseType == void.class) {

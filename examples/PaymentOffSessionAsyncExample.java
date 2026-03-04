@@ -16,13 +16,13 @@ public final class PaymentOffSessionAsyncExample {
             .setCharge(InitialCharge.newBuilder().setPrice(100).setDescription("Test async charge from Java SDK").build())
             .build();
 
-        try (JammClient client = ExampleHelper.createClientFromEnv()) {
+        ExampleHelper.run((JammClient client) -> {
             OffSessionPaymentAsyncResponse asyncResponse = client.payments().offSessionPaymentAsync(request);
             ExampleHelper.printProto(asyncResponse);
 
             // Fetch the latest charge snapshot using the async response charge ID.
             GetChargeResponse chargeResponse = client.payments().getCharge(asyncResponse.getChargeId());
             ExampleHelper.printProto(chargeResponse);
-        }
+        });
     }
 }

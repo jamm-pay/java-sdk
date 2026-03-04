@@ -18,6 +18,9 @@ public class ApiException extends JammException {
     private final ErrorCode errorCode;
     private final String errorType;
     private final Map<String, Object> body;
+    private final String requestMethod;
+    private final String requestPath;
+    private final String requestId;
 
     /**
      * Creates a new ApiException with all details.
@@ -33,10 +36,34 @@ public class ApiException extends JammException {
     public ApiException(String message, ErrorCode errorCode, String errorType,
                         Integer httpStatus, Map<String, String> httpHeaders,
                         String httpBody, Map<String, Object> body) {
+        this(message, errorCode, errorType, httpStatus, httpHeaders, httpBody, body, null, null, extractRequestId(httpHeaders));
+    }
+
+    /**
+     * Creates a new ApiException with request context.
+     *
+     * @param message       the error message
+     * @param errorCode     the ConnectRPC error code
+     * @param errorType     the Jamm error type
+     * @param httpStatus    the HTTP status code
+     * @param httpHeaders   the HTTP response headers
+     * @param httpBody      the HTTP response body
+     * @param body          the parsed response body as a map
+     * @param requestMethod the HTTP request method
+     * @param requestPath   the request path
+     * @param requestId     the upstream request identifier, if present
+     */
+    public ApiException(String message, ErrorCode errorCode, String errorType,
+                        Integer httpStatus, Map<String, String> httpHeaders,
+                        String httpBody, Map<String, Object> body,
+                        String requestMethod, String requestPath, String requestId) {
         super(message, httpStatus, httpHeaders, httpBody);
         this.errorCode = errorCode;
         this.errorType = errorType;
         this.body = body;
+        this.requestMethod = requestMethod;
+        this.requestPath = requestPath;
+        this.requestId = requestId;
     }
 
     /**
@@ -48,6 +75,21 @@ public class ApiException extends JammException {
      * @return a new ApiException
      */
     public static ApiException fromResponse(int httpStatus, Map<String, String> httpHeaders, String httpBody) {
+        return fromResponse(httpStatus, httpHeaders, httpBody, null, null);
+    }
+
+    /**
+     * Creates an ApiException from an HTTP error response with request context.
+     *
+     * @param httpStatus    the HTTP status code
+     * @param httpHeaders   the HTTP response headers
+     * @param httpBody      the HTTP response body
+     * @param requestMethod the HTTP request method
+     * @param requestPath   the request path
+     * @return a new ApiException
+     */
+    public static ApiException fromResponse(int httpStatus, Map<String, String> httpHeaders, String httpBody,
+                                            String requestMethod, String requestPath) {
         ErrorCode errorCode = ErrorCode.UNKNOWN;
         String errorType = "UNSPECIFIED";
         String message = "An API error occurred";
@@ -91,7 +133,18 @@ public class ApiException extends JammException {
             }
         }
 
-        return new ApiException(message, errorCode, errorType, httpStatus, httpHeaders, httpBody, bodyMap);
+        return new ApiException(
+                message,
+                errorCode,
+                errorType,
+                httpStatus,
+                httpHeaders,
+                httpBody,
+                bodyMap,
+                requestMethod,
+                requestPath,
+                extractRequestId(httpHeaders)
+        );
     }
 
     /**
@@ -139,13 +192,96 @@ public class ApiException extends JammException {
         return errorCode != null ? errorCode.getName() : "UNKNOWN";
     }
 
+    /**
+     * Gets the HTTP request method for the failed request.
+     *
+     * @return the HTTP method, or null if not available
+     */
+    public String getRequestMethod() {
+        return requestMethod;
+    }
+
+    /**
+     * Gets the request path for the failed request.
+     *
+     * @return the request path, or null if not available
+     */
+    public String getRequestPath() {
+        return requestPath;
+    }
+
+    /**
+     * Gets the upstream request ID associated with the failed request.
+     *
+     * @return the request ID, or null if not available
+     */
+    public String getRequestId() {
+        return requestId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        boolean hasContext = false;
+
         if (errorCode != null) {
-            sb.append("(").append(errorCode.getName()).append(") ");
+            sb.append("(").append(errorCode.getName());
+            hasContext = true;
         }
+
+        if (getHttpStatus() != null) {
+            if (!hasContext) {
+                sb.append("(");
+                hasContext = true;
+            } else {
+                sb.append(", ");
+            }
+            sb.append("HTTP ").append(getHttpStatus());
+        }
+
+        if (requestMethod != null || requestPath != null) {
+            if (!hasContext) {
+                sb.append("(");
+                hasContext = true;
+            } else {
+                sb.append(", ");
+            }
+
+            if (requestMethod != null) {
+                sb.append(requestMethod);
+            }
+            if (requestMethod != null && requestPath != null) {
+                sb.append(" ");
+            }
+            if (requestPath != null) {
+                sb.append(requestPath);
+            }
+        }
+
+        if (hasContext) {
+            sb.append(") ");
+        }
+
         sb.append(getMessage());
+
+        if (requestId != null && !requestId.isBlank()) {
+            sb.append(" [request_id=").append(requestId).append("]");
+        }
+
         return sb.toString();
+    }
+
+    private static String extractRequestId(Map<String, String> httpHeaders) {
+        if (httpHeaders == null || httpHeaders.isEmpty()) {
+            return null;
+        }
+
+        for (Map.Entry<String, String> entry : httpHeaders.entrySet()) {
+            if ("x-request-id".equalsIgnoreCase(entry.getKey()) || "request-id".equalsIgnoreCase(entry.getKey())) {
+                return entry.getValue();
+            }
+        }
+
+        return null;
     }
 }

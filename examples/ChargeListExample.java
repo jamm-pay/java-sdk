@@ -13,9 +13,9 @@ public final class ChargeListExample {
             .setCustomer(customerId)
             .build();
 
-        try (JammClient client = ExampleHelper.createClientFromEnv()) {
+        ExampleHelper.run((JammClient client) -> {
             GetChargesResponse response = client.payments().getCharges(request);
             ExampleHelper.printProto(response);
-        }
+        });
     }
 }

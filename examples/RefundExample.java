@@ -17,9 +17,9 @@ public final class RefundExample {
             builder.setAmount(Integer.parseInt(amount));
         }
 
-        try (JammClient client = ExampleHelper.createClientFromEnv()) {
+        ExampleHelper.run((JammClient client) -> {
             RefundResponse response = client.payments().refund(builder.build());
             ExampleHelper.printProto(response);
-        }
+        });
     }
 }

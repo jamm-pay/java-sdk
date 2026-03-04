@@ -10,7 +10,7 @@ public final class QuickstartExample {
     }
 
     public static void main(String[] args) throws Exception {
-        try (JammClient client = ExampleHelper.createClientFromEnv()) {
+        ExampleHelper.run((JammClient client) -> {
             String email = ExampleHelper.envOrDefault("EMAIL", "java.test@jamm-pay.jp");
 
             OnSessionPaymentRequest request = OnSessionPaymentRequest.newBuilder()
@@ -24,6 +24,6 @@ public final class QuickstartExample {
 
             OnSessionPaymentResponse response = client.payments().onSessionPayment(request);
             ExampleHelper.printProto(response);
-        }
+        });
     }
 }

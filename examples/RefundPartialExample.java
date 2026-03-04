@@ -24,9 +24,9 @@ public final class RefundPartialExample {
             .setAmount(amount)
             .build();
 
-        try (JammClient client = ExampleHelper.createClientFromEnv()) {
+        ExampleHelper.run((JammClient client) -> {
             RefundResponse response = client.payments().refund(request);
             ExampleHelper.printProto(response);
-        }
+        });
     }
 }

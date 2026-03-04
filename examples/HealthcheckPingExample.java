@@ -6,9 +6,9 @@ public final class HealthcheckPingExample {
     }
 
     public static void main(String[] args) throws Exception {
-        try (JammClient client = ExampleHelper.createClientFromEnv()) {
+        ExampleHelper.run((JammClient client) -> {
             PingResponse response = client.healthcheck().ping();
             ExampleHelper.printProto(response);
-        }
+        });
     }
 }

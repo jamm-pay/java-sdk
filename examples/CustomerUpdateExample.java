@@ -21,9 +21,9 @@ public final class CustomerUpdateExample {
             .putMetadata("storeId", "usr12345")
             .build();
 
-        try (JammClient client = ExampleHelper.createClientFromEnv()) {
+        ExampleHelper.run((JammClient client) -> {
             MerchantCustomer response = client.customers().update(request);
             ExampleHelper.printProto(response);
-        }
+        });
     }
 }

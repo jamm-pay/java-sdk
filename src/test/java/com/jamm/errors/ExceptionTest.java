@@ -111,7 +111,33 @@ class ExceptionTest {
         String responseBody = "{\"code\":7,\"message\":\"Access denied\"}";
         ApiException ex = ApiException.fromResponse(403, null, responseBody);
 
-        assertEquals("(PERMISSION_DENIED) Access denied", ex.toString());
+        assertEquals("(PERMISSION_DENIED, HTTP 403) Access denied", ex.toString());
+    }
+
+    @Test
+    void testApiExceptionToStringWithRequestContext() {
+        String responseBody = "{\"code\":5,\"message\":\"Customer not found\"}";
+        Map<String, String> headers = new HashMap<>();
+        headers.put("X-Request-Id", "req-123");
+
+        ApiException ex = ApiException.fromResponse(404, headers, responseBody, "GET", "/api/v1/customers/cus-123");
+
+        assertEquals(
+                "(NOT_FOUND, HTTP 404, GET /api/v1/customers/cus-123) Customer not found [request_id=req-123]",
+                ex.toString()
+        );
+        assertEquals("GET", ex.getRequestMethod());
+        assertEquals("/api/v1/customers/cus-123", ex.getRequestPath());
+        assertEquals("req-123", ex.getRequestId());
+    }
+
+    @Test
+    void testApiExceptionToStringWithPartialRequestContext() {
+        String responseBody = "{\"message\":\"Missing route\"}";
+
+        ApiException ex = ApiException.fromResponse(404, null, responseBody, null, "/api/v1/missing");
+
+        assertEquals("(UNKNOWN, HTTP 404, /api/v1/missing) Missing route", ex.toString());
     }
 
     // InvalidSignatureException tests

@@ -8,9 +8,9 @@ public final class CustomerGetContractExample {
     public static void main(String[] args) throws Exception {
         String customerId = ExampleHelper.requiredEnv("CUSTOMER");
 
-        try (JammClient client = ExampleHelper.createClientFromEnv()) {
+        ExampleHelper.run((JammClient client) -> {
             GetContractResponse response = client.customers().getContract(customerId);
             ExampleHelper.printProto(response);
-        }
+        });
     }
 }

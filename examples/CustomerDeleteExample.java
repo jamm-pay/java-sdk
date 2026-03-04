@@ -8,9 +8,9 @@ public final class CustomerDeleteExample {
     public static void main(String[] args) throws Exception {
         String customerId = ExampleHelper.requiredEnv("CUSTOMER");
 
-        try (JammClient client = ExampleHelper.createClientFromEnv()) {
+        ExampleHelper.run((JammClient client) -> {
             DeleteCustomerResponse response = client.customers().delete(customerId);
             ExampleHelper.printProto(response);
-        }
+        });
     }
 }

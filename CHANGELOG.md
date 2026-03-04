@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Aligned the protobuf Java runtime dependency with the regenerated proto code
 - Added `jamm_fee` to the `charge_refund` webhook payload model
 - Expanded examples and tests to cover on-session flow variants and refund scenarios
+- Improved Java SDK error diagnostics and example failure output with richer `ApiException` context
 
 ## [1.1.0] - 2026-02-26
 

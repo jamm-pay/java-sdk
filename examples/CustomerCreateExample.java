@@ -17,9 +17,9 @@ public final class CustomerCreateExample {
                 .build())
             .build();
 
-        try (JammClient client = ExampleHelper.createClientFromEnv()) {
+        ExampleHelper.run((JammClient client) -> {
             MerchantCustomer response = client.customers().create(request);
             ExampleHelper.printProto(response);
-        }
+        });
     }
 }

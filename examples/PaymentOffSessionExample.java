@@ -15,9 +15,9 @@ public final class PaymentOffSessionExample {
             .setCharge(InitialCharge.newBuilder().setPrice(100).setDescription("Test charge from Java SDK").build())
             .build();
 
-        try (JammClient client = ExampleHelper.createClientFromEnv()) {
+        ExampleHelper.run((JammClient client) -> {
             OffSessionPaymentResponse response = client.payments().offSessionPayment(request);
             ExampleHelper.printProto(response);
-        }
+        });
     }
 }

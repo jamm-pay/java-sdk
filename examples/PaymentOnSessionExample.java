@@ -20,9 +20,9 @@ public final class PaymentOnSessionExample {
                 .build())
             .build();
 
-        try (JammClient client = ExampleHelper.createClientFromEnv()) {
+        ExampleHelper.run((JammClient client) -> {
             OnSessionPaymentResponse response = client.payments().onSessionPayment(request);
             ExampleHelper.printProto(response);
-        }
+        });
     }
 }

@@ -189,6 +189,43 @@ Jamm.configure("your-client-id", "your-client-secret", Environment.PRODUCTION);
 JammClient client = Jamm.getClient();
 ```
 
+## Error Handling
+
+The Java SDK throws structured exceptions so you can handle API, authentication, and transport failures separately:
+
+- `ApiException` for non-2xx API responses
+- `OAuthException` for token/authentication failures
+- `JammException` for network, parsing, or other SDK-level failures
+
+```java
+import com.api.v1.Customer;
+import com.jamm.JammClient;
+import com.jamm.config.Environment;
+import com.jamm.errors.ApiException;
+import com.jamm.errors.JammException;
+import com.jamm.errors.OAuthException;
+
+try (JammClient client = JammClient.builder()
+        .clientId("<your client id>")
+        .clientSecret("<your client secret>")
+        .environment(Environment.STAGING)
+        .build()) {
+
+    Customer customer = client.customers().get("cus-xxxxxxxx");
+
+} catch (ApiException e) {
+    System.err.println("API error: " + e.getErrorName());
+    System.err.println("HTTP status: " + e.getHttpStatus());
+    System.err.println("Message: " + e.getMessage());
+    System.err.println("Error type: " + e.getErrorType());
+    System.err.println("Request ID: " + e.getRequestId());
+} catch (OAuthException e) {
+    System.err.println("Authentication failed: " + e.getMessage());
+} catch (JammException e) {
+    System.err.println("SDK error: " + e.getMessage());
+}
+```
+
 ## Development
 
 This SDK is published from the `jamm-pay/java-sdk` repository.

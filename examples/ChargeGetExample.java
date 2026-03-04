@@ -8,9 +8,9 @@ public final class ChargeGetExample {
     public static void main(String[] args) throws Exception {
         String chargeId = ExampleHelper.requiredEnv("CHARGE");
 
-        try (JammClient client = ExampleHelper.createClientFromEnv()) {
+        ExampleHelper.run((JammClient client) -> {
             GetChargeResponse response = client.payments().getCharge(chargeId);
             ExampleHelper.printProto(response);
-        }
+        });
     }
 }
