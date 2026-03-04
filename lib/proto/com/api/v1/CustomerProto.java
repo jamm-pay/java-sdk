@@ -101,68 +101,68 @@ public final class CustomerProto extends com.google.protobuf.GeneratedFile {
       "\022GetCustomerRequest\022.\n\010customer\030\001 \001(\tB\022\272" +
       "H\017r\n2\010^cus-.*$\310\001\001R\010customer\"K\n\023GetCustom" +
       "erResponse\0224\n\010customer\030\001 \001(\0132\020.api.v1.Cu" +
-      "stomerB\006\272H\003\310\001\001R\010customer\"\225\006\n\025UpdateCusto" +
+      "stomerB\006\272H\003\310\001\001R\010customer\"\223\006\n\025UpdateCusto" +
       "merRequest\022.\n\010customer\030\001 \001(\tB\022\272H\017r\n2\010^cu" +
       "s-.*$\310\001\001R\010customer\022\"\n\005email\030\002 \001(\tB\007\272H\004r\002" +
       "`\001H\000R\005email\210\001\001\022 \n\tforce_kyc\030\003 \001(\010H\001R\010for" +
       "ceKyc\210\001\001\022\"\n\004name\030\004 \001(\tB\t\272H\006r\004\020\001\0302H\002R\004nam" +
-      "e\210\001\001\0226\n\005phone\030\005 \001(\tB\033\272H\030r\0262\021^0[789]0[0-9" +
-      "]{8}$\230\001\013H\003R\005phone\210\001\001\022<\n\022katakana_last_na" +
-      "me\030\013 \001(\tB\t\272H\006r\004\020\001\0302H\004R\020katakanaLastName\210" +
-      "\001\001\022>\n\023katakana_first_name\030\014 \001(\tB\t\272H\006r\004\020\001" +
-      "\0302H\005R\021katakanaFirstName\210\001\001\022(\n\007address\030\r " +
-      "\001(\tB\t\272H\006r\004\020\005\030dH\006R\007address\210\001\001\022A\n\nbirth_da" +
-      "te\030\024 \001(\tB\035\272H\032r\0302\026^(\\d{4}-\\d{2}-\\d{2})?$H" +
-      "\007R\tbirthDate\210\001\001\0229\n\006gender\030\025 \001(\tB\034\272H\031r\027R\006" +
-      "femaleR\004maleR\007unknownH\010R\006gender\210\001\001\022G\n\010me" +
-      "tadata\030\036 \003(\0132+.api.v1.UpdateCustomerRequ" +
-      "est.MetadataEntryR\010metadata\032;\n\rMetadataE" +
-      "ntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005v" +
-      "alue:\0028\001B\010\n\006_emailB\014\n\n_force_kycB\007\n\005_nam" +
-      "eB\010\n\006_phoneB\025\n\023_katakana_last_nameB\026\n\024_k" +
-      "atakana_first_nameB\n\n\010_addressB\r\n\013_birth" +
-      "_dateB\t\n\007_gender\"V\n\026UpdateCustomerRespon" +
-      "se\022<\n\010customer\030\001 \001(\0132\030.api.v1.MerchantCu" +
-      "stomerB\006\272H\003\310\001\001R\010customer\"G\n\025DeleteCustom" +
-      "erRequest\022.\n\010customer\030\001 \001(\tB\022\272H\017r\n2\010^cus" +
-      "-.*$\310\001\001R\010customer\"4\n\026DeleteCustomerRespo" +
-      "nse\022\032\n\010accepted\030\001 \001(\010R\010accepted\"D\n\022GetCo" +
-      "ntractRequest\022.\n\010customer\030\001 \001(\tB\022\272H\017r\n2\010" +
-      "^cus-.*$\310\001\001R\010customer\"\211\001\n\023GetContractRes" +
-      "ponse\022<\n\010customer\030\001 \001(\0132\030.api.v1.Merchan" +
-      "tCustomerB\006\272H\003\310\001\001R\010customer\0224\n\010contract\030" +
-      "\002 \001(\0132\020.api.v1.ContractB\006\272H\003\310\001\001R\010contrac" +
-      "t2\324\010\n\017CustomerService\022\312\001\n\016CreateCustomer" +
-      "\022\035.api.v1.CreateCustomerRequest\032\036.api.v1" +
-      ".CreateCustomerResponse\"y\222A^\n\010customer\022\017" +
-      "Create customer\0329Intended for pre-regist" +
-      "ering merchant customer into Jamm.*\006crea" +
-      "te\202\323\344\223\002\022\"\r/v1/customers:\001*\022\344\001\n\013GetCustom" +
-      "er\022\032.api.v1.GetCustomerRequest\032\033.api.v1." +
-      "GetCustomerResponse\"\233\001\222Ax\n\010customer\022\014Get" +
-      " customer\032YRetrieve a merchant customer " +
-      "from Jamm. The merchant customer must be" +
-      " registered in Jamm.*\003get\202\323\344\223\002\032\022\030/v1/cus" +
-      "tomers/{customer}\022\367\001\n\016UpdateCustomer\022\035.a" +
-      "pi.v1.UpdateCustomerRequest\032\036.api.v1.Upd" +
-      "ateCustomerResponse\"\245\001\222A\177\n\010customer\022\017Upd" +
-      "ate customer\032ZUpdate customer metadata w" +
-      "hen they updated their information in me" +
-      "rchant e-commerce store.*\006update\202\323\344\223\002\035\032\030" +
-      "/v1/customers/{customer}:\001*\022\263\001\n\016DeleteCu" +
-      "stomer\022\035.api.v1.DeleteCustomerRequest\032\036." +
-      "api.v1.DeleteCustomerResponse\"b\222A?\n\010cust" +
-      "omer\022\017Delete customer\032\032Delete customer f" +
-      "rom Jamm.*\006delete\202\323\344\223\002\032*\030/v1/customers/{" +
-      "customer}\022\334\001\n\013GetContract\022\032.api.v1.GetCo" +
-      "ntractRequest\032\033.api.v1.GetContractRespon" +
-      "se\"\223\001\222Ag\n\010customer\022&Get a contract belon" +
-      "gs to the customer\032&Get a contract belon" +
-      "gs to the customer*\013getContract\202\323\344\223\002#\022!/" +
-      "v1/customers/{customer}/contractBq\n\ncom." +
-      "api.v1B\rCustomerProtoP\001Z\033api/proto/gen/a" +
-      "pi/v1;api_v1\242\002\003AXX\252\002\006Api.V1\312\002\006Api\\V1\342\002\022A" +
-      "pi\\V1\\GPBMetadata\352\002\007Api::V1b\006proto3"
+      "e\210\001\001\0224\n\005phone\030\005 \001(\tB\031\272H\026r\024\020\n\030\0132\016^0[0-9]{" +
+      "9,10}$H\003R\005phone\210\001\001\022<\n\022katakana_last_name" +
+      "\030\013 \001(\tB\t\272H\006r\004\020\001\0302H\004R\020katakanaLastName\210\001\001" +
+      "\022>\n\023katakana_first_name\030\014 \001(\tB\t\272H\006r\004\020\001\0302" +
+      "H\005R\021katakanaFirstName\210\001\001\022(\n\007address\030\r \001(" +
+      "\tB\t\272H\006r\004\020\005\030dH\006R\007address\210\001\001\022A\n\nbirth_date" +
+      "\030\024 \001(\tB\035\272H\032r\0302\026^(\\d{4}-\\d{2}-\\d{2})?$H\007R" +
+      "\tbirthDate\210\001\001\0229\n\006gender\030\025 \001(\tB\034\272H\031r\027R\006fe" +
+      "maleR\004maleR\007unknownH\010R\006gender\210\001\001\022G\n\010meta" +
+      "data\030\036 \003(\0132+.api.v1.UpdateCustomerReques" +
+      "t.MetadataEntryR\010metadata\032;\n\rMetadataEnt" +
+      "ry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005val" +
+      "ue:\0028\001B\010\n\006_emailB\014\n\n_force_kycB\007\n\005_nameB" +
+      "\010\n\006_phoneB\025\n\023_katakana_last_nameB\026\n\024_kat" +
+      "akana_first_nameB\n\n\010_addressB\r\n\013_birth_d" +
+      "ateB\t\n\007_gender\"V\n\026UpdateCustomerResponse" +
+      "\022<\n\010customer\030\001 \001(\0132\030.api.v1.MerchantCust" +
+      "omerB\006\272H\003\310\001\001R\010customer\"G\n\025DeleteCustomer" +
+      "Request\022.\n\010customer\030\001 \001(\tB\022\272H\017r\n2\010^cus-." +
+      "*$\310\001\001R\010customer\"4\n\026DeleteCustomerRespons" +
+      "e\022\032\n\010accepted\030\001 \001(\010R\010accepted\"D\n\022GetCont" +
+      "ractRequest\022.\n\010customer\030\001 \001(\tB\022\272H\017r\n2\010^c" +
+      "us-.*$\310\001\001R\010customer\"\211\001\n\023GetContractRespo" +
+      "nse\022<\n\010customer\030\001 \001(\0132\030.api.v1.MerchantC" +
+      "ustomerB\006\272H\003\310\001\001R\010customer\0224\n\010contract\030\002 " +
+      "\001(\0132\020.api.v1.ContractB\006\272H\003\310\001\001R\010contract2" +
+      "\324\010\n\017CustomerService\022\312\001\n\016CreateCustomer\022\035" +
+      ".api.v1.CreateCustomerRequest\032\036.api.v1.C" +
+      "reateCustomerResponse\"y\222A^\n\010customer\022\017Cr" +
+      "eate customer\0329Intended for pre-register" +
+      "ing merchant customer into Jamm.*\006create" +
+      "\202\323\344\223\002\022\"\r/v1/customers:\001*\022\344\001\n\013GetCustomer" +
+      "\022\032.api.v1.GetCustomerRequest\032\033.api.v1.Ge" +
+      "tCustomerResponse\"\233\001\222Ax\n\010customer\022\014Get c" +
+      "ustomer\032YRetrieve a merchant customer fr" +
+      "om Jamm. The merchant customer must be r" +
+      "egistered in Jamm.*\003get\202\323\344\223\002\032\022\030/v1/custo" +
+      "mers/{customer}\022\367\001\n\016UpdateCustomer\022\035.api" +
+      ".v1.UpdateCustomerRequest\032\036.api.v1.Updat" +
+      "eCustomerResponse\"\245\001\222A\177\n\010customer\022\017Updat" +
+      "e customer\032ZUpdate customer metadata whe" +
+      "n they updated their information in merc" +
+      "hant e-commerce store.*\006update\202\323\344\223\002\035\032\030/v" +
+      "1/customers/{customer}:\001*\022\263\001\n\016DeleteCust" +
+      "omer\022\035.api.v1.DeleteCustomerRequest\032\036.ap" +
+      "i.v1.DeleteCustomerResponse\"b\222A?\n\010custom" +
+      "er\022\017Delete customer\032\032Delete customer fro" +
+      "m Jamm.*\006delete\202\323\344\223\002\032*\030/v1/customers/{cu" +
+      "stomer}\022\334\001\n\013GetContract\022\032.api.v1.GetCont" +
+      "ractRequest\032\033.api.v1.GetContractResponse" +
+      "\"\223\001\222Ag\n\010customer\022&Get a contract belongs" +
+      " to the customer\032&Get a contract belongs" +
+      " to the customer*\013getContract\202\323\344\223\002#\022!/v1" +
+      "/customers/{customer}/contractBq\n\ncom.ap" +
+      "i.v1B\rCustomerProtoP\001Z\033api/proto/gen/api" +
+      "/v1;api_v1\242\002\003AXX\252\002\006Api.V1\312\002\006Api\\V1\342\002\022Api" +
+      "\\V1\\GPBMetadata\352\002\007Api::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

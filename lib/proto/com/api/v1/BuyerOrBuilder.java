@@ -54,12 +54,19 @@ public interface BuyerOrBuilder extends
    * <pre>
    * Phone number of the customer.
    * You can update this value later through the UpdateCustomer endpoint.
+   * Accepts Japanese phone numbers (10-11 digits). Note that only mobile numbers
+   * (070/080/090) will be stored; non-mobile numbers are silently ignored.
    *
    * e.g.
-   * - 09012345678
+   * - 09012345678 (mobile)
+   * - 08012345678 (mobile)
+   * - 07012345678 (mobile)
+   * - 05012345678 (IP phone, not stored)
+   * - 0312345678  (landline, not stored)
    *
    * Customerの電話番号。
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
+   * 携帯電話番号（070/080/090）のみ保存され、それ以外の番号は無視されます。
    * </pre>
    *
    * <code>optional string phone = 3 [json_name = "phone", (.buf.validate.field) = { ... }</code>
@@ -70,12 +77,19 @@ public interface BuyerOrBuilder extends
    * <pre>
    * Phone number of the customer.
    * You can update this value later through the UpdateCustomer endpoint.
+   * Accepts Japanese phone numbers (10-11 digits). Note that only mobile numbers
+   * (070/080/090) will be stored; non-mobile numbers are silently ignored.
    *
    * e.g.
-   * - 09012345678
+   * - 09012345678 (mobile)
+   * - 08012345678 (mobile)
+   * - 07012345678 (mobile)
+   * - 05012345678 (IP phone, not stored)
+   * - 0312345678  (landline, not stored)
    *
    * Customerの電話番号。
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
+   * 携帯電話番号（070/080/090）のみ保存され、それ以外の番号は無視されます。
    * </pre>
    *
    * <code>optional string phone = 3 [json_name = "phone", (.buf.validate.field) = { ... }</code>
@@ -86,12 +100,19 @@ public interface BuyerOrBuilder extends
    * <pre>
    * Phone number of the customer.
    * You can update this value later through the UpdateCustomer endpoint.
+   * Accepts Japanese phone numbers (10-11 digits). Note that only mobile numbers
+   * (070/080/090) will be stored; non-mobile numbers are silently ignored.
    *
    * e.g.
-   * - 09012345678
+   * - 09012345678 (mobile)
+   * - 08012345678 (mobile)
+   * - 07012345678 (mobile)
+   * - 05012345678 (IP phone, not stored)
+   * - 0312345678  (landline, not stored)
    *
    * Customerの電話番号。
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
+   * 携帯電話番号（070/080/090）のみ保存され、それ以外の番号は無視されます。
    * </pre>
    *
    * <code>optional string phone = 3 [json_name = "phone", (.buf.validate.field) = { ... }</code>
