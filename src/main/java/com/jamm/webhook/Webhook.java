@@ -100,7 +100,10 @@ public final class Webhook {
             case EVENT_TYPE_CHARGE_UPDATED:
             case EVENT_TYPE_CHARGE_SUCCESS:
             case EVENT_TYPE_CHARGE_FAIL:
+            case EVENT_TYPE_CHARGE_CANCEL:
             case EVENT_TYPE_CHARGE_REFUND:
+            case EVENT_TYPE_CHARGE_REFUND_FAILED:
+            case EVENT_TYPE_CHARGE_REFUND_DENIED:
                 ChargeMessage.Builder chargeBuilder = ChargeMessage.newBuilder();
                 JsonFormat.parser().ignoringUnknownFields().merge(contentJson, chargeBuilder);
                 return chargeBuilder.build();

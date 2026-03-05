@@ -121,6 +121,38 @@ class WebhookTest {
             }
 
             @Test
+            void parseChargeCancel() throws Exception {
+                String json = buildChargeMessage("EVENT_TYPE_CHARGE_CANCEL");
+                Object result = Webhook.parse(json);
+                assertInstanceOf(ChargeMessage.class, result);
+                ChargeMessage charge = (ChargeMessage) result;
+                assertEquals("trx-5fc49679-7e5f-465b-b7ec-1b0e076cf208", charge.getId());
+            }
+
+            @Test
+            void parseChargeRefundFailed() throws Exception {
+                String json = buildChargeMessage(
+                    "EVENT_TYPE_CHARGE_REFUND_FAILED",
+                    "\"refund_id\": \"rfd-test-123\""
+                );
+                Object result = Webhook.parse(json);
+                assertInstanceOf(ChargeMessage.class, result);
+                ChargeMessage charge = (ChargeMessage) result;
+                assertEquals("trx-5fc49679-7e5f-465b-b7ec-1b0e076cf208", charge.getId());
+                assertTrue(charge.hasRefundId());
+                assertEquals("rfd-test-123", charge.getRefundId());
+            }
+
+            @Test
+            void parseChargeRefundDenied() throws Exception {
+                String json = buildChargeMessage("EVENT_TYPE_CHARGE_REFUND_DENIED");
+                Object result = Webhook.parse(json);
+                assertInstanceOf(ChargeMessage.class, result);
+                ChargeMessage charge = (ChargeMessage) result;
+                assertEquals("trx-5fc49679-7e5f-465b-b7ec-1b0e076cf208", charge.getId());
+            }
+
+            @Test
             void parseChargeCancelAsRefundEvent() throws Exception {
                 String json = buildChargeMessage(
                     "EVENT_TYPE_CHARGE_REFUND",
