@@ -64,4 +64,31 @@ public interface RefundRequestOrBuilder extends
    * @return The amount.
    */
   int getAmount();
+
+  /**
+   * <pre>
+   * When true, only attempts cancellation without falling back to bank
+   * transfer refund. Defaults to false (fallback enabled).
+   *
+   * trueの場合、キャンセルのみを試行し、銀行振込返金への
+   * フォールバックを行いません。デフォルトはfalse（フォールバック有効）。
+   * </pre>
+   *
+   * <code>optional bool cancel_only = 3 [json_name = "cancelOnly"];</code>
+   * @return Whether the cancelOnly field is set.
+   */
+  boolean hasCancelOnly();
+  /**
+   * <pre>
+   * When true, only attempts cancellation without falling back to bank
+   * transfer refund. Defaults to false (fallback enabled).
+   *
+   * trueの場合、キャンセルのみを試行し、銀行振込返金への
+   * フォールバックを行いません。デフォルトはfalse（フォールバック有効）。
+   * </pre>
+   *
+   * <code>optional bool cancel_only = 3 [json_name = "cancelOnly"];</code>
+   * @return The cancelOnly.
+   */
+  boolean getCancelOnly();
 }

@@ -148,6 +148,41 @@ private static final long serialVersionUID = 0L;
     return amount_;
   }
 
+  public static final int CANCEL_ONLY_FIELD_NUMBER = 3;
+  private boolean cancelOnly_ = false;
+  /**
+   * <pre>
+   * When true, only attempts cancellation without falling back to bank
+   * transfer refund. Defaults to false (fallback enabled).
+   *
+   * trueの場合、キャンセルのみを試行し、銀行振込返金への
+   * フォールバックを行いません。デフォルトはfalse（フォールバック有効）。
+   * </pre>
+   *
+   * <code>optional bool cancel_only = 3 [json_name = "cancelOnly"];</code>
+   * @return Whether the cancelOnly field is set.
+   */
+  @java.lang.Override
+  public boolean hasCancelOnly() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <pre>
+   * When true, only attempts cancellation without falling back to bank
+   * transfer refund. Defaults to false (fallback enabled).
+   *
+   * trueの場合、キャンセルのみを試行し、銀行振込返金への
+   * フォールバックを行いません。デフォルトはfalse（フォールバック有効）。
+   * </pre>
+   *
+   * <code>optional bool cancel_only = 3 [json_name = "cancelOnly"];</code>
+   * @return The cancelOnly.
+   */
+  @java.lang.Override
+  public boolean getCancelOnly() {
+    return cancelOnly_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -168,6 +203,9 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeInt32(2, amount_);
     }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      output.writeBool(3, cancelOnly_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -183,6 +221,10 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, amount_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(3, cancelOnly_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -206,6 +248,11 @@ private static final long serialVersionUID = 0L;
       if (getAmount()
           != other.getAmount()) return false;
     }
+    if (hasCancelOnly() != other.hasCancelOnly()) return false;
+    if (hasCancelOnly()) {
+      if (getCancelOnly()
+          != other.getCancelOnly()) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -222,6 +269,11 @@ private static final long serialVersionUID = 0L;
     if (hasAmount()) {
       hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
       hash = (53 * hash) + getAmount();
+    }
+    if (hasCancelOnly()) {
+      hash = (37 * hash) + CANCEL_ONLY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getCancelOnly());
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -364,6 +416,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       chargeId_ = "";
       amount_ = 0;
+      cancelOnly_ = false;
       return this;
     }
 
@@ -405,6 +458,10 @@ private static final long serialVersionUID = 0L;
         result.amount_ = amount_;
         to_bitField0_ |= 0x00000001;
       }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.cancelOnly_ = cancelOnly_;
+        to_bitField0_ |= 0x00000002;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -427,6 +484,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasAmount()) {
         setAmount(other.getAmount());
+      }
+      if (other.hasCancelOnly()) {
+        setCancelOnly(other.getCancelOnly());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -464,6 +524,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 16
+            case 24: {
+              cancelOnly_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -661,6 +726,78 @@ private static final long serialVersionUID = 0L;
     public Builder clearAmount() {
       bitField0_ = (bitField0_ & ~0x00000002);
       amount_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean cancelOnly_ ;
+    /**
+     * <pre>
+     * When true, only attempts cancellation without falling back to bank
+     * transfer refund. Defaults to false (fallback enabled).
+     *
+     * trueの場合、キャンセルのみを試行し、銀行振込返金への
+     * フォールバックを行いません。デフォルトはfalse（フォールバック有効）。
+     * </pre>
+     *
+     * <code>optional bool cancel_only = 3 [json_name = "cancelOnly"];</code>
+     * @return Whether the cancelOnly field is set.
+     */
+    @java.lang.Override
+    public boolean hasCancelOnly() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * When true, only attempts cancellation without falling back to bank
+     * transfer refund. Defaults to false (fallback enabled).
+     *
+     * trueの場合、キャンセルのみを試行し、銀行振込返金への
+     * フォールバックを行いません。デフォルトはfalse（フォールバック有効）。
+     * </pre>
+     *
+     * <code>optional bool cancel_only = 3 [json_name = "cancelOnly"];</code>
+     * @return The cancelOnly.
+     */
+    @java.lang.Override
+    public boolean getCancelOnly() {
+      return cancelOnly_;
+    }
+    /**
+     * <pre>
+     * When true, only attempts cancellation without falling back to bank
+     * transfer refund. Defaults to false (fallback enabled).
+     *
+     * trueの場合、キャンセルのみを試行し、銀行振込返金への
+     * フォールバックを行いません。デフォルトはfalse（フォールバック有効）。
+     * </pre>
+     *
+     * <code>optional bool cancel_only = 3 [json_name = "cancelOnly"];</code>
+     * @param value The cancelOnly to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCancelOnly(boolean value) {
+
+      cancelOnly_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * When true, only attempts cancellation without falling back to bank
+     * transfer refund. Defaults to false (fallback enabled).
+     *
+     * trueの場合、キャンセルのみを試行し、銀行振込返金への
+     * フォールバックを行いません。デフォルトはfalse（フォールバック有効）。
+     * </pre>
+     *
+     * <code>optional bool cancel_only = 3 [json_name = "cancelOnly"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCancelOnly() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      cancelOnly_ = false;
       onChanged();
       return this;
     }
