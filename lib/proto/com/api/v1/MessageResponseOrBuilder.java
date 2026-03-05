@@ -84,4 +84,19 @@ public interface MessageResponseOrBuilder extends
    * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage", (.buf.validate.field) = { ... }</code>
    */
   com.api.v1.UserAccountMessageOrBuilder getUserAccountMessageOrBuilder();
+
+  /**
+   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+   * @return Whether the refundInfo field is set.
+   */
+  boolean hasRefundInfo();
+  /**
+   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+   * @return The refundInfo.
+   */
+  com.api.v1.RefundInfo getRefundInfo();
+  /**
+   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+   */
+  com.api.v1.RefundInfoOrBuilder getRefundInfoOrBuilder();
 }

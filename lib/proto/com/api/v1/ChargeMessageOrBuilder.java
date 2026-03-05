@@ -267,4 +267,60 @@ public interface ChargeMessageOrBuilder extends
    * <code>optional .api.v1.Error error = 20 [json_name = "error"];</code>
    */
   com.api.v1.ErrorOrBuilder getErrorOrBuilder();
+
+  /**
+   * <pre>
+   * External refund identifier (rfd-*) for refund/refund-failed webhooks.
+   * </pre>
+   *
+   * <code>optional string refund_id = 21 [json_name = "refundId"];</code>
+   * @return Whether the refundId field is set.
+   */
+  boolean hasRefundId();
+  /**
+   * <pre>
+   * External refund identifier (rfd-*) for refund/refund-failed webhooks.
+   * </pre>
+   *
+   * <code>optional string refund_id = 21 [json_name = "refundId"];</code>
+   * @return The refundId.
+   */
+  java.lang.String getRefundId();
+  /**
+   * <pre>
+   * External refund identifier (rfd-*) for refund/refund-failed webhooks.
+   * </pre>
+   *
+   * <code>optional string refund_id = 21 [json_name = "refundId"];</code>
+   * @return The bytes for refundId.
+   */
+  com.google.protobuf.ByteString
+      getRefundIdBytes();
+
+  /**
+   * <pre>
+   * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+   * </pre>
+   *
+   * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
+   * @return Whether the refund field is set.
+   */
+  boolean hasRefund();
+  /**
+   * <pre>
+   * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+   * </pre>
+   *
+   * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
+   * @return The refund.
+   */
+  com.api.v1.RefundInfo getRefund();
+  /**
+   * <pre>
+   * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+   * </pre>
+   *
+   * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
+   */
+  com.api.v1.RefundInfoOrBuilder getRefundOrBuilder();
 }

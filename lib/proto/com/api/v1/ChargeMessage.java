@@ -38,6 +38,7 @@ private static final long serialVersionUID = 0L;
     createdAt_ = "";
     updatedAt_ = "";
     originalTransactionJammFee_ = "";
+    refundId_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -87,6 +88,10 @@ private static final long serialVersionUID = 0L;
      * <code>STATUS_CANCELLED = 5;</code>
      */
     STATUS_CANCELLED(5),
+    /**
+     * <code>STATUS_REFUNDED = 6;</code>
+     */
+    STATUS_REFUNDED(6),
     UNRECOGNIZED(-1),
     ;
 
@@ -123,6 +128,10 @@ private static final long serialVersionUID = 0L;
      * <code>STATUS_CANCELLED = 5;</code>
      */
     public static final int STATUS_CANCELLED_VALUE = 5;
+    /**
+     * <code>STATUS_REFUNDED = 6;</code>
+     */
+    public static final int STATUS_REFUNDED_VALUE = 6;
 
 
     public final int getNumber() {
@@ -155,6 +164,7 @@ private static final long serialVersionUID = 0L;
         case 3: return STATUS_WAITING_EKYC;
         case 4: return STATUS_BLOCKING;
         case 5: return STATUS_CANCELLED;
+        case 6: return STATUS_REFUNDED;
         default: return null;
       }
     }
@@ -776,6 +786,103 @@ private static final long serialVersionUID = 0L;
     return error_ == null ? com.api.v1.Error.getDefaultInstance() : error_;
   }
 
+  public static final int REFUND_ID_FIELD_NUMBER = 21;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object refundId_ = "";
+  /**
+   * <pre>
+   * External refund identifier (rfd-*) for refund/refund-failed webhooks.
+   * </pre>
+   *
+   * <code>optional string refund_id = 21 [json_name = "refundId"];</code>
+   * @return Whether the refundId field is set.
+   */
+  @java.lang.Override
+  public boolean hasRefundId() {
+    return ((bitField0_ & 0x00000040) != 0);
+  }
+  /**
+   * <pre>
+   * External refund identifier (rfd-*) for refund/refund-failed webhooks.
+   * </pre>
+   *
+   * <code>optional string refund_id = 21 [json_name = "refundId"];</code>
+   * @return The refundId.
+   */
+  @java.lang.Override
+  public java.lang.String getRefundId() {
+    java.lang.Object ref = refundId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      refundId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * External refund identifier (rfd-*) for refund/refund-failed webhooks.
+   * </pre>
+   *
+   * <code>optional string refund_id = 21 [json_name = "refundId"];</code>
+   * @return The bytes for refundId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getRefundIdBytes() {
+    java.lang.Object ref = refundId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      refundId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int REFUND_FIELD_NUMBER = 22;
+  private com.api.v1.RefundInfo refund_;
+  /**
+   * <pre>
+   * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+   * </pre>
+   *
+   * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
+   * @return Whether the refund field is set.
+   */
+  @java.lang.Override
+  public boolean hasRefund() {
+    return ((bitField0_ & 0x00000080) != 0);
+  }
+  /**
+   * <pre>
+   * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+   * </pre>
+   *
+   * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
+   * @return The refund.
+   */
+  @java.lang.Override
+  public com.api.v1.RefundInfo getRefund() {
+    return refund_ == null ? com.api.v1.RefundInfo.getDefaultInstance() : refund_;
+  }
+  /**
+   * <pre>
+   * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+   * </pre>
+   *
+   * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
+   */
+  @java.lang.Override
+  public com.api.v1.RefundInfoOrBuilder getRefundOrBuilder() {
+    return refund_ == null ? com.api.v1.RefundInfo.getDefaultInstance() : refund_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -840,6 +947,12 @@ private static final long serialVersionUID = 0L;
     }
     if (((bitField0_ & 0x00000020) != 0)) {
       output.writeMessage(20, getError());
+    }
+    if (((bitField0_ & 0x00000040) != 0)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 21, refundId_);
+    }
+    if (((bitField0_ & 0x00000080) != 0)) {
+      output.writeMessage(22, getRefund());
     }
     getUnknownFields().writeTo(output);
   }
@@ -909,6 +1022,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(20, getError());
     }
+    if (((bitField0_ & 0x00000040) != 0)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(21, refundId_);
+    }
+    if (((bitField0_ & 0x00000080) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(22, getRefund());
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -975,6 +1095,16 @@ private static final long serialVersionUID = 0L;
       if (!getError()
           .equals(other.getError())) return false;
     }
+    if (hasRefundId() != other.hasRefundId()) return false;
+    if (hasRefundId()) {
+      if (!getRefundId()
+          .equals(other.getRefundId())) return false;
+    }
+    if (hasRefund() != other.hasRefund()) return false;
+    if (hasRefund()) {
+      if (!getRefund()
+          .equals(other.getRefund())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -1031,6 +1161,14 @@ private static final long serialVersionUID = 0L;
     if (hasError()) {
       hash = (37 * hash) + ERROR_FIELD_NUMBER;
       hash = (53 * hash) + getError().hashCode();
+    }
+    if (hasRefundId()) {
+      hash = (37 * hash) + REFUND_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getRefundId().hashCode();
+    }
+    if (hasRefund()) {
+      hash = (37 * hash) + REFUND_FIELD_NUMBER;
+      hash = (53 * hash) + getRefund().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -1163,6 +1301,7 @@ private static final long serialVersionUID = 0L;
       if (com.google.protobuf.GeneratedMessage
               .alwaysUseFieldBuilders) {
         internalGetErrorFieldBuilder();
+        internalGetRefundFieldBuilder();
       }
     }
     @java.lang.Override
@@ -1189,6 +1328,12 @@ private static final long serialVersionUID = 0L;
       if (errorBuilder_ != null) {
         errorBuilder_.dispose();
         errorBuilder_ = null;
+      }
+      refundId_ = "";
+      refund_ = null;
+      if (refundBuilder_ != null) {
+        refundBuilder_.dispose();
+        refundBuilder_ = null;
       }
       return this;
     }
@@ -1283,6 +1428,16 @@ private static final long serialVersionUID = 0L;
             : errorBuilder_.build();
         to_bitField0_ |= 0x00000020;
       }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.refundId_ = refundId_;
+        to_bitField0_ |= 0x00000040;
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.refund_ = refundBuilder_ == null
+            ? refund_
+            : refundBuilder_.build();
+        to_bitField0_ |= 0x00000080;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -1366,6 +1521,14 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasError()) {
         mergeError(other.getError());
+      }
+      if (other.hasRefundId()) {
+        refundId_ = other.refundId_;
+        bitField0_ |= 0x00020000;
+        onChanged();
+      }
+      if (other.hasRefund()) {
+        mergeRefund(other.getRefund());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1480,6 +1643,18 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00010000;
               break;
             } // case 162
+            case 170: {
+              refundId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 170
+            case 178: {
+              input.readMessage(
+                  internalGetRefundFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 178
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2684,6 +2859,266 @@ private static final long serialVersionUID = 0L;
         error_ = null;
       }
       return errorBuilder_;
+    }
+
+    private java.lang.Object refundId_ = "";
+    /**
+     * <pre>
+     * External refund identifier (rfd-*) for refund/refund-failed webhooks.
+     * </pre>
+     *
+     * <code>optional string refund_id = 21 [json_name = "refundId"];</code>
+     * @return Whether the refundId field is set.
+     */
+    public boolean hasRefundId() {
+      return ((bitField0_ & 0x00020000) != 0);
+    }
+    /**
+     * <pre>
+     * External refund identifier (rfd-*) for refund/refund-failed webhooks.
+     * </pre>
+     *
+     * <code>optional string refund_id = 21 [json_name = "refundId"];</code>
+     * @return The refundId.
+     */
+    public java.lang.String getRefundId() {
+      java.lang.Object ref = refundId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        refundId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * External refund identifier (rfd-*) for refund/refund-failed webhooks.
+     * </pre>
+     *
+     * <code>optional string refund_id = 21 [json_name = "refundId"];</code>
+     * @return The bytes for refundId.
+     */
+    public com.google.protobuf.ByteString
+        getRefundIdBytes() {
+      java.lang.Object ref = refundId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        refundId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * External refund identifier (rfd-*) for refund/refund-failed webhooks.
+     * </pre>
+     *
+     * <code>optional string refund_id = 21 [json_name = "refundId"];</code>
+     * @param value The refundId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRefundId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      refundId_ = value;
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * External refund identifier (rfd-*) for refund/refund-failed webhooks.
+     * </pre>
+     *
+     * <code>optional string refund_id = 21 [json_name = "refundId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRefundId() {
+      refundId_ = getDefaultInstance().getRefundId();
+      bitField0_ = (bitField0_ & ~0x00020000);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * External refund identifier (rfd-*) for refund/refund-failed webhooks.
+     * </pre>
+     *
+     * <code>optional string refund_id = 21 [json_name = "refundId"];</code>
+     * @param value The bytes for refundId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRefundIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      refundId_ = value;
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+
+    private com.api.v1.RefundInfo refund_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.api.v1.RefundInfo, com.api.v1.RefundInfo.Builder, com.api.v1.RefundInfoOrBuilder> refundBuilder_;
+    /**
+     * <pre>
+     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * </pre>
+     *
+     * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
+     * @return Whether the refund field is set.
+     */
+    public boolean hasRefund() {
+      return ((bitField0_ & 0x00040000) != 0);
+    }
+    /**
+     * <pre>
+     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * </pre>
+     *
+     * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
+     * @return The refund.
+     */
+    public com.api.v1.RefundInfo getRefund() {
+      if (refundBuilder_ == null) {
+        return refund_ == null ? com.api.v1.RefundInfo.getDefaultInstance() : refund_;
+      } else {
+        return refundBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * </pre>
+     *
+     * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
+     */
+    public Builder setRefund(com.api.v1.RefundInfo value) {
+      if (refundBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        refund_ = value;
+      } else {
+        refundBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00040000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * </pre>
+     *
+     * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
+     */
+    public Builder setRefund(
+        com.api.v1.RefundInfo.Builder builderForValue) {
+      if (refundBuilder_ == null) {
+        refund_ = builderForValue.build();
+      } else {
+        refundBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00040000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * </pre>
+     *
+     * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
+     */
+    public Builder mergeRefund(com.api.v1.RefundInfo value) {
+      if (refundBuilder_ == null) {
+        if (((bitField0_ & 0x00040000) != 0) &&
+          refund_ != null &&
+          refund_ != com.api.v1.RefundInfo.getDefaultInstance()) {
+          getRefundBuilder().mergeFrom(value);
+        } else {
+          refund_ = value;
+        }
+      } else {
+        refundBuilder_.mergeFrom(value);
+      }
+      if (refund_ != null) {
+        bitField0_ |= 0x00040000;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * </pre>
+     *
+     * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
+     */
+    public Builder clearRefund() {
+      bitField0_ = (bitField0_ & ~0x00040000);
+      refund_ = null;
+      if (refundBuilder_ != null) {
+        refundBuilder_.dispose();
+        refundBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * </pre>
+     *
+     * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
+     */
+    public com.api.v1.RefundInfo.Builder getRefundBuilder() {
+      bitField0_ |= 0x00040000;
+      onChanged();
+      return internalGetRefundFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * </pre>
+     *
+     * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
+     */
+    public com.api.v1.RefundInfoOrBuilder getRefundOrBuilder() {
+      if (refundBuilder_ != null) {
+        return refundBuilder_.getMessageOrBuilder();
+      } else {
+        return refund_ == null ?
+            com.api.v1.RefundInfo.getDefaultInstance() : refund_;
+      }
+    }
+    /**
+     * <pre>
+     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * </pre>
+     *
+     * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.api.v1.RefundInfo, com.api.v1.RefundInfo.Builder, com.api.v1.RefundInfoOrBuilder> 
+        internalGetRefundFieldBuilder() {
+      if (refundBuilder_ == null) {
+        refundBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.api.v1.RefundInfo, com.api.v1.RefundInfo.Builder, com.api.v1.RefundInfoOrBuilder>(
+                getRefund(),
+                getParentForChildren(),
+                isClean());
+        refund_ = null;
+      }
+      return refundBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:api.v1.ChargeMessage)

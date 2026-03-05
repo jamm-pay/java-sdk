@@ -168,6 +168,32 @@ private static final long serialVersionUID = 0L;
     return userAccountMessage_ == null ? com.api.v1.UserAccountMessage.getDefaultInstance() : userAccountMessage_;
   }
 
+  public static final int REFUND_INFO_FIELD_NUMBER = 5;
+  private com.api.v1.RefundInfo refundInfo_;
+  /**
+   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+   * @return Whether the refundInfo field is set.
+   */
+  @java.lang.Override
+  public boolean hasRefundInfo() {
+    return ((bitField0_ & 0x00000010) != 0);
+  }
+  /**
+   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+   * @return The refundInfo.
+   */
+  @java.lang.Override
+  public com.api.v1.RefundInfo getRefundInfo() {
+    return refundInfo_ == null ? com.api.v1.RefundInfo.getDefaultInstance() : refundInfo_;
+  }
+  /**
+   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+   */
+  @java.lang.Override
+  public com.api.v1.RefundInfoOrBuilder getRefundInfoOrBuilder() {
+    return refundInfo_ == null ? com.api.v1.RefundInfo.getDefaultInstance() : refundInfo_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -194,6 +220,9 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000008) != 0)) {
       output.writeMessage(4, getUserAccountMessage());
     }
+    if (((bitField0_ & 0x00000010) != 0)) {
+      output.writeMessage(5, getRefundInfo());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -218,6 +247,10 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000008) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getUserAccountMessage());
+    }
+    if (((bitField0_ & 0x00000010) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getRefundInfo());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -254,6 +287,11 @@ private static final long serialVersionUID = 0L;
       if (!getUserAccountMessage()
           .equals(other.getUserAccountMessage())) return false;
     }
+    if (hasRefundInfo() != other.hasRefundInfo()) return false;
+    if (hasRefundInfo()) {
+      if (!getRefundInfo()
+          .equals(other.getRefundInfo())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -280,6 +318,10 @@ private static final long serialVersionUID = 0L;
     if (hasUserAccountMessage()) {
       hash = (37 * hash) + USER_ACCOUNT_MESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getUserAccountMessage().hashCode();
+    }
+    if (hasRefundInfo()) {
+      hash = (37 * hash) + REFUND_INFO_FIELD_NUMBER;
+      hash = (53 * hash) + getRefundInfo().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -415,6 +457,7 @@ private static final long serialVersionUID = 0L;
         internalGetChargeMessageFieldBuilder();
         internalGetContractMessageFieldBuilder();
         internalGetUserAccountMessageFieldBuilder();
+        internalGetRefundInfoFieldBuilder();
       }
     }
     @java.lang.Override
@@ -440,6 +483,11 @@ private static final long serialVersionUID = 0L;
       if (userAccountMessageBuilder_ != null) {
         userAccountMessageBuilder_.dispose();
         userAccountMessageBuilder_ = null;
+      }
+      refundInfo_ = null;
+      if (refundInfoBuilder_ != null) {
+        refundInfoBuilder_.dispose();
+        refundInfoBuilder_ = null;
       }
       return this;
     }
@@ -499,6 +547,12 @@ private static final long serialVersionUID = 0L;
             : userAccountMessageBuilder_.build();
         to_bitField0_ |= 0x00000008;
       }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.refundInfo_ = refundInfoBuilder_ == null
+            ? refundInfo_
+            : refundInfoBuilder_.build();
+        to_bitField0_ |= 0x00000010;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -525,6 +579,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasUserAccountMessage()) {
         mergeUserAccountMessage(other.getUserAccountMessage());
+      }
+      if (other.hasRefundInfo()) {
+        mergeRefundInfo(other.getRefundInfo());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -580,6 +637,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000008;
               break;
             } // case 34
+            case 42: {
+              input.readMessage(
+                  internalGetRefundInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1124,6 +1188,127 @@ private static final long serialVersionUID = 0L;
         userAccountMessage_ = null;
       }
       return userAccountMessageBuilder_;
+    }
+
+    private com.api.v1.RefundInfo refundInfo_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.api.v1.RefundInfo, com.api.v1.RefundInfo.Builder, com.api.v1.RefundInfoOrBuilder> refundInfoBuilder_;
+    /**
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     * @return Whether the refundInfo field is set.
+     */
+    public boolean hasRefundInfo() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     * @return The refundInfo.
+     */
+    public com.api.v1.RefundInfo getRefundInfo() {
+      if (refundInfoBuilder_ == null) {
+        return refundInfo_ == null ? com.api.v1.RefundInfo.getDefaultInstance() : refundInfo_;
+      } else {
+        return refundInfoBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder setRefundInfo(com.api.v1.RefundInfo value) {
+      if (refundInfoBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        refundInfo_ = value;
+      } else {
+        refundInfoBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder setRefundInfo(
+        com.api.v1.RefundInfo.Builder builderForValue) {
+      if (refundInfoBuilder_ == null) {
+        refundInfo_ = builderForValue.build();
+      } else {
+        refundInfoBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder mergeRefundInfo(com.api.v1.RefundInfo value) {
+      if (refundInfoBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0) &&
+          refundInfo_ != null &&
+          refundInfo_ != com.api.v1.RefundInfo.getDefaultInstance()) {
+          getRefundInfoBuilder().mergeFrom(value);
+        } else {
+          refundInfo_ = value;
+        }
+      } else {
+        refundInfoBuilder_.mergeFrom(value);
+      }
+      if (refundInfo_ != null) {
+        bitField0_ |= 0x00000010;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     */
+    public Builder clearRefundInfo() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      refundInfo_ = null;
+      if (refundInfoBuilder_ != null) {
+        refundInfoBuilder_.dispose();
+        refundInfoBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     */
+    public com.api.v1.RefundInfo.Builder getRefundInfoBuilder() {
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return internalGetRefundInfoFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     */
+    public com.api.v1.RefundInfoOrBuilder getRefundInfoOrBuilder() {
+      if (refundInfoBuilder_ != null) {
+        return refundInfoBuilder_.getMessageOrBuilder();
+      } else {
+        return refundInfo_ == null ?
+            com.api.v1.RefundInfo.getDefaultInstance() : refundInfo_;
+      }
+    }
+    /**
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.api.v1.RefundInfo, com.api.v1.RefundInfo.Builder, com.api.v1.RefundInfoOrBuilder> 
+        internalGetRefundInfoFieldBuilder() {
+      if (refundInfoBuilder_ == null) {
+        refundInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.api.v1.RefundInfo, com.api.v1.RefundInfo.Builder, com.api.v1.RefundInfoOrBuilder>(
+                getRefundInfo(),
+                getParentForChildren(),
+                isClean());
+        refundInfo_ = null;
+      }
+      return refundInfoBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:api.v1.MessageResponse)
