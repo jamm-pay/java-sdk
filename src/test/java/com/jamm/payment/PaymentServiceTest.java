@@ -353,4 +353,30 @@ class PaymentServiceTest {
         assertEquals("trx-123", result.getChargeId());
         assertEquals("rfd-789", result.getRefundId());
     }
+
+    @Test
+    void refund_withCancelOnly_callsCorrectEndpoint() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        RefundRequest req = RefundRequest.newBuilder()
+            .setChargeId("trx-123")
+            .setCancelOnly(true)
+            .build();
+
+        RefundResponse resp = RefundResponse.newBuilder()
+            .setChargeId("trx-123")
+            .setRefundId("rfd-cancel")
+            .build();
+
+        when(http.post("/v1/refund", req, RefundResponse.class))
+            .thenReturn(resp);
+
+        PaymentService service = new PaymentService(client);
+        RefundResponse result = service.refund(req);
+
+        assertEquals("trx-123", result.getChargeId());
+        assertEquals("rfd-cancel", result.getRefundId());
+    }
 }

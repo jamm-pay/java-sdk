@@ -81,7 +81,13 @@ public final class PaymentClient {
      * The result is delivered asynchronously via the {@code charge_refund} webhook.
      * Use {@link #getCharge(String)} to retrieve the latest refund status.
      *
-     * @param request the refund request containing charge ID and optional amount
+     * <p>Use {@link RefundRequest.Builder#setCancelOnly(boolean)} to set the cancel-only flag
+     * (wire/JSON field {@code cancel_only}). When {@code true}, only cancellation is attempted
+     * without falling back to a bank transfer refund. Defaults to {@code false}
+     * (fallback enabled).
+     *
+     * @param request the refund request containing charge ID, optional amount,
+     *                and optional cancel-only flag
      * @return response containing charge ID and refund ID
      */
     public RefundResponse refund(RefundRequest request) {
