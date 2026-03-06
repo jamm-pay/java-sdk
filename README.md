@@ -154,14 +154,14 @@ if (content instanceof ChargeMessage) {
 <dependency>
   <groupId>jp.jamm-pay</groupId>
   <artifactId>jamm-sdk</artifactId>
-  <version>1.1.2</version>
+  <version>1.1.3</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'jp.jamm-pay:jamm-sdk:1.1.2'
+implementation 'jp.jamm-pay:jamm-sdk:1.1.3'
 ```
 
 If you want to build from source:
