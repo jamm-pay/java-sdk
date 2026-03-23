@@ -428,8 +428,8 @@ public final class PaymentProto extends com.google.protobuf.GeneratedFile {
       "sponse\"\320\001\222A\243\001\n\007payment\022\"Initiate async o" +
       "ff-session payment\032\\Starts asynchronous " +
       "off-session payment processing and retur" +
-      "ns request tracking information.*\026offSes" +
-      "sionPaymentAsync\202\323\344\223\002#\"\036/v1/payments/off" +
+      "ns request tracking information.*\026asyncO" +
+      "ffSessionPayment\202\323\344\223\002#\"\036/v1/payments/off" +
       "-session/async:\001*\022\236\002\n\023WithdrawAsyncStatu" +
       "s\022\".api.v1.WithdrawAsyncStatusRequest\032#." +
       "api.v1.WithdrawAsyncStatusResponse\"\275\001\222A\225" +
