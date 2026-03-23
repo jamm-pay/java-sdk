@@ -671,7 +671,7 @@ public final class PaymentServiceGrpc {
      * ## Refund
      * Refunds a charge. This endpoint is asynchronous — it accepts the refund
      * request and processes it in the background. The final result is delivered via
-     * the `charge_refund` webhook.
+     * the `refund_succeeded` webhook.
      * Internally, if the same-day (midnight JST from when the charge was created)
      * cancellation window has not passed, the system cancels the charge directly.
      * Otherwise, it creates a bank transfer refund request.
@@ -949,7 +949,7 @@ public final class PaymentServiceGrpc {
      * ## Refund
      * Refunds a charge. This endpoint is asynchronous — it accepts the refund
      * request and processes it in the background. The final result is delivered via
-     * the `charge_refund` webhook.
+     * the `refund_succeeded` webhook.
      * Internally, if the same-day (midnight JST from when the charge was created)
      * cancellation window has not passed, the system cancels the charge directly.
      * Otherwise, it creates a bank transfer refund request.
@@ -1200,7 +1200,7 @@ public final class PaymentServiceGrpc {
      * ## Refund
      * Refunds a charge. This endpoint is asynchronous — it accepts the refund
      * request and processes it in the background. The final result is delivered via
-     * the `charge_refund` webhook.
+     * the `refund_succeeded` webhook.
      * Internally, if the same-day (midnight JST from when the charge was created)
      * cancellation window has not passed, the system cancels the charge directly.
      * Otherwise, it creates a bank transfer refund request.
@@ -1450,7 +1450,7 @@ public final class PaymentServiceGrpc {
      * ## Refund
      * Refunds a charge. This endpoint is asynchronous — it accepts the refund
      * request and processes it in the background. The final result is delivered via
-     * the `charge_refund` webhook.
+     * the `refund_succeeded` webhook.
      * Internally, if the same-day (midnight JST from when the charge was created)
      * cancellation window has not passed, the system cancels the charge directly.
      * Otherwise, it creates a bank transfer refund request.
@@ -1711,7 +1711,7 @@ public final class PaymentServiceGrpc {
      * ## Refund
      * Refunds a charge. This endpoint is asynchronous — it accepts the refund
      * request and processes it in the background. The final result is delivered via
-     * the `charge_refund` webhook.
+     * the `refund_succeeded` webhook.
      * Internally, if the same-day (midnight JST from when the charge was created)
      * cancellation window has not passed, the system cancels the charge directly.
      * Otherwise, it creates a bank transfer refund request.

@@ -100,7 +100,7 @@ GetChargeResponse charge = client.payments().getCharge(chargeId);
 
 ### Refund
 
-Refund a charge. If the same-day cancellation window has not passed, cancels the charge directly. Otherwise, creates a bank transfer refund request. The result is delivered asynchronously via the `charge_refund` webhook. You can use `getCharge` to retrieve the latest refund status.
+Refund a charge. If the same-day cancellation window has not passed, cancels the charge directly. Otherwise, creates a bank transfer refund request. The result is delivered asynchronously via the `refund_succeeded` webhook. You can use `getCharge` to retrieve the latest refund status.
 
 ```java
 // Full refund

@@ -7,7 +7,7 @@ package com.api.v1;
 
 /**
  * <pre>
- * RefundInfo contains refund-specific details for refund/cancel webhook events.
+ * RefundInfo contains refund-specific details for refund and refund_failed webhook events.
  * </pre>
  *
  * Protobuf type {@code api.v1.RefundInfo}
@@ -578,7 +578,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * RefundInfo contains refund-specific details for refund/cancel webhook events.
+   * RefundInfo contains refund-specific details for refund and refund_failed webhook events.
    * </pre>
    *
    * Protobuf type {@code api.v1.RefundInfo}

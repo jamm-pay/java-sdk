@@ -169,25 +169,23 @@ public final class MerchantWebhooksProto extends com.google.protobuf.GeneratedFi
       "e\0227\n\007details\030\003 \003(\0132\023.api.v1.ErrorDetailB" +
       "\010\272H\005\222\001\002\010\001R\007details\"]\n\013ErrorDetail\022\032\n\004typ" +
       "e\030\001 \001(\tB\006\272H\003\310\001\001R\004type\022\034\n\005value\030\002 \001(\tB\006\272H" +
-      "\003\310\001\001R\005value\022\024\n\005debug\030\003 \001(\tR\005debug*\206\003\n\tEv" +
+      "\003\310\001\001R\005value\022\024\n\005debug\030\003 \001(\tR\005debug*\277\002\n\tEv" +
       "entType\022\032\n\026EVENT_TYPE_UNSPECIFIED\020\000\022\035\n\031E" +
       "VENT_TYPE_CHARGE_CREATED\020\003\022\035\n\031EVENT_TYPE" +
       "_CHARGE_UPDATED\020\004\022\035\n\031EVENT_TYPE_CHARGE_S" +
-      "UCCESS\020\005\022\032\n\026EVENT_TYPE_CHARGE_FAIL\020\006\022\034\n\030" +
-      "EVENT_TYPE_CHARGE_CANCEL\020\007\022\034\n\030EVENT_TYPE" +
-      "_CHARGE_REFUND\020\010\022#\n\037EVENT_TYPE_CHARGE_RE" +
-      "FUND_FAILED\020\t\022#\n\037EVENT_TYPE_CHARGE_REFUN" +
-      "D_DENIED\020\n\022!\n\035EVENT_TYPE_CONTRACT_ACTIVA" +
-      "TED\020\024\022#\n\037EVENT_TYPE_USER_ACCOUNT_DELETED" +
-      "\020\036\022\026\n\022EVENT_TYPE_TESTING\020c2\254\001\n\016WebhookSe" +
-      "rvice\022H\n\005Error\022\024.api.v1.ErrorRequest\032\025.a" +
-      "pi.v1.ErrorResponse\"\022\202\323\344\223\002\014\"\007/errors:\001*\022" +
-      "P\n\007Message\022\026.api.v1.MessageRequest\032\027.api" +
-      ".v1.MessageResponse\"\024\202\323\344\223\002\016\"\t/webhooks:\001" +
-      "*By\n\ncom.api.v1B\025MerchantWebhooksProtoP\001" +
-      "Z\033api/proto/gen/api/v1;api_v1\242\002\003AXX\252\002\006Ap" +
-      "i.V1\312\002\006Api\\V1\342\002\022Api\\V1\\GPBMetadata\352\002\007Api" +
-      "::V1b\006proto3"
+      "UCCESS\020\005\022\032\n\026EVENT_TYPE_CHARGE_FAIL\020\006\022\037\n\033" +
+      "EVENT_TYPE_REFUND_SUCCEEDED\020\007\022\034\n\030EVENT_T" +
+      "YPE_REFUND_FAILED\020\010\022!\n\035EVENT_TYPE_CONTRA" +
+      "CT_ACTIVATED\020\024\022#\n\037EVENT_TYPE_USER_ACCOUN" +
+      "T_DELETED\020\036\022\026\n\022EVENT_TYPE_TESTING\020c2\254\001\n\016" +
+      "WebhookService\022H\n\005Error\022\024.api.v1.ErrorRe" +
+      "quest\032\025.api.v1.ErrorResponse\"\022\202\323\344\223\002\014\"\007/e" +
+      "rrors:\001*\022P\n\007Message\022\026.api.v1.MessageRequ" +
+      "est\032\027.api.v1.MessageResponse\"\024\202\323\344\223\002\016\"\t/w" +
+      "ebhooks:\001*By\n\ncom.api.v1B\025MerchantWebhoo" +
+      "ksProtoP\001Z\033api/proto/gen/api/v1;api_v1\242\002" +
+      "\003AXX\252\002\006Api.V1\312\002\006Api\\V1\342\002\022Api\\V1\\GPBMetad" +
+      "ata\352\002\007Api::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

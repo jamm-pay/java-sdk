@@ -68,39 +68,23 @@ public enum EventType
   EVENT_TYPE_CHARGE_FAIL(6),
   /**
    * <pre>
-   * Fired when a charge is refunded by the merchant.
+   * Fired when a charge is successfully refunded.
    * Payload contains the refunded charge details.
    * Merchants should update their records to reflect the refund.
    * </pre>
    *
-   * <code>EVENT_TYPE_CHARGE_CANCEL = 7;</code>
+   * <code>EVENT_TYPE_REFUND_SUCCEEDED = 7;</code>
    */
-  EVENT_TYPE_CHARGE_CANCEL(7),
+  EVENT_TYPE_REFUND_SUCCEEDED(7),
   /**
    * <pre>
-   * Alias for EVENT_TYPE_CHARGE_CANCEL.
-   * </pre>
-   *
-   * <code>EVENT_TYPE_CHARGE_REFUND = 8;</code>
-   */
-  EVENT_TYPE_CHARGE_REFUND(8),
-  /**
-   * <pre>
-   * Fired when a refund request fails.
+   * Fired when a refund request fails or is denied.
    * Payload contains the charge details with error information including the failure reason.
    * </pre>
    *
-   * <code>EVENT_TYPE_CHARGE_REFUND_FAILED = 9;</code>
+   * <code>EVENT_TYPE_REFUND_FAILED = 8;</code>
    */
-  EVENT_TYPE_CHARGE_REFUND_FAILED(9),
-  /**
-   * <pre>
-   * Merchant/admin denied a refund request.
-   * </pre>
-   *
-   * <code>EVENT_TYPE_CHARGE_REFUND_DENIED = 10;</code>
-   */
-  EVENT_TYPE_CHARGE_REFUND_DENIED(10),
+  EVENT_TYPE_REFUND_FAILED(8),
   /**
    * <pre>
    * Fired when a contract is activated.
@@ -191,39 +175,23 @@ public enum EventType
   public static final int EVENT_TYPE_CHARGE_FAIL_VALUE = 6;
   /**
    * <pre>
-   * Fired when a charge is refunded by the merchant.
+   * Fired when a charge is successfully refunded.
    * Payload contains the refunded charge details.
    * Merchants should update their records to reflect the refund.
    * </pre>
    *
-   * <code>EVENT_TYPE_CHARGE_CANCEL = 7;</code>
+   * <code>EVENT_TYPE_REFUND_SUCCEEDED = 7;</code>
    */
-  public static final int EVENT_TYPE_CHARGE_CANCEL_VALUE = 7;
+  public static final int EVENT_TYPE_REFUND_SUCCEEDED_VALUE = 7;
   /**
    * <pre>
-   * Alias for EVENT_TYPE_CHARGE_CANCEL.
-   * </pre>
-   *
-   * <code>EVENT_TYPE_CHARGE_REFUND = 8;</code>
-   */
-  public static final int EVENT_TYPE_CHARGE_REFUND_VALUE = 8;
-  /**
-   * <pre>
-   * Fired when a refund request fails.
+   * Fired when a refund request fails or is denied.
    * Payload contains the charge details with error information including the failure reason.
    * </pre>
    *
-   * <code>EVENT_TYPE_CHARGE_REFUND_FAILED = 9;</code>
+   * <code>EVENT_TYPE_REFUND_FAILED = 8;</code>
    */
-  public static final int EVENT_TYPE_CHARGE_REFUND_FAILED_VALUE = 9;
-  /**
-   * <pre>
-   * Merchant/admin denied a refund request.
-   * </pre>
-   *
-   * <code>EVENT_TYPE_CHARGE_REFUND_DENIED = 10;</code>
-   */
-  public static final int EVENT_TYPE_CHARGE_REFUND_DENIED_VALUE = 10;
+  public static final int EVENT_TYPE_REFUND_FAILED_VALUE = 8;
   /**
    * <pre>
    * Fired when a contract is activated.
@@ -282,10 +250,8 @@ public enum EventType
       case 4: return EVENT_TYPE_CHARGE_UPDATED;
       case 5: return EVENT_TYPE_CHARGE_SUCCESS;
       case 6: return EVENT_TYPE_CHARGE_FAIL;
-      case 7: return EVENT_TYPE_CHARGE_CANCEL;
-      case 8: return EVENT_TYPE_CHARGE_REFUND;
-      case 9: return EVENT_TYPE_CHARGE_REFUND_FAILED;
-      case 10: return EVENT_TYPE_CHARGE_REFUND_DENIED;
+      case 7: return EVENT_TYPE_REFUND_SUCCEEDED;
+      case 8: return EVENT_TYPE_REFUND_FAILED;
       case 20: return EVENT_TYPE_CONTRACT_ACTIVATED;
       case 30: return EVENT_TYPE_USER_ACCOUNT_DELETED;
       case 99: return EVENT_TYPE_TESTING;

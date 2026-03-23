@@ -570,7 +570,7 @@ private static final long serialVersionUID = 0L;
   private int jammFee_ = 0;
   /**
    * <pre>
-   * Jamm fee associated with this charge_refund event (refund uses refund fee; cancel uses 0).
+   * Jamm fee associated with this refund event (refund uses refund fee; cancel uses 0).
    * </pre>
    *
    * <code>optional int32 jamm_fee = 12 [json_name = "jammFee"];</code>
@@ -582,7 +582,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Jamm fee associated with this charge_refund event (refund uses refund fee; cancel uses 0).
+   * Jamm fee associated with this refund event (refund uses refund fee; cancel uses 0).
    * </pre>
    *
    * <code>optional int32 jamm_fee = 12 [json_name = "jammFee"];</code>
@@ -849,7 +849,7 @@ private static final long serialVersionUID = 0L;
   private com.api.v1.RefundInfo refund_;
   /**
    * <pre>
-   * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+   * Refund details, present on refund and refund_failed events.
    * </pre>
    *
    * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
@@ -861,7 +861,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+   * Refund details, present on refund and refund_failed events.
    * </pre>
    *
    * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
@@ -873,7 +873,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+   * Refund details, present on refund and refund_failed events.
    * </pre>
    *
    * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
@@ -2378,7 +2378,7 @@ private static final long serialVersionUID = 0L;
     private int jammFee_ ;
     /**
      * <pre>
-     * Jamm fee associated with this charge_refund event (refund uses refund fee; cancel uses 0).
+     * Jamm fee associated with this refund event (refund uses refund fee; cancel uses 0).
      * </pre>
      *
      * <code>optional int32 jamm_fee = 12 [json_name = "jammFee"];</code>
@@ -2390,7 +2390,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Jamm fee associated with this charge_refund event (refund uses refund fee; cancel uses 0).
+     * Jamm fee associated with this refund event (refund uses refund fee; cancel uses 0).
      * </pre>
      *
      * <code>optional int32 jamm_fee = 12 [json_name = "jammFee"];</code>
@@ -2402,7 +2402,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Jamm fee associated with this charge_refund event (refund uses refund fee; cancel uses 0).
+     * Jamm fee associated with this refund event (refund uses refund fee; cancel uses 0).
      * </pre>
      *
      * <code>optional int32 jamm_fee = 12 [json_name = "jammFee"];</code>
@@ -2418,7 +2418,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Jamm fee associated with this charge_refund event (refund uses refund fee; cancel uses 0).
+     * Jamm fee associated with this refund event (refund uses refund fee; cancel uses 0).
      * </pre>
      *
      * <code>optional int32 jamm_fee = 12 [json_name = "jammFee"];</code>
@@ -2969,7 +2969,7 @@ private static final long serialVersionUID = 0L;
         com.api.v1.RefundInfo, com.api.v1.RefundInfo.Builder, com.api.v1.RefundInfoOrBuilder> refundBuilder_;
     /**
      * <pre>
-     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * Refund details, present on refund and refund_failed events.
      * </pre>
      *
      * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
@@ -2980,7 +2980,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * Refund details, present on refund and refund_failed events.
      * </pre>
      *
      * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
@@ -2995,7 +2995,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * Refund details, present on refund and refund_failed events.
      * </pre>
      *
      * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
@@ -3015,7 +3015,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * Refund details, present on refund and refund_failed events.
      * </pre>
      *
      * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
@@ -3033,7 +3033,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * Refund details, present on refund and refund_failed events.
      * </pre>
      *
      * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
@@ -3058,7 +3058,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * Refund details, present on refund and refund_failed events.
      * </pre>
      *
      * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
@@ -3075,7 +3075,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * Refund details, present on refund and refund_failed events.
      * </pre>
      *
      * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
@@ -3087,7 +3087,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * Refund details, present on refund and refund_failed events.
      * </pre>
      *
      * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
@@ -3102,7 +3102,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+     * Refund details, present on refund and refund_failed events.
      * </pre>
      *
      * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>

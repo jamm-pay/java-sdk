@@ -11,7 +11,7 @@ package com.api.v1;
  *
  * Request message for refunding a charge.
  * The refund is always processed asynchronously. The final result is
- * delivered via webhook (`charge_refund`).
+ * delivered via webhook (`refund_succeeded`).
  * </pre>
  *
  * Protobuf type {@code api.v1.RefundRequest}
@@ -378,7 +378,7 @@ private static final long serialVersionUID = 0L;
    *
    * Request message for refunding a charge.
    * The refund is always processed asynchronously. The final result is
-   * delivered via webhook (`charge_refund`).
+   * delivered via webhook (`refund_succeeded`).
    * </pre>
    *
    * Protobuf type {@code api.v1.RefundRequest}

@@ -96,7 +96,7 @@ class PaymentService {
     /**
      * Refund a charge. If the same-day cancellation window has not passed,
      * cancels the charge directly. Otherwise, creates a bank transfer refund request.
-     * The result is delivered asynchronously via the {@code charge_refund} webhook.
+     * The result is delivered asynchronously via the {@code refund_succeeded} webhook.
      * Use {@link PaymentClient#getCharge(String)} to retrieve the latest refund status.
      *
      * @param request the refund request containing charge ID and optional amount

@@ -161,7 +161,7 @@ public interface ChargeMessageOrBuilder extends
 
   /**
    * <pre>
-   * Jamm fee associated with this charge_refund event (refund uses refund fee; cancel uses 0).
+   * Jamm fee associated with this refund event (refund uses refund fee; cancel uses 0).
    * </pre>
    *
    * <code>optional int32 jamm_fee = 12 [json_name = "jammFee"];</code>
@@ -170,7 +170,7 @@ public interface ChargeMessageOrBuilder extends
   boolean hasJammFee();
   /**
    * <pre>
-   * Jamm fee associated with this charge_refund event (refund uses refund fee; cancel uses 0).
+   * Jamm fee associated with this refund event (refund uses refund fee; cancel uses 0).
    * </pre>
    *
    * <code>optional int32 jamm_fee = 12 [json_name = "jammFee"];</code>
@@ -299,7 +299,7 @@ public interface ChargeMessageOrBuilder extends
 
   /**
    * <pre>
-   * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+   * Refund details, present on refund and refund_failed events.
    * </pre>
    *
    * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
@@ -308,7 +308,7 @@ public interface ChargeMessageOrBuilder extends
   boolean hasRefund();
   /**
    * <pre>
-   * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+   * Refund details, present on refund and refund_failed events.
    * </pre>
    *
    * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
@@ -317,7 +317,7 @@ public interface ChargeMessageOrBuilder extends
   com.api.v1.RefundInfo getRefund();
   /**
    * <pre>
-   * Refund/cancel details, present on charge_refund and charge_refund_failed events.
+   * Refund details, present on refund and refund_failed events.
    * </pre>
    *
    * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
