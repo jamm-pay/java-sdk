@@ -1,4 +1,4 @@
-.PHONY: install build test clean publish e2e lint package install-local javadoc check examples-build example help
+.PHONY: install build test clean publish e2e lint package install-local javadoc check check-version-sync examples-build example help
 
 # Docker configuration
 DOCKER_IMAGE := maven:3.9-eclipse-temurin-11
@@ -69,8 +69,12 @@ install-local:
 javadoc:
 	$(MVN) javadoc:javadoc
 
+# Verify README versions match pom.xml
+check-version-sync:
+	@bash scripts/check-version-sync.sh
+
 # Run all checks before committing
-check: lint test
+check: lint test check-version-sync
 
 # Compile Java examples under examples/ into target/examples
 examples-build:

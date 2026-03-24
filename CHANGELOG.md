@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-03-24
+
+### Changed
+
+- **Breaking:** Renamed refund webhook event types — `EVENT_TYPE_CHARGE_CANCEL`, `EVENT_TYPE_CHARGE_REFUND` → `EVENT_TYPE_REFUND_SUCCEEDED`; `EVENT_TYPE_CHARGE_REFUND_FAILED`, `EVENT_TYPE_CHARGE_REFUND_DENIED` → `EVENT_TYPE_REFUND_FAILED`
+  - **Migrate:** Replace `EVENT_TYPE_CHARGE_CANCEL` and `EVENT_TYPE_CHARGE_REFUND` with `EVENT_TYPE_REFUND_SUCCEEDED`; replace `EVENT_TYPE_CHARGE_REFUND_FAILED` and `EVENT_TYPE_CHARGE_REFUND_DENIED` with `EVENT_TYPE_REFUND_FAILED`.
+- Updated all documentation references from `charge_refund` webhook to `refund_succeeded`
+
 ## [1.1.3] - 2026-03-05
 
 ### Added
