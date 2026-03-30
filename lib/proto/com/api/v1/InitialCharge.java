@@ -258,6 +258,39 @@ java.lang.String defaultValue) {
     return map.get(key);
   }
 
+  public static final int PLATFORM_FEE_FIELD_NUMBER = 5;
+  private int platformFee_ = 0;
+  /**
+   * <pre>
+   * Fee charged by the platform (in JPY). Must be &gt;= the Jamm fee for the merchant.
+   * Only meaningful when the caller is a platform. Ignored for direct merchant calls.
+   *
+   * プラットフォームが徴収する手数料（日本円）。加盟店のJamm手数料以上である必要があります。
+   * </pre>
+   *
+   * <code>optional int32 platform_fee = 5 [json_name = "platformFee", (.buf.validate.field) = { ... }</code>
+   * @return Whether the platformFee field is set.
+   */
+  @java.lang.Override
+  public boolean hasPlatformFee() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * Fee charged by the platform (in JPY). Must be &gt;= the Jamm fee for the merchant.
+   * Only meaningful when the caller is a platform. Ignored for direct merchant calls.
+   *
+   * プラットフォームが徴収する手数料（日本円）。加盟店のJamm手数料以上である必要があります。
+   * </pre>
+   *
+   * <code>optional int32 platform_fee = 5 [json_name = "platformFee", (.buf.validate.field) = { ... }</code>
+   * @return The platformFee.
+   */
+  @java.lang.Override
+  public int getPlatformFee() {
+    return platformFee_;
+  }
+
   public static final int EXPIRES_AT_FIELD_NUMBER = 20;
   private com.google.protobuf.Timestamp expiresAt_;
   /**
@@ -273,7 +306,7 @@ java.lang.String defaultValue) {
    */
   @java.lang.Override
   public boolean hasExpiresAt() {
-    return ((bitField0_ & 0x00000001) != 0);
+    return ((bitField0_ & 0x00000002) != 0);
   }
   /**
    * <pre>
@@ -332,6 +365,9 @@ java.lang.String defaultValue) {
         MetadataDefaultEntryHolder.defaultEntry,
         4);
     if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeInt32(5, platformFee_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
       output.writeMessage(20, getExpiresAt());
     }
     getUnknownFields().writeTo(output);
@@ -362,6 +398,10 @@ java.lang.String defaultValue) {
     }
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(5, platformFee_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(20, getExpiresAt());
     }
     size += getUnknownFields().getSerializedSize();
@@ -385,6 +425,11 @@ java.lang.String defaultValue) {
         .equals(other.getDescription())) return false;
     if (!internalGetMetadata().equals(
         other.internalGetMetadata())) return false;
+    if (hasPlatformFee() != other.hasPlatformFee()) return false;
+    if (hasPlatformFee()) {
+      if (getPlatformFee()
+          != other.getPlatformFee()) return false;
+    }
     if (hasExpiresAt() != other.hasExpiresAt()) return false;
     if (hasExpiresAt()) {
       if (!getExpiresAt()
@@ -408,6 +453,10 @@ java.lang.String defaultValue) {
     if (!internalGetMetadata().getMap().isEmpty()) {
       hash = (37 * hash) + METADATA_FIELD_NUMBER;
       hash = (53 * hash) + internalGetMetadata().hashCode();
+    }
+    if (hasPlatformFee()) {
+      hash = (37 * hash) + PLATFORM_FEE_FIELD_NUMBER;
+      hash = (53 * hash) + getPlatformFee();
     }
     if (hasExpiresAt()) {
       hash = (37 * hash) + EXPIRES_AT_FIELD_NUMBER;
@@ -582,6 +631,7 @@ java.lang.String defaultValue) {
       price_ = 0;
       description_ = "";
       internalGetMutableMetadata().clear();
+      platformFee_ = 0;
       expiresAt_ = null;
       if (expiresAtBuilder_ != null) {
         expiresAtBuilder_.dispose();
@@ -632,10 +682,14 @@ java.lang.String defaultValue) {
       }
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.platformFee_ = platformFee_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
         result.expiresAt_ = expiresAtBuilder_ == null
             ? expiresAt_
             : expiresAtBuilder_.build();
-        to_bitField0_ |= 0x00000001;
+        to_bitField0_ |= 0x00000002;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -663,6 +717,9 @@ java.lang.String defaultValue) {
       internalGetMutableMetadata().mergeFrom(
           other.internalGetMetadata());
       bitField0_ |= 0x00000004;
+      if (other.hasPlatformFee()) {
+        setPlatformFee(other.getPlatformFee());
+      }
       if (other.hasExpiresAt()) {
         mergeExpiresAt(other.getExpiresAt());
       }
@@ -711,11 +768,16 @@ java.lang.String defaultValue) {
               bitField0_ |= 0x00000004;
               break;
             } // case 34
+            case 40: {
+              platformFee_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 40
             case 162: {
               input.readMessage(
                   internalGetExpiresAtFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000010;
               break;
             } // case 162
             default: {
@@ -1097,6 +1159,74 @@ java.lang.String defaultValue) {
       return this;
     }
 
+    private int platformFee_ ;
+    /**
+     * <pre>
+     * Fee charged by the platform (in JPY). Must be &gt;= the Jamm fee for the merchant.
+     * Only meaningful when the caller is a platform. Ignored for direct merchant calls.
+     *
+     * プラットフォームが徴収する手数料（日本円）。加盟店のJamm手数料以上である必要があります。
+     * </pre>
+     *
+     * <code>optional int32 platform_fee = 5 [json_name = "platformFee", (.buf.validate.field) = { ... }</code>
+     * @return Whether the platformFee field is set.
+     */
+    @java.lang.Override
+    public boolean hasPlatformFee() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * Fee charged by the platform (in JPY). Must be &gt;= the Jamm fee for the merchant.
+     * Only meaningful when the caller is a platform. Ignored for direct merchant calls.
+     *
+     * プラットフォームが徴収する手数料（日本円）。加盟店のJamm手数料以上である必要があります。
+     * </pre>
+     *
+     * <code>optional int32 platform_fee = 5 [json_name = "platformFee", (.buf.validate.field) = { ... }</code>
+     * @return The platformFee.
+     */
+    @java.lang.Override
+    public int getPlatformFee() {
+      return platformFee_;
+    }
+    /**
+     * <pre>
+     * Fee charged by the platform (in JPY). Must be &gt;= the Jamm fee for the merchant.
+     * Only meaningful when the caller is a platform. Ignored for direct merchant calls.
+     *
+     * プラットフォームが徴収する手数料（日本円）。加盟店のJamm手数料以上である必要があります。
+     * </pre>
+     *
+     * <code>optional int32 platform_fee = 5 [json_name = "platformFee", (.buf.validate.field) = { ... }</code>
+     * @param value The platformFee to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPlatformFee(int value) {
+
+      platformFee_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Fee charged by the platform (in JPY). Must be &gt;= the Jamm fee for the merchant.
+     * Only meaningful when the caller is a platform. Ignored for direct merchant calls.
+     *
+     * プラットフォームが徴収する手数料（日本円）。加盟店のJamm手数料以上である必要があります。
+     * </pre>
+     *
+     * <code>optional int32 platform_fee = 5 [json_name = "platformFee", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPlatformFee() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      platformFee_ = 0;
+      onChanged();
+      return this;
+    }
+
     private com.google.protobuf.Timestamp expiresAt_;
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> expiresAtBuilder_;
@@ -1112,7 +1242,7 @@ java.lang.String defaultValue) {
      * @return Whether the expiresAt field is set.
      */
     public boolean hasExpiresAt() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1151,7 +1281,7 @@ java.lang.String defaultValue) {
       } else {
         expiresAtBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1172,7 +1302,7 @@ java.lang.String defaultValue) {
       } else {
         expiresAtBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1188,7 +1318,7 @@ java.lang.String defaultValue) {
      */
     public Builder mergeExpiresAt(com.google.protobuf.Timestamp value) {
       if (expiresAtBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0) &&
+        if (((bitField0_ & 0x00000010) != 0) &&
           expiresAt_ != null &&
           expiresAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
           getExpiresAtBuilder().mergeFrom(value);
@@ -1199,7 +1329,7 @@ java.lang.String defaultValue) {
         expiresAtBuilder_.mergeFrom(value);
       }
       if (expiresAt_ != null) {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       return this;
@@ -1215,7 +1345,7 @@ java.lang.String defaultValue) {
      * <code>optional .google.protobuf.Timestamp expires_at = 20 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
      */
     public Builder clearExpiresAt() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000010);
       expiresAt_ = null;
       if (expiresAtBuilder_ != null) {
         expiresAtBuilder_.dispose();
@@ -1235,7 +1365,7 @@ java.lang.String defaultValue) {
      * <code>optional .google.protobuf.Timestamp expires_at = 20 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getExpiresAtBuilder() {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000010;
       onChanged();
       return internalGetExpiresAtFieldBuilder().getBuilder();
     }

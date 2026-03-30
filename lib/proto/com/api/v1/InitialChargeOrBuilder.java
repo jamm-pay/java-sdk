@@ -132,6 +132,31 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
+   * Fee charged by the platform (in JPY). Must be &gt;= the Jamm fee for the merchant.
+   * Only meaningful when the caller is a platform. Ignored for direct merchant calls.
+   *
+   * プラットフォームが徴収する手数料（日本円）。加盟店のJamm手数料以上である必要があります。
+   * </pre>
+   *
+   * <code>optional int32 platform_fee = 5 [json_name = "platformFee", (.buf.validate.field) = { ... }</code>
+   * @return Whether the platformFee field is set.
+   */
+  boolean hasPlatformFee();
+  /**
+   * <pre>
+   * Fee charged by the platform (in JPY). Must be &gt;= the Jamm fee for the merchant.
+   * Only meaningful when the caller is a platform. Ignored for direct merchant calls.
+   *
+   * プラットフォームが徴収する手数料（日本円）。加盟店のJamm手数料以上である必要があります。
+   * </pre>
+   *
+   * <code>optional int32 platform_fee = 5 [json_name = "platformFee", (.buf.validate.field) = { ... }</code>
+   * @return The platformFee.
+   */
+  int getPlatformFee();
+
+  /**
+   * <pre>
    * Merchant can optionally set the expiry date for the payment.
    * Defaults to 90 minutes if not specified.
    *
