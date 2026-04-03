@@ -570,6 +570,44 @@ java.lang.String defaultValue) {
     return result == null ? com.api.v1.ChargeStatus.UNRECOGNIZED : result;
   }
 
+  public static final int ERROR_FIELD_NUMBER = 17;
+  private com.api.v1.ChargeError error_;
+  /**
+   * <pre>
+   * Error details for failed charges (present only when charge_status is FAILURE).
+   * </pre>
+   *
+   * <code>optional .api.v1.ChargeError error = 17 [json_name = "error"];</code>
+   * @return Whether the error field is set.
+   */
+  @java.lang.Override
+  public boolean hasError() {
+    return ((bitField0_ & 0x00000010) != 0);
+  }
+  /**
+   * <pre>
+   * Error details for failed charges (present only when charge_status is FAILURE).
+   * </pre>
+   *
+   * <code>optional .api.v1.ChargeError error = 17 [json_name = "error"];</code>
+   * @return The error.
+   */
+  @java.lang.Override
+  public com.api.v1.ChargeError getError() {
+    return error_ == null ? com.api.v1.ChargeError.getDefaultInstance() : error_;
+  }
+  /**
+   * <pre>
+   * Error details for failed charges (present only when charge_status is FAILURE).
+   * </pre>
+   *
+   * <code>optional .api.v1.ChargeError error = 17 [json_name = "error"];</code>
+   */
+  @java.lang.Override
+  public com.api.v1.ChargeErrorOrBuilder getErrorOrBuilder() {
+    return error_ == null ? com.api.v1.ChargeError.getDefaultInstance() : error_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -634,6 +672,9 @@ java.lang.String defaultValue) {
     }
     if (chargeStatus_ != com.api.v1.ChargeStatus.CHARGE_STATUS_UNSPECIFIED.getNumber()) {
       output.writeEnum(16, chargeStatus_);
+    }
+    if (((bitField0_ & 0x00000010) != 0)) {
+      output.writeMessage(17, getError());
     }
     getUnknownFields().writeTo(output);
   }
@@ -708,6 +749,10 @@ java.lang.String defaultValue) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(16, chargeStatus_);
     }
+    if (((bitField0_ & 0x00000010) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(17, getError());
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -766,6 +811,11 @@ java.lang.String defaultValue) {
           .equals(other.getProcessedAt())) return false;
     }
     if (chargeStatus_ != other.chargeStatus_) return false;
+    if (hasError() != other.hasError()) return false;
+    if (hasError()) {
+      if (!getError()
+          .equals(other.getError())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -820,6 +870,10 @@ java.lang.String defaultValue) {
     }
     hash = (37 * hash) + CHARGE_STATUS_FIELD_NUMBER;
     hash = (53 * hash) + chargeStatus_;
+    if (hasError()) {
+      hash = (37 * hash) + ERROR_FIELD_NUMBER;
+      hash = (53 * hash) + getError().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -981,6 +1035,7 @@ java.lang.String defaultValue) {
         internalGetCreatedAtFieldBuilder();
         internalGetUpdatedAtFieldBuilder();
         internalGetProcessedAtFieldBuilder();
+        internalGetErrorFieldBuilder();
       }
     }
     @java.lang.Override
@@ -1015,6 +1070,11 @@ java.lang.String defaultValue) {
         processedAtBuilder_ = null;
       }
       chargeStatus_ = 0;
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
+        errorBuilder_ = null;
+      }
       return this;
     }
 
@@ -1108,6 +1168,12 @@ java.lang.String defaultValue) {
       if (((from_bitField0_ & 0x00008000) != 0)) {
         result.chargeStatus_ = chargeStatus_;
       }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.error_ = errorBuilder_ == null
+            ? error_
+            : errorBuilder_.build();
+        to_bitField0_ |= 0x00000010;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -1182,6 +1248,9 @@ java.lang.String defaultValue) {
       }
       if (other.chargeStatus_ != 0) {
         setChargeStatusValue(other.getChargeStatusValue());
+      }
+      if (other.hasError()) {
+        mergeError(other.getError());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1299,6 +1368,13 @@ java.lang.String defaultValue) {
               bitField0_ |= 0x00008000;
               break;
             } // case 128
+            case 138: {
+              input.readMessage(
+                  internalGetErrorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 138
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2518,6 +2594,163 @@ java.lang.String defaultValue) {
       chargeStatus_ = 0;
       onChanged();
       return this;
+    }
+
+    private com.api.v1.ChargeError error_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.api.v1.ChargeError, com.api.v1.ChargeError.Builder, com.api.v1.ChargeErrorOrBuilder> errorBuilder_;
+    /**
+     * <pre>
+     * Error details for failed charges (present only when charge_status is FAILURE).
+     * </pre>
+     *
+     * <code>optional .api.v1.ChargeError error = 17 [json_name = "error"];</code>
+     * @return Whether the error field is set.
+     */
+    public boolean hasError() {
+      return ((bitField0_ & 0x00010000) != 0);
+    }
+    /**
+     * <pre>
+     * Error details for failed charges (present only when charge_status is FAILURE).
+     * </pre>
+     *
+     * <code>optional .api.v1.ChargeError error = 17 [json_name = "error"];</code>
+     * @return The error.
+     */
+    public com.api.v1.ChargeError getError() {
+      if (errorBuilder_ == null) {
+        return error_ == null ? com.api.v1.ChargeError.getDefaultInstance() : error_;
+      } else {
+        return errorBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Error details for failed charges (present only when charge_status is FAILURE).
+     * </pre>
+     *
+     * <code>optional .api.v1.ChargeError error = 17 [json_name = "error"];</code>
+     */
+    public Builder setError(com.api.v1.ChargeError value) {
+      if (errorBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        error_ = value;
+      } else {
+        errorBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00010000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Error details for failed charges (present only when charge_status is FAILURE).
+     * </pre>
+     *
+     * <code>optional .api.v1.ChargeError error = 17 [json_name = "error"];</code>
+     */
+    public Builder setError(
+        com.api.v1.ChargeError.Builder builderForValue) {
+      if (errorBuilder_ == null) {
+        error_ = builderForValue.build();
+      } else {
+        errorBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00010000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Error details for failed charges (present only when charge_status is FAILURE).
+     * </pre>
+     *
+     * <code>optional .api.v1.ChargeError error = 17 [json_name = "error"];</code>
+     */
+    public Builder mergeError(com.api.v1.ChargeError value) {
+      if (errorBuilder_ == null) {
+        if (((bitField0_ & 0x00010000) != 0) &&
+          error_ != null &&
+          error_ != com.api.v1.ChargeError.getDefaultInstance()) {
+          getErrorBuilder().mergeFrom(value);
+        } else {
+          error_ = value;
+        }
+      } else {
+        errorBuilder_.mergeFrom(value);
+      }
+      if (error_ != null) {
+        bitField0_ |= 0x00010000;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Error details for failed charges (present only when charge_status is FAILURE).
+     * </pre>
+     *
+     * <code>optional .api.v1.ChargeError error = 17 [json_name = "error"];</code>
+     */
+    public Builder clearError() {
+      bitField0_ = (bitField0_ & ~0x00010000);
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
+        errorBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Error details for failed charges (present only when charge_status is FAILURE).
+     * </pre>
+     *
+     * <code>optional .api.v1.ChargeError error = 17 [json_name = "error"];</code>
+     */
+    public com.api.v1.ChargeError.Builder getErrorBuilder() {
+      bitField0_ |= 0x00010000;
+      onChanged();
+      return internalGetErrorFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Error details for failed charges (present only when charge_status is FAILURE).
+     * </pre>
+     *
+     * <code>optional .api.v1.ChargeError error = 17 [json_name = "error"];</code>
+     */
+    public com.api.v1.ChargeErrorOrBuilder getErrorOrBuilder() {
+      if (errorBuilder_ != null) {
+        return errorBuilder_.getMessageOrBuilder();
+      } else {
+        return error_ == null ?
+            com.api.v1.ChargeError.getDefaultInstance() : error_;
+      }
+    }
+    /**
+     * <pre>
+     * Error details for failed charges (present only when charge_status is FAILURE).
+     * </pre>
+     *
+     * <code>optional .api.v1.ChargeError error = 17 [json_name = "error"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.api.v1.ChargeError, com.api.v1.ChargeError.Builder, com.api.v1.ChargeErrorOrBuilder> 
+        internalGetErrorFieldBuilder() {
+      if (errorBuilder_ == null) {
+        errorBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.api.v1.ChargeError, com.api.v1.ChargeError.Builder, com.api.v1.ChargeErrorOrBuilder>(
+                getError(),
+                getParentForChildren(),
+                isClean());
+        error_ = null;
+      }
+      return errorBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:api.v1.ChargeResult)

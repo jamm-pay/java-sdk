@@ -230,4 +230,31 @@ java.lang.String defaultValue);
    * @return The chargeStatus.
    */
   com.api.v1.ChargeStatus getChargeStatus();
+
+  /**
+   * <pre>
+   * Error details for failed charges (present only when charge_status is FAILURE).
+   * </pre>
+   *
+   * <code>optional .api.v1.ChargeError error = 17 [json_name = "error"];</code>
+   * @return Whether the error field is set.
+   */
+  boolean hasError();
+  /**
+   * <pre>
+   * Error details for failed charges (present only when charge_status is FAILURE).
+   * </pre>
+   *
+   * <code>optional .api.v1.ChargeError error = 17 [json_name = "error"];</code>
+   * @return The error.
+   */
+  com.api.v1.ChargeError getError();
+  /**
+   * <pre>
+   * Error details for failed charges (present only when charge_status is FAILURE).
+   * </pre>
+   *
+   * <code>optional .api.v1.ChargeError error = 17 [json_name = "error"];</code>
+   */
+  com.api.v1.ChargeErrorOrBuilder getErrorOrBuilder();
 }
