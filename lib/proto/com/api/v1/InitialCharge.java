@@ -100,7 +100,7 @@ private static final long serialVersionUID = 0L;
    *
    * 決済の説明。ショップが決済を追跡するための任意の文字列です。
    *
-   * &#64;gotags: validate:"required"
+   * &#64;gotags: validate:"required,max=1024"
    * </pre>
    *
    * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -126,7 +126,7 @@ private static final long serialVersionUID = 0L;
    *
    * 決済の説明。ショップが決済を追跡するための任意の文字列です。
    *
-   * &#64;gotags: validate:"required"
+   * &#64;gotags: validate:"required,max=1024"
    * </pre>
    *
    * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -867,7 +867,7 @@ java.lang.String defaultValue) {
      *
      * 決済の説明。ショップが決済を追跡するための任意の文字列です。
      *
-     * &#64;gotags: validate:"required"
+     * &#64;gotags: validate:"required,max=1024"
      * </pre>
      *
      * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -892,7 +892,7 @@ java.lang.String defaultValue) {
      *
      * 決済の説明。ショップが決済を追跡するための任意の文字列です。
      *
-     * &#64;gotags: validate:"required"
+     * &#64;gotags: validate:"required,max=1024"
      * </pre>
      *
      * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -918,7 +918,7 @@ java.lang.String defaultValue) {
      *
      * 決済の説明。ショップが決済を追跡するための任意の文字列です。
      *
-     * &#64;gotags: validate:"required"
+     * &#64;gotags: validate:"required,max=1024"
      * </pre>
      *
      * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -940,7 +940,7 @@ java.lang.String defaultValue) {
      *
      * 決済の説明。ショップが決済を追跡するための任意の文字列です。
      *
-     * &#64;gotags: validate:"required"
+     * &#64;gotags: validate:"required,max=1024"
      * </pre>
      *
      * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
@@ -959,7 +959,7 @@ java.lang.String defaultValue) {
      *
      * 決済の説明。ショップが決済を追跡するための任意の文字列です。
      *
-     * &#64;gotags: validate:"required"
+     * &#64;gotags: validate:"required,max=1024"
      * </pre>
      *
      * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
