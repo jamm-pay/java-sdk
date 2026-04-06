@@ -178,14 +178,14 @@ if (content instanceof ChargeMessage) {
 <dependency>
   <groupId>jp.jamm-pay</groupId>
   <artifactId>jamm-sdk</artifactId>
-  <version>1.2.1</version>
+  <version>1.2.2</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'jp.jamm-pay:jamm-sdk:1.2.1'
+implementation 'jp.jamm-pay:jamm-sdk:1.2.2'
 ```
 
 If you want to build from source:
@@ -261,7 +261,7 @@ This SDK is published from the `jamm-pay/java-sdk` repository.
 
 ### Available Commands
 
-All commands run via Docker using `maven:3.9-eclipse-temurin-11`:
+All commands run via Docker using `maven:3.9-eclipse-temurin-25`:
 
 ```sh
 make install       # Download dependencies

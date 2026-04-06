@@ -1,7 +1,7 @@
 .PHONY: install build test clean publish e2e lint package install-local javadoc check check-version-sync examples-build example help
 
 # Docker configuration
-DOCKER_IMAGE := maven:3.9-eclipse-temurin-11
+DOCKER_IMAGE := maven:3.9-eclipse-temurin-25
 WORKDIR := /app
 EXAMPLE ?= QuickstartExample
 
