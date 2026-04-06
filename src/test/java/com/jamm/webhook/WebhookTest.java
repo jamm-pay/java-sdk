@@ -20,10 +20,14 @@ class WebhookTest {
         class ChargeMessages {
 
             private String buildChargeMessage(String eventType) {
-                return buildChargeMessage(eventType, null);
+                return buildChargeMessage(eventType, null, "STATUS_SUCCESS");
             }
 
             private String buildChargeMessage(String eventType, String extraFields) {
+                return buildChargeMessage(eventType, extraFields, "STATUS_SUCCESS");
+            }
+
+            private String buildChargeMessage(String eventType, String extraFields, String status) {
                 return "{" +
                     "\"id\": \"mwh-ct4i88q418in5emhfvcg\"," +
                     "\"signature\": \"sha256=aa7114c09d9275e035675947e0f56e1869b7b6a9d678f304db03da15c5c27beb\"," +
@@ -32,7 +36,7 @@ class WebhookTest {
                     "\"content\": {" +
                         "\"id\": \"trx-5fc49679-7e5f-465b-b7ec-1b0e076cf208\"," +
                         "\"customer\": \"cus-ct4i7ma418in6j467rjg\"," +
-                        "\"status\": \"STATUS_SUCCESS\"," +
+                        "\"status\": \"" + status + "\"," +
                         "\"description\": \"test create nth charge without redirect\"," +
                         "\"merchant_name\": \"Test Merchant 1\"," +
                         "\"initial_amount\": 300," +
@@ -72,6 +76,7 @@ class WebhookTest {
                 assertEquals("JPY", charge.getCurrency());
                 assertEquals("2024-11-29T02:17:05.595784Z", charge.getCreatedAt());
                 assertEquals("2024-11-29T02:17:07.296241Z", charge.getUpdatedAt());
+                assertFalse(charge.hasError());
             }
 
             @Test
@@ -92,13 +97,27 @@ class WebhookTest {
                 ChargeMessage charge = (ChargeMessage) result;
                 assertEquals("trx-5fc49679-7e5f-465b-b7ec-1b0e076cf208", charge.getId());
                 assertEquals(297, charge.getFinalAmount());
+                assertFalse(charge.hasError());
             }
 
             @Test
             void parseChargeFail() throws Exception {
-                String json = buildChargeMessage("EVENT_TYPE_CHARGE_FAIL");
+                String json = buildChargeMessage(
+                    "EVENT_TYPE_CHARGE_FAIL",
+                    "\"error\": {" +
+                        "\"code\": \"ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT\"," +
+                        "\"message\": \"The payment charge exceeds the allowed limit.\"," +
+                        "\"details\": [{\"type\": \"google.protobuf.Value\", \"value\": \"test\", \"debug\": \"ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT\"}]" +
+                    "},",
+                    "STATUS_FAILURE"
+                );
                 Object result = Webhook.parse(json);
                 assertInstanceOf(ChargeMessage.class, result);
+                ChargeMessage charge = (ChargeMessage) result;
+                assertEquals(ChargeMessage.Status.STATUS_FAILURE, charge.getStatus());
+                assertTrue(charge.hasError());
+                assertEquals("ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT", charge.getError().getCode());
+                assertEquals("The payment charge exceeds the allowed limit.", charge.getError().getMessage());
             }
 
             @Test

@@ -98,6 +98,24 @@ String chargeId = asyncResponse.getChargeId();
 GetChargeResponse charge = client.payments().getCharge(chargeId);
 ```
 
+### Handling Charge Errors
+
+Failed charges include error details with a Jamm-defined error code and a human-readable message. You can check for errors on any charge returned by `getCharge` or `getCharges`:
+
+```java
+import com.api.v1.ChargeError;
+import com.api.v1.ChargeStatus;
+
+GetChargeResponse response = client.payments().getCharge(chargeId);
+ChargeResult charge = response.getCharge();
+
+if (charge.getChargeStatus() == ChargeStatus.CHARGE_STATUS_FAILURE && charge.hasError()) {
+    ChargeError error = charge.getError();
+    System.out.println("Error code: " + error.getCode());     // e.g. "ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT"
+    System.out.println("Error message: " + error.getMessage()); // e.g. "The payment charge exceeds the allowed limit."
+}
+```
+
 ### Refund
 
 Refund a charge. If the same-day cancellation window has not passed, cancels the charge directly. Otherwise, creates a bank transfer refund request. The result is delivered asynchronously via the `refund_succeeded` webhook. You can use `getCharge` to retrieve the latest refund status.
@@ -143,6 +161,12 @@ Object content = Webhook.parse(jsonBody);
 if (content instanceof ChargeMessage) {
     ChargeMessage charge = (ChargeMessage) content;
     // Handle charge event...
+
+    // For EVENT_TYPE_CHARGE_FAIL webhooks, access error details:
+    if (charge.hasError()) {
+        System.out.println("Error code: " + charge.getError().getCode());
+        System.out.println("Error message: " + charge.getError().getMessage());
+    }
 }
 ```
 
@@ -154,14 +178,14 @@ if (content instanceof ChargeMessage) {
 <dependency>
   <groupId>jp.jamm-pay</groupId>
   <artifactId>jamm-sdk</artifactId>
-  <version>1.2.0</version>
+  <version>1.2.1</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'jp.jamm-pay:jamm-sdk:1.2.0'
+implementation 'jp.jamm-pay:jamm-sdk:1.2.1'
 ```
 
 If you want to build from source:
