@@ -11,6 +11,7 @@ package com.api.v1;
  *
  * This message represents a request to process an off-session payment asynchronously.
  * It contains the customer ID and the amount to charge.
+ * Supports triggerError in charge.metadata for test error simulation. See InitialCharge.metadata.
  * </pre>
  *
  * Protobuf type {@code api.v1.OffSessionPaymentAsyncRequest}
@@ -329,6 +330,7 @@ private static final long serialVersionUID = 0L;
    *
    * This message represents a request to process an off-session payment asynchronously.
    * It contains the customer ID and the amount to charge.
+   * Supports triggerError in charge.metadata for test error simulation. See InitialCharge.metadata.
    * </pre>
    *
    * Protobuf type {@code api.v1.OffSessionPaymentAsyncRequest}

@@ -129,7 +129,11 @@ public enum ErrorType
    * <pre>
    * Payment-related errors (1000+)
    * Triggered during payment operations, BankPay interactions, request validation, and charge handling.
+   * These enum names can be used as triggerError values in InitialCharge.metadata
+   * to simulate failures during testing. See InitialCharge.metadata for
+   * flow-specific behavior (off-session vs on-session initiate vs on-session approve).
    * Unavailable: The payment gateway is unavailable, e.g., BankPay is down.
+   * triggerError stage: approve
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE = 1000;</code>
@@ -138,6 +142,7 @@ public enum ErrorType
   /**
    * <pre>
    * Failed: The payment gateway failed to process the payment, e.g., BankPay returned an error.
+   * triggerError stage: approve
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_GATEWAY_FAILED = 1001;</code>
@@ -146,6 +151,7 @@ public enum ErrorType
   /**
    * <pre>
    * Validation Failed: The payment request validation failed, e.g., invalid payment ID.
+   * triggerError stage: initiate or approve
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_VALIDATION_FAILED = 1002;</code>
@@ -154,6 +160,7 @@ public enum ErrorType
   /**
    * <pre>
    * Charge Failed: The payment charge failed, e.g., workflow initiate failed.
+   * triggerError stage: approve
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_CHARGE_FAILED = 1003;</code>
@@ -162,6 +169,7 @@ public enum ErrorType
   /**
    * <pre>
    * Charge Rejected: The payment charge was rejected, e.g., ForceKyc but Kyc is waiting for approval.
+   * triggerError stage: approve
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_CHARGE_REJECTED = 1004;</code>
@@ -170,6 +178,7 @@ public enum ErrorType
   /**
    * <pre>
    * Charge Over Limit: The payment charge amount exceeded the limit.
+   * triggerError stage: approve
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT = 1005;</code>
@@ -187,6 +196,7 @@ public enum ErrorType
   /**
    * <pre>
    * Link Expired: The payment link expired.
+   * triggerError stage: initiate or approve
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_LINK_EXPIRED = 1007;</code>
@@ -195,6 +205,7 @@ public enum ErrorType
   /**
    * <pre>
    * Charge Insufficient Funds: The payment charge failed due to insufficient funds in the customer's account.
+   * triggerError stage: approve
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS = 1008;</code>
@@ -414,7 +425,11 @@ public enum ErrorType
    * <pre>
    * Payment-related errors (1000+)
    * Triggered during payment operations, BankPay interactions, request validation, and charge handling.
+   * These enum names can be used as triggerError values in InitialCharge.metadata
+   * to simulate failures during testing. See InitialCharge.metadata for
+   * flow-specific behavior (off-session vs on-session initiate vs on-session approve).
    * Unavailable: The payment gateway is unavailable, e.g., BankPay is down.
+   * triggerError stage: approve
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE = 1000;</code>
@@ -423,6 +438,7 @@ public enum ErrorType
   /**
    * <pre>
    * Failed: The payment gateway failed to process the payment, e.g., BankPay returned an error.
+   * triggerError stage: approve
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_GATEWAY_FAILED = 1001;</code>
@@ -431,6 +447,7 @@ public enum ErrorType
   /**
    * <pre>
    * Validation Failed: The payment request validation failed, e.g., invalid payment ID.
+   * triggerError stage: initiate or approve
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_VALIDATION_FAILED = 1002;</code>
@@ -439,6 +456,7 @@ public enum ErrorType
   /**
    * <pre>
    * Charge Failed: The payment charge failed, e.g., workflow initiate failed.
+   * triggerError stage: approve
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_CHARGE_FAILED = 1003;</code>
@@ -447,6 +465,7 @@ public enum ErrorType
   /**
    * <pre>
    * Charge Rejected: The payment charge was rejected, e.g., ForceKyc but Kyc is waiting for approval.
+   * triggerError stage: approve
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_CHARGE_REJECTED = 1004;</code>
@@ -455,6 +474,7 @@ public enum ErrorType
   /**
    * <pre>
    * Charge Over Limit: The payment charge amount exceeded the limit.
+   * triggerError stage: approve
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT = 1005;</code>
@@ -472,6 +492,7 @@ public enum ErrorType
   /**
    * <pre>
    * Link Expired: The payment link expired.
+   * triggerError stage: initiate or approve
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_LINK_EXPIRED = 1007;</code>
@@ -480,6 +501,7 @@ public enum ErrorType
   /**
    * <pre>
    * Charge Insufficient Funds: The payment charge failed due to insufficient funds in the customer's account.
+   * triggerError stage: approve
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS = 1008;</code>

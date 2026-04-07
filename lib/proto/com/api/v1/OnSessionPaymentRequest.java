@@ -11,6 +11,8 @@ package com.api.v1;
  *
  * Request message for the unified payment interface. The system intelligently routes
  * the request to the appropriate payment method based on the provided parameters.
+ * Supports triggerError for test error simulation via the core InitiatePayment/ApprovePayment flow.
+ * See InitialCharge.metadata for details on behavior differences by stage.
  * </pre>
  *
  * Protobuf type {@code api.v1.OnSessionPaymentRequest}
@@ -504,6 +506,8 @@ private static final long serialVersionUID = 0L;
    *
    * Request message for the unified payment interface. The system intelligently routes
    * the request to the appropriate payment method based on the provided parameters.
+   * Supports triggerError for test error simulation via the core InitiatePayment/ApprovePayment flow.
+   * See InitialCharge.metadata for details on behavior differences by stage.
    * </pre>
    *
    * Protobuf type {@code api.v1.OnSessionPaymentRequest}

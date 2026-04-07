@@ -178,8 +178,55 @@ private static final long serialVersionUID = 0L;
    * Arbitrary key-value additional information about the charge.
    * You can see this information in our merchant dashboard.
    *
+   * ## Testing with triggerError
+   *
+   * Set the key "triggerError" to a valid ERROR_TYPE_* enum name
+   * (e.g. "ERROR_TYPE_PAYMENT_CHARGE_FAILED") to simulate a payment failure.
+   * Behavior differs by flow:
+   *
+   * Off-session (Withdraw, WithdrawAsync, OffSessionPayment, OffSessionPaymentAsync):
+   * Reads triggerError from this field (charge.metadata).
+   * Creates a failed transaction record and sends a failure webhook.
+   * Returns transport-level 400 for ERROR_TYPE_PAYMENT_VALIDATION_FAILED,
+   * 500 for all other ERROR_TYPE_* values.
+   *
+   * On-session (InitiatePayment / ApprovePayment — consumer-facing core service):
+   * Reads triggerError from the payment's stored metadata (charge or merchant-customer).
+   * Initiate stage: only ERROR_TYPE_PAYMENT_VALIDATION_FAILED and
+   * ERROR_TYPE_PAYMENT_LINK_EXPIRED are honored; other types are ignored.
+   * No failed transaction or webhook is created. Returns 200 OK with
+   * an embedded InitiatePaymentError payload.
+   * Approve stage: all ERROR_TYPE_* values are honored.
+   * Creates workflow-specific failure records (cancelled contract and/or
+   * failed transaction depending on the workflow type). Returns 200 OK with
+   * an embedded ApprovePaymentError payload.
+   *
+   * Note: CreateContractWithoutCharge has no charge, so this field does not
+   * apply. On-session triggerError for that flow is read from merchant-customer
+   * metadata instead.
+   *
+   * ## Error types by payment stage
+   *
+   * Initiate (payment session setup, workflow creation):
+   * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request
+   * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+   *
+   * Approve (pre-charge validation + BankPay charge execution):
+   * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
+   * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+   * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
+   * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+   * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
+   * - ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS — insufficient funds in customer's account
+   * - ERROR_TYPE_PAYMENT_GATEWAY_FAILED     — BankPay rejected the charge
+   * - ERROR_TYPE_PAYMENT_CHARGE_FAILED      — generic charge failure (internal, not found, etc.)
+   *
    * Chargeに関する任意のキーと値の追加情報。
    * 加盟店ダッシュボードで確認できます。
+   *
+   * テスト環境では、"triggerError" キーに ERROR_TYPE_* の列挙名を設定すると
+   * 決済エラーをシミュレートできます。動作はフローによって異なります。
+   * 詳細は上記の英語コメントを参照してください。
    * </pre>
    *
    * <code>map&lt;string, string&gt; metadata = 4 [json_name = "metadata"];</code>
@@ -203,8 +250,55 @@ private static final long serialVersionUID = 0L;
    * Arbitrary key-value additional information about the charge.
    * You can see this information in our merchant dashboard.
    *
+   * ## Testing with triggerError
+   *
+   * Set the key "triggerError" to a valid ERROR_TYPE_* enum name
+   * (e.g. "ERROR_TYPE_PAYMENT_CHARGE_FAILED") to simulate a payment failure.
+   * Behavior differs by flow:
+   *
+   * Off-session (Withdraw, WithdrawAsync, OffSessionPayment, OffSessionPaymentAsync):
+   * Reads triggerError from this field (charge.metadata).
+   * Creates a failed transaction record and sends a failure webhook.
+   * Returns transport-level 400 for ERROR_TYPE_PAYMENT_VALIDATION_FAILED,
+   * 500 for all other ERROR_TYPE_* values.
+   *
+   * On-session (InitiatePayment / ApprovePayment — consumer-facing core service):
+   * Reads triggerError from the payment's stored metadata (charge or merchant-customer).
+   * Initiate stage: only ERROR_TYPE_PAYMENT_VALIDATION_FAILED and
+   * ERROR_TYPE_PAYMENT_LINK_EXPIRED are honored; other types are ignored.
+   * No failed transaction or webhook is created. Returns 200 OK with
+   * an embedded InitiatePaymentError payload.
+   * Approve stage: all ERROR_TYPE_* values are honored.
+   * Creates workflow-specific failure records (cancelled contract and/or
+   * failed transaction depending on the workflow type). Returns 200 OK with
+   * an embedded ApprovePaymentError payload.
+   *
+   * Note: CreateContractWithoutCharge has no charge, so this field does not
+   * apply. On-session triggerError for that flow is read from merchant-customer
+   * metadata instead.
+   *
+   * ## Error types by payment stage
+   *
+   * Initiate (payment session setup, workflow creation):
+   * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request
+   * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+   *
+   * Approve (pre-charge validation + BankPay charge execution):
+   * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
+   * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+   * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
+   * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+   * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
+   * - ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS — insufficient funds in customer's account
+   * - ERROR_TYPE_PAYMENT_GATEWAY_FAILED     — BankPay rejected the charge
+   * - ERROR_TYPE_PAYMENT_CHARGE_FAILED      — generic charge failure (internal, not found, etc.)
+   *
    * Chargeに関する任意のキーと値の追加情報。
    * 加盟店ダッシュボードで確認できます。
+   *
+   * テスト環境では、"triggerError" キーに ERROR_TYPE_* の列挙名を設定すると
+   * 決済エラーをシミュレートできます。動作はフローによって異なります。
+   * 詳細は上記の英語コメントを参照してください。
    * </pre>
    *
    * <code>map&lt;string, string&gt; metadata = 4 [json_name = "metadata"];</code>
@@ -218,8 +312,55 @@ private static final long serialVersionUID = 0L;
    * Arbitrary key-value additional information about the charge.
    * You can see this information in our merchant dashboard.
    *
+   * ## Testing with triggerError
+   *
+   * Set the key "triggerError" to a valid ERROR_TYPE_* enum name
+   * (e.g. "ERROR_TYPE_PAYMENT_CHARGE_FAILED") to simulate a payment failure.
+   * Behavior differs by flow:
+   *
+   * Off-session (Withdraw, WithdrawAsync, OffSessionPayment, OffSessionPaymentAsync):
+   * Reads triggerError from this field (charge.metadata).
+   * Creates a failed transaction record and sends a failure webhook.
+   * Returns transport-level 400 for ERROR_TYPE_PAYMENT_VALIDATION_FAILED,
+   * 500 for all other ERROR_TYPE_* values.
+   *
+   * On-session (InitiatePayment / ApprovePayment — consumer-facing core service):
+   * Reads triggerError from the payment's stored metadata (charge or merchant-customer).
+   * Initiate stage: only ERROR_TYPE_PAYMENT_VALIDATION_FAILED and
+   * ERROR_TYPE_PAYMENT_LINK_EXPIRED are honored; other types are ignored.
+   * No failed transaction or webhook is created. Returns 200 OK with
+   * an embedded InitiatePaymentError payload.
+   * Approve stage: all ERROR_TYPE_* values are honored.
+   * Creates workflow-specific failure records (cancelled contract and/or
+   * failed transaction depending on the workflow type). Returns 200 OK with
+   * an embedded ApprovePaymentError payload.
+   *
+   * Note: CreateContractWithoutCharge has no charge, so this field does not
+   * apply. On-session triggerError for that flow is read from merchant-customer
+   * metadata instead.
+   *
+   * ## Error types by payment stage
+   *
+   * Initiate (payment session setup, workflow creation):
+   * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request
+   * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+   *
+   * Approve (pre-charge validation + BankPay charge execution):
+   * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
+   * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+   * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
+   * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+   * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
+   * - ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS — insufficient funds in customer's account
+   * - ERROR_TYPE_PAYMENT_GATEWAY_FAILED     — BankPay rejected the charge
+   * - ERROR_TYPE_PAYMENT_CHARGE_FAILED      — generic charge failure (internal, not found, etc.)
+   *
    * Chargeに関する任意のキーと値の追加情報。
    * 加盟店ダッシュボードで確認できます。
+   *
+   * テスト環境では、"triggerError" キーに ERROR_TYPE_* の列挙名を設定すると
+   * 決済エラーをシミュレートできます。動作はフローによって異なります。
+   * 詳細は上記の英語コメントを参照してください。
    * </pre>
    *
    * <code>map&lt;string, string&gt; metadata = 4 [json_name = "metadata"];</code>
@@ -240,8 +381,55 @@ java.lang.String defaultValue) {
    * Arbitrary key-value additional information about the charge.
    * You can see this information in our merchant dashboard.
    *
+   * ## Testing with triggerError
+   *
+   * Set the key "triggerError" to a valid ERROR_TYPE_* enum name
+   * (e.g. "ERROR_TYPE_PAYMENT_CHARGE_FAILED") to simulate a payment failure.
+   * Behavior differs by flow:
+   *
+   * Off-session (Withdraw, WithdrawAsync, OffSessionPayment, OffSessionPaymentAsync):
+   * Reads triggerError from this field (charge.metadata).
+   * Creates a failed transaction record and sends a failure webhook.
+   * Returns transport-level 400 for ERROR_TYPE_PAYMENT_VALIDATION_FAILED,
+   * 500 for all other ERROR_TYPE_* values.
+   *
+   * On-session (InitiatePayment / ApprovePayment — consumer-facing core service):
+   * Reads triggerError from the payment's stored metadata (charge or merchant-customer).
+   * Initiate stage: only ERROR_TYPE_PAYMENT_VALIDATION_FAILED and
+   * ERROR_TYPE_PAYMENT_LINK_EXPIRED are honored; other types are ignored.
+   * No failed transaction or webhook is created. Returns 200 OK with
+   * an embedded InitiatePaymentError payload.
+   * Approve stage: all ERROR_TYPE_* values are honored.
+   * Creates workflow-specific failure records (cancelled contract and/or
+   * failed transaction depending on the workflow type). Returns 200 OK with
+   * an embedded ApprovePaymentError payload.
+   *
+   * Note: CreateContractWithoutCharge has no charge, so this field does not
+   * apply. On-session triggerError for that flow is read from merchant-customer
+   * metadata instead.
+   *
+   * ## Error types by payment stage
+   *
+   * Initiate (payment session setup, workflow creation):
+   * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request
+   * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+   *
+   * Approve (pre-charge validation + BankPay charge execution):
+   * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
+   * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+   * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
+   * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+   * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
+   * - ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS — insufficient funds in customer's account
+   * - ERROR_TYPE_PAYMENT_GATEWAY_FAILED     — BankPay rejected the charge
+   * - ERROR_TYPE_PAYMENT_CHARGE_FAILED      — generic charge failure (internal, not found, etc.)
+   *
    * Chargeに関する任意のキーと値の追加情報。
    * 加盟店ダッシュボードで確認できます。
+   *
+   * テスト環境では、"triggerError" キーに ERROR_TYPE_* の列挙名を設定すると
+   * 決済エラーをシミュレートできます。動作はフローによって異なります。
+   * 詳細は上記の英語コメントを参照してください。
    * </pre>
    *
    * <code>map&lt;string, string&gt; metadata = 4 [json_name = "metadata"];</code>
@@ -1007,8 +1195,55 @@ java.lang.String defaultValue) {
      * Arbitrary key-value additional information about the charge.
      * You can see this information in our merchant dashboard.
      *
+     * ## Testing with triggerError
+     *
+     * Set the key "triggerError" to a valid ERROR_TYPE_* enum name
+     * (e.g. "ERROR_TYPE_PAYMENT_CHARGE_FAILED") to simulate a payment failure.
+     * Behavior differs by flow:
+     *
+     * Off-session (Withdraw, WithdrawAsync, OffSessionPayment, OffSessionPaymentAsync):
+     * Reads triggerError from this field (charge.metadata).
+     * Creates a failed transaction record and sends a failure webhook.
+     * Returns transport-level 400 for ERROR_TYPE_PAYMENT_VALIDATION_FAILED,
+     * 500 for all other ERROR_TYPE_* values.
+     *
+     * On-session (InitiatePayment / ApprovePayment — consumer-facing core service):
+     * Reads triggerError from the payment's stored metadata (charge or merchant-customer).
+     * Initiate stage: only ERROR_TYPE_PAYMENT_VALIDATION_FAILED and
+     * ERROR_TYPE_PAYMENT_LINK_EXPIRED are honored; other types are ignored.
+     * No failed transaction or webhook is created. Returns 200 OK with
+     * an embedded InitiatePaymentError payload.
+     * Approve stage: all ERROR_TYPE_* values are honored.
+     * Creates workflow-specific failure records (cancelled contract and/or
+     * failed transaction depending on the workflow type). Returns 200 OK with
+     * an embedded ApprovePaymentError payload.
+     *
+     * Note: CreateContractWithoutCharge has no charge, so this field does not
+     * apply. On-session triggerError for that flow is read from merchant-customer
+     * metadata instead.
+     *
+     * ## Error types by payment stage
+     *
+     * Initiate (payment session setup, workflow creation):
+     * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request
+     * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+     *
+     * Approve (pre-charge validation + BankPay charge execution):
+     * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
+     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+     * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
+     * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+     * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
+     * - ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS — insufficient funds in customer's account
+     * - ERROR_TYPE_PAYMENT_GATEWAY_FAILED     — BankPay rejected the charge
+     * - ERROR_TYPE_PAYMENT_CHARGE_FAILED      — generic charge failure (internal, not found, etc.)
+     *
      * Chargeに関する任意のキーと値の追加情報。
      * 加盟店ダッシュボードで確認できます。
+     *
+     * テスト環境では、"triggerError" キーに ERROR_TYPE_* の列挙名を設定すると
+     * 決済エラーをシミュレートできます。動作はフローによって異なります。
+     * 詳細は上記の英語コメントを参照してください。
      * </pre>
      *
      * <code>map&lt;string, string&gt; metadata = 4 [json_name = "metadata"];</code>
@@ -1032,8 +1267,55 @@ java.lang.String defaultValue) {
      * Arbitrary key-value additional information about the charge.
      * You can see this information in our merchant dashboard.
      *
+     * ## Testing with triggerError
+     *
+     * Set the key "triggerError" to a valid ERROR_TYPE_* enum name
+     * (e.g. "ERROR_TYPE_PAYMENT_CHARGE_FAILED") to simulate a payment failure.
+     * Behavior differs by flow:
+     *
+     * Off-session (Withdraw, WithdrawAsync, OffSessionPayment, OffSessionPaymentAsync):
+     * Reads triggerError from this field (charge.metadata).
+     * Creates a failed transaction record and sends a failure webhook.
+     * Returns transport-level 400 for ERROR_TYPE_PAYMENT_VALIDATION_FAILED,
+     * 500 for all other ERROR_TYPE_* values.
+     *
+     * On-session (InitiatePayment / ApprovePayment — consumer-facing core service):
+     * Reads triggerError from the payment's stored metadata (charge or merchant-customer).
+     * Initiate stage: only ERROR_TYPE_PAYMENT_VALIDATION_FAILED and
+     * ERROR_TYPE_PAYMENT_LINK_EXPIRED are honored; other types are ignored.
+     * No failed transaction or webhook is created. Returns 200 OK with
+     * an embedded InitiatePaymentError payload.
+     * Approve stage: all ERROR_TYPE_* values are honored.
+     * Creates workflow-specific failure records (cancelled contract and/or
+     * failed transaction depending on the workflow type). Returns 200 OK with
+     * an embedded ApprovePaymentError payload.
+     *
+     * Note: CreateContractWithoutCharge has no charge, so this field does not
+     * apply. On-session triggerError for that flow is read from merchant-customer
+     * metadata instead.
+     *
+     * ## Error types by payment stage
+     *
+     * Initiate (payment session setup, workflow creation):
+     * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request
+     * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+     *
+     * Approve (pre-charge validation + BankPay charge execution):
+     * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
+     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+     * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
+     * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+     * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
+     * - ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS — insufficient funds in customer's account
+     * - ERROR_TYPE_PAYMENT_GATEWAY_FAILED     — BankPay rejected the charge
+     * - ERROR_TYPE_PAYMENT_CHARGE_FAILED      — generic charge failure (internal, not found, etc.)
+     *
      * Chargeに関する任意のキーと値の追加情報。
      * 加盟店ダッシュボードで確認できます。
+     *
+     * テスト環境では、"triggerError" キーに ERROR_TYPE_* の列挙名を設定すると
+     * 決済エラーをシミュレートできます。動作はフローによって異なります。
+     * 詳細は上記の英語コメントを参照してください。
      * </pre>
      *
      * <code>map&lt;string, string&gt; metadata = 4 [json_name = "metadata"];</code>
@@ -1047,8 +1329,55 @@ java.lang.String defaultValue) {
      * Arbitrary key-value additional information about the charge.
      * You can see this information in our merchant dashboard.
      *
+     * ## Testing with triggerError
+     *
+     * Set the key "triggerError" to a valid ERROR_TYPE_* enum name
+     * (e.g. "ERROR_TYPE_PAYMENT_CHARGE_FAILED") to simulate a payment failure.
+     * Behavior differs by flow:
+     *
+     * Off-session (Withdraw, WithdrawAsync, OffSessionPayment, OffSessionPaymentAsync):
+     * Reads triggerError from this field (charge.metadata).
+     * Creates a failed transaction record and sends a failure webhook.
+     * Returns transport-level 400 for ERROR_TYPE_PAYMENT_VALIDATION_FAILED,
+     * 500 for all other ERROR_TYPE_* values.
+     *
+     * On-session (InitiatePayment / ApprovePayment — consumer-facing core service):
+     * Reads triggerError from the payment's stored metadata (charge or merchant-customer).
+     * Initiate stage: only ERROR_TYPE_PAYMENT_VALIDATION_FAILED and
+     * ERROR_TYPE_PAYMENT_LINK_EXPIRED are honored; other types are ignored.
+     * No failed transaction or webhook is created. Returns 200 OK with
+     * an embedded InitiatePaymentError payload.
+     * Approve stage: all ERROR_TYPE_* values are honored.
+     * Creates workflow-specific failure records (cancelled contract and/or
+     * failed transaction depending on the workflow type). Returns 200 OK with
+     * an embedded ApprovePaymentError payload.
+     *
+     * Note: CreateContractWithoutCharge has no charge, so this field does not
+     * apply. On-session triggerError for that flow is read from merchant-customer
+     * metadata instead.
+     *
+     * ## Error types by payment stage
+     *
+     * Initiate (payment session setup, workflow creation):
+     * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request
+     * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+     *
+     * Approve (pre-charge validation + BankPay charge execution):
+     * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
+     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+     * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
+     * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+     * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
+     * - ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS — insufficient funds in customer's account
+     * - ERROR_TYPE_PAYMENT_GATEWAY_FAILED     — BankPay rejected the charge
+     * - ERROR_TYPE_PAYMENT_CHARGE_FAILED      — generic charge failure (internal, not found, etc.)
+     *
      * Chargeに関する任意のキーと値の追加情報。
      * 加盟店ダッシュボードで確認できます。
+     *
+     * テスト環境では、"triggerError" キーに ERROR_TYPE_* の列挙名を設定すると
+     * 決済エラーをシミュレートできます。動作はフローによって異なります。
+     * 詳細は上記の英語コメントを参照してください。
      * </pre>
      *
      * <code>map&lt;string, string&gt; metadata = 4 [json_name = "metadata"];</code>
@@ -1069,8 +1398,55 @@ java.lang.String defaultValue) {
      * Arbitrary key-value additional information about the charge.
      * You can see this information in our merchant dashboard.
      *
+     * ## Testing with triggerError
+     *
+     * Set the key "triggerError" to a valid ERROR_TYPE_* enum name
+     * (e.g. "ERROR_TYPE_PAYMENT_CHARGE_FAILED") to simulate a payment failure.
+     * Behavior differs by flow:
+     *
+     * Off-session (Withdraw, WithdrawAsync, OffSessionPayment, OffSessionPaymentAsync):
+     * Reads triggerError from this field (charge.metadata).
+     * Creates a failed transaction record and sends a failure webhook.
+     * Returns transport-level 400 for ERROR_TYPE_PAYMENT_VALIDATION_FAILED,
+     * 500 for all other ERROR_TYPE_* values.
+     *
+     * On-session (InitiatePayment / ApprovePayment — consumer-facing core service):
+     * Reads triggerError from the payment's stored metadata (charge or merchant-customer).
+     * Initiate stage: only ERROR_TYPE_PAYMENT_VALIDATION_FAILED and
+     * ERROR_TYPE_PAYMENT_LINK_EXPIRED are honored; other types are ignored.
+     * No failed transaction or webhook is created. Returns 200 OK with
+     * an embedded InitiatePaymentError payload.
+     * Approve stage: all ERROR_TYPE_* values are honored.
+     * Creates workflow-specific failure records (cancelled contract and/or
+     * failed transaction depending on the workflow type). Returns 200 OK with
+     * an embedded ApprovePaymentError payload.
+     *
+     * Note: CreateContractWithoutCharge has no charge, so this field does not
+     * apply. On-session triggerError for that flow is read from merchant-customer
+     * metadata instead.
+     *
+     * ## Error types by payment stage
+     *
+     * Initiate (payment session setup, workflow creation):
+     * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request
+     * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+     *
+     * Approve (pre-charge validation + BankPay charge execution):
+     * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
+     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+     * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
+     * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+     * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
+     * - ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS — insufficient funds in customer's account
+     * - ERROR_TYPE_PAYMENT_GATEWAY_FAILED     — BankPay rejected the charge
+     * - ERROR_TYPE_PAYMENT_CHARGE_FAILED      — generic charge failure (internal, not found, etc.)
+     *
      * Chargeに関する任意のキーと値の追加情報。
      * 加盟店ダッシュボードで確認できます。
+     *
+     * テスト環境では、"triggerError" キーに ERROR_TYPE_* の列挙名を設定すると
+     * 決済エラーをシミュレートできます。動作はフローによって異なります。
+     * 詳細は上記の英語コメントを参照してください。
      * </pre>
      *
      * <code>map&lt;string, string&gt; metadata = 4 [json_name = "metadata"];</code>
@@ -1097,8 +1473,55 @@ java.lang.String defaultValue) {
      * Arbitrary key-value additional information about the charge.
      * You can see this information in our merchant dashboard.
      *
+     * ## Testing with triggerError
+     *
+     * Set the key "triggerError" to a valid ERROR_TYPE_* enum name
+     * (e.g. "ERROR_TYPE_PAYMENT_CHARGE_FAILED") to simulate a payment failure.
+     * Behavior differs by flow:
+     *
+     * Off-session (Withdraw, WithdrawAsync, OffSessionPayment, OffSessionPaymentAsync):
+     * Reads triggerError from this field (charge.metadata).
+     * Creates a failed transaction record and sends a failure webhook.
+     * Returns transport-level 400 for ERROR_TYPE_PAYMENT_VALIDATION_FAILED,
+     * 500 for all other ERROR_TYPE_* values.
+     *
+     * On-session (InitiatePayment / ApprovePayment — consumer-facing core service):
+     * Reads triggerError from the payment's stored metadata (charge or merchant-customer).
+     * Initiate stage: only ERROR_TYPE_PAYMENT_VALIDATION_FAILED and
+     * ERROR_TYPE_PAYMENT_LINK_EXPIRED are honored; other types are ignored.
+     * No failed transaction or webhook is created. Returns 200 OK with
+     * an embedded InitiatePaymentError payload.
+     * Approve stage: all ERROR_TYPE_* values are honored.
+     * Creates workflow-specific failure records (cancelled contract and/or
+     * failed transaction depending on the workflow type). Returns 200 OK with
+     * an embedded ApprovePaymentError payload.
+     *
+     * Note: CreateContractWithoutCharge has no charge, so this field does not
+     * apply. On-session triggerError for that flow is read from merchant-customer
+     * metadata instead.
+     *
+     * ## Error types by payment stage
+     *
+     * Initiate (payment session setup, workflow creation):
+     * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request
+     * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+     *
+     * Approve (pre-charge validation + BankPay charge execution):
+     * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
+     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+     * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
+     * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+     * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
+     * - ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS — insufficient funds in customer's account
+     * - ERROR_TYPE_PAYMENT_GATEWAY_FAILED     — BankPay rejected the charge
+     * - ERROR_TYPE_PAYMENT_CHARGE_FAILED      — generic charge failure (internal, not found, etc.)
+     *
      * Chargeに関する任意のキーと値の追加情報。
      * 加盟店ダッシュボードで確認できます。
+     *
+     * テスト環境では、"triggerError" キーに ERROR_TYPE_* の列挙名を設定すると
+     * 決済エラーをシミュレートできます。動作はフローによって異なります。
+     * 詳細は上記の英語コメントを参照してください。
      * </pre>
      *
      * <code>map&lt;string, string&gt; metadata = 4 [json_name = "metadata"];</code>
@@ -1124,8 +1547,55 @@ java.lang.String defaultValue) {
      * Arbitrary key-value additional information about the charge.
      * You can see this information in our merchant dashboard.
      *
+     * ## Testing with triggerError
+     *
+     * Set the key "triggerError" to a valid ERROR_TYPE_* enum name
+     * (e.g. "ERROR_TYPE_PAYMENT_CHARGE_FAILED") to simulate a payment failure.
+     * Behavior differs by flow:
+     *
+     * Off-session (Withdraw, WithdrawAsync, OffSessionPayment, OffSessionPaymentAsync):
+     * Reads triggerError from this field (charge.metadata).
+     * Creates a failed transaction record and sends a failure webhook.
+     * Returns transport-level 400 for ERROR_TYPE_PAYMENT_VALIDATION_FAILED,
+     * 500 for all other ERROR_TYPE_* values.
+     *
+     * On-session (InitiatePayment / ApprovePayment — consumer-facing core service):
+     * Reads triggerError from the payment's stored metadata (charge or merchant-customer).
+     * Initiate stage: only ERROR_TYPE_PAYMENT_VALIDATION_FAILED and
+     * ERROR_TYPE_PAYMENT_LINK_EXPIRED are honored; other types are ignored.
+     * No failed transaction or webhook is created. Returns 200 OK with
+     * an embedded InitiatePaymentError payload.
+     * Approve stage: all ERROR_TYPE_* values are honored.
+     * Creates workflow-specific failure records (cancelled contract and/or
+     * failed transaction depending on the workflow type). Returns 200 OK with
+     * an embedded ApprovePaymentError payload.
+     *
+     * Note: CreateContractWithoutCharge has no charge, so this field does not
+     * apply. On-session triggerError for that flow is read from merchant-customer
+     * metadata instead.
+     *
+     * ## Error types by payment stage
+     *
+     * Initiate (payment session setup, workflow creation):
+     * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request
+     * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+     *
+     * Approve (pre-charge validation + BankPay charge execution):
+     * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
+     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+     * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
+     * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+     * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
+     * - ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS — insufficient funds in customer's account
+     * - ERROR_TYPE_PAYMENT_GATEWAY_FAILED     — BankPay rejected the charge
+     * - ERROR_TYPE_PAYMENT_CHARGE_FAILED      — generic charge failure (internal, not found, etc.)
+     *
      * Chargeに関する任意のキーと値の追加情報。
      * 加盟店ダッシュボードで確認できます。
+     *
+     * テスト環境では、"triggerError" キーに ERROR_TYPE_* の列挙名を設定すると
+     * 決済エラーをシミュレートできます。動作はフローによって異なります。
+     * 詳細は上記の英語コメントを参照してください。
      * </pre>
      *
      * <code>map&lt;string, string&gt; metadata = 4 [json_name = "metadata"];</code>
@@ -1145,8 +1615,55 @@ java.lang.String defaultValue) {
      * Arbitrary key-value additional information about the charge.
      * You can see this information in our merchant dashboard.
      *
+     * ## Testing with triggerError
+     *
+     * Set the key "triggerError" to a valid ERROR_TYPE_* enum name
+     * (e.g. "ERROR_TYPE_PAYMENT_CHARGE_FAILED") to simulate a payment failure.
+     * Behavior differs by flow:
+     *
+     * Off-session (Withdraw, WithdrawAsync, OffSessionPayment, OffSessionPaymentAsync):
+     * Reads triggerError from this field (charge.metadata).
+     * Creates a failed transaction record and sends a failure webhook.
+     * Returns transport-level 400 for ERROR_TYPE_PAYMENT_VALIDATION_FAILED,
+     * 500 for all other ERROR_TYPE_* values.
+     *
+     * On-session (InitiatePayment / ApprovePayment — consumer-facing core service):
+     * Reads triggerError from the payment's stored metadata (charge or merchant-customer).
+     * Initiate stage: only ERROR_TYPE_PAYMENT_VALIDATION_FAILED and
+     * ERROR_TYPE_PAYMENT_LINK_EXPIRED are honored; other types are ignored.
+     * No failed transaction or webhook is created. Returns 200 OK with
+     * an embedded InitiatePaymentError payload.
+     * Approve stage: all ERROR_TYPE_* values are honored.
+     * Creates workflow-specific failure records (cancelled contract and/or
+     * failed transaction depending on the workflow type). Returns 200 OK with
+     * an embedded ApprovePaymentError payload.
+     *
+     * Note: CreateContractWithoutCharge has no charge, so this field does not
+     * apply. On-session triggerError for that flow is read from merchant-customer
+     * metadata instead.
+     *
+     * ## Error types by payment stage
+     *
+     * Initiate (payment session setup, workflow creation):
+     * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request
+     * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+     *
+     * Approve (pre-charge validation + BankPay charge execution):
+     * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
+     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+     * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
+     * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
+     * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
+     * - ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS — insufficient funds in customer's account
+     * - ERROR_TYPE_PAYMENT_GATEWAY_FAILED     — BankPay rejected the charge
+     * - ERROR_TYPE_PAYMENT_CHARGE_FAILED      — generic charge failure (internal, not found, etc.)
+     *
      * Chargeに関する任意のキーと値の追加情報。
      * 加盟店ダッシュボードで確認できます。
+     *
+     * テスト環境では、"triggerError" キーに ERROR_TYPE_* の列挙名を設定すると
+     * 決済エラーをシミュレートできます。動作はフローによって異なります。
+     * 詳細は上記の英語コメントを参照してください。
      * </pre>
      *
      * <code>map&lt;string, string&gt; metadata = 4 [json_name = "metadata"];</code>

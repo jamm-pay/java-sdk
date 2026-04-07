@@ -11,6 +11,7 @@ package com.api.v1;
  *
  * This message represents a request to process a payment directly within the application.
  * It contains the customer ID and charge details to be processed.
+ * Supports triggerError in charge.metadata for test error simulation. See InitialCharge.metadata.
  * </pre>
  *
  * Protobuf type {@code api.v1.OffSessionPaymentRequest}
@@ -335,6 +336,7 @@ private static final long serialVersionUID = 0L;
    *
    * This message represents a request to process a payment directly within the application.
    * It contains the customer ID and charge details to be processed.
+   * Supports triggerError in charge.metadata for test error simulation. See InitialCharge.metadata.
    * </pre>
    *
    * Protobuf type {@code api.v1.OffSessionPaymentRequest}
