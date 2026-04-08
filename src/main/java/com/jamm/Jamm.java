@@ -70,6 +70,27 @@ public final class Jamm {
     }
 
     /**
+     * Configures the global default client in platform mode.
+     * Platform mode enables making API calls on behalf of connected merchants.
+     *
+     * @param clientId     the OAuth client ID
+     * @param clientSecret the OAuth client secret
+     * @param environment  the API environment
+     * @param platform     true to enable platform mode
+     */
+    public static void configure(String clientId, String clientSecret,
+                                 Environment environment, boolean platform) {
+        synchronized (LOCK) {
+            defaultClient = JammClient.builder()
+                    .clientId(clientId)
+                    .clientSecret(clientSecret)
+                    .environment(environment)
+                    .platform(platform)
+                    .build();
+        }
+    }
+
+    /**
      * Configures the global default client with environment string.
      *
      * @param clientId     the OAuth client ID
@@ -78,6 +99,19 @@ public final class Jamm {
      */
     public static void configure(String clientId, String clientSecret, String envName) {
         configure(clientId, clientSecret, Environment.fromString(envName));
+    }
+
+    /**
+     * Configures the global default client in platform mode with environment string.
+     *
+     * @param clientId     the OAuth client ID
+     * @param clientSecret the OAuth client secret
+     * @param envName      the environment name (e.g., "production", "staging", "local")
+     * @param platform     true to enable platform mode
+     */
+    public static void configure(String clientId, String clientSecret,
+                                 String envName, boolean platform) {
+        configure(clientId, clientSecret, Environment.fromString(envName), platform);
     }
 
     /**

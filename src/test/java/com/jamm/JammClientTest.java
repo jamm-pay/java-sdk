@@ -120,6 +120,39 @@ class JammClientTest {
     }
 
     @Test
+    void testPlatformModeDefault() {
+        JammClient client = JammClient.builder()
+                .clientId("test-id")
+                .clientSecret("test-secret")
+                .build();
+
+        assertFalse(client.isPlatformMode());
+    }
+
+    @Test
+    void testPlatformModeEnabled() {
+        JammClient client = JammClient.builder()
+                .clientId("test-id")
+                .clientSecret("test-secret")
+                .environment(Environment.DEVELOP)
+                .platform(true)
+                .build();
+
+        assertTrue(client.isPlatformMode());
+    }
+
+    @Test
+    void testPlatformModeDisabledExplicitly() {
+        JammClient client = JammClient.builder()
+                .clientId("test-id")
+                .clientSecret("test-secret")
+                .platform(false)
+                .build();
+
+        assertFalse(client.isPlatformMode());
+    }
+
+    @Test
     void testGetOAuthProvider() {
         JammClient client = JammClient.builder()
                 .clientId("test-client-id")

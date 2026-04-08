@@ -27,6 +27,47 @@ final class ExampleHelper {
             .build();
     }
 
+    static JammClient createPlatformClientFromEnv() {
+        String env = requiredEnv("ENV");
+        String clientId = requiredEnv("PLATFORM_CLIENT_ID");
+        String clientSecret = requiredEnv("PLATFORM_CLIENT_SECRET");
+
+        return JammClient.builder()
+            .environment(Environment.fromString(env))
+            .clientId(clientId)
+            .clientSecret(clientSecret)
+            .platform(true)
+            .build();
+    }
+
+    static void runPlatform(ExampleAction action) throws Exception {
+        try (JammClient client = createPlatformClientFromEnv()) {
+            action.run(client);
+        } catch (ApiException e) {
+            System.err.println("API request failed: " + e);
+            String errorType = e.getErrorType();
+            if (errorType != null && !errorType.isBlank() && !"UNSPECIFIED".equals(errorType)) {
+                System.err.println("Error type: " + errorType);
+            }
+            if (e.getHttpBody() != null && !e.getHttpBody().isBlank()) {
+                System.err.println("Response body: " + e.getHttpBody());
+            }
+            System.exit(1);
+        } catch (OAuthException e) {
+            System.err.println("Authentication failed: " + e);
+            if (e.getHttpBody() != null && !e.getHttpBody().isBlank()) {
+                System.err.println("Response body: " + e.getHttpBody());
+            }
+            System.exit(1);
+        } catch (JammException e) {
+            System.err.println("SDK request failed: " + e);
+            if (e.getHttpBody() != null && !e.getHttpBody().isBlank()) {
+                System.err.println("Response body: " + e.getHttpBody());
+            }
+            System.exit(1);
+        }
+    }
+
     static String requiredEnv(String key) {
         String value = System.getenv(key);
         if (value == null || value.isBlank()) {

@@ -10,6 +10,9 @@ import com.jamm.JammClient;
 
 /**
  * Client for customer-related operations.
+ *
+ * <p>In platform mode, all methods have overloads accepting a {@code merchant} parameter
+ * to operate on behalf of a connected merchant.
  */
 public final class CustomerClient {
 
@@ -30,6 +33,17 @@ public final class CustomerClient {
     }
 
     /**
+     * Creates a new customer on behalf of a merchant (platform mode).
+     *
+     * @param request  the create customer request
+     * @param merchant the merchant ID (format: "mer-*")
+     * @return the created merchant customer
+     */
+    public MerchantCustomer create(CreateCustomerRequest request, String merchant) {
+        return service.create(request, merchant);
+    }
+
+    /**
      * Gets a customer by ID or email.
      *
      * @param customerIdOrEmail the customer ID (e.g., "cus-123") or email address
@@ -37,6 +51,17 @@ public final class CustomerClient {
      */
     public Customer get(String customerIdOrEmail) {
         return service.get(customerIdOrEmail);
+    }
+
+    /**
+     * Gets a customer by ID or email on behalf of a merchant (platform mode).
+     *
+     * @param customerIdOrEmail the customer ID or email
+     * @param merchant          the merchant ID (format: "mer-*")
+     * @return the customer information
+     */
+    public Customer get(String customerIdOrEmail, String merchant) {
+        return service.get(customerIdOrEmail, merchant);
     }
 
     /**
@@ -50,6 +75,17 @@ public final class CustomerClient {
     }
 
     /**
+     * Gets the contract associated with a customer on behalf of a merchant (platform mode).
+     *
+     * @param customerId the customer ID
+     * @param merchant   the merchant ID (format: "mer-*")
+     * @return the contract response
+     */
+    public GetContractResponse getContract(String customerId, String merchant) {
+        return service.getContract(customerId, merchant);
+    }
+
+    /**
      * Updates an existing customer.
      *
      * @param request the update customer request containing the customer ID and fields to update
@@ -60,6 +96,17 @@ public final class CustomerClient {
     }
 
     /**
+     * Updates an existing customer on behalf of a merchant (platform mode).
+     *
+     * @param request  the update customer request
+     * @param merchant the merchant ID (format: "mer-*")
+     * @return the updated merchant customer
+     */
+    public MerchantCustomer update(UpdateCustomerRequest request, String merchant) {
+        return service.update(request, merchant);
+    }
+
+    /**
      * Deletes a customer.
      *
      * @param customerId the customer ID to delete (e.g., "cus-123")
@@ -67,5 +114,16 @@ public final class CustomerClient {
      */
     public DeleteCustomerResponse delete(String customerId) {
         return service.delete(customerId);
+    }
+
+    /**
+     * Deletes a customer on behalf of a merchant (platform mode).
+     *
+     * @param customerId the customer ID to delete
+     * @param merchant   the merchant ID (format: "mer-*")
+     * @return the delete customer response
+     */
+    public DeleteCustomerResponse delete(String customerId, String merchant) {
+        return service.delete(customerId, merchant);
     }
 }

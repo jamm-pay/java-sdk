@@ -22,9 +22,14 @@ import com.jamm.JammClient;
 import com.jamm.http.JammHttpClient;
 import org.junit.jupiter.api.Test;
 
+import com.jamm.http.RequestOptions;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 class PaymentServiceTest {
@@ -378,5 +383,133 @@ class PaymentServiceTest {
 
         assertEquals("trx-123", result.getChargeId());
         assertEquals("rfd-cancel", result.getRefundId());
+    }
+
+    // Platform mode: merchant overload tests
+
+    @Test
+    void onSessionPayment_withMerchant_callsWithRequestOptions() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        OnSessionPaymentRequest req = OnSessionPaymentRequest.newBuilder()
+            .setCustomer("cus-123")
+            .setCharge(InitialCharge.newBuilder().setPrice(1000).setDescription("platform test").build())
+            .setRedirect(URL.newBuilder()
+                .setSuccessUrl("https://example.com/success")
+                .setFailureUrl("https://example.com/failure")
+                .build())
+            .build();
+
+        OnSessionPaymentResponse resp = OnSessionPaymentResponse.newBuilder()
+            .setSuccess(true)
+            .build();
+
+        when(http.post(eq("/v1/payments/on-session"), eq(req), eq(OnSessionPaymentResponse.class), any(RequestOptions.class)))
+            .thenReturn(resp);
+
+        PaymentService service = new PaymentService(client);
+        OnSessionPaymentResponse result = service.onSessionPayment(req, "mer-test");
+
+        assertTrue(result.getSuccess());
+        verify(http).post(eq("/v1/payments/on-session"), eq(req), eq(OnSessionPaymentResponse.class), any(RequestOptions.class));
+    }
+
+    @Test
+    void offSessionPayment_withMerchant_callsWithRequestOptions() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        OffSessionPaymentRequest req = OffSessionPaymentRequest.newBuilder()
+            .setCustomer("cus-123")
+            .setCharge(InitialCharge.newBuilder().setPrice(500).setDescription("platform off-session").build())
+            .build();
+
+        OffSessionPaymentResponse resp = OffSessionPaymentResponse.newBuilder()
+            .setCustomer(Customer.newBuilder().setId("cus-123").build())
+            .setCharge(ChargeResult.newBuilder().setChargeId("chg-p1").setPaid(true).build())
+            .build();
+
+        when(http.post(eq("/v1/payments/off-session"), eq(req), eq(OffSessionPaymentResponse.class), any(RequestOptions.class)))
+            .thenReturn(resp);
+
+        PaymentService service = new PaymentService(client);
+        OffSessionPaymentResponse result = service.offSessionPayment(req, "mer-test");
+
+        assertEquals("chg-p1", result.getCharge().getChargeId());
+        verify(http).post(eq("/v1/payments/off-session"), eq(req), eq(OffSessionPaymentResponse.class), any(RequestOptions.class));
+    }
+
+    @Test
+    void getCharge_withMerchant_callsWithRequestOptions() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        GetChargeResponse resp = GetChargeResponse.newBuilder()
+            .setCharge(ChargeResult.newBuilder().setChargeId("chg-p2").setPaid(true).build())
+            .build();
+
+        when(http.get(eq("/v1/charge/chg-p2"), eq(GetChargeResponse.class), any(RequestOptions.class)))
+            .thenReturn(resp);
+
+        PaymentService service = new PaymentService(client);
+        GetChargeResponse result = service.getCharge("chg-p2", "mer-test");
+
+        assertEquals("chg-p2", result.getCharge().getChargeId());
+        verify(http).get(eq("/v1/charge/chg-p2"), eq(GetChargeResponse.class), any(RequestOptions.class));
+    }
+
+    @Test
+    void getCharges_withMerchant_callsWithRequestOptions() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        GetChargesRequest req = GetChargesRequest.newBuilder()
+            .setCustomer("cus-123")
+            .build();
+
+        GetChargesResponse resp = GetChargesResponse.newBuilder()
+            .setCustomer(Customer.newBuilder().setId("cus-123").build())
+            .addCharges(ChargeResult.newBuilder().setChargeId("chg-p3").build())
+            .build();
+
+        when(http.get(eq("/v1/charges/cus-123"), eq(GetChargesResponse.class), any(RequestOptions.class)))
+            .thenReturn(resp);
+
+        PaymentService service = new PaymentService(client);
+        GetChargesResponse result = service.getCharges(req, "mer-test");
+
+        assertEquals(1, result.getChargesCount());
+        verify(http).get(eq("/v1/charges/cus-123"), eq(GetChargesResponse.class), any(RequestOptions.class));
+    }
+
+    @Test
+    void refund_withMerchant_callsWithRequestOptions() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        RefundRequest req = RefundRequest.newBuilder()
+            .setChargeId("trx-p1")
+            .build();
+
+        RefundResponse resp = RefundResponse.newBuilder()
+            .setChargeId("trx-p1")
+            .setRefundId("rfd-p1")
+            .build();
+
+        when(http.post(eq("/v1/refund"), eq(req), eq(RefundResponse.class), any(RequestOptions.class)))
+            .thenReturn(resp);
+
+        PaymentService service = new PaymentService(client);
+        RefundResponse result = service.refund(req, "mer-test");
+
+        assertEquals("trx-p1", result.getChargeId());
+        assertEquals("rfd-p1", result.getRefundId());
+        verify(http).post(eq("/v1/refund"), eq(req), eq(RefundResponse.class), any(RequestOptions.class));
     }
 }

@@ -170,6 +170,72 @@ if (content instanceof ChargeMessage) {
 }
 ```
 
+## Platform Mode
+
+For platform partners managing multiple merchants, initialize the SDK in platform mode. See the [Platform Onboarding Guide](https://docs.jamm-pay.jp/docs/platform-onboarding-guide) for setup details.
+
+```java
+// Initialize in platform mode
+JammClient client = JammClient.builder()
+        .clientId("<your platform client id>")
+        .clientSecret("<your platform client secret>")
+        .environment(Environment.PRODUCTION)
+        .platform(true)
+        .build();
+```
+
+All service methods accept an optional `merchant` parameter to operate on behalf of a connected merchant:
+
+```java
+// Create a customer on behalf of a merchant
+MerchantCustomer customer = client.customers().create(
+    CreateCustomerRequest.newBuilder()
+        .setBuyer(Buyer.newBuilder()
+            .setEmail("customer@example.com")
+            .setName("Taro Yamada")
+            .build())
+        .build(),
+    "mer-abc123");
+
+// Create a payment with platform fee
+OnSessionPaymentResponse payment = client.payments().onSessionPayment(
+    OnSessionPaymentRequest.newBuilder()
+        .setCharge(InitialCharge.newBuilder()
+            .setPrice(10000)
+            .setDescription("Order #1234")
+            .setPlatformFee(500)
+            .build())
+        .setRedirect(URL.newBuilder()
+            .setSuccessUrl("https://yoursite.com/success")
+            .setFailureUrl("https://yoursite.com/failure")
+            .build())
+        .setBuyer(Buyer.newBuilder()
+            .setEmail("customer@example.com")
+            .build())
+        .build(),
+    "mer-abc123");
+
+// Get a charge on behalf of a merchant
+GetChargeResponse charge = client.payments().getCharge("trx-xxxxxxxx", "mer-abc123");
+
+// Refund on behalf of a merchant
+RefundResponse refund = client.payments().refund(
+    RefundRequest.newBuilder()
+        .setChargeId("trx-xxxxxxxx")
+        .build(),
+    "mer-abc123");
+
+// Ping on behalf of a merchant
+PingResponse ping = client.healthcheck().ping("mer-abc123");
+```
+
+Or using the global configuration:
+
+```java
+Jamm.configure("client-id", "client-secret", Environment.PRODUCTION, true);
+JammClient client = Jamm.getClient();
+```
+
 ## Installation
 
 ### Maven
@@ -178,14 +244,14 @@ if (content instanceof ChargeMessage) {
 <dependency>
   <groupId>jp.jamm-pay</groupId>
   <artifactId>jamm-sdk</artifactId>
-  <version>1.2.2</version>
+  <version>1.3.0</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'jp.jamm-pay:jamm-sdk:1.2.2'
+implementation 'jp.jamm-pay:jamm-sdk:1.3.0'
 ```
 
 If you want to build from source:

@@ -46,7 +46,8 @@ class JammHttpClientTest {
                 5000,  // read timeout
                 0,     // max retries
                 1000,  // retry initial delay
-                30000  // retry max delay
+                30000, // retry max delay
+                false  // platform mode
         );
     }
 
@@ -220,7 +221,8 @@ class JammHttpClientTest {
                 5000,
                 2,    // 2 retries
                 100,  // 100ms initial delay
-                1000  // 1s max delay
+                1000, // 1s max delay
+                false
         );
 
         // First two requests fail, third succeeds
@@ -249,7 +251,8 @@ class JammHttpClientTest {
                 5000,
                 2,    // 2 retries
                 100,
-                1000
+                1000,
+                false
         );
 
         // Client error should not be retried
@@ -275,7 +278,8 @@ class JammHttpClientTest {
                 5000,
                 1,    // 1 retry
                 100,
-                1000
+                1000,
+                false
         );
 
         // 429 should be retried
@@ -357,7 +361,8 @@ class JammHttpClientTest {
                 5000,
                 0,
                 1000,
-                30000
+                30000,
+                false
         );
 
         mockServer.enqueue(new MockResponse()
@@ -378,7 +383,7 @@ class JammHttpClientTest {
     void testNegativeMaxRetries() {
         String baseUrl = mockServer.url("").toString();
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () ->
-                new JammHttpClient(mockOAuthProvider, baseUrl, 5000, 5000, -1, 1000, 30000));
+                new JammHttpClient(mockOAuthProvider, baseUrl, 5000, 5000, -1, 1000, 30000, false));
         assertTrue(ex.getMessage().contains("maxRetries"));
     }
 
@@ -386,7 +391,7 @@ class JammHttpClientTest {
     void testZeroRetryInitialDelayWithRetriesEnabled() {
         String baseUrl = mockServer.url("").toString();
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () ->
-                new JammHttpClient(mockOAuthProvider, baseUrl, 5000, 5000, 1, 0, 30000));
+                new JammHttpClient(mockOAuthProvider, baseUrl, 5000, 5000, 1, 0, 30000, false));
         assertTrue(ex.getMessage().contains("retryInitialDelayMs"));
     }
 
@@ -394,7 +399,7 @@ class JammHttpClientTest {
     void testNegativeRetryInitialDelayWithRetriesEnabled() {
         String baseUrl = mockServer.url("").toString();
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () ->
-                new JammHttpClient(mockOAuthProvider, baseUrl, 5000, 5000, 1, -100, 30000));
+                new JammHttpClient(mockOAuthProvider, baseUrl, 5000, 5000, 1, -100, 30000, false));
         assertTrue(ex.getMessage().contains("retryInitialDelayMs"));
     }
 
@@ -402,7 +407,7 @@ class JammHttpClientTest {
     void testRetryMaxDelayLessThanInitialDelay() {
         String baseUrl = mockServer.url("").toString();
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () ->
-                new JammHttpClient(mockOAuthProvider, baseUrl, 5000, 5000, 1, 1000, 500));
+                new JammHttpClient(mockOAuthProvider, baseUrl, 5000, 5000, 1, 1000, 500, false));
         assertTrue(ex.getMessage().contains("retryMaxDelayMs"));
     }
 
@@ -410,7 +415,7 @@ class JammHttpClientTest {
     void testZeroRetriesAllowsAnyDelayValues() {
         String baseUrl = mockServer.url("").toString();
         // Should not throw - delay values are ignored when retries are disabled
-        JammHttpClient client = new JammHttpClient(mockOAuthProvider, baseUrl, 5000, 5000, 0, 0, 0);
+        JammHttpClient client = new JammHttpClient(mockOAuthProvider, baseUrl, 5000, 5000, 0, 0, 0, false);
         assertNotNull(client);
     }
 
@@ -419,21 +424,21 @@ class JammHttpClientTest {
     void testNullOAuthProvider() {
         String baseUrl = mockServer.url("").toString();
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () ->
-                new JammHttpClient(null, baseUrl, 5000, 5000, 0, 1000, 30000));
+                new JammHttpClient(null, baseUrl, 5000, 5000, 0, 1000, 30000, false));
         assertTrue(ex.getMessage().contains("oauthProvider"));
     }
 
     @Test
     void testNullApiBaseUrl() {
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () ->
-                new JammHttpClient(mockOAuthProvider, null, 5000, 5000, 0, 1000, 30000));
+                new JammHttpClient(mockOAuthProvider, null, 5000, 5000, 0, 1000, 30000, false));
         assertTrue(ex.getMessage().contains("apiBaseUrl"));
     }
 
     @Test
     void testEmptyApiBaseUrl() {
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () ->
-                new JammHttpClient(mockOAuthProvider, "", 5000, 5000, 0, 1000, 30000));
+                new JammHttpClient(mockOAuthProvider, "", 5000, 5000, 0, 1000, 30000, false));
         assertTrue(ex.getMessage().contains("apiBaseUrl"));
     }
 
@@ -441,7 +446,7 @@ class JammHttpClientTest {
     void testZeroConnectTimeout() {
         String baseUrl = mockServer.url("").toString();
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () ->
-                new JammHttpClient(mockOAuthProvider, baseUrl, 0, 5000, 0, 1000, 30000));
+                new JammHttpClient(mockOAuthProvider, baseUrl, 0, 5000, 0, 1000, 30000, false));
         assertTrue(ex.getMessage().contains("connectTimeoutMs"));
     }
 
@@ -449,7 +454,7 @@ class JammHttpClientTest {
     void testNegativeConnectTimeout() {
         String baseUrl = mockServer.url("").toString();
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () ->
-                new JammHttpClient(mockOAuthProvider, baseUrl, -1, 5000, 0, 1000, 30000));
+                new JammHttpClient(mockOAuthProvider, baseUrl, -1, 5000, 0, 1000, 30000, false));
         assertTrue(ex.getMessage().contains("connectTimeoutMs"));
     }
 
@@ -457,7 +462,7 @@ class JammHttpClientTest {
     void testZeroReadTimeout() {
         String baseUrl = mockServer.url("").toString();
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () ->
-                new JammHttpClient(mockOAuthProvider, baseUrl, 5000, 0, 0, 1000, 30000));
+                new JammHttpClient(mockOAuthProvider, baseUrl, 5000, 0, 0, 1000, 30000, false));
         assertTrue(ex.getMessage().contains("readTimeoutMs"));
     }
 
@@ -465,7 +470,7 @@ class JammHttpClientTest {
     void testNegativeReadTimeout() {
         String baseUrl = mockServer.url("").toString();
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () ->
-                new JammHttpClient(mockOAuthProvider, baseUrl, 5000, -1, 0, 1000, 30000));
+                new JammHttpClient(mockOAuthProvider, baseUrl, 5000, -1, 0, 1000, 30000, false));
         assertTrue(ex.getMessage().contains("readTimeoutMs"));
     }
 
@@ -528,6 +533,88 @@ class JammHttpClientTest {
         assertEquals("cust-456", customer.getId());
         assertEquals("unknown@example.com", customer.getEmail());
         // No exception thrown — unknown fields are silently ignored
+    }
+
+    // Platform mode / merchant header tests
+    @Test
+    void testMerchantHeaderSetInPlatformMode() throws InterruptedException {
+        String baseUrl = mockServer.url("").toString();
+        if (baseUrl.endsWith("/")) baseUrl = baseUrl.substring(0, baseUrl.length() - 1);
+
+        JammHttpClient platformClient = new JammHttpClient(
+                mockOAuthProvider, baseUrl, 5000, 5000, 0, 1000, 30000,
+                true  // platform mode
+        );
+
+        mockServer.enqueue(new MockResponse().setResponseCode(200).setBody("{\"id\":\"1\",\"name\":\"t\"}"));
+
+        platformClient.get("/api/test", TestResponse.class, RequestOptions.withMerchant("mer-abc123"));
+
+        RecordedRequest request = mockServer.takeRequest(1, TimeUnit.SECONDS);
+        assertEquals("mer-abc123", request.getHeader("Jamm-Merchant"));
+    }
+
+    @Test
+    void testNoMerchantHeaderWithoutMerchant() throws InterruptedException {
+        mockServer.enqueue(new MockResponse().setResponseCode(200).setBody("{\"id\":\"1\",\"name\":\"t\"}"));
+
+        httpClient.get("/api/test", TestResponse.class, RequestOptions.none());
+
+        RecordedRequest request = mockServer.takeRequest(1, TimeUnit.SECONDS);
+        assertNull(request.getHeader("Jamm-Merchant"));
+    }
+
+    @Test
+    void testMerchantInNonPlatformModeThrows() {
+        // httpClient is in non-platform mode (false)
+        JammException ex = assertThrows(JammException.class,
+                () -> httpClient.get("/api/test", TestResponse.class,
+                        RequestOptions.withMerchant("mer-abc123")));
+        assertTrue(ex.getMessage().contains("platform mode"));
+    }
+
+    @Test
+    void testInvalidMerchantFormatThrows() {
+        String baseUrl = mockServer.url("").toString();
+        if (baseUrl.endsWith("/")) baseUrl = baseUrl.substring(0, baseUrl.length() - 1);
+
+        JammHttpClient platformClient = new JammHttpClient(
+                mockOAuthProvider, baseUrl, 5000, 5000, 0, 1000, 30000, true);
+
+        JammException ex = assertThrows(JammException.class,
+                () -> platformClient.get("/api/test", TestResponse.class,
+                        RequestOptions.withMerchant("invalid-format")));
+        assertTrue(ex.getMessage().contains("invalid merchant id format"));
+    }
+
+    @Test
+    void testValidMerchantFormats() throws InterruptedException {
+        String baseUrl = mockServer.url("").toString();
+        if (baseUrl.endsWith("/")) baseUrl = baseUrl.substring(0, baseUrl.length() - 1);
+
+        JammHttpClient platformClient = new JammHttpClient(
+                mockOAuthProvider, baseUrl, 5000, 5000, 0, 1000, 30000, true);
+
+        // Test various valid merchant formats
+        String[] validMerchants = {"mer-1", "mer-abc", "mer-ABC_def-123"};
+        for (String merchant : validMerchants) {
+            mockServer.enqueue(new MockResponse().setResponseCode(200).setBody("{\"id\":\"1\",\"name\":\"t\"}"));
+            assertDoesNotThrow(() ->
+                    platformClient.get("/api/test", TestResponse.class,
+                            RequestOptions.withMerchant(merchant)));
+        }
+    }
+
+    @Test
+    void testNullRequestOptionsTreatedAsNone() throws InterruptedException {
+        mockServer.enqueue(new MockResponse().setResponseCode(200).setBody("{\"id\":\"1\",\"name\":\"t\"}"));
+
+        // Passing null RequestOptions should not throw NPE
+        TestResponse response = httpClient.get("/api/test", TestResponse.class, null);
+
+        assertNotNull(response);
+        RecordedRequest request = mockServer.takeRequest(1, TimeUnit.SECONDS);
+        assertNull(request.getHeader("Jamm-Merchant"));
     }
 
     // Helper classes for testing

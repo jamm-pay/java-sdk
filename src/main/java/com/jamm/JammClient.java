@@ -23,6 +23,7 @@ public class JammClient implements AutoCloseable {
 
     private final String clientId;
     private final Environment environment;
+    private final boolean platformMode;
     private final OAuthProvider oauthProvider;
     private final JammHttpClient httpClient;
     private final com.jamm.customer.CustomerClient customerClient;
@@ -37,15 +38,21 @@ public class JammClient implements AutoCloseable {
     private JammClient(Builder builder) {
         this.clientId = builder.clientId;
         this.environment = builder.environment;
+        this.platformMode = builder.platform;
         this.connectTimeoutMs = builder.connectTimeoutMs;
         this.readTimeoutMs = builder.readTimeoutMs;
         this.maxRetries = builder.maxRetries;
+
+        // Select OAuth URL based on mode
+        String oauthUrl = platformMode
+                ? environment.getPlatformOauthBaseUrl()
+                : environment.getOauthBaseUrl();
 
         // Initialize OAuth provider
         this.oauthProvider = new OAuthProvider(
                 clientId,
                 builder.clientSecret,
-                environment.getOauthBaseUrl(),
+                oauthUrl,
                 connectTimeoutMs,
                 readTimeoutMs
         );
@@ -58,7 +65,8 @@ public class JammClient implements AutoCloseable {
                 readTimeoutMs,
                 maxRetries,
                 builder.retryInitialDelayMs,
-                builder.retryMaxDelayMs
+                builder.retryMaxDelayMs,
+                platformMode
         );
 
 
@@ -92,6 +100,15 @@ public class JammClient implements AutoCloseable {
      */
     public Environment getEnvironment() {
         return environment;
+    }
+
+    /**
+     * Returns whether this client is configured in platform mode.
+     *
+     * @return true if platform mode is enabled
+     */
+    public boolean isPlatformMode() {
+        return platformMode;
     }
 
     /**
@@ -184,6 +201,7 @@ public class JammClient implements AutoCloseable {
         private String clientId;
         private String clientSecret;
         private Environment environment = Environment.PRODUCTION;
+        private boolean platform = false;
         private long connectTimeoutMs = 30_000; // 30 seconds
         private long readTimeoutMs = 90_000;    // 90 seconds
         private int maxRetries = 0;
@@ -209,6 +227,18 @@ public class JammClient implements AutoCloseable {
          */
         public Builder clientSecret(String clientSecret) {
             this.clientSecret = clientSecret;
+            return this;
+        }
+
+        /**
+         * Enables platform mode for making API calls on behalf of connected merchants.
+         * When enabled, the SDK uses platform-identity OAuth endpoints.
+         *
+         * @param platform true to enable platform mode
+         * @return this builder
+         */
+        public Builder platform(boolean platform) {
+            this.platform = platform;
             return this;
         }
 

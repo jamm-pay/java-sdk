@@ -15,10 +15,14 @@ import com.jamm.JammClient;
 import com.jamm.http.JammHttpClient;
 import org.junit.jupiter.api.Test;
 
+import com.jamm.http.RequestOptions;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 class CustomerServiceTest {
 
@@ -132,5 +136,100 @@ class CustomerServiceTest {
         DeleteCustomerResponse result = service.delete("cus-4");
 
         assertEquals(true, result.getAccepted());
+    }
+
+    // Platform mode: merchant overload tests
+
+    @Test
+    void createCustomer_withMerchant_callsWithRequestOptions() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        CreateCustomerRequest req = CreateCustomerRequest.newBuilder()
+            .setBuyer(Buyer.newBuilder().setEmail("a@b.com").build())
+            .build();
+
+        CreateCustomerResponse resp = CreateCustomerResponse.newBuilder()
+            .setCustomer(MerchantCustomer.newBuilder()
+                .setCustomer(Customer.newBuilder().setId("cus-p1").build())
+                .build())
+            .build();
+
+        when(http.post(eq("/v1/customers"), eq(req), eq(CreateCustomerResponse.class), any(RequestOptions.class)))
+            .thenReturn(resp);
+
+        CustomerService service = new CustomerService(client);
+        MerchantCustomer result = service.create(req, "mer-test");
+
+        assertEquals("cus-p1", result.getCustomer().getId());
+        verify(http).post(eq("/v1/customers"), eq(req), eq(CreateCustomerResponse.class), any(RequestOptions.class));
+    }
+
+    @Test
+    void getCustomer_withMerchant_callsWithRequestOptions() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        GetCustomerResponse resp = GetCustomerResponse.newBuilder()
+            .setCustomer(Customer.newBuilder().setId("cus-p2").build())
+            .build();
+
+        when(http.get(eq("/v1/customers/cus-p2"), eq(GetCustomerResponse.class), any(RequestOptions.class)))
+            .thenReturn(resp);
+
+        CustomerService service = new CustomerService(client);
+        Customer result = service.get("cus-p2", "mer-test");
+
+        assertEquals("cus-p2", result.getId());
+        verify(http).get(eq("/v1/customers/cus-p2"), eq(GetCustomerResponse.class), any(RequestOptions.class));
+    }
+
+    @Test
+    void updateCustomer_withMerchant_callsWithRequestOptions() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        UpdateCustomerRequest req = UpdateCustomerRequest.newBuilder()
+            .setCustomer("cus-p3")
+            .setEmail("updated@b.com")
+            .build();
+
+        UpdateCustomerResponse resp = UpdateCustomerResponse.newBuilder()
+            .setCustomer(MerchantCustomer.newBuilder()
+                .setCustomer(Customer.newBuilder().setId("cus-p3").build())
+                .build())
+            .build();
+
+        when(http.put(eq("/v1/customers/cus-p3"), eq(req), eq(UpdateCustomerResponse.class), any(RequestOptions.class)))
+            .thenReturn(resp);
+
+        CustomerService service = new CustomerService(client);
+        MerchantCustomer result = service.update(req, "mer-test");
+
+        assertEquals("cus-p3", result.getCustomer().getId());
+        verify(http).put(eq("/v1/customers/cus-p3"), eq(req), eq(UpdateCustomerResponse.class), any(RequestOptions.class));
+    }
+
+    @Test
+    void deleteCustomer_withMerchant_callsWithRequestOptions() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        DeleteCustomerResponse resp = DeleteCustomerResponse.newBuilder()
+            .setAccepted(true)
+            .build();
+
+        when(http.delete(eq("/v1/customers/cus-p4"), eq(DeleteCustomerResponse.class), any(RequestOptions.class)))
+            .thenReturn(resp);
+
+        CustomerService service = new CustomerService(client);
+        DeleteCustomerResponse result = service.delete("cus-p4", "mer-test");
+
+        assertEquals(true, result.getAccepted());
+        verify(http).delete(eq("/v1/customers/cus-p4"), eq(DeleteCustomerResponse.class), any(RequestOptions.class));
     }
 }

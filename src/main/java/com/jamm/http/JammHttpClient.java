@@ -24,6 +24,7 @@ import java.net.SocketTimeoutException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 /**
  * HTTP client wrapper for making authenticated API requests.
@@ -33,6 +34,8 @@ public class JammHttpClient implements AutoCloseable {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JammHttpClient.class);
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    private static final String MERCHANT_HEADER = "Jamm-Merchant";
+    private static final Pattern MERCHANT_ID_PATTERN = Pattern.compile("^mer-[0-9A-Za-z_-]+$");
 
     private final OkHttpClient httpClient;
     private final OAuthProvider oauthProvider;
@@ -41,6 +44,7 @@ public class JammHttpClient implements AutoCloseable {
     private final int maxRetries;
     private final long retryInitialDelayMs;
     private final long retryMaxDelayMs;
+    private final boolean platformMode;
 
     /**
      * Creates a new JammHttpClient.
@@ -55,7 +59,8 @@ public class JammHttpClient implements AutoCloseable {
      */
     public JammHttpClient(OAuthProvider oauthProvider, String apiBaseUrl,
                           long connectTimeoutMs, long readTimeoutMs,
-                          int maxRetries, long retryInitialDelayMs, long retryMaxDelayMs) {
+                          int maxRetries, long retryInitialDelayMs, long retryMaxDelayMs,
+                          boolean platformMode) {
         if (oauthProvider == null) {
             throw new IllegalArgumentException("oauthProvider must not be null");
         }
@@ -85,6 +90,7 @@ public class JammHttpClient implements AutoCloseable {
         this.maxRetries = maxRetries;
         this.retryInitialDelayMs = retryInitialDelayMs;
         this.retryMaxDelayMs = retryMaxDelayMs;
+        this.platformMode = platformMode;
 
         this.httpClient = new OkHttpClient.Builder()
                 .connectTimeout(connectTimeoutMs, TimeUnit.MILLISECONDS)
@@ -105,8 +111,24 @@ public class JammHttpClient implements AutoCloseable {
      * @throws ApiException if the request fails
      */
     public <T> T get(String path, Class<T> responseType) {
+        return get(path, responseType, RequestOptions.none());
+    }
+
+    /**
+     * Executes a GET request with per-request options.
+     *
+     * @param path         the API path (relative to base URL)
+     * @param responseType the expected response type
+     * @param options      per-request options (e.g., merchant for platform mode)
+     * @param <T>          the response type
+     * @return the parsed response
+     * @throws ApiException if the request fails
+     */
+    public <T> T get(String path, Class<T> responseType, RequestOptions options) {
+        RequestOptions opts = safeOptions(options);
+        validateMerchant(opts.getMerchant());
         return executeWithRetry(() -> {
-            Request request = buildRequest(path, "GET", null);
+            Request request = buildRequest(path, "GET", null, opts.getMerchant());
             return execute(request, responseType);
         });
     }
@@ -122,8 +144,25 @@ public class JammHttpClient implements AutoCloseable {
      * @throws ApiException if the request fails
      */
     public <T> T post(String path, Object body, Class<T> responseType) {
+        return post(path, body, responseType, RequestOptions.none());
+    }
+
+    /**
+     * Executes a POST request with per-request options.
+     *
+     * @param path         the API path (relative to base URL)
+     * @param body         the request body object
+     * @param responseType the expected response type
+     * @param options      per-request options (e.g., merchant for platform mode)
+     * @param <T>          the response type
+     * @return the parsed response
+     * @throws ApiException if the request fails
+     */
+    public <T> T post(String path, Object body, Class<T> responseType, RequestOptions options) {
+        RequestOptions opts = safeOptions(options);
+        validateMerchant(opts.getMerchant());
         return executeWithRetry(() -> {
-            Request request = buildRequest(path, "POST", body);
+            Request request = buildRequest(path, "POST", body, opts.getMerchant());
             return execute(request, responseType);
         });
     }
@@ -139,8 +178,25 @@ public class JammHttpClient implements AutoCloseable {
      * @throws ApiException if the request fails
      */
     public <T> T put(String path, Object body, Class<T> responseType) {
+        return put(path, body, responseType, RequestOptions.none());
+    }
+
+    /**
+     * Executes a PUT request with per-request options.
+     *
+     * @param path         the API path (relative to base URL)
+     * @param body         the request body object
+     * @param responseType the expected response type
+     * @param options      per-request options (e.g., merchant for platform mode)
+     * @param <T>          the response type
+     * @return the parsed response
+     * @throws ApiException if the request fails
+     */
+    public <T> T put(String path, Object body, Class<T> responseType, RequestOptions options) {
+        RequestOptions opts = safeOptions(options);
+        validateMerchant(opts.getMerchant());
         return executeWithRetry(() -> {
-            Request request = buildRequest(path, "PUT", body);
+            Request request = buildRequest(path, "PUT", body, opts.getMerchant());
             return execute(request, responseType);
         });
     }
@@ -155,8 +211,24 @@ public class JammHttpClient implements AutoCloseable {
      * @throws ApiException if the request fails
      */
     public <T> T delete(String path, Class<T> responseType) {
+        return delete(path, responseType, RequestOptions.none());
+    }
+
+    /**
+     * Executes a DELETE request with per-request options.
+     *
+     * @param path         the API path (relative to base URL)
+     * @param responseType the expected response type
+     * @param options      per-request options (e.g., merchant for platform mode)
+     * @param <T>          the response type
+     * @return the parsed response
+     * @throws ApiException if the request fails
+     */
+    public <T> T delete(String path, Class<T> responseType, RequestOptions options) {
+        RequestOptions opts = safeOptions(options);
+        validateMerchant(opts.getMerchant());
         return executeWithRetry(() -> {
-            Request request = buildRequest(path, "DELETE", null);
+            Request request = buildRequest(path, "DELETE", null, opts.getMerchant());
             return execute(request, responseType);
         });
     }
@@ -172,13 +244,46 @@ public class JammHttpClient implements AutoCloseable {
      * @throws ApiException if the request fails
      */
     public <T> T patch(String path, Object body, Class<T> responseType) {
+        return patch(path, body, responseType, RequestOptions.none());
+    }
+
+    /**
+     * Executes a PATCH request with per-request options.
+     *
+     * @param path         the API path (relative to base URL)
+     * @param body         the request body object
+     * @param responseType the expected response type
+     * @param options      per-request options (e.g., merchant for platform mode)
+     * @param <T>          the response type
+     * @return the parsed response
+     * @throws ApiException if the request fails
+     */
+    public <T> T patch(String path, Object body, Class<T> responseType, RequestOptions options) {
+        RequestOptions opts = safeOptions(options);
+        validateMerchant(opts.getMerchant());
         return executeWithRetry(() -> {
-            Request request = buildRequest(path, "PATCH", body);
+            Request request = buildRequest(path, "PATCH", body, opts.getMerchant());
             return execute(request, responseType);
         });
     }
 
-    private Request buildRequest(String path, String method, Object body) {
+    private static RequestOptions safeOptions(RequestOptions options) {
+        return options != null ? options : RequestOptions.none();
+    }
+
+    private void validateMerchant(String merchant) {
+        if (merchant == null) {
+            return;
+        }
+        if (!platformMode) {
+            throw new JammException("merchant parameter can only be used in platform mode");
+        }
+        if (!MERCHANT_ID_PATTERN.matcher(merchant).matches()) {
+            throw new JammException("invalid merchant id format");
+        }
+    }
+
+    private Request buildRequest(String path, String method, Object body, String merchant) {
         String url = buildUrl(apiBaseUrl, path);
         String token = oauthProvider.getToken();
 
@@ -188,6 +293,10 @@ public class JammHttpClient implements AutoCloseable {
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
                 .header("X-SDK-Version", "java:" + Jamm.VERSION);
+
+        if (merchant != null) {
+            builder.header(MERCHANT_HEADER, merchant);
+        }
 
         RequestBody requestBody = null;
         if (body != null) {

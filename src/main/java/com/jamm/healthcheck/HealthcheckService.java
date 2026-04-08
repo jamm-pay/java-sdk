@@ -3,6 +3,7 @@ package com.jamm.healthcheck;
 import com.api.v1.PingResponse;
 import com.jamm.JammClient;
 import com.jamm.http.JammHttpClient;
+import com.jamm.http.RequestOptions;
 
 class HealthcheckService {
 
@@ -16,5 +17,10 @@ class HealthcheckService {
 
     PingResponse ping() {
         return http.get(HEALTHCHECK_PATH, PingResponse.class);
+    }
+
+    PingResponse ping(String merchant) {
+        return http.get(HEALTHCHECK_PATH, PingResponse.class,
+                RequestOptions.withMerchant(merchant));
     }
 }

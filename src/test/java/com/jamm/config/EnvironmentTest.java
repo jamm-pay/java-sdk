@@ -126,6 +126,56 @@ class EnvironmentTest {
                 new Environment("https://oauth.example.com", ""));
     }
 
+    // Platform OAuth URL tests
+
+    @Test
+    void testProductionPlatformOauthUrl() {
+        assertEquals("https://platform-identity.jamm-pay.jp",
+                Environment.PRODUCTION.getPlatformOauthBaseUrl());
+    }
+
+    @Test
+    void testStagingPlatformOauthUrl() {
+        assertEquals("https://platform-identity.staging.jamm-pay.jp",
+                Environment.STAGING.getPlatformOauthBaseUrl());
+    }
+
+    @Test
+    void testDevelopPlatformOauthUrl() {
+        assertEquals("https://platform-identity.develop.jamm-pay.jp",
+                Environment.DEVELOP.getPlatformOauthBaseUrl());
+    }
+
+    @Test
+    void testLocalPlatformOauthUrl() {
+        assertEquals("https://platform-identity.develop.jamm-pay.jp",
+                Environment.LOCAL.getPlatformOauthBaseUrl());
+    }
+
+    @Test
+    void testCustomEnvironmentPlatformOauthUrl() {
+        Environment env = Environment.custom("sandbox");
+        assertEquals("https://platform-identity.sandbox.jamm-pay.jp",
+                env.getPlatformOauthBaseUrl());
+    }
+
+    @Test
+    void testThreeArgConstructor() {
+        Environment env = new Environment(
+                "https://merchant.example.com",
+                "https://platform.example.com",
+                "https://api.example.com");
+        assertEquals("https://merchant.example.com", env.getOauthBaseUrl());
+        assertEquals("https://platform.example.com", env.getPlatformOauthBaseUrl());
+        assertEquals("https://api.example.com", env.getApiBaseUrl());
+    }
+
+    @Test
+    void testTwoArgConstructorThrowsWithoutMerchantIdentity() {
+        assertThrows(IllegalArgumentException.class, () ->
+                new Environment("https://auth.custom.com", "https://api.custom.com"));
+    }
+
     @Test
     void testCustomNullEnvName() {
         assertThrows(NullPointerException.class, () ->

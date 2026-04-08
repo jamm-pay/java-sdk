@@ -30,6 +30,32 @@ final class E2ETestHelper {
                 .build();
     }
 
+    static JammClient createPlatformClient() {
+        String clientId = System.getenv("PLATFORM_CLIENT_ID");
+        String clientSecret = System.getenv("PLATFORM_CLIENT_SECRET");
+
+        Assumptions.assumeTrue(
+                clientId != null && !clientId.isBlank()
+                        && clientSecret != null && !clientSecret.isBlank(),
+                "Skipping platform E2E tests: set PLATFORM_CLIENT_ID and PLATFORM_CLIENT_SECRET");
+
+        String env = envOrDefault("ENV", "local");
+
+        return JammClient.builder()
+                .environment(Environment.fromString(env))
+                .clientId(clientId)
+                .clientSecret(clientSecret)
+                .platform(true)
+                .build();
+    }
+
+    static String requireEnv(String key) {
+        String value = System.getenv(key);
+        Assumptions.assumeTrue(value != null && !value.isBlank(),
+                "Skipping: required env var " + key + " not set");
+        return value;
+    }
+
     static String envOrDefault(String key, String defaultValue) {
         String value = System.getenv(key);
         if (value == null || value.isBlank()) {
