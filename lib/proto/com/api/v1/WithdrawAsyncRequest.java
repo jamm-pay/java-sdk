@@ -37,6 +37,7 @@ private static final long serialVersionUID = 0L;
   }
   private WithdrawAsyncRequest() {
     customer_ = "";
+    idempotencyKey_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -152,6 +153,77 @@ private static final long serialVersionUID = 0L;
     return charge_ == null ? com.api.v1.InitialCharge.getDefaultInstance() : charge_;
   }
 
+  public static final int IDEMPOTENCY_KEY_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object idempotencyKey_ = "";
+  /**
+   * <pre>
+   * Merchant-supplied idempotency key for retry safety.
+   * When present, a retry with the same (merchant, idempotency_key) returns the
+   * original charge instead of creating a new one. When absent (empty), the
+   * server generates a UUID per call (current behavior).
+   * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+   * </pre>
+   *
+   * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey", (.buf.validate.field) = { ... }</code>
+   * @return Whether the idempotencyKey field is set.
+   */
+  @java.lang.Override
+  public boolean hasIdempotencyKey() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <pre>
+   * Merchant-supplied idempotency key for retry safety.
+   * When present, a retry with the same (merchant, idempotency_key) returns the
+   * original charge instead of creating a new one. When absent (empty), the
+   * server generates a UUID per call (current behavior).
+   * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+   * </pre>
+   *
+   * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey", (.buf.validate.field) = { ... }</code>
+   * @return The idempotencyKey.
+   */
+  @java.lang.Override
+  public java.lang.String getIdempotencyKey() {
+    java.lang.Object ref = idempotencyKey_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      idempotencyKey_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Merchant-supplied idempotency key for retry safety.
+   * When present, a retry with the same (merchant, idempotency_key) returns the
+   * original charge instead of creating a new one. When absent (empty), the
+   * server generates a UUID per call (current behavior).
+   * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+   * </pre>
+   *
+   * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for idempotencyKey.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getIdempotencyKeyBytes() {
+    java.lang.Object ref = idempotencyKey_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      idempotencyKey_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -172,6 +244,9 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(2, getCharge());
     }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 3, idempotencyKey_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -187,6 +262,9 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getCharge());
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(3, idempotencyKey_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -210,6 +288,11 @@ private static final long serialVersionUID = 0L;
       if (!getCharge()
           .equals(other.getCharge())) return false;
     }
+    if (hasIdempotencyKey() != other.hasIdempotencyKey()) return false;
+    if (hasIdempotencyKey()) {
+      if (!getIdempotencyKey()
+          .equals(other.getIdempotencyKey())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -226,6 +309,10 @@ private static final long serialVersionUID = 0L;
     if (hasCharge()) {
       hash = (37 * hash) + CHARGE_FIELD_NUMBER;
       hash = (53 * hash) + getCharge().hashCode();
+    }
+    if (hasIdempotencyKey()) {
+      hash = (37 * hash) + IDEMPOTENCY_KEY_FIELD_NUMBER;
+      hash = (53 * hash) + getIdempotencyKey().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -378,6 +465,7 @@ private static final long serialVersionUID = 0L;
         chargeBuilder_.dispose();
         chargeBuilder_ = null;
       }
+      idempotencyKey_ = "";
       return this;
     }
 
@@ -421,6 +509,10 @@ private static final long serialVersionUID = 0L;
             : chargeBuilder_.build();
         to_bitField0_ |= 0x00000001;
       }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.idempotencyKey_ = idempotencyKey_;
+        to_bitField0_ |= 0x00000002;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -443,6 +535,11 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasCharge()) {
         mergeCharge(other.getCharge());
+      }
+      if (other.hasIdempotencyKey()) {
+        idempotencyKey_ = other.idempotencyKey_;
+        bitField0_ |= 0x00000004;
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -482,6 +579,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 18
+            case 26: {
+              idempotencyKey_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -770,6 +872,133 @@ private static final long serialVersionUID = 0L;
         charge_ = null;
       }
       return chargeBuilder_;
+    }
+
+    private java.lang.Object idempotencyKey_ = "";
+    /**
+     * <pre>
+     * Merchant-supplied idempotency key for retry safety.
+     * When present, a retry with the same (merchant, idempotency_key) returns the
+     * original charge instead of creating a new one. When absent (empty), the
+     * server generates a UUID per call (current behavior).
+     * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+     * </pre>
+     *
+     * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey", (.buf.validate.field) = { ... }</code>
+     * @return Whether the idempotencyKey field is set.
+     */
+    public boolean hasIdempotencyKey() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * Merchant-supplied idempotency key for retry safety.
+     * When present, a retry with the same (merchant, idempotency_key) returns the
+     * original charge instead of creating a new one. When absent (empty), the
+     * server generates a UUID per call (current behavior).
+     * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+     * </pre>
+     *
+     * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey", (.buf.validate.field) = { ... }</code>
+     * @return The idempotencyKey.
+     */
+    public java.lang.String getIdempotencyKey() {
+      java.lang.Object ref = idempotencyKey_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        idempotencyKey_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Merchant-supplied idempotency key for retry safety.
+     * When present, a retry with the same (merchant, idempotency_key) returns the
+     * original charge instead of creating a new one. When absent (empty), the
+     * server generates a UUID per call (current behavior).
+     * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+     * </pre>
+     *
+     * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey", (.buf.validate.field) = { ... }</code>
+     * @return The bytes for idempotencyKey.
+     */
+    public com.google.protobuf.ByteString
+        getIdempotencyKeyBytes() {
+      java.lang.Object ref = idempotencyKey_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        idempotencyKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Merchant-supplied idempotency key for retry safety.
+     * When present, a retry with the same (merchant, idempotency_key) returns the
+     * original charge instead of creating a new one. When absent (empty), the
+     * server generates a UUID per call (current behavior).
+     * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+     * </pre>
+     *
+     * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey", (.buf.validate.field) = { ... }</code>
+     * @param value The idempotencyKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIdempotencyKey(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      idempotencyKey_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Merchant-supplied idempotency key for retry safety.
+     * When present, a retry with the same (merchant, idempotency_key) returns the
+     * original charge instead of creating a new one. When absent (empty), the
+     * server generates a UUID per call (current behavior).
+     * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+     * </pre>
+     *
+     * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey", (.buf.validate.field) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIdempotencyKey() {
+      idempotencyKey_ = getDefaultInstance().getIdempotencyKey();
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Merchant-supplied idempotency key for retry safety.
+     * When present, a retry with the same (merchant, idempotency_key) returns the
+     * original charge instead of creating a new one. When absent (empty), the
+     * server generates a UUID per call (current behavior).
+     * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+     * </pre>
+     *
+     * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey", (.buf.validate.field) = { ... }</code>
+     * @param value The bytes for idempotencyKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIdempotencyKeyBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      idempotencyKey_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
     }
 
     // @@protoc_insertion_point(builder_scope:api.v1.WithdrawAsyncRequest)

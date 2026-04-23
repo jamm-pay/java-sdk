@@ -65,4 +65,45 @@ public interface OffSessionPaymentAsyncRequestOrBuilder extends
    * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
    */
   com.api.v1.InitialChargeOrBuilder getChargeOrBuilder();
+
+  /**
+   * <pre>
+   * Merchant-supplied idempotency key for retry safety.
+   * When present, a retry with the same (merchant, idempotency_key) returns the
+   * original charge instead of creating a new one. When absent (empty), the
+   * server generates a UUID per call (current behavior).
+   * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+   * </pre>
+   *
+   * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey", (.buf.validate.field) = { ... }</code>
+   * @return Whether the idempotencyKey field is set.
+   */
+  boolean hasIdempotencyKey();
+  /**
+   * <pre>
+   * Merchant-supplied idempotency key for retry safety.
+   * When present, a retry with the same (merchant, idempotency_key) returns the
+   * original charge instead of creating a new one. When absent (empty), the
+   * server generates a UUID per call (current behavior).
+   * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+   * </pre>
+   *
+   * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey", (.buf.validate.field) = { ... }</code>
+   * @return The idempotencyKey.
+   */
+  java.lang.String getIdempotencyKey();
+  /**
+   * <pre>
+   * Merchant-supplied idempotency key for retry safety.
+   * When present, a retry with the same (merchant, idempotency_key) returns the
+   * original charge instead of creating a new one. When absent (empty), the
+   * server generates a UUID per call (current behavior).
+   * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+   * </pre>
+   *
+   * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey", (.buf.validate.field) = { ... }</code>
+   * @return The bytes for idempotencyKey.
+   */
+  com.google.protobuf.ByteString
+      getIdempotencyKeyBytes();
 }
