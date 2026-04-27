@@ -90,6 +90,7 @@ OffSessionPaymentAsyncResponse asyncResponse = client.payments().offSessionPayme
             .setPrice(5000)
             .setDescription("Monthly subscription async")
             .build())
+        .setIdempotencyKey("order-2024-001")
         .build());
 
 String requestId = asyncResponse.getRequestId();
@@ -97,6 +98,12 @@ String chargeId = asyncResponse.getChargeId();
 
 GetChargeResponse charge = client.payments().getCharge(chargeId);
 ```
+
+#### Retry safety
+
+The `idempotency_key` makes retries safe: submitting the same request with the same key returns the existing charge instead of creating a duplicate. Use a stable value tied to your order (e.g. `order-2024-001`). Keys are ASCII, 1–255 chars of `[A-Za-z0-9_-]`.
+
+If you do not set the field, the SDK auto-fills it with a UUID so each call is still de-duplicated on accidental network retries — but a fresh UUID per call means an explicit retry from your side will create a new charge. Set the key yourself when you need retry control.
 
 ### Handling Charge Errors
 
@@ -244,14 +251,14 @@ JammClient client = Jamm.getClient();
 <dependency>
   <groupId>jp.jamm-pay</groupId>
   <artifactId>jamm-sdk</artifactId>
-  <version>1.3.0</version>
+  <version>1.4.0</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'jp.jamm-pay:jamm-sdk:1.3.0'
+implementation 'jp.jamm-pay:jamm-sdk:1.4.0'
 ```
 
 If you want to build from source:

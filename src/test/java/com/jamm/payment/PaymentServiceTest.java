@@ -23,8 +23,13 @@ import com.jamm.http.JammHttpClient;
 import org.junit.jupiter.api.Test;
 
 import com.jamm.http.RequestOptions;
+import org.mockito.ArgumentCaptor;
 
+import java.util.UUID;
+
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
@@ -200,6 +205,7 @@ class PaymentServiceTest {
                 .setPrice(100)
                 .setDescription("test async charge")
                 .build())
+            .setIdempotencyKey("order-2024-001")
             .build();
 
         OffSessionPaymentAsyncResponse resp = OffSessionPaymentAsyncResponse.newBuilder()
@@ -208,7 +214,7 @@ class PaymentServiceTest {
             .setChargeId("trx-123")
             .build();
 
-        when(http.post("/v1/payments/off-session/async", req, OffSessionPaymentAsyncResponse.class))
+        when(http.post(eq("/v1/payments/off-session/async"), eq(req), eq(OffSessionPaymentAsyncResponse.class)))
             .thenReturn(resp);
 
         PaymentService service = new PaymentService(client);
@@ -217,6 +223,146 @@ class PaymentServiceTest {
         assertEquals("pwf-123", result.getRequestId());
         assertEquals(AsyncStatus.ASYNC_STATUS_PENDING, result.getStatus());
         assertEquals("trx-123", result.getChargeId());
+    }
+
+    @Test
+    void offSessionPaymentAsync_blankIdempotencyKey_isAutoFilledWithUuid() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        OffSessionPaymentAsyncRequest req = OffSessionPaymentAsyncRequest.newBuilder()
+            .setCustomer("cus-123")
+            .setCharge(InitialCharge.newBuilder()
+                .setPrice(100)
+                .setDescription("auto-fill key test")
+                .build())
+            .build();
+
+        OffSessionPaymentAsyncResponse resp = OffSessionPaymentAsyncResponse.newBuilder()
+            .setRequestId("pwf-auto")
+            .setChargeId("trx-auto")
+            .build();
+        when(http.post(eq("/v1/payments/off-session/async"), any(OffSessionPaymentAsyncRequest.class),
+                eq(OffSessionPaymentAsyncResponse.class)))
+            .thenReturn(resp);
+
+        PaymentService service = new PaymentService(client);
+        service.offSessionPaymentAsync(req);
+
+        ArgumentCaptor<OffSessionPaymentAsyncRequest> captor =
+            ArgumentCaptor.forClass(OffSessionPaymentAsyncRequest.class);
+        verify(http).post(eq("/v1/payments/off-session/async"), captor.capture(),
+            eq(OffSessionPaymentAsyncResponse.class));
+
+        String filled = captor.getValue().getIdempotencyKey();
+        assertFalse(filled.isEmpty(), "idempotency_key should be auto-filled when blank");
+        assertDoesNotThrow(() -> UUID.fromString(filled), "idempotency_key should be a valid UUID");
+    }
+
+    @Test
+    void offSessionPaymentAsync_whitespaceIdempotencyKey_isAutoFilledWithUuid() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        OffSessionPaymentAsyncRequest req = OffSessionPaymentAsyncRequest.newBuilder()
+            .setCustomer("cus-123")
+            .setCharge(InitialCharge.newBuilder()
+                .setPrice(100)
+                .setDescription("whitespace key test")
+                .build())
+            .setIdempotencyKey("   ")
+            .build();
+
+        OffSessionPaymentAsyncResponse resp = OffSessionPaymentAsyncResponse.newBuilder()
+            .setRequestId("pwf-ws")
+            .setChargeId("trx-ws")
+            .build();
+        when(http.post(eq("/v1/payments/off-session/async"), any(OffSessionPaymentAsyncRequest.class),
+                eq(OffSessionPaymentAsyncResponse.class)))
+            .thenReturn(resp);
+
+        PaymentService service = new PaymentService(client);
+        service.offSessionPaymentAsync(req);
+
+        ArgumentCaptor<OffSessionPaymentAsyncRequest> captor =
+            ArgumentCaptor.forClass(OffSessionPaymentAsyncRequest.class);
+        verify(http).post(eq("/v1/payments/off-session/async"), captor.capture(),
+            eq(OffSessionPaymentAsyncResponse.class));
+
+        String filled = captor.getValue().getIdempotencyKey();
+        assertFalse(filled.isBlank(), "whitespace-only idempotency_key should be replaced");
+        assertDoesNotThrow(() -> UUID.fromString(filled), "idempotency_key should be a valid UUID");
+    }
+
+    @Test
+    void offSessionPaymentAsync_suppliedIdempotencyKey_isPreserved() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        OffSessionPaymentAsyncRequest req = OffSessionPaymentAsyncRequest.newBuilder()
+            .setCustomer("cus-123")
+            .setCharge(InitialCharge.newBuilder()
+                .setPrice(100)
+                .setDescription("explicit key test")
+                .build())
+            .setIdempotencyKey("order-2024-001")
+            .build();
+
+        OffSessionPaymentAsyncResponse resp = OffSessionPaymentAsyncResponse.newBuilder()
+            .setRequestId("pwf-explicit")
+            .setChargeId("trx-explicit")
+            .build();
+        when(http.post(eq("/v1/payments/off-session/async"), any(OffSessionPaymentAsyncRequest.class),
+                eq(OffSessionPaymentAsyncResponse.class)))
+            .thenReturn(resp);
+
+        PaymentService service = new PaymentService(client);
+        service.offSessionPaymentAsync(req);
+
+        ArgumentCaptor<OffSessionPaymentAsyncRequest> captor =
+            ArgumentCaptor.forClass(OffSessionPaymentAsyncRequest.class);
+        verify(http).post(eq("/v1/payments/off-session/async"), captor.capture(),
+            eq(OffSessionPaymentAsyncResponse.class));
+
+        assertEquals("order-2024-001", captor.getValue().getIdempotencyKey());
+    }
+
+    @Test
+    void offSessionPaymentAsync_withMerchant_autoFillsAndPassesRequestOptions() {
+        JammHttpClient http = mock(JammHttpClient.class);
+        JammClient client = mock(JammClient.class);
+        when(client.getHttpClient()).thenReturn(http);
+
+        OffSessionPaymentAsyncRequest req = OffSessionPaymentAsyncRequest.newBuilder()
+            .setCustomer("cus-123")
+            .setCharge(InitialCharge.newBuilder()
+                .setPrice(100)
+                .setDescription("platform async key parity")
+                .build())
+            .build();
+
+        OffSessionPaymentAsyncResponse resp = OffSessionPaymentAsyncResponse.newBuilder()
+            .setRequestId("pwf-platform")
+            .setChargeId("trx-platform")
+            .build();
+        when(http.post(eq("/v1/payments/off-session/async"), any(OffSessionPaymentAsyncRequest.class),
+                eq(OffSessionPaymentAsyncResponse.class), any(RequestOptions.class)))
+            .thenReturn(resp);
+
+        PaymentService service = new PaymentService(client);
+        service.offSessionPaymentAsync(req, "mer-test");
+
+        ArgumentCaptor<OffSessionPaymentAsyncRequest> captor =
+            ArgumentCaptor.forClass(OffSessionPaymentAsyncRequest.class);
+        verify(http).post(eq("/v1/payments/off-session/async"), captor.capture(),
+            eq(OffSessionPaymentAsyncResponse.class), any(RequestOptions.class));
+
+        String filled = captor.getValue().getIdempotencyKey();
+        assertFalse(filled.isBlank(), "merchant overload should auto-fill blank idempotency_key");
+        assertDoesNotThrow(() -> UUID.fromString(filled), "idempotency_key should be a valid UUID");
     }
 
     @Test

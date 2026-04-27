@@ -76,6 +76,11 @@ public final class PaymentClient {
      * Off Session Payment Async - Start an off-session charge asynchronously.
      * Returns request tracking information and charge ID for polling with GetCharge.
      *
+     * <p>If {@code idempotency_key} is not set on the request, the SDK auto-fills it with
+     * a UUID so each charge is retry-safe by default. To make an explicit retry return
+     * the same charge instead of creating a new one, set the same {@code idempotency_key}
+     * on both attempts (ASCII, 1–255 chars of {@code [A-Za-z0-9_-]}).
+     *
      * @param request the off-session async payment request
      * @return response containing async request tracking information
      */
@@ -85,6 +90,9 @@ public final class PaymentClient {
 
     /**
      * Off Session Payment Async on behalf of a merchant (platform mode).
+     *
+     * <p>See {@link #offSessionPaymentAsync(OffSessionPaymentAsyncRequest)} for
+     * idempotency_key behavior.
      *
      * @param request  the off-session async payment request
      * @param merchant the merchant ID (format: "mer-*")

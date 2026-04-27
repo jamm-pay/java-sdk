@@ -11,9 +11,13 @@ public final class PaymentOffSessionAsyncExample {
     public static void main(String[] args) throws Exception {
         String customerId = ExampleHelper.requiredEnv("CUSTOMER");
 
+        // Setting idempotency_key makes retries safe — submitting again with the same
+        // key returns the existing charge instead of creating a duplicate. Omit the
+        // field to let the SDK auto-fill a UUID for one-off charges.
         OffSessionPaymentAsyncRequest request = OffSessionPaymentAsyncRequest.newBuilder()
             .setCustomer(customerId)
             .setCharge(InitialCharge.newBuilder().setPrice(100).setDescription("Test async charge from Java SDK").build())
+            .setIdempotencyKey("order-2024-001")
             .build();
 
         ExampleHelper.run((JammClient client) -> {

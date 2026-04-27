@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-04-27
+
+### Added
+
+- **Idempotency key for async off-session payments** — `OffSessionPaymentAsyncRequest` now accepts an `idempotency_key` field. Submitting a retry with the same key returns the existing charge instead of creating a duplicate.
+  - The SDK auto-fills the field with a UUID when omitted, so charges are always de-duplicated on accidental network retries
+  - Set the key yourself (ASCII, 1–255 chars of `[A-Za-z0-9_-]`) when you need explicit retry control
+  - See the updated [Off-Session Payment (Async)](README.md#off-session-payment-async) example
+
 ## [1.3.0] - 2026-04-08
 
 ### Added

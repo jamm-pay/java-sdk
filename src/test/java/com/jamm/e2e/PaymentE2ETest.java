@@ -16,6 +16,8 @@ import com.jamm.JammClient;
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 
+import java.util.UUID;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -206,6 +208,34 @@ class PaymentE2ETest {
             assertFalse(response.getChargeId().isEmpty());
             assertTrue(response.getChargeId().startsWith("trx-"));
             assertEquals(AsyncStatus.ASYNC_STATUS_PENDING, response.getStatus());
+        }
+    }
+
+    @Test
+    void offSessionPaymentAsync_sameIdempotencyKey_returnsSameCharge() {
+        String customerId = System.getenv("CUSTOMER");
+        Assumptions.assumeTrue(
+                customerId != null && !customerId.isBlank(),
+                "Skipping: set CUSTOMER env var (e.g. cus-xxxxxxxx)");
+
+        try (JammClient client = E2ETestHelper.createClient()) {
+            String idempotencyKey = "java-e2e-" + UUID.randomUUID();
+
+            OffSessionPaymentAsyncRequest request = OffSessionPaymentAsyncRequest.newBuilder()
+                    .setCustomer(customerId)
+                    .setCharge(InitialCharge.newBuilder()
+                            .setPrice(100)
+                            .setDescription("Java SDK idempotency E2E")
+                            .putMetadata("case", "idempotency-retry")
+                            .build())
+                    .setIdempotencyKey(idempotencyKey)
+                    .build();
+
+            OffSessionPaymentAsyncResponse first = client.payments().offSessionPaymentAsync(request);
+            OffSessionPaymentAsyncResponse second = client.payments().offSessionPaymentAsync(request);
+
+            assertFalse(first.getChargeId().isEmpty());
+            assertEquals(first.getChargeId(), second.getChargeId());
         }
     }
 

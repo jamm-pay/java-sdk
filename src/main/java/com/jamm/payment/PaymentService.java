@@ -16,6 +16,8 @@ import com.jamm.http.JammHttpClient;
 import com.jamm.http.RequestOptions;
 import com.jamm.http.UrlBuilder;
 
+import java.util.UUID;
+
 class PaymentService {
 
     private static final String PAYMENTS_BASE_PATH = "/v1/payments";
@@ -50,13 +52,27 @@ class PaymentService {
     }
 
     OffSessionPaymentAsyncResponse offSessionPaymentAsync(OffSessionPaymentAsyncRequest request) {
-        return http.post(PAYMENTS_BASE_PATH + "/off-session/async", request,
+        return http.post(PAYMENTS_BASE_PATH + "/off-session/async", withIdempotencyKey(request),
                 OffSessionPaymentAsyncResponse.class);
     }
 
     OffSessionPaymentAsyncResponse offSessionPaymentAsync(OffSessionPaymentAsyncRequest request, String merchant) {
-        return http.post(PAYMENTS_BASE_PATH + "/off-session/async", request,
+        return http.post(PAYMENTS_BASE_PATH + "/off-session/async", withIdempotencyKey(request),
                 OffSessionPaymentAsyncResponse.class, RequestOptions.withMerchant(merchant));
+    }
+
+    /**
+     * Auto-fills {@code idempotency_key} with a UUID when the merchant did not supply one,
+     * so every async charge is retry-safe by default. A merchant-supplied key is left
+     * unchanged so explicit retries reuse the same value.
+     */
+    private static OffSessionPaymentAsyncRequest withIdempotencyKey(OffSessionPaymentAsyncRequest request) {
+        if (!request.getIdempotencyKey().isBlank()) {
+            return request;
+        }
+        return request.toBuilder()
+                .setIdempotencyKey(UUID.randomUUID().toString())
+                .build();
     }
 
     GetChargeResponse getCharge(String chargeId) {
