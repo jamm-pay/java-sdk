@@ -213,6 +213,22 @@ public enum ErrorType
   ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS(1008),
   /**
    * <pre>
+   * Customer Not Found: merchant customer not found, or belongs to a different merchant.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_PAYMENT_CUSTOMER_NOT_FOUND = 1009;</code>
+   */
+  ERROR_TYPE_PAYMENT_CUSTOMER_NOT_FOUND(1009),
+  /**
+   * <pre>
+   * Customer Inactive: merchant customer has no active payment contract.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_PAYMENT_CUSTOMER_INACTIVE = 1010;</code>
+   */
+  ERROR_TYPE_PAYMENT_CUSTOMER_INACTIVE(1010),
+  /**
+   * <pre>
    * CSV Payment-related errors (1100-1199)
    * CSV Validation Failed: The CSV data validation failed, e.g., invalid format, missing fields.
    * </pre>
@@ -509,6 +525,22 @@ public enum ErrorType
   public static final int ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS_VALUE = 1008;
   /**
    * <pre>
+   * Customer Not Found: merchant customer not found, or belongs to a different merchant.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_PAYMENT_CUSTOMER_NOT_FOUND = 1009;</code>
+   */
+  public static final int ERROR_TYPE_PAYMENT_CUSTOMER_NOT_FOUND_VALUE = 1009;
+  /**
+   * <pre>
+   * Customer Inactive: merchant customer has no active payment contract.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_PAYMENT_CUSTOMER_INACTIVE = 1010;</code>
+   */
+  public static final int ERROR_TYPE_PAYMENT_CUSTOMER_INACTIVE_VALUE = 1010;
+  /**
+   * <pre>
    * CSV Payment-related errors (1100-1199)
    * CSV Validation Failed: The CSV data validation failed, e.g., invalid format, missing fields.
    * </pre>
@@ -675,6 +707,8 @@ public enum ErrorType
       case 1006: return ERROR_TYPE_PAYMENT_CHARGE_SUBSCRIPTION_EXPIRED;
       case 1007: return ERROR_TYPE_PAYMENT_LINK_EXPIRED;
       case 1008: return ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS;
+      case 1009: return ERROR_TYPE_PAYMENT_CUSTOMER_NOT_FOUND;
+      case 1010: return ERROR_TYPE_PAYMENT_CUSTOMER_INACTIVE;
       case 1100: return ERROR_TYPE_CSV_VALIDATION_FAILED;
       case 1101: return ERROR_TYPE_CSV_TOTP_REQUIRED;
       case 1102: return ERROR_TYPE_CSV_TOTP_INVALID;
