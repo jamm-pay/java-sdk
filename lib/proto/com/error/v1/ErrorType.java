@@ -213,7 +213,7 @@ public enum ErrorType
   ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS(1008),
   /**
    * <pre>
-   * Customer Not Found: merchant customer not found, or belongs to a different merchant.
+   * Customer Not Found: merchant customer not found.
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_CUSTOMER_NOT_FOUND = 1009;</code>
@@ -525,7 +525,7 @@ public enum ErrorType
   public static final int ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS_VALUE = 1008;
   /**
    * <pre>
-   * Customer Not Found: merchant customer not found, or belongs to a different merchant.
+   * Customer Not Found: merchant customer not found.
    * </pre>
    *
    * <code>ERROR_TYPE_PAYMENT_CUSTOMER_NOT_FOUND = 1009;</code>
