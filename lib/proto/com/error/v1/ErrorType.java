@@ -229,6 +229,16 @@ public enum ErrorType
   ERROR_TYPE_PAYMENT_CUSTOMER_INACTIVE(1010),
   /**
    * <pre>
+   * Service Disabled: the endpoint has been intentionally disabled for this
+   * merchant by an operator. Transient and operator-controlled, not a charge
+   * failure. Not a triggerError value.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_PAYMENT_SERVICE_DISABLED = 1011;</code>
+   */
+  ERROR_TYPE_PAYMENT_SERVICE_DISABLED(1011),
+  /**
+   * <pre>
    * CSV Payment-related errors (1100-1199)
    * CSV Validation Failed: The CSV data validation failed, e.g., invalid format, missing fields.
    * </pre>
@@ -541,6 +551,16 @@ public enum ErrorType
   public static final int ERROR_TYPE_PAYMENT_CUSTOMER_INACTIVE_VALUE = 1010;
   /**
    * <pre>
+   * Service Disabled: the endpoint has been intentionally disabled for this
+   * merchant by an operator. Transient and operator-controlled, not a charge
+   * failure. Not a triggerError value.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_PAYMENT_SERVICE_DISABLED = 1011;</code>
+   */
+  public static final int ERROR_TYPE_PAYMENT_SERVICE_DISABLED_VALUE = 1011;
+  /**
+   * <pre>
    * CSV Payment-related errors (1100-1199)
    * CSV Validation Failed: The CSV data validation failed, e.g., invalid format, missing fields.
    * </pre>
@@ -709,6 +729,7 @@ public enum ErrorType
       case 1008: return ERROR_TYPE_PAYMENT_CHARGE_INSUFFICIENT_FUNDS;
       case 1009: return ERROR_TYPE_PAYMENT_CUSTOMER_NOT_FOUND;
       case 1010: return ERROR_TYPE_PAYMENT_CUSTOMER_INACTIVE;
+      case 1011: return ERROR_TYPE_PAYMENT_SERVICE_DISABLED;
       case 1100: return ERROR_TYPE_CSV_VALIDATION_FAILED;
       case 1101: return ERROR_TYPE_CSV_TOTP_REQUIRED;
       case 1102: return ERROR_TYPE_CSV_TOTP_INVALID;
