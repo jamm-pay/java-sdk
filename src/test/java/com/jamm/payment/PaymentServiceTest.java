@@ -444,7 +444,7 @@ class PaymentServiceTest {
                 .build())
             .build();
 
-        when(http.get("/v1/charges/cus-123?pageToken=page-token&pageSize=20", GetChargesResponse.class))
+        when(http.get("/v1/charges/cus-123?pagination.pageToken=page-token&pagination.pageSize=20", GetChargesResponse.class))
             .thenReturn(resp);
 
         PaymentService service = new PaymentService(client);

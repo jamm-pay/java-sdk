@@ -251,14 +251,14 @@ JammClient client = Jamm.getClient();
 <dependency>
   <groupId>jp.jamm-pay</groupId>
   <artifactId>jamm-sdk</artifactId>
-  <version>1.4.0</version>
+  <version>1.4.1</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'jp.jamm-pay:jamm-sdk:1.4.0'
+implementation 'jp.jamm-pay:jamm-sdk:1.4.1'
 ```
 
 If you want to build from source:

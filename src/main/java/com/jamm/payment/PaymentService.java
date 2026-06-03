@@ -112,8 +112,8 @@ class PaymentService {
                 .pathParam(request.getCustomer());
 
         if (request.hasPagination()) {
-            builder.queryParam("pageToken", request.getPagination().getPageToken())
-                    .queryParam("pageSize", request.getPagination().getPageSize());
+            builder.queryParam("pagination.pageToken", request.getPagination().getPageToken())
+                    .queryParam("pagination.pageSize", request.getPagination().getPageSize());
         }
 
         return builder.build();
