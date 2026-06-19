@@ -323,4 +323,32 @@ public interface ChargeMessageOrBuilder extends
    * <code>optional .api.v1.RefundInfo refund = 22 [json_name = "refund"];</code>
    */
   com.api.v1.RefundInfoOrBuilder getRefundOrBuilder();
+
+  /**
+   * <pre>
+   * API that triggered this charge: on-session vs off-session (sync/async).
+   * </pre>
+   *
+   * <code>optional .api.v1.ChargeMessage.ApiSource api_source = 23 [json_name = "apiSource"];</code>
+   * @return Whether the apiSource field is set.
+   */
+  boolean hasApiSource();
+  /**
+   * <pre>
+   * API that triggered this charge: on-session vs off-session (sync/async).
+   * </pre>
+   *
+   * <code>optional .api.v1.ChargeMessage.ApiSource api_source = 23 [json_name = "apiSource"];</code>
+   * @return The enum numeric value on the wire for apiSource.
+   */
+  int getApiSourceValue();
+  /**
+   * <pre>
+   * API that triggered this charge: on-session vs off-session (sync/async).
+   * </pre>
+   *
+   * <code>optional .api.v1.ChargeMessage.ApiSource api_source = 23 [json_name = "apiSource"];</code>
+   * @return The apiSource.
+   */
+  com.api.v1.ChargeMessage.ApiSource getApiSource();
 }
