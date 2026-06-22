@@ -169,10 +169,34 @@ if (content instanceof ChargeMessage) {
     ChargeMessage charge = (ChargeMessage) content;
     // Handle charge event...
 
+    // api_source tells you which API triggered the charge:
+    // OFF_SESSION_SYNC, OFF_SESSION_ASYNC, or ON_SESSION.
+    switch (charge.getApiSource()) {
+        case API_SOURCE_OFF_SESSION_SYNC:
+            // synchronous off-session charge
+            break;
+        case API_SOURCE_OFF_SESSION_ASYNC:
+            // async off-session charge
+            break;
+        case API_SOURCE_ON_SESSION:
+            // on-session (customer-present) charge
+            break;
+        default:
+            // api_source not set
+            break;
+    }
+
     // For EVENT_TYPE_CHARGE_FAIL webhooks, access error details:
     if (charge.hasError()) {
         System.out.println("Error code: " + charge.getError().getCode());
         System.out.println("Error message: " + charge.getError().getMessage());
+    }
+
+    // For refund/cancel webhooks (EVENT_TYPE_REFUND_SUCCEEDED / EVENT_TYPE_REFUND_FAILED),
+    // the transaction fields are flattened onto the charge and refund details live on getRefund():
+    if (charge.hasRefund()) {
+        System.out.println("Refund ID: " + charge.getRefund().getRefundId()); // rfd-...
+        System.out.println("Amount refunded: " + charge.getRefund().getAmountRefunded());
     }
 }
 ```
@@ -251,14 +275,14 @@ JammClient client = Jamm.getClient();
 <dependency>
   <groupId>jp.jamm-pay</groupId>
   <artifactId>jamm-sdk</artifactId>
-  <version>1.4.1</version>
+  <version>1.5.0</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'jp.jamm-pay:jamm-sdk:1.4.1'
+implementation 'jp.jamm-pay:jamm-sdk:1.5.0'
 ```
 
 If you want to build from source:

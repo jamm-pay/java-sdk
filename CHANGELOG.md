@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-06-22
+
+### Added
+
+- **`api_source` on charge webhooks** — `ChargeMessage` now carries `getApiSource()`, identifying which API triggered the charge: `API_SOURCE_OFF_SESSION_SYNC`, `API_SOURCE_OFF_SESSION_ASYNC`, or `API_SOURCE_ON_SESSION` (`API_SOURCE_UNSPECIFIED` otherwise). See the [Webhook Verification](README.md#webhook-verification) example.
+
+### Fixed
+
+- **Refund/cancel webhooks now expose `refund_id` and the original transaction** — `EVENT_TYPE_REFUND_SUCCEEDED` / `EVENT_TYPE_REFUND_FAILED` payloads use a nested `{ transaction, refund }` shape. `Webhook.parse` previously flat-merged the content, dropping the `transaction` block. It now flattens the transaction fields onto the `ChargeMessage` and populates `getRefund()` (a `RefundInfo` carrying the `rfd-` `getRefundId()`, `getAmountRefunded()`, etc.). Legacy flat refund payloads are still parsed.
+
 ## [1.4.1] - 2026-06-03
 
 ### Fixed

@@ -3,6 +3,7 @@ package com.jamm.webhook;
 import com.api.v1.ChargeMessage;
 import com.api.v1.ContractMessage;
 import com.api.v1.EventType;
+import com.api.v1.RefundInfo;
 import com.api.v1.UserAccountMessage;
 import com.jamm.errors.InvalidSignatureException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -100,11 +101,13 @@ public final class Webhook {
             case EVENT_TYPE_CHARGE_UPDATED:
             case EVENT_TYPE_CHARGE_SUCCESS:
             case EVENT_TYPE_CHARGE_FAIL:
-            case EVENT_TYPE_REFUND_SUCCEEDED:
-            case EVENT_TYPE_REFUND_FAILED:
                 ChargeMessage.Builder chargeBuilder = ChargeMessage.newBuilder();
                 JsonFormat.parser().ignoringUnknownFields().merge(contentJson, chargeBuilder);
                 return chargeBuilder.build();
+
+            case EVENT_TYPE_REFUND_SUCCEEDED:
+            case EVENT_TYPE_REFUND_FAILED:
+                return parseRefundContent(contentJson);
 
             case EVENT_TYPE_CONTRACT_ACTIVATED:
                 ContractMessage.Builder contractBuilder = ContractMessage.newBuilder();
@@ -119,6 +122,40 @@ public final class Webhook {
             default:
                 throw new IllegalArgumentException("Unsupported event type: " + eventType);
         }
+    }
+
+    /**
+     * Parses a refund webhook's {@code content} into a {@link ChargeMessage}.
+     *
+     * <p>The current backend format nests the charge under {@code transaction} and the refund
+     * details under {@code refund}:
+     * <pre>{@code { "transaction": { ...ChargeMessage... }, "refund": { "refund_id": "rfd-...", ... } } }</pre>
+     * Older payloads sent the transaction fields flat. Both are flattened into a single
+     * {@code ChargeMessage} (with its {@code RefundInfo} populated) so consumers read one shape.
+     */
+    private static ChargeMessage parseRefundContent(String contentJson)
+            throws InvalidProtocolBufferException {
+        JsonNode contentNode;
+        try {
+            contentNode = OBJECT_MAPPER.readTree(contentJson);
+        } catch (IOException e) {
+            throw new IllegalArgumentException("Invalid refund content JSON: " + e.getMessage(), e);
+        }
+
+        ChargeMessage.Builder charge = ChargeMessage.newBuilder();
+        JsonNode transactionNode = contentNode.get("transaction");
+        if (transactionNode != null && !transactionNode.isNull()) {
+            JsonFormat.parser().ignoringUnknownFields().merge(transactionNode.toString(), charge);
+            JsonNode refundNode = contentNode.get("refund");
+            if (refundNode != null && !refundNode.isNull()) {
+                RefundInfo.Builder refund = RefundInfo.newBuilder();
+                JsonFormat.parser().ignoringUnknownFields().merge(refundNode.toString(), refund);
+                charge.setRefund(refund.build());
+            }
+        } else {
+            JsonFormat.parser().ignoringUnknownFields().merge(contentJson, charge);
+        }
+        return charge.build();
     }
 
     /**

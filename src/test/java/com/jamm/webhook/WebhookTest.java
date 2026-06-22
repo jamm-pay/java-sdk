@@ -2,6 +2,7 @@ package com.jamm.webhook;
 
 import com.api.v1.ChargeMessage;
 import com.api.v1.ContractMessage;
+import com.api.v1.RefundInfo;
 import com.api.v1.UserAccountMessage;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -101,6 +102,31 @@ class WebhookTest {
             }
 
             @Test
+            void parseChargeApiSource() throws Exception {
+                // The backend serializes enums as their integer value (json.Marshal),
+                // so api_source arrives as 1/2/3, not the enum name.
+                assertEquals(
+                    ChargeMessage.ApiSource.API_SOURCE_OFF_SESSION_SYNC,
+                    parseApiSource(1));
+                assertEquals(
+                    ChargeMessage.ApiSource.API_SOURCE_OFF_SESSION_ASYNC,
+                    parseApiSource(2));
+                assertEquals(
+                    ChargeMessage.ApiSource.API_SOURCE_ON_SESSION,
+                    parseApiSource(3));
+                assertEquals(
+                    ChargeMessage.ApiSource.API_SOURCE_UNSPECIFIED,
+                    parseApiSource(0));
+            }
+
+            private ChargeMessage.ApiSource parseApiSource(int apiSource) throws Exception {
+                String json = buildChargeMessage(
+                    "EVENT_TYPE_CHARGE_SUCCESS",
+                    "\"api_source\": " + apiSource);
+                return ((ChargeMessage) Webhook.parse(json)).getApiSource();
+            }
+
+            @Test
             void parseChargeFail() throws Exception {
                 String json = buildChargeMessage(
                     "EVENT_TYPE_CHARGE_FAIL",
@@ -120,8 +146,93 @@ class WebhookTest {
                 assertEquals("The payment charge exceeds the allowed limit.", charge.getError().getMessage());
             }
 
+            // Refund/cancel webhooks deliver the nested {transaction, refund} shape.
+            // The transaction holds the charge fields; the refund holds the rfd- id and amounts.
+            private String buildRefundMessage(String eventType) {
+                return "{" +
+                    "\"id\": \"mwh-ct4i88q418in5emhfvcg\"," +
+                    "\"signature\": \"sha256=aa7114c09d9275e035675947e0f56e1869b7b6a9d678f304db03da15c5c27beb\"," +
+                    "\"created_at\": \"2024-11-29T02:17:07.458580287Z\"," +
+                    "\"event_type\": \"" + eventType + "\"," +
+                    "\"content\": {" +
+                        "\"transaction\": {" +
+                            "\"id\": \"trx-5fc49679-7e5f-465b-b7ec-1b0e076cf208\"," +
+                            "\"customer\": \"cus-ct4i7ma418in6j467rjg\"," +
+                            "\"status\": 6," +
+                            "\"merchant_name\": \"Test Merchant 1\"," +
+                            "\"initial_amount\": 300," +
+                            "\"discount\": 3," +
+                            "\"final_amount\": 297," +
+                            "\"currency\": \"JPY\"" +
+                        "}," +
+                        "\"refund\": {" +
+                            "\"refund_id\": \"rfd-test-123\"," +
+                            "\"amount_refunded\": 297," +
+                            "\"jamm_fee\": 3," +
+                            "\"consumption_tax\": 0," +
+                            "\"original_transaction_fee_waived\": false," +
+                            "\"processed_at\": \"2024-11-29T02:17:07Z\"" +
+                        "}" +
+                    "}" +
+                "}";
+            }
+
             @Test
-            void parseRefund() throws Exception {
+            void parseRefundSucceeded() throws Exception {
+                Object result = Webhook.parse(buildRefundMessage("EVENT_TYPE_REFUND_SUCCEEDED"));
+                assertInstanceOf(ChargeMessage.class, result);
+                ChargeMessage charge = (ChargeMessage) result;
+                // Transaction fields survive the flattening.
+                assertEquals("trx-5fc49679-7e5f-465b-b7ec-1b0e076cf208", charge.getId());
+                assertEquals("cus-ct4i7ma418in6j467rjg", charge.getCustomer());
+                assertEquals(ChargeMessage.Status.STATUS_REFUNDED, charge.getStatus());
+                assertEquals(297, charge.getFinalAmount());
+                // Refund details are populated on the nested RefundInfo.
+                assertTrue(charge.hasRefund());
+                RefundInfo refund = charge.getRefund();
+                assertEquals("rfd-test-123", refund.getRefundId());
+                assertEquals(297, refund.getAmountRefunded());
+                assertEquals(3, refund.getJammFee());
+            }
+
+            @Test
+            void parseRefundFailed() throws Exception {
+                Object result = Webhook.parse(buildRefundMessage("EVENT_TYPE_REFUND_FAILED"));
+                assertInstanceOf(ChargeMessage.class, result);
+                ChargeMessage charge = (ChargeMessage) result;
+                assertEquals("trx-5fc49679-7e5f-465b-b7ec-1b0e076cf208", charge.getId());
+                assertTrue(charge.hasRefund());
+                assertEquals("rfd-test-123", charge.getRefund().getRefundId());
+            }
+
+            @Test
+            void parseRefundWithoutRefundId() throws Exception {
+                // Same-day cancel webhooks omit refund_id (backend sends it nil for cancel-as-refund).
+                String json = "{" +
+                    "\"event_type\": \"EVENT_TYPE_REFUND_SUCCEEDED\"," +
+                    "\"content\": {" +
+                        "\"transaction\": {" +
+                            "\"id\": \"trx-5fc49679-7e5f-465b-b7ec-1b0e076cf208\"," +
+                            "\"status\": 6," +
+                            "\"final_amount\": 297" +
+                        "}," +
+                        "\"refund\": {" +
+                            "\"amount_refunded\": 297," +
+                            "\"original_transaction_fee_waived\": true" +
+                        "}" +
+                    "}" +
+                "}";
+                ChargeMessage charge = (ChargeMessage) Webhook.parse(json);
+                assertEquals("trx-5fc49679-7e5f-465b-b7ec-1b0e076cf208", charge.getId());
+                assertTrue(charge.hasRefund());
+                assertEquals("", charge.getRefund().getRefundId());
+                assertFalse(charge.getRefund().hasRefundId());
+                assertEquals(297, charge.getRefund().getAmountRefunded());
+            }
+
+            @Test
+            void parseRefundLegacyFlat() throws Exception {
+                // Older payloads sent refund fields flat on the content; the fallback still parses them.
                 String json = buildChargeMessage(
                     "EVENT_TYPE_REFUND_SUCCEEDED",
                     "\"amount_refunded\": 300," +
@@ -137,20 +248,6 @@ class WebhookTest {
                 assertEquals(200, charge.getJammFee());
                 assertTrue(charge.hasOriginalTransactionJammFee());
                 assertEquals("not_waived", charge.getOriginalTransactionJammFee());
-            }
-
-            @Test
-            void parseRefundFailed() throws Exception {
-                String json = buildChargeMessage(
-                    "EVENT_TYPE_REFUND_FAILED",
-                    "\"refund_id\": \"rfd-test-123\""
-                );
-                Object result = Webhook.parse(json);
-                assertInstanceOf(ChargeMessage.class, result);
-                ChargeMessage charge = (ChargeMessage) result;
-                assertEquals("trx-5fc49679-7e5f-465b-b7ec-1b0e076cf208", charge.getId());
-                assertTrue(charge.hasRefundId());
-                assertEquals("rfd-test-123", charge.getRefundId());
             }
         }
 
