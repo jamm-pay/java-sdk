@@ -81,8 +81,10 @@ public interface InitialChargeOrBuilder extends
    * an embedded InitiatePaymentError payload.
    * Approve stage: all ERROR_TYPE_* values are honored.
    * Creates workflow-specific failure records (cancelled contract and/or
-   * failed transaction depending on the workflow type). Returns 200 OK with
-   * an embedded ApprovePaymentError payload.
+   * failed transaction depending on the workflow type). For charge-bearing
+   * workflows it also sends a charge.fail webhook (api_source ON_SESSION),
+   * mirroring off-session triggerError and real on-session failures.
+   * Returns 200 OK with an embedded ApprovePaymentError payload.
    *
    * Note: CreateContractWithoutCharge has no charge, so this field does not
    * apply. On-session triggerError for that flow is read from merchant-customer
@@ -140,8 +142,10 @@ public interface InitialChargeOrBuilder extends
    * an embedded InitiatePaymentError payload.
    * Approve stage: all ERROR_TYPE_* values are honored.
    * Creates workflow-specific failure records (cancelled contract and/or
-   * failed transaction depending on the workflow type). Returns 200 OK with
-   * an embedded ApprovePaymentError payload.
+   * failed transaction depending on the workflow type). For charge-bearing
+   * workflows it also sends a charge.fail webhook (api_source ON_SESSION),
+   * mirroring off-session triggerError and real on-session failures.
+   * Returns 200 OK with an embedded ApprovePaymentError payload.
    *
    * Note: CreateContractWithoutCharge has no charge, so this field does not
    * apply. On-session triggerError for that flow is read from merchant-customer
@@ -206,8 +210,10 @@ public interface InitialChargeOrBuilder extends
    * an embedded InitiatePaymentError payload.
    * Approve stage: all ERROR_TYPE_* values are honored.
    * Creates workflow-specific failure records (cancelled contract and/or
-   * failed transaction depending on the workflow type). Returns 200 OK with
-   * an embedded ApprovePaymentError payload.
+   * failed transaction depending on the workflow type). For charge-bearing
+   * workflows it also sends a charge.fail webhook (api_source ON_SESSION),
+   * mirroring off-session triggerError and real on-session failures.
+   * Returns 200 OK with an embedded ApprovePaymentError payload.
    *
    * Note: CreateContractWithoutCharge has no charge, so this field does not
    * apply. On-session triggerError for that flow is read from merchant-customer
@@ -266,8 +272,10 @@ public interface InitialChargeOrBuilder extends
    * an embedded InitiatePaymentError payload.
    * Approve stage: all ERROR_TYPE_* values are honored.
    * Creates workflow-specific failure records (cancelled contract and/or
-   * failed transaction depending on the workflow type). Returns 200 OK with
-   * an embedded ApprovePaymentError payload.
+   * failed transaction depending on the workflow type). For charge-bearing
+   * workflows it also sends a charge.fail webhook (api_source ON_SESSION),
+   * mirroring off-session triggerError and real on-session failures.
+   * Returns 200 OK with an embedded ApprovePaymentError payload.
    *
    * Note: CreateContractWithoutCharge has no charge, so this field does not
    * apply. On-session triggerError for that flow is read from merchant-customer
@@ -329,8 +337,10 @@ java.lang.String defaultValue);
    * an embedded InitiatePaymentError payload.
    * Approve stage: all ERROR_TYPE_* values are honored.
    * Creates workflow-specific failure records (cancelled contract and/or
-   * failed transaction depending on the workflow type). Returns 200 OK with
-   * an embedded ApprovePaymentError payload.
+   * failed transaction depending on the workflow type). For charge-bearing
+   * workflows it also sends a charge.fail webhook (api_source ON_SESSION),
+   * mirroring off-session triggerError and real on-session failures.
+   * Returns 200 OK with an embedded ApprovePaymentError payload.
    *
    * Note: CreateContractWithoutCharge has no charge, so this field does not
    * apply. On-session triggerError for that flow is read from merchant-customer
