@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.1] - 2026-06-23
+
+### Changed
+
+- **Refund webhook `refund_id` field renamed to `id`** — on `EVENT_TYPE_REFUND_SUCCEEDED` / `EVENT_TYPE_REFUND_FAILED`, the refund object's identifier is now `content.refund.id` (was `content.refund.refund_id`), consistent with `content.transaction.id`. `RefundInfo.getRefundId()` / `hasRefundId()` are now `getId()` / `hasId()`. Update any code reading the refund identifier.
+
 ## [1.5.0] - 2026-06-22
 
 ### Added
