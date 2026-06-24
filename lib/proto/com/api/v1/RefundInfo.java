@@ -32,7 +32,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private RefundInfo() {
-    refundId_ = "";
+    id_ = "";
     processedAt_ = "";
   }
 
@@ -55,19 +55,19 @@ private static final long serialVersionUID = 0L;
   }
 
   private int bitField0_;
-  public static final int REFUND_ID_FIELD_NUMBER = 1;
+  public static final int ID_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object refundId_ = "";
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * External refund identifier (rfd-*).
    * </pre>
    *
-   * <code>optional string refund_id = 1 [json_name = "refundId"];</code>
-   * @return Whether the refundId field is set.
+   * <code>optional string id = 1 [json_name = "id"];</code>
+   * @return Whether the id field is set.
    */
   @java.lang.Override
-  public boolean hasRefundId() {
+  public boolean hasId() {
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
@@ -75,19 +75,19 @@ private static final long serialVersionUID = 0L;
    * External refund identifier (rfd-*).
    * </pre>
    *
-   * <code>optional string refund_id = 1 [json_name = "refundId"];</code>
-   * @return The refundId.
+   * <code>optional string id = 1 [json_name = "id"];</code>
+   * @return The id.
    */
   @java.lang.Override
-  public java.lang.String getRefundId() {
-    java.lang.Object ref = refundId_;
+  public java.lang.String getId() {
+    java.lang.Object ref = id_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      refundId_ = s;
+      id_ = s;
       return s;
     }
   }
@@ -96,18 +96,18 @@ private static final long serialVersionUID = 0L;
    * External refund identifier (rfd-*).
    * </pre>
    *
-   * <code>optional string refund_id = 1 [json_name = "refundId"];</code>
-   * @return The bytes for refundId.
+   * <code>optional string id = 1 [json_name = "id"];</code>
+   * @return The bytes for id.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getRefundIdBytes() {
-    java.lang.Object ref = refundId_;
+      getIdBytes() {
+    java.lang.Object ref = id_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      refundId_ = b;
+      id_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -334,7 +334,7 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (((bitField0_ & 0x00000001) != 0)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 1, refundId_);
+      com.google.protobuf.GeneratedMessage.writeString(output, 1, id_);
     }
     if (((bitField0_ & 0x00000002) != 0)) {
       output.writeInt32(2, amountRefunded_);
@@ -364,7 +364,7 @@ private static final long serialVersionUID = 0L;
 
     size = 0;
     if (((bitField0_ & 0x00000001) != 0)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, refundId_);
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, id_);
     }
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.CodedOutputStream
@@ -404,10 +404,10 @@ private static final long serialVersionUID = 0L;
     }
     com.api.v1.RefundInfo other = (com.api.v1.RefundInfo) obj;
 
-    if (hasRefundId() != other.hasRefundId()) return false;
-    if (hasRefundId()) {
-      if (!getRefundId()
-          .equals(other.getRefundId())) return false;
+    if (hasId() != other.hasId()) return false;
+    if (hasId()) {
+      if (!getId()
+          .equals(other.getId())) return false;
     }
     if (hasAmountRefunded() != other.hasAmountRefunded()) return false;
     if (hasAmountRefunded()) {
@@ -450,9 +450,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasRefundId()) {
-      hash = (37 * hash) + REFUND_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getRefundId().hashCode();
+    if (hasId()) {
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
     }
     if (hasAmountRefunded()) {
       hash = (37 * hash) + AMOUNT_REFUNDED_FIELD_NUMBER;
@@ -620,7 +620,7 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      refundId_ = "";
+      id_ = "";
       amountRefunded_ = 0;
       jammFee_ = 0;
       consumptionTax_ = 0;
@@ -666,7 +666,7 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.refundId_ = refundId_;
+        result.id_ = id_;
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
@@ -710,8 +710,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.api.v1.RefundInfo other) {
       if (other == com.api.v1.RefundInfo.getDefaultInstance()) return this;
-      if (other.hasRefundId()) {
-        refundId_ = other.refundId_;
+      if (other.hasId()) {
+        id_ = other.id_;
         bitField0_ |= 0x00000001;
         onChanged();
       }
@@ -762,7 +762,7 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              refundId_ = input.readStringRequireUtf8();
+              id_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000001;
               break;
             } // case 10
@@ -815,16 +815,16 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object refundId_ = "";
+    private java.lang.Object id_ = "";
     /**
      * <pre>
      * External refund identifier (rfd-*).
      * </pre>
      *
-     * <code>optional string refund_id = 1 [json_name = "refundId"];</code>
-     * @return Whether the refundId field is set.
+     * <code>optional string id = 1 [json_name = "id"];</code>
+     * @return Whether the id field is set.
      */
-    public boolean hasRefundId() {
+    public boolean hasId() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
@@ -832,16 +832,16 @@ private static final long serialVersionUID = 0L;
      * External refund identifier (rfd-*).
      * </pre>
      *
-     * <code>optional string refund_id = 1 [json_name = "refundId"];</code>
-     * @return The refundId.
+     * <code>optional string id = 1 [json_name = "id"];</code>
+     * @return The id.
      */
-    public java.lang.String getRefundId() {
-      java.lang.Object ref = refundId_;
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        refundId_ = s;
+        id_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -852,17 +852,17 @@ private static final long serialVersionUID = 0L;
      * External refund identifier (rfd-*).
      * </pre>
      *
-     * <code>optional string refund_id = 1 [json_name = "refundId"];</code>
-     * @return The bytes for refundId.
+     * <code>optional string id = 1 [json_name = "id"];</code>
+     * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
-        getRefundIdBytes() {
-      java.lang.Object ref = refundId_;
+        getIdBytes() {
+      java.lang.Object ref = id_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        refundId_ = b;
+        id_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -873,14 +873,14 @@ private static final long serialVersionUID = 0L;
      * External refund identifier (rfd-*).
      * </pre>
      *
-     * <code>optional string refund_id = 1 [json_name = "refundId"];</code>
-     * @param value The refundId to set.
+     * <code>optional string id = 1 [json_name = "id"];</code>
+     * @param value The id to set.
      * @return This builder for chaining.
      */
-    public Builder setRefundId(
+    public Builder setId(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      refundId_ = value;
+      id_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
@@ -890,11 +890,11 @@ private static final long serialVersionUID = 0L;
      * External refund identifier (rfd-*).
      * </pre>
      *
-     * <code>optional string refund_id = 1 [json_name = "refundId"];</code>
+     * <code>optional string id = 1 [json_name = "id"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearRefundId() {
-      refundId_ = getDefaultInstance().getRefundId();
+    public Builder clearId() {
+      id_ = getDefaultInstance().getId();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
@@ -904,15 +904,15 @@ private static final long serialVersionUID = 0L;
      * External refund identifier (rfd-*).
      * </pre>
      *
-     * <code>optional string refund_id = 1 [json_name = "refundId"];</code>
-     * @param value The bytes for refundId to set.
+     * <code>optional string id = 1 [json_name = "id"];</code>
+     * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
-    public Builder setRefundIdBytes(
+    public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      refundId_ = value;
+      id_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;

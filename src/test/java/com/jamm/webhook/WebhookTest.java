@@ -166,7 +166,7 @@ class WebhookTest {
                             "\"currency\": \"JPY\"" +
                         "}," +
                         "\"refund\": {" +
-                            "\"refund_id\": \"rfd-test-123\"," +
+                            "\"id\": \"rfd-test-123\"," +
                             "\"amount_refunded\": 297," +
                             "\"jamm_fee\": 3," +
                             "\"consumption_tax\": 0," +
@@ -190,7 +190,7 @@ class WebhookTest {
                 // Refund details are populated on the nested RefundInfo.
                 assertTrue(charge.hasRefund());
                 RefundInfo refund = charge.getRefund();
-                assertEquals("rfd-test-123", refund.getRefundId());
+                assertEquals("rfd-test-123", refund.getId());
                 assertEquals(297, refund.getAmountRefunded());
                 assertEquals(3, refund.getJammFee());
             }
@@ -202,12 +202,12 @@ class WebhookTest {
                 ChargeMessage charge = (ChargeMessage) result;
                 assertEquals("trx-5fc49679-7e5f-465b-b7ec-1b0e076cf208", charge.getId());
                 assertTrue(charge.hasRefund());
-                assertEquals("rfd-test-123", charge.getRefund().getRefundId());
+                assertEquals("rfd-test-123", charge.getRefund().getId());
             }
 
             @Test
-            void parseRefundWithoutRefundId() throws Exception {
-                // Same-day cancel webhooks omit refund_id (backend sends it nil for cancel-as-refund).
+            void parseRefundWithoutId() throws Exception {
+                // Same-day cancel webhooks omit the id (backend sends it nil for cancel-as-refund).
                 String json = "{" +
                     "\"event_type\": \"EVENT_TYPE_REFUND_SUCCEEDED\"," +
                     "\"content\": {" +
@@ -225,8 +225,8 @@ class WebhookTest {
                 ChargeMessage charge = (ChargeMessage) Webhook.parse(json);
                 assertEquals("trx-5fc49679-7e5f-465b-b7ec-1b0e076cf208", charge.getId());
                 assertTrue(charge.hasRefund());
-                assertEquals("", charge.getRefund().getRefundId());
-                assertFalse(charge.getRefund().hasRefundId());
+                assertEquals("", charge.getRefund().getId());
+                assertFalse(charge.getRefund().hasId());
                 assertEquals(297, charge.getRefund().getAmountRefunded());
             }
 
