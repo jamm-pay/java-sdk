@@ -114,7 +114,7 @@ public final class MerchantWebhooksProto extends com.google.protobuf.GeneratedFi
       "\teventType\0226\n\007content\030\005 \001(\0132\024.google.pro" +
       "tobuf.AnyB\006\272H\003\310\001\001R\007content\022B\n\ncreated_at" +
       "\030\347\007 \001(\0132\032.google.protobuf.TimestampB\006\272H\003" +
-      "\310\001\001R\tcreatedAt\"\334\n\n\rChargeMessage\022\"\n\002id\030\001" +
+      "\310\001\001R\tcreatedAt\"\200\t\n\rChargeMessage\022\"\n\002id\030\001" +
       " \001(\tB\022\272H\017r\n2\010^trx-.*$\310\001\001R\002id\022.\n\010customer" +
       "\030\002 \001(\tB\022\272H\017r\n2\010^cus-.*$\310\001\001R\010customer\022<\n\006" +
       "status\030\003 \001(\0162\034.api.v1.ChargeMessage.Stat" +
@@ -135,28 +135,23 @@ public final class MerchantWebhooksProto extends com.google.protobuf.GeneratedFi
       "H\004R\016consumptionTax\210\001\001\022(\n\005error\030\024 \001(\0132\r.a" +
       "pi.v1.ErrorH\005R\005error\210\001\001\022 \n\trefund_id\030\025 \001" +
       "(\tH\006R\010refundId\210\001\001\022/\n\006refund\030\026 \001(\0132\022.api." +
-      "v1.RefundInfoH\007R\006refund\210\001\001\022C\n\napi_source" +
-      "\030\027 \001(\0162\037.api.v1.ChargeMessage.ApiSourceH" +
-      "\010R\tapiSource\210\001\001\"\241\001\n\006Status\022\026\n\022STATUS_UNS" +
-      "PECIFIED\020\000\022\022\n\016STATUS_SUCCESS\020\001\022\022\n\016STATUS" +
-      "_FAILURE\020\002\022\027\n\023STATUS_WAITING_EKYC\020\003\022\023\n\017S" +
-      "TATUS_BLOCKING\020\004\022\024\n\020STATUS_CANCELLED\020\005\022\023" +
-      "\n\017STATUS_REFUNDED\020\006\"\205\001\n\tApiSource\022\032\n\026API" +
-      "_SOURCE_UNSPECIFIED\020\000\022\037\n\033API_SOURCE_OFF_" +
-      "SESSION_SYNC\020\001\022 \n\034API_SOURCE_OFF_SESSION" +
-      "_ASYNC\020\002\022\031\n\025API_SOURCE_ON_SESSION\020\003B\022\n\020_" +
-      "amount_refundedB\017\n\r_processed_atB\013\n\t_jam" +
-      "m_feeB \n\036_original_transaction_jamm_feeB" +
-      "\022\n\020_consumption_taxB\010\n\006_errorB\014\n\n_refund" +
-      "_idB\t\n\007_refundB\r\n\013_api_source\"\266\003\n\nRefund" +
-      "Info\022\023\n\002id\030\001 \001(\tH\000R\002id\210\001\001\022,\n\017amount_refu" +
-      "nded\030\002 \001(\005H\001R\016amountRefunded\210\001\001\022\036\n\010jamm_" +
-      "fee\030\003 \001(\005H\002R\007jammFee\210\001\001\022,\n\017consumption_t" +
-      "ax\030\004 \001(\005H\003R\016consumptionTax\210\001\001\022J\n\037origina" +
-      "l_transaction_fee_waived\030\005 \001(\010H\004R\034origin" +
-      "alTransactionFeeWaived\210\001\001\022(\n\005error\030\006 \001(\013" +
-      "2\r.api.v1.ErrorH\005R\005error\210\001\001\022&\n\014processed" +
-      "_at\030\007 \001(\tH\006R\013processedAt\210\001\001B\005\n\003_idB\022\n\020_a" +
+      "v1.RefundInfoH\007R\006refund\210\001\001\"\241\001\n\006Status\022\026\n" +
+      "\022STATUS_UNSPECIFIED\020\000\022\022\n\016STATUS_SUCCESS\020" +
+      "\001\022\022\n\016STATUS_FAILURE\020\002\022\027\n\023STATUS_WAITING_" +
+      "EKYC\020\003\022\023\n\017STATUS_BLOCKING\020\004\022\024\n\020STATUS_CA" +
+      "NCELLED\020\005\022\023\n\017STATUS_REFUNDED\020\006B\022\n\020_amoun" +
+      "t_refundedB\017\n\r_processed_atB\013\n\t_jamm_fee" +
+      "B \n\036_original_transaction_jamm_feeB\022\n\020_c" +
+      "onsumption_taxB\010\n\006_errorB\014\n\n_refund_idB\t" +
+      "\n\007_refund\"\312\003\n\nRefundInfo\022 \n\trefund_id\030\001 " +
+      "\001(\tH\000R\010refundId\210\001\001\022,\n\017amount_refunded\030\002 " +
+      "\001(\005H\001R\016amountRefunded\210\001\001\022\036\n\010jamm_fee\030\003 \001" +
+      "(\005H\002R\007jammFee\210\001\001\022,\n\017consumption_tax\030\004 \001(" +
+      "\005H\003R\016consumptionTax\210\001\001\022J\n\037original_trans" +
+      "action_fee_waived\030\005 \001(\010H\004R\034originalTrans" +
+      "actionFeeWaived\210\001\001\022(\n\005error\030\006 \001(\0132\r.api." +
+      "v1.ErrorH\005R\005error\210\001\001\022&\n\014processed_at\030\007 \001" +
+      "(\tH\006R\013processedAt\210\001\001B\014\n\n_refund_idB\022\n\020_a" +
       "mount_refundedB\013\n\t_jamm_feeB\022\n\020_consumpt" +
       "ion_taxB\"\n _original_transaction_fee_wai" +
       "vedB\010\n\006_errorB\017\n\r_processed_at\"\300\001\n\017Contr" +
@@ -236,13 +231,13 @@ public final class MerchantWebhooksProto extends com.google.protobuf.GeneratedFi
     internal_static_api_v1_ChargeMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_api_v1_ChargeMessage_descriptor,
-        new java.lang.String[] { "Id", "Customer", "Status", "Description", "MerchantName", "InitialAmount", "Discount", "FinalAmount", "AmountRefunded", "Currency", "ProcessedAt", "JammFee", "CreatedAt", "UpdatedAt", "OriginalTransactionJammFee", "ConsumptionTax", "Error", "RefundId", "Refund", "ApiSource", });
+        new java.lang.String[] { "Id", "Customer", "Status", "Description", "MerchantName", "InitialAmount", "Discount", "FinalAmount", "AmountRefunded", "Currency", "ProcessedAt", "JammFee", "CreatedAt", "UpdatedAt", "OriginalTransactionJammFee", "ConsumptionTax", "Error", "RefundId", "Refund", });
     internal_static_api_v1_RefundInfo_descriptor =
       getDescriptor().getMessageType(6);
     internal_static_api_v1_RefundInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_api_v1_RefundInfo_descriptor,
-        new java.lang.String[] { "Id", "AmountRefunded", "JammFee", "ConsumptionTax", "OriginalTransactionFeeWaived", "Error", "ProcessedAt", });
+        new java.lang.String[] { "RefundId", "AmountRefunded", "JammFee", "ConsumptionTax", "OriginalTransactionFeeWaived", "Error", "ProcessedAt", });
     internal_static_api_v1_ContractMessage_descriptor =
       getDescriptor().getMessageType(7);
     internal_static_api_v1_ContractMessage_fieldAccessorTable = new

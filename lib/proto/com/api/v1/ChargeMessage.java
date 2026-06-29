@@ -39,7 +39,6 @@ private static final long serialVersionUID = 0L;
     updatedAt_ = "";
     originalTransactionJammFee_ = "";
     refundId_ = "";
-    apiSource_ = 0;
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -220,141 +219,6 @@ private static final long serialVersionUID = 0L;
     }
 
     // @@protoc_insertion_point(enum_scope:api.v1.ChargeMessage.Status)
-  }
-
-  /**
-   * Protobuf enum {@code api.v1.ChargeMessage.ApiSource}
-   */
-  public enum ApiSource
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>API_SOURCE_UNSPECIFIED = 0;</code>
-     */
-    API_SOURCE_UNSPECIFIED(0),
-    /**
-     * <code>API_SOURCE_OFF_SESSION_SYNC = 1;</code>
-     */
-    API_SOURCE_OFF_SESSION_SYNC(1),
-    /**
-     * <code>API_SOURCE_OFF_SESSION_ASYNC = 2;</code>
-     */
-    API_SOURCE_OFF_SESSION_ASYNC(2),
-    /**
-     * <code>API_SOURCE_ON_SESSION = 3;</code>
-     */
-    API_SOURCE_ON_SESSION(3),
-    UNRECOGNIZED(-1),
-    ;
-
-    static {
-      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
-        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
-        /* major= */ 4,
-        /* minor= */ 34,
-        /* patch= */ 1,
-        /* suffix= */ "",
-        "ApiSource");
-    }
-    /**
-     * <code>API_SOURCE_UNSPECIFIED = 0;</code>
-     */
-    public static final int API_SOURCE_UNSPECIFIED_VALUE = 0;
-    /**
-     * <code>API_SOURCE_OFF_SESSION_SYNC = 1;</code>
-     */
-    public static final int API_SOURCE_OFF_SESSION_SYNC_VALUE = 1;
-    /**
-     * <code>API_SOURCE_OFF_SESSION_ASYNC = 2;</code>
-     */
-    public static final int API_SOURCE_OFF_SESSION_ASYNC_VALUE = 2;
-    /**
-     * <code>API_SOURCE_ON_SESSION = 3;</code>
-     */
-    public static final int API_SOURCE_ON_SESSION_VALUE = 3;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static ApiSource valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static ApiSource forNumber(int value) {
-      switch (value) {
-        case 0: return API_SOURCE_UNSPECIFIED;
-        case 1: return API_SOURCE_OFF_SESSION_SYNC;
-        case 2: return API_SOURCE_OFF_SESSION_ASYNC;
-        case 3: return API_SOURCE_ON_SESSION;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<ApiSource>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        ApiSource> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<ApiSource>() {
-            public ApiSource findValueByNumber(int number) {
-              return ApiSource.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValue(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return com.api.v1.ChargeMessage.getDescriptor().getEnumType(1);
-    }
-
-    private static final ApiSource[] VALUES = values();
-
-    public static ApiSource valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private ApiSource(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:api.v1.ChargeMessage.ApiSource)
   }
 
   private int bitField0_;
@@ -1019,43 +883,6 @@ private static final long serialVersionUID = 0L;
     return refund_ == null ? com.api.v1.RefundInfo.getDefaultInstance() : refund_;
   }
 
-  public static final int API_SOURCE_FIELD_NUMBER = 23;
-  private int apiSource_ = 0;
-  /**
-   * <pre>
-   * API that triggered this charge: on-session vs off-session (sync/async).
-   * </pre>
-   *
-   * <code>optional .api.v1.ChargeMessage.ApiSource api_source = 23 [json_name = "apiSource"];</code>
-   * @return Whether the apiSource field is set.
-   */
-  @java.lang.Override public boolean hasApiSource() {
-    return ((bitField0_ & 0x00000100) != 0);
-  }
-  /**
-   * <pre>
-   * API that triggered this charge: on-session vs off-session (sync/async).
-   * </pre>
-   *
-   * <code>optional .api.v1.ChargeMessage.ApiSource api_source = 23 [json_name = "apiSource"];</code>
-   * @return The enum numeric value on the wire for apiSource.
-   */
-  @java.lang.Override public int getApiSourceValue() {
-    return apiSource_;
-  }
-  /**
-   * <pre>
-   * API that triggered this charge: on-session vs off-session (sync/async).
-   * </pre>
-   *
-   * <code>optional .api.v1.ChargeMessage.ApiSource api_source = 23 [json_name = "apiSource"];</code>
-   * @return The apiSource.
-   */
-  @java.lang.Override public com.api.v1.ChargeMessage.ApiSource getApiSource() {
-    com.api.v1.ChargeMessage.ApiSource result = com.api.v1.ChargeMessage.ApiSource.forNumber(apiSource_);
-    return result == null ? com.api.v1.ChargeMessage.ApiSource.UNRECOGNIZED : result;
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1126,9 +953,6 @@ private static final long serialVersionUID = 0L;
     }
     if (((bitField0_ & 0x00000080) != 0)) {
       output.writeMessage(22, getRefund());
-    }
-    if (((bitField0_ & 0x00000100) != 0)) {
-      output.writeEnum(23, apiSource_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -1204,10 +1028,6 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000080) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(22, getRefund());
-    }
-    if (((bitField0_ & 0x00000100) != 0)) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(23, apiSource_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -1285,10 +1105,6 @@ private static final long serialVersionUID = 0L;
       if (!getRefund()
           .equals(other.getRefund())) return false;
     }
-    if (hasApiSource() != other.hasApiSource()) return false;
-    if (hasApiSource()) {
-      if (apiSource_ != other.apiSource_) return false;
-    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -1353,10 +1169,6 @@ private static final long serialVersionUID = 0L;
     if (hasRefund()) {
       hash = (37 * hash) + REFUND_FIELD_NUMBER;
       hash = (53 * hash) + getRefund().hashCode();
-    }
-    if (hasApiSource()) {
-      hash = (37 * hash) + API_SOURCE_FIELD_NUMBER;
-      hash = (53 * hash) + apiSource_;
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -1523,7 +1335,6 @@ private static final long serialVersionUID = 0L;
         refundBuilder_.dispose();
         refundBuilder_ = null;
       }
-      apiSource_ = 0;
       return this;
     }
 
@@ -1627,10 +1438,6 @@ private static final long serialVersionUID = 0L;
             : refundBuilder_.build();
         to_bitField0_ |= 0x00000080;
       }
-      if (((from_bitField0_ & 0x00080000) != 0)) {
-        result.apiSource_ = apiSource_;
-        to_bitField0_ |= 0x00000100;
-      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -1722,9 +1529,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasRefund()) {
         mergeRefund(other.getRefund());
-      }
-      if (other.hasApiSource()) {
-        setApiSourceValue(other.getApiSourceValue());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1851,11 +1655,6 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00040000;
               break;
             } // case 178
-            case 184: {
-              apiSource_ = input.readEnum();
-              bitField0_ |= 0x00080000;
-              break;
-            } // case 184
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -3320,89 +3119,6 @@ private static final long serialVersionUID = 0L;
         refund_ = null;
       }
       return refundBuilder_;
-    }
-
-    private int apiSource_ = 0;
-    /**
-     * <pre>
-     * API that triggered this charge: on-session vs off-session (sync/async).
-     * </pre>
-     *
-     * <code>optional .api.v1.ChargeMessage.ApiSource api_source = 23 [json_name = "apiSource"];</code>
-     * @return Whether the apiSource field is set.
-     */
-    @java.lang.Override public boolean hasApiSource() {
-      return ((bitField0_ & 0x00080000) != 0);
-    }
-    /**
-     * <pre>
-     * API that triggered this charge: on-session vs off-session (sync/async).
-     * </pre>
-     *
-     * <code>optional .api.v1.ChargeMessage.ApiSource api_source = 23 [json_name = "apiSource"];</code>
-     * @return The enum numeric value on the wire for apiSource.
-     */
-    @java.lang.Override public int getApiSourceValue() {
-      return apiSource_;
-    }
-    /**
-     * <pre>
-     * API that triggered this charge: on-session vs off-session (sync/async).
-     * </pre>
-     *
-     * <code>optional .api.v1.ChargeMessage.ApiSource api_source = 23 [json_name = "apiSource"];</code>
-     * @param value The enum numeric value on the wire for apiSource to set.
-     * @throws IllegalArgumentException if UNRECOGNIZED is provided.
-     * @return This builder for chaining.
-     */
-    public Builder setApiSourceValue(int value) {
-      apiSource_ = value;
-      bitField0_ |= 0x00080000;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * API that triggered this charge: on-session vs off-session (sync/async).
-     * </pre>
-     *
-     * <code>optional .api.v1.ChargeMessage.ApiSource api_source = 23 [json_name = "apiSource"];</code>
-     * @return The apiSource.
-     */
-    @java.lang.Override
-    public com.api.v1.ChargeMessage.ApiSource getApiSource() {
-      com.api.v1.ChargeMessage.ApiSource result = com.api.v1.ChargeMessage.ApiSource.forNumber(apiSource_);
-      return result == null ? com.api.v1.ChargeMessage.ApiSource.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * API that triggered this charge: on-session vs off-session (sync/async).
-     * </pre>
-     *
-     * <code>optional .api.v1.ChargeMessage.ApiSource api_source = 23 [json_name = "apiSource"];</code>
-     * @param value The apiSource to set.
-     * @return This builder for chaining.
-     */
-    public Builder setApiSource(com.api.v1.ChargeMessage.ApiSource value) {
-      if (value == null) { throw new NullPointerException(); }
-      bitField0_ |= 0x00080000;
-      apiSource_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * API that triggered this charge: on-session vs off-session (sync/async).
-     * </pre>
-     *
-     * <code>optional .api.v1.ChargeMessage.ApiSource api_source = 23 [json_name = "apiSource"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearApiSource() {
-      bitField0_ = (bitField0_ & ~0x00080000);
-      apiSource_ = 0;
-      onChanged();
-      return this;
     }
 
     // @@protoc_insertion_point(builder_scope:api.v1.ChargeMessage)
