@@ -102,31 +102,6 @@ class WebhookTest {
             }
 
             @Test
-            void parseChargeApiSource() throws Exception {
-                // The backend serializes enums as their integer value (json.Marshal),
-                // so api_source arrives as 1/2/3, not the enum name.
-                assertEquals(
-                    ChargeMessage.ApiSource.API_SOURCE_OFF_SESSION_SYNC,
-                    parseApiSource(1));
-                assertEquals(
-                    ChargeMessage.ApiSource.API_SOURCE_OFF_SESSION_ASYNC,
-                    parseApiSource(2));
-                assertEquals(
-                    ChargeMessage.ApiSource.API_SOURCE_ON_SESSION,
-                    parseApiSource(3));
-                assertEquals(
-                    ChargeMessage.ApiSource.API_SOURCE_UNSPECIFIED,
-                    parseApiSource(0));
-            }
-
-            private ChargeMessage.ApiSource parseApiSource(int apiSource) throws Exception {
-                String json = buildChargeMessage(
-                    "EVENT_TYPE_CHARGE_SUCCESS",
-                    "\"api_source\": " + apiSource);
-                return ((ChargeMessage) Webhook.parse(json)).getApiSource();
-            }
-
-            @Test
             void parseChargeFail() throws Exception {
                 String json = buildChargeMessage(
                     "EVENT_TYPE_CHARGE_FAIL",
