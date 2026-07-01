@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Generated from templates/pom.xml.tmpl — do not edit by hand.
+  Regenerate with `make add VER=1.4.0` from packages/sdk/java/compatibility.
+
+  Pins the published jamm-sdk@1.4.0 (resolved from Maven Central) and adds the shared
+  backward-compat suite (../shared/src/test/java) as a test source, so Maven compiles and runs the
+  same assertions against this directory's pinned jar. Depending on jamm-sdk here (not in the
+  shared suite) is what makes Maven resolve it to *this* directory's version.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>jp.jamm-pay.compat</groupId>
+  <artifactId>jamm-sdk-compat-1.4.0</artifactId>
+  <version>0.0.0</version>
+  <packaging>jar</packaging>
+
+  <properties>
+    <maven.compiler.release>11</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>5.10.1</junit.version>
+    <sdk.version>1.4.0</sdk.version>
+  </properties>
+
+  <dependencies>
+    <!-- The pinned, published SDK under test. Its transitive deps (protobuf, okhttp, ...) come
+         from its published POM, so the suite links against the exact artifact merchants install. -->
+    <dependency>
+      <groupId>jp.jamm-pay</groupId>
+      <artifactId>jamm-sdk</artifactId>
+      <version>${sdk.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Add the shared, single-source-of-truth suite as a test source for this pinned version. -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>3.6.1</version>
+        <executions>
+          <execution>
+            <id>add-shared-compat-suite</id>
+            <phase>generate-test-sources</phase>
+            <goals>
+              <goal>add-test-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${project.basedir}/../shared/src/test/java</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.5.2</version>
+        <configuration>
+          <!-- CompatSuite does not match surefire's default *Test/*Tests patterns, so include it
+               explicitly; otherwise surefire silently runs zero tests and the build still passes. -->
+          <includes>
+            <include>**/CompatSuite.java</include>
+          </includes>
+          <systemPropertyVariables>
+            <!-- Language-neutral backend records shared by every SDK harness. Resolved from the
+                 module dir: <version>/../../../compatibility/testdata = packages/sdk/compatibility/testdata. -->
+            <compat.testdata.dir>${project.basedir}/../../../compatibility/testdata</compat.testdata.dir>
+            <compat.sdk.version>${sdk.version}</compat.sdk.version>
+          </systemPropertyVariables>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

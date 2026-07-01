@@ -1,0 +1,5 @@
+# Per-version status emitted by `make report` for the PR comment workflow.
+compat-report.tsv
+
+# Maven build output for each pinned version -- rebuilt fresh per run.
+*/target
