@@ -239,6 +239,17 @@ public enum ErrorType
   ERROR_TYPE_PAYMENT_SERVICE_DISABLED(1011),
   /**
    * <pre>
+   * Bank Unavailable: the customer's destination bank is temporarily unavailable
+   * (CAFIS bank-center codes C12/C13/C14 — busy / in fault / closed). Transient
+   * and on the bank's side, not a decline — retry later. Distinct from
+   * GATEWAY_UNAVAILABLE, which is a Jamm/BankPay-side outage.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_PAYMENT_BANK_UNAVAILABLE = 1012;</code>
+   */
+  ERROR_TYPE_PAYMENT_BANK_UNAVAILABLE(1012),
+  /**
+   * <pre>
    * CSV Payment-related errors (1100-1199)
    * CSV Validation Failed: The CSV data validation failed, e.g., invalid format, missing fields.
    * </pre>
@@ -561,6 +572,17 @@ public enum ErrorType
   public static final int ERROR_TYPE_PAYMENT_SERVICE_DISABLED_VALUE = 1011;
   /**
    * <pre>
+   * Bank Unavailable: the customer's destination bank is temporarily unavailable
+   * (CAFIS bank-center codes C12/C13/C14 — busy / in fault / closed). Transient
+   * and on the bank's side, not a decline — retry later. Distinct from
+   * GATEWAY_UNAVAILABLE, which is a Jamm/BankPay-side outage.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_PAYMENT_BANK_UNAVAILABLE = 1012;</code>
+   */
+  public static final int ERROR_TYPE_PAYMENT_BANK_UNAVAILABLE_VALUE = 1012;
+  /**
+   * <pre>
    * CSV Payment-related errors (1100-1199)
    * CSV Validation Failed: The CSV data validation failed, e.g., invalid format, missing fields.
    * </pre>
@@ -730,6 +752,7 @@ public enum ErrorType
       case 1009: return ERROR_TYPE_PAYMENT_CUSTOMER_NOT_FOUND;
       case 1010: return ERROR_TYPE_PAYMENT_CUSTOMER_INACTIVE;
       case 1011: return ERROR_TYPE_PAYMENT_SERVICE_DISABLED;
+      case 1012: return ERROR_TYPE_PAYMENT_BANK_UNAVAILABLE;
       case 1100: return ERROR_TYPE_CSV_VALIDATION_FAILED;
       case 1101: return ERROR_TYPE_CSV_TOTP_REQUIRED;
       case 1102: return ERROR_TYPE_CSV_TOTP_INVALID;
