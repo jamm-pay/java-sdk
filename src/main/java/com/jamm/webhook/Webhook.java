@@ -6,6 +6,8 @@ import com.api.v1.EventType;
 import com.api.v1.RefundInfo;
 import com.api.v1.UserAccountMessage;
 import com.jamm.errors.InvalidSignatureException;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.protobuf.InvalidProtocolBufferException;
@@ -122,6 +124,80 @@ public final class Webhook {
             default:
                 throw new IllegalArgumentException("Unsupported event type: " + eventType);
         }
+    }
+
+    /**
+     * Verifies the signature and parses an incoming webhook in one step. This is the
+     * recommended entry point: it removes the risk of parsing an unverified (possibly
+     * forged) webhook, and it verifies over the exact received {@code content} bytes so
+     * verification is not broken by JSON re-serialization.
+     *
+     * <p>The Jamm backend computes the HMAC over the raw {@code content} bytes it transmits.
+     * Those bytes are produced by Go's JSON encoder, which escapes {@code &}, {@code <} and
+     * {@code >} as {@code &amp;}, {@code &lt;}, {@code &gt;}. Re-serializing the parsed
+     * {@code content} (e.g. {@code JsonNode.toString()}) un-escapes those characters, so the
+     * recomputed digest no longer matches. This method avoids that by slicing the raw
+     * {@code content} substring out of {@code rawBody} verbatim for verification.
+     *
+     * @param rawBody      the raw, unmodified webhook request body
+     * @param clientSecret the merchant client secret used for HMAC verification
+     * @return the parsed content object (ChargeMessage, ContractMessage, or UserAccountMessage)
+     * @throws InvalidSignatureException if the signature does not match
+     * @throws InvalidProtocolBufferException if the content cannot be parsed
+     * @throws IllegalArgumentException if rawBody or clientSecret is null/empty, or the payload
+     *                                  is missing the {@code signature} or {@code content} field
+     */
+    public static Object verifyAndParse(String rawBody, String clientSecret)
+            throws InvalidProtocolBufferException {
+        if (rawBody == null || rawBody.isEmpty()) {
+            throw new IllegalArgumentException("rawBody cannot be null or empty");
+        }
+        if (clientSecret == null || clientSecret.isEmpty()) {
+            throw new IllegalArgumentException("clientSecret cannot be null or empty");
+        }
+
+        JsonNode rootNode;
+        try {
+            rootNode = OBJECT_MAPPER.readTree(rawBody);
+        } catch (IOException e) {
+            throw new IllegalArgumentException("Invalid JSON format: " + e.getMessage(), e);
+        }
+
+        JsonNode signatureNode = rootNode.get("signature");
+        if (signatureNode == null || signatureNode.isNull()) {
+            throw new IllegalArgumentException("Webhook message does not contain 'signature' field");
+        }
+
+        String rawContent = extractRawContent(rawBody);
+        verify(rawContent, signatureNode.asText(), clientSecret);
+        return parse(rawBody);
+    }
+
+    /**
+     * Extracts the raw {@code content} substring from the webhook body verbatim, without
+     * decoding or re-serializing it, so the exact signed bytes are recovered for HMAC
+     * verification. Uses a streaming parser to locate the top-level {@code content} value.
+     */
+    private static String extractRawContent(String rawBody) {
+        try (JsonParser parser = OBJECT_MAPPER.getFactory().createParser(rawBody)) {
+            if (parser.nextToken() != JsonToken.START_OBJECT) {
+                throw new IllegalArgumentException("Webhook body must be a JSON object");
+            }
+            while (parser.nextToken() == JsonToken.FIELD_NAME) {
+                String field = parser.currentName();
+                parser.nextToken(); // advance to the field's value
+                if ("content".equals(field)) {
+                    int start = (int) parser.currentTokenLocation().getCharOffset();
+                    parser.skipChildren();
+                    int end = (int) parser.currentLocation().getCharOffset();
+                    return rawBody.substring(start, end);
+                }
+                parser.skipChildren();
+            }
+        } catch (IOException e) {
+            throw new IllegalArgumentException("Invalid JSON format: " + e.getMessage(), e);
+        }
+        throw new IllegalArgumentException("Webhook message does not contain 'content' field");
     }
 
     /**

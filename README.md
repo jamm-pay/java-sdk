@@ -156,15 +156,10 @@ import com.api.v1.ChargeMessage;
 // Parse and verify an incoming webhook
 String jsonBody = request.getBody(); // from your HTTP handler
 
-// Verify the signature
-ObjectMapper mapper = new ObjectMapper();
-JsonNode payload = mapper.readTree(jsonBody);
-String signature = payload.get("signature").asText();
-String contentJson = payload.get("content").toString();
-Webhook.verify(contentJson, signature, clientSecret);
-
-// Parse the message
-Object content = Webhook.parse(jsonBody);
+// verifyAndParse checks the HMAC signature over the exact received bytes and then
+// parses. Prefer it over calling verify/parse separately: it cannot be accidentally
+// skipped, and it is not broken by JSON re-serialization of the content.
+Object content = Webhook.verifyAndParse(jsonBody, clientSecret);
 if (content instanceof ChargeMessage) {
     ChargeMessage charge = (ChargeMessage) content;
     // Handle charge event...
