@@ -1,6 +1,7 @@
 package com.jamm.compat;
 
 import com.api.v1.ChargeMessage;
+import com.api.v1.ContractMessage;
 import com.api.v1.PingResponse;
 import com.jamm.Jamm;
 import com.jamm.webhook.Webhook;
@@ -123,16 +124,24 @@ class CompatSuite {
     // failure is the signal it is out of sync with the API, not an accepted outcome (mirrors the
     // Node/Ruby harnesses). Each charge/refund shape is covered both with and without api_source so
     // the post-revert backend (no api_source emitted) is exercised alongside the re-landed shape.
+    // The api_source axis (flat charge and nested refund wrapper, each ± api_source) plus the
+    // event-type breadth records that also decode to a ChargeMessage: the charge lifecycle events
+    // and the Error-bearing charge_fail / refund_failed records (the only ones exercising the proto
+    // Error decode path). All of these flatten to ChargeMessage, so one assertion covers them.
     @ParameterizedTest(name = "webhook.parse tolerates {0}")
     @ValueSource(strings = {
             "charge_success_api_source.json",
             "charge_success_without_api_source.json",
             "refund_succeeded_nested_api_source.json",
             "refund_succeeded_nested_no_api_source.json",
+            "charge_created.json",
+            "charge_updated.json",
+            "charge_fail_error.json",
+            "refund_failed_nested_error.json",
     })
     @DisplayName("webhook.parse: tolerates a current-day backend record")
     void webhookParseToleratesBackendRecord(String file) throws Exception {
-        String json = Files.readString(testdataPath(file));
+        String json = Files.readString(webhooksPath(file));
 
         Object result = Webhook.parse(json);
         assertInstanceOf(ChargeMessage.class, result, file);
@@ -142,13 +151,59 @@ class CompatSuite {
         assertEquals(EXPECTED_CUSTOMER, charge.getCustomer(), file);
     }
 
-    // Fixtures live in the language-neutral packages/sdk/compatibility/testdata/ directory so every
+    // Event-type breadth beyond ChargeMessage. CONTRACT_ACTIVATED decodes to a ContractMessage
+    // (asserted on customer; it has no trx-* id). USER_ACCOUNT_DELETED is intentionally NOT covered
+    // here: UserAccountMessage may postdate some pinned versions in this range, and a direct type
+    // reference to a class absent from an older jar would break that version's whole compilation —
+    // this suite binds at compile time and starts at 1.1.3. It stays covered by the Node harness,
+    // whose runtime binding tolerates it (Ruby and Python omit it too).
+    @Test
+    @DisplayName("webhook.parse: decodes a CONTRACT_ACTIVATED record")
+    void webhookParseDecodesContractActivated() throws Exception {
+        String json = Files.readString(webhooksPath("contract_activated.json"));
+
+        Object result = Webhook.parse(json);
+        assertInstanceOf(ContractMessage.class, result, "contract_activated.json");
+        assertEquals(EXPECTED_CUSTOMER, ((ContractMessage) result).getCustomer());
+    }
+
+    // ChargeMessage.Status enum coverage — every value the wire can carry must decode. Rather than a
+    // fixture per value (a status is a scalar dimension, not a new record shape), inject each enum
+    // value into one charge record and assert it decodes to that value via getStatusValue().
+    @ParameterizedTest(name = "webhook.parse decodes Status = {0}")
+    @ValueSource(ints = {0, 1, 2, 3, 4, 5, 6})
+    @DisplayName("webhook.parse: decodes every ChargeMessage.Status value")
+    void webhookParseDecodesStatusEnum(int status) throws Exception {
+        String json = injectStatus(Files.readString(webhooksPath("charge_updated.json")), status);
+
+        Object result = Webhook.parse(json);
+        assertInstanceOf(ChargeMessage.class, result);
+
+        ChargeMessage charge = (ChargeMessage) result;
+        assertEquals(EXPECTED_ID, charge.getId());
+        assertEquals(EXPECTED_CUSTOMER, charge.getCustomer());
+        assertEquals(status, charge.getStatusValue());
+    }
+
+    // Insert a numeric "status" as the first field of the fixture's content object, without a JSON
+    // dependency: drop any existing status, then anchor on the "content" key and insert right after
+    // the brace that opens the content object.
+    private static String injectStatus(String fixtureJson, int value) {
+        String stripped = fixtureJson.replaceAll(",\\s*\"status\"\\s*:\\s*\\d+", "");
+        int contentIdx = stripped.indexOf("\"content\"");
+        int open = stripped.indexOf('{', contentIdx);
+        return stripped.substring(0, open + 1)
+                + "\"status\":" + value + ","
+                + stripped.substring(open + 1);
+    }
+
+    // Fixtures live in the language-neutral packages/sdk/compatibility/webhooks/ directory so every
     // SDK harness consumes the same backend records. The version pom passes the directory via the
-    // compat.testdata.dir system property; the fallback resolves it relative to the module dir.
-    private static Path testdataPath(String file) {
-        String dir = System.getProperty("compat.testdata.dir");
+    // compat.webhooks.dir system property; the fallback resolves it relative to the module dir.
+    private static Path webhooksPath(String file) {
+        String dir = System.getProperty("compat.webhooks.dir");
         if (dir == null || dir.isEmpty()) {
-            dir = Path.of("..", "..", "..", "compatibility", "testdata").toString();
+            dir = Path.of("..", "..", "..", "compatibility", "webhooks").toString();
         }
         return Path.of(dir, file);
     }

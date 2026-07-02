@@ -11,7 +11,7 @@ the SDKs and the backend stay in sync. The pre-release/latest SDK lives in
 ```
 packages/sdk/
   compatibility/
-    testdata/          # language-neutral backend webhook records; shared by every SDK harness
+    webhooks/          # language-neutral backend webhook records; shared by every SDK harness
   java/compatibility/
     shared/
       src/test/java/com/jamm/compat/CompatSuite.java  # the shared smoke suite (single source of truth)
@@ -52,7 +52,7 @@ runtime gate is the live healthcheck, skipped unless `MERCHANT_CLIENT_*` are set
 
 ### Forward-compatibility: `Webhook.parse` against current-day records
 
-`../../compatibility/testdata/*.json` are webhook payloads shaped as the backend
+`../../compatibility/webhooks/*.json` are webhook payloads shaped as the backend
 sends them, covering both shapes the harness cares about:
 
 - `charge_success_api_source.json` — a flat charge carrying `api_source`
@@ -70,6 +70,17 @@ The suite asserts every version **must** decode the core `ChargeMessage`
 (`id`, `customer`) and ignore fields it predates. A version that *throws* on
 these records **fails** the test — that failure is the signal it is out of sync
 with the API, not an accepted outcome (mirrors the Node/Ruby harnesses).
+
+Beyond the `api_source` axis, the parse test also covers the remaining backend
+events that decode to a `ChargeMessage` — the charge lifecycle events and the
+`Error`-bearing `charge_fail_error.json` / `refund_failed_nested_error.json` (the
+only records exercising the proto `Error` decode path) — plus a `ContractMessage`
+check for `contract_activated.json` and every `ChargeMessage.Status` enum value
+(0–6) injected into a charge record. `user_account_deleted.json` is **not** covered
+here: `UserAccountMessage` may postdate some pinned versions in this range, and a
+direct type reference to a class absent from an older jar would break that version's
+whole compilation (this suite binds at compile time). It stays covered by the Node
+harness. See `../../compatibility/webhooks/README.md`.
 
 > [!IMPORTANT]
 > The `api_source` / nested-refund webhook feature was **rolled back on `main`**

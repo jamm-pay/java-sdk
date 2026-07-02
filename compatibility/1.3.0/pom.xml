@@ -79,8 +79,8 @@
           </includes>
           <systemPropertyVariables>
             <!-- Language-neutral backend records shared by every SDK harness. Resolved from the
-                 module dir: <version>/../../../compatibility/testdata = packages/sdk/compatibility/testdata. -->
-            <compat.testdata.dir>${project.basedir}/../../../compatibility/testdata</compat.testdata.dir>
+                 module dir: <version>/../../../compatibility/webhooks = packages/sdk/compatibility/webhooks. -->
+            <compat.webhooks.dir>${project.basedir}/../../../compatibility/webhooks</compat.webhooks.dir>
             <compat.sdk.version>${sdk.version}</compat.sdk.version>
           </systemPropertyVariables>
         </configuration>

@@ -3,9 +3,9 @@
 # Maven runs in the same pinned image as the parent SDK Makefile so no host JDK is required.
 DOCKER_IMAGE := maven:3.9-eclipse-temurin-25
 
-# The shared testdata lives at packages/sdk/compatibility/testdata -- one level above java/ -- so
+# The shared webhooks lives at packages/sdk/compatibility/webhooks -- one level above java/ -- so
 # mount packages/sdk (this dir's great-grandparent) at /app and work under java/compatibility. That
-# keeps ../../../compatibility/testdata reachable from every version dir, on host and in CI alike.
+# keeps ../../../compatibility/webhooks reachable from every version dir, on host and in CI alike.
 SDK_ROOT := $(shell cd ../.. && pwd)
 WORKDIR  := /app/java/compatibility
 
