@@ -95,6 +95,7 @@ public class JammHttpClient implements AutoCloseable {
         this.httpClient = new OkHttpClient.Builder()
                 .connectTimeout(connectTimeoutMs, TimeUnit.MILLISECONDS)
                 .readTimeout(readTimeoutMs, TimeUnit.MILLISECONDS)
+                .writeTimeout(readTimeoutMs, TimeUnit.MILLISECONDS)
                 .build();
 
         this.objectMapper = new ObjectMapper()
@@ -127,7 +128,7 @@ public class JammHttpClient implements AutoCloseable {
     public <T> T get(String path, Class<T> responseType, RequestOptions options) {
         RequestOptions opts = safeOptions(options);
         validateMerchant(opts.getMerchant());
-        return executeWithRetry(() -> {
+        return executeWithRetry(true, () -> {
             Request request = buildRequest(path, "GET", null, opts.getMerchant());
             return execute(request, responseType);
         });
@@ -161,7 +162,7 @@ public class JammHttpClient implements AutoCloseable {
     public <T> T post(String path, Object body, Class<T> responseType, RequestOptions options) {
         RequestOptions opts = safeOptions(options);
         validateMerchant(opts.getMerchant());
-        return executeWithRetry(() -> {
+        return executeWithRetry(false, () -> {
             Request request = buildRequest(path, "POST", body, opts.getMerchant());
             return execute(request, responseType);
         });
@@ -195,7 +196,7 @@ public class JammHttpClient implements AutoCloseable {
     public <T> T put(String path, Object body, Class<T> responseType, RequestOptions options) {
         RequestOptions opts = safeOptions(options);
         validateMerchant(opts.getMerchant());
-        return executeWithRetry(() -> {
+        return executeWithRetry(true, () -> {
             Request request = buildRequest(path, "PUT", body, opts.getMerchant());
             return execute(request, responseType);
         });
@@ -227,7 +228,7 @@ public class JammHttpClient implements AutoCloseable {
     public <T> T delete(String path, Class<T> responseType, RequestOptions options) {
         RequestOptions opts = safeOptions(options);
         validateMerchant(opts.getMerchant());
-        return executeWithRetry(() -> {
+        return executeWithRetry(true, () -> {
             Request request = buildRequest(path, "DELETE", null, opts.getMerchant());
             return execute(request, responseType);
         });
@@ -261,7 +262,7 @@ public class JammHttpClient implements AutoCloseable {
     public <T> T patch(String path, Object body, Class<T> responseType, RequestOptions options) {
         RequestOptions opts = safeOptions(options);
         validateMerchant(opts.getMerchant());
-        return executeWithRetry(() -> {
+        return executeWithRetry(false, () -> {
             Request request = buildRequest(path, "PATCH", body, opts.getMerchant());
             return execute(request, responseType);
         });
@@ -387,22 +388,44 @@ public class JammHttpClient implements AutoCloseable {
         }
     }
 
-    private <T> T executeWithRetry(RequestExecutor<T> executor) {
+    /**
+     * Executes a request with retry handling.
+     *
+     * @param idempotent whether the request is safe to retry. Non-idempotent requests
+     *                   (POST/PATCH, e.g. creating a charge) are not retried on timeout/5xx
+     *                   because the server may have already processed them, which would
+     *                   duplicate the charge. A 401 still triggers a single token refresh
+     *                   for any method, since a 401 means the request was rejected before
+     *                   processing.
+     */
+    private <T> T executeWithRetry(boolean idempotent, RequestExecutor<T> executor) {
         long delayMs = retryInitialDelayMs;
+        boolean authRefreshed = false;
+        int attempt = 0;
 
-        for (int attempt = 0; attempt <= maxRetries; attempt++) {
+        while (true) {
             try {
                 return executor.execute();
             } catch (JammException e) {
-                // Don't retry on client errors (4xx) except for 429 (rate limit)
-                if (e.getHttpStatus() != null) {
-                    int status = e.getHttpStatus();
-                    if (status >= 400 && status < 500 && status != 429) {
-                        throw e;
-                    }
+                Integer status = e.getHttpStatus();
+
+                // Reactively refresh the token once on 401: the cached token may be stale
+                // (rotated secret, clock skew beyond the refresh buffer). Safe for any method
+                // because a 401 is rejected before the request is processed.
+                if (status != null && status == 401 && !authRefreshed) {
+                    authRefreshed = true;
+                    oauthProvider.clearCache();
+                    LOGGER.debug("Got 401, refreshing OAuth token and retrying once");
+                    continue;
                 }
 
-                if (attempt == maxRetries) {
+                // Don't retry on client errors (4xx) except for 429 (rate limit).
+                if (status != null && status >= 400 && status < 500 && status != 429) {
+                    throw e;
+                }
+
+                // Only retry idempotent requests; retrying a POST/PATCH could duplicate a charge.
+                if (!idempotent || attempt >= maxRetries) {
                     throw e;
                 }
 
@@ -425,10 +448,9 @@ public class JammHttpClient implements AutoCloseable {
                     nextDelay = delayMs * 2;
                 }
                 delayMs = Math.min(nextDelay, retryMaxDelayMs);
+                attempt++;
             }
         }
-        // Should not reach here, but required for compilation
-        throw new JammException("Failed to execute request after retries");
     }
 
     /**
