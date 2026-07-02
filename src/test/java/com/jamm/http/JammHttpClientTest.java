@@ -194,6 +194,11 @@ class JammHttpClientTest {
 
     @Test
     void testUnauthorizedError() {
+        // A 401 triggers a one-shot token refresh and retry; a persistent 401 then surfaces
+        // as an ApiException, so two responses are enqueued.
+        mockServer.enqueue(new MockResponse()
+                .setResponseCode(401)
+                .setBody("{\"code\":16,\"message\":\"Unauthenticated\"}"));
         mockServer.enqueue(new MockResponse()
                 .setResponseCode(401)
                 .setBody("{\"code\":16,\"message\":\"Unauthenticated\"}"));
@@ -203,6 +208,7 @@ class JammHttpClientTest {
 
         assertEquals(401, ex.getHttpStatus());
         assertEquals(ErrorCode.UNAUTHENTICATED, ex.getErrorCode());
+        verify(mockOAuthProvider, times(1)).clearCache();
     }
 
     // Retry tests
@@ -290,6 +296,89 @@ class JammHttpClientTest {
 
         assertEquals("Success", response.name);
         assertEquals(2, mockServer.getRequestCount());
+    }
+
+    @Test
+    void testNoRetryOnServerErrorForPost() {
+        String baseUrl = mockServer.url("").toString();
+        if (baseUrl.endsWith("/")) {
+            baseUrl = baseUrl.substring(0, baseUrl.length() - 1);
+        }
+
+        JammHttpClient retryClient = new JammHttpClient(
+                mockOAuthProvider, baseUrl, 5000, 5000, 2, 100, 1000, false);
+
+        // POST is non-idempotent: a 5xx must NOT be retried, even with retries enabled,
+        // because the server may have already created the charge.
+        mockServer.enqueue(new MockResponse().setResponseCode(500).setBody("{\"code\":13}"));
+
+        assertThrows(ApiException.class,
+                () -> retryClient.post("/api/test", new TestRequest("x"), TestResponse.class));
+
+        assertEquals(1, mockServer.getRequestCount());
+    }
+
+    @Test
+    void test401RefreshesTokenAndRetriesOnce() {
+        String baseUrl = mockServer.url("").toString();
+        if (baseUrl.endsWith("/")) {
+            baseUrl = baseUrl.substring(0, baseUrl.length() - 1);
+        }
+
+        // No retries configured; the 401 refresh is independent of the retry budget.
+        JammHttpClient client = new JammHttpClient(
+                mockOAuthProvider, baseUrl, 5000, 5000, 0, 1000, 30000, false);
+
+        mockServer.enqueue(new MockResponse().setResponseCode(401).setBody("{\"code\":16}"));
+        mockServer.enqueue(new MockResponse().setResponseCode(200).setBody("{\"id\":\"1\",\"name\":\"ok\"}"));
+
+        TestResponse response = client.get("/api/test", TestResponse.class);
+
+        assertEquals("ok", response.name);
+        assertEquals(2, mockServer.getRequestCount());
+        verify(mockOAuthProvider, times(1)).clearCache();
+    }
+
+    @Test
+    void test401RefreshHappensAtMostOnce() {
+        String baseUrl = mockServer.url("").toString();
+        if (baseUrl.endsWith("/")) {
+            baseUrl = baseUrl.substring(0, baseUrl.length() - 1);
+        }
+
+        JammHttpClient client = new JammHttpClient(
+                mockOAuthProvider, baseUrl, 5000, 5000, 0, 1000, 30000, false);
+
+        // Persistent 401 (e.g. bad credentials): refresh once, then surface the error.
+        mockServer.enqueue(new MockResponse().setResponseCode(401).setBody("{\"code\":16}"));
+        mockServer.enqueue(new MockResponse().setResponseCode(401).setBody("{\"code\":16}"));
+
+        assertThrows(ApiException.class, () -> client.get("/api/test", TestResponse.class));
+
+        assertEquals(2, mockServer.getRequestCount());
+        verify(mockOAuthProvider, times(1)).clearCache();
+    }
+
+    @Test
+    void test401RefreshesTokenAndRetriesOnceForPost() {
+        String baseUrl = mockServer.url("").toString();
+        if (baseUrl.endsWith("/")) {
+            baseUrl = baseUrl.substring(0, baseUrl.length() - 1);
+        }
+
+        // The one-shot 401 refresh applies to any method, including non-idempotent POST —
+        // safe because a 401 is rejected before the request is processed (no double-charge).
+        JammHttpClient client = new JammHttpClient(
+                mockOAuthProvider, baseUrl, 5000, 5000, 0, 1000, 30000, false);
+
+        mockServer.enqueue(new MockResponse().setResponseCode(401).setBody("{\"code\":16}"));
+        mockServer.enqueue(new MockResponse().setResponseCode(200).setBody("{\"id\":\"1\",\"name\":\"ok\"}"));
+
+        TestResponse response = client.post("/api/test", new TestRequest("x"), TestResponse.class);
+
+        assertEquals("ok", response.name);
+        assertEquals(2, mockServer.getRequestCount());
+        verify(mockOAuthProvider, times(1)).clearCache();
     }
 
     @Test

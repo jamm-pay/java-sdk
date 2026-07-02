@@ -87,6 +87,7 @@ public class OAuthProvider implements AutoCloseable {
         this.httpClient = new OkHttpClient.Builder()
                 .connectTimeout(connectTimeout, TimeUnit.MILLISECONDS)
                 .readTimeout(readTimeout, TimeUnit.MILLISECONDS)
+                .writeTimeout(readTimeout, TimeUnit.MILLISECONDS)
                 .build();
     }
 
