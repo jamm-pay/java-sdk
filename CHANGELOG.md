@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.3] - 2026-07-06
+
+### Fixed
+
+- **SDK now compiles to Java 8 bytecode** (was Java 11), so it can be consumed on Java 8 build/runtime toolchains. Forward-compatible with Java 11/17/21+; no API or behaviour changes. Internal `String.isBlank()` and `URLEncoder.encode(String, Charset)` usages were replaced with Java 8-safe equivalents.
+
+### Removed
+
+- **Dropped the unused `grpc-ecosystem-protoc-gen-openapiv2` dependency** (Java 21-only, not referenced at compile or runtime) — the entire runtime classpath is now Java 8-compatible.
+
 ## [1.5.2] - 2026-06-24
 
 ### Security

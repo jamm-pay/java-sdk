@@ -292,7 +292,7 @@ class PaymentServiceTest {
             eq(OffSessionPaymentAsyncResponse.class));
 
         String filled = captor.getValue().getIdempotencyKey();
-        assertFalse(filled.isBlank(), "whitespace-only idempotency_key should be replaced");
+        assertFalse(filled.trim().isEmpty(), "whitespace-only idempotency_key should be replaced");
         assertDoesNotThrow(() -> UUID.fromString(filled), "idempotency_key should be a valid UUID");
     }
 
@@ -361,7 +361,7 @@ class PaymentServiceTest {
             eq(OffSessionPaymentAsyncResponse.class), any(RequestOptions.class));
 
         String filled = captor.getValue().getIdempotencyKey();
-        assertFalse(filled.isBlank(), "merchant overload should auto-fill blank idempotency_key");
+        assertFalse(filled.trim().isEmpty(), "merchant overload should auto-fill blank idempotency_key");
         assertDoesNotThrow(() -> UUID.fromString(filled), "idempotency_key should be a valid UUID");
     }
 

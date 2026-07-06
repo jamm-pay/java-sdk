@@ -8,7 +8,7 @@
 
   <groupId>jp.jamm-pay</groupId>
   <artifactId>jamm-sdk</artifactId>
-  <version>1.5.2</version>
+  <version>1.5.3</version>
   <packaging>jar</packaging>
 
   <name>Jamm Java SDK</name>
@@ -39,7 +39,11 @@
   </scm>
 
   <properties>
-    <maven.compiler.release>11</maven.compiler.release>
+    <!-- Build and test on a Java 8 JDK so the SDK ships Java 8 bytecode and the whole suite
+         exercises it in the actual merchant runtime. source/target (not the release flag) because
+         JDK 8's javac does not support it. Forward-compatible with Java 11/17/21+. -->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- Dependency versions -->
@@ -47,7 +51,7 @@
     <jackson.version>2.18.8</jackson.version>
     <slf4j.version>2.0.11</slf4j.version>
     <junit.version>5.10.1</junit.version>
-    <mockito.version>5.23.0</mockito.version>
+    <mockito.version>4.11.0</mockito.version>
     <wiremock.version>3.3.1</wiremock.version>
   </properties>
 
@@ -150,13 +154,6 @@
       <artifactId>protovalidate</artifactId>
       <version>1.1.0</version>
     </dependency>
-
-    <!-- grpc-gateway openapiv2 annotations -->
-    <dependency>
-      <groupId>com.engine</groupId>
-      <artifactId>grpc-ecosystem-protoc-gen-openapiv2</artifactId>
-      <version>2.0.0-pre.6</version>
-    </dependency>
   </dependencies>
 
  <build>
@@ -177,7 +174,8 @@
       <artifactId>maven-compiler-plugin</artifactId>
       <version>3.12.1</version>
       <configuration>
-        <release>${maven.compiler.release}</release>
+        <source>${maven.compiler.source}</source>
+        <target>${maven.compiler.target}</target>
         <encoding>${project.build.sourceEncoding}</encoding>
       </configuration>
     </plugin>

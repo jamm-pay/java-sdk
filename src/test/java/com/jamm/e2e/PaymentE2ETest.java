@@ -97,7 +97,7 @@ class PaymentE2ETest {
     void onSessionPayment_addCharge_forExistingCustomer() {
         String customerId = System.getenv("CUSTOMER");
         Assumptions.assumeTrue(
-                customerId != null && !customerId.isBlank(),
+                customerId != null && !customerId.trim().isEmpty(),
                 "Skipping: set CUSTOMER env var (e.g. cus-xxxxxxxx)");
 
         try (JammClient client = E2ETestHelper.createClient()) {
@@ -164,7 +164,7 @@ class PaymentE2ETest {
     void offSessionPayment_chargesExistingCustomer() {
         String customerId = System.getenv("CUSTOMER");
         Assumptions.assumeTrue(
-                customerId != null && !customerId.isBlank(),
+                customerId != null && !customerId.trim().isEmpty(),
                 "Skipping: set CUSTOMER env var (e.g. cus-xxxxxxxx)");
 
         try (JammClient client = E2ETestHelper.createClient()) {
@@ -189,7 +189,7 @@ class PaymentE2ETest {
     void offSessionPaymentAsync_startsAsyncCharge() {
         String customerId = System.getenv("CUSTOMER");
         Assumptions.assumeTrue(
-                customerId != null && !customerId.isBlank(),
+                customerId != null && !customerId.trim().isEmpty(),
                 "Skipping: set CUSTOMER env var (e.g. cus-xxxxxxxx)");
 
         try (JammClient client = E2ETestHelper.createClient()) {
@@ -215,7 +215,7 @@ class PaymentE2ETest {
     void offSessionPaymentAsync_sameIdempotencyKey_returnsSameCharge() {
         String customerId = System.getenv("CUSTOMER");
         Assumptions.assumeTrue(
-                customerId != null && !customerId.isBlank(),
+                customerId != null && !customerId.trim().isEmpty(),
                 "Skipping: set CUSTOMER env var (e.g. cus-xxxxxxxx)");
 
         try (JammClient client = E2ETestHelper.createClient()) {
@@ -243,7 +243,7 @@ class PaymentE2ETest {
     void refund_full_returnsRefundId() {
         String chargeId = System.getenv("CHARGE_FULL_REFUND");
         Assumptions.assumeTrue(
-                chargeId != null && !chargeId.isBlank(),
+                chargeId != null && !chargeId.trim().isEmpty(),
                 "Skipping: set CHARGE_FULL_REFUND env var");
 
         try (JammClient client = E2ETestHelper.createClient()) {
@@ -262,7 +262,7 @@ class PaymentE2ETest {
     void refund_partial_returnsRefundId() {
         String chargeId = System.getenv("CHARGE_PARTIAL_REFUND");
         Assumptions.assumeTrue(
-                chargeId != null && !chargeId.isBlank(),
+                chargeId != null && !chargeId.trim().isEmpty(),
                 "Skipping: set CHARGE_PARTIAL_REFUND env var");
 
         String partialRefundAmount = E2ETestHelper.envOrDefault("PARTIAL_REFUND_AMOUNT", "50");

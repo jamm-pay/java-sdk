@@ -1,5 +1,6 @@
 package com.jamm.http;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
@@ -119,7 +120,7 @@ public final class UrlBuilder {
     private static String encodePathSegment(String value) {
         // URLEncoder uses application/x-www-form-urlencoded which encodes spaces as '+'.
         // For path segments per RFC 3986, spaces must be '%20'.
-        return URLEncoder.encode(value, StandardCharsets.UTF_8).replace("+", "%20");
+        return encode(value).replace("+", "%20");
     }
 
     /**
@@ -130,6 +131,17 @@ public final class UrlBuilder {
      * @return the URL-encoded string suitable for query parameters
      */
     private static String encodeQueryParam(String value) {
-        return URLEncoder.encode(value, StandardCharsets.UTF_8);
+        return encode(value);
+    }
+
+    // URLEncoder.encode(String, Charset) is Java 10+; the String-charset overload keeps
+    // the SDK compatible with Java 8 runtimes. UTF-8 is guaranteed present, so the
+    // checked UnsupportedEncodingException can never actually be thrown.
+    private static String encode(String value) {
+        try {
+            return URLEncoder.encode(value, StandardCharsets.UTF_8.name());
+        } catch (UnsupportedEncodingException e) {
+            throw new IllegalStateException(e);
+        }
     }
 }

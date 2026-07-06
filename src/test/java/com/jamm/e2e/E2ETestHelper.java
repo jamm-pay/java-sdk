@@ -17,8 +17,8 @@ final class E2ETestHelper {
         String clientSecret = System.getenv("MERCHANT_CLIENT_SECRET");
 
         Assumptions.assumeTrue(
-                clientId != null && !clientId.isBlank()
-                        && clientSecret != null && !clientSecret.isBlank(),
+                clientId != null && !clientId.trim().isEmpty()
+                        && clientSecret != null && !clientSecret.trim().isEmpty(),
                 "Skipping E2E tests: set MERCHANT_CLIENT_ID and MERCHANT_CLIENT_SECRET");
 
         String env = envOrDefault("ENV", "local");
@@ -35,8 +35,8 @@ final class E2ETestHelper {
         String clientSecret = System.getenv("PLATFORM_CLIENT_SECRET");
 
         Assumptions.assumeTrue(
-                clientId != null && !clientId.isBlank()
-                        && clientSecret != null && !clientSecret.isBlank(),
+                clientId != null && !clientId.trim().isEmpty()
+                        && clientSecret != null && !clientSecret.trim().isEmpty(),
                 "Skipping platform E2E tests: set PLATFORM_CLIENT_ID and PLATFORM_CLIENT_SECRET");
 
         String env = envOrDefault("ENV", "local");
@@ -51,14 +51,14 @@ final class E2ETestHelper {
 
     static String requireEnv(String key) {
         String value = System.getenv(key);
-        Assumptions.assumeTrue(value != null && !value.isBlank(),
+        Assumptions.assumeTrue(value != null && !value.trim().isEmpty(),
                 "Skipping: required env var " + key + " not set");
         return value;
     }
 
     static String envOrDefault(String key, String defaultValue) {
         String value = System.getenv(key);
-        if (value == null || value.isBlank()) {
+        if (value == null || value.trim().isEmpty()) {
             return defaultValue;
         }
         return value;

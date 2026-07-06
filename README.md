@@ -270,15 +270,17 @@ JammClient client = Jamm.getClient();
 <dependency>
   <groupId>jp.jamm-pay</groupId>
   <artifactId>jamm-sdk</artifactId>
-  <version>1.5.2</version>
+  <version>1.5.3</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'jp.jamm-pay:jamm-sdk:1.5.2'
+implementation 'jp.jamm-pay:jamm-sdk:1.5.3'
 ```
+
+The SDK is compiled to Java 8 bytecode, so it runs on Java 8 and any newer runtime (Java 11, 17, 21, …).
 
 If you want to build from source:
 
@@ -348,7 +350,9 @@ This SDK is published from the `jamm-pay/java-sdk` repository.
 
 ### Requirements
 
-- Java 11 or above
+These are for **building the SDK from source**. Consuming the published SDK only requires Java 8+ (see [Installation](#installation)).
+
+- Java 11 or above (to build from source and run the tests)
 - Docker (for running Maven builds and tests)
 
 ### Available Commands

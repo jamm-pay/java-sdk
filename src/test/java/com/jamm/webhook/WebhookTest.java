@@ -53,7 +53,7 @@ class WebhookTest {
             }
 
             private String formatExtraFields(String extraFields) {
-                if (extraFields == null || extraFields.isBlank()) {
+                if (extraFields == null || extraFields.trim().isEmpty()) {
                     return "";
                 }
 

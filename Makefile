@@ -1,18 +1,19 @@
 .PHONY: install build test clean publish e2e lint package install-local javadoc check check-version-sync examples-build example help
 
 # Docker configuration
+# Build/lint/javadoc/deploy run on JDK 25 (checkstyle 10 requires Java 11+).
 DOCKER_IMAGE := maven:3.9-eclipse-temurin-25
+# Tests run on JDK 8 so the suite exercises the SDK in the actual merchant runtime.
+TEST_IMAGE := maven:3.9-eclipse-temurin-8
 WORKDIR := /app
 EXAMPLE ?= QuickstartExample
 
-# Run Maven via Docker
-# Mount current directory and Maven cache for faster builds
-MVN := docker run --rm \
-	-v "$(shell pwd)":/app \
-	-v "$(HOME)/.m2":/root/.m2 \
-	-w $(WORKDIR) \
-	$(DOCKER_IMAGE) \
-	mvn
+# Run Maven via Docker (image is the argument). Mount cwd + Maven cache for faster builds.
+docker_mvn = docker run --rm -v "$(shell pwd)":/app -v "$(HOME)/.m2":/root/.m2 -w $(WORKDIR) $(1) mvn
+
+# JDK 25 for build/lint/javadoc/deploy; JDK 8 for tests (the merchant runtime).
+MVN := $(call docker_mvn,$(DOCKER_IMAGE))
+TEST_MVN := $(call docker_mvn,$(TEST_IMAGE))
 
 # Default target
 all: build
@@ -25,9 +26,9 @@ install:
 build:
 	$(MVN) clean package -DskipTests
 
-# Run unit tests
+# Run unit tests (on a Java 8 JVM — merchant runtime)
 test:
-	$(MVN) test
+	$(TEST_MVN) test
 
 # Run end-to-end tests (requires environment variables)
 e2e:
@@ -42,7 +43,7 @@ e2e:
 		-e CHARGE_FULL_REFUND=$(CHARGE_FULL_REFUND) \
 		-e CHARGE_PARTIAL_REFUND=$(CHARGE_PARTIAL_REFUND) \
 		-e PARTIAL_REFUND_AMOUNT=$(PARTIAL_REFUND_AMOUNT) \
-		$(DOCKER_IMAGE) \
+		$(TEST_IMAGE) \
 		mvn test -Dtest=*E2ETest
 
 # Clean build artifacts

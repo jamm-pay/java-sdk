@@ -67,7 +67,7 @@ class PaymentService {
      * unchanged so explicit retries reuse the same value.
      */
     private static OffSessionPaymentAsyncRequest withIdempotencyKey(OffSessionPaymentAsyncRequest request) {
-        if (!request.getIdempotencyKey().isBlank()) {
+        if (!request.getIdempotencyKey().trim().isEmpty()) {
             return request;
         }
         return request.toBuilder()

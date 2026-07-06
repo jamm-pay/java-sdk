@@ -264,7 +264,7 @@ public class ApiException extends JammException {
 
         sb.append(getMessage());
 
-        if (requestId != null && !requestId.isBlank()) {
+        if (requestId != null && !requestId.trim().isEmpty()) {
             sb.append(" [request_id=").append(requestId).append("]");
         }
 
