@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2026-07-07
+
+### Removed
+
+- **Dropped the gRPC/Netty dependencies** (`grpc-stub`, `grpc-protobuf`, `grpc-netty-shaded` and their transitive Netty stack, ~11.5 MB). The SDK communicates over REST/OkHttp and never used gRPC — the dependency existed only because generated `*ServiceGrpc.java` service stubs were compiled into the jar. Those stubs are no longer compiled, and the generated `com.api.v1.*ServiceGrpc` classes are no longer present in the artifact. This significantly shrinks the footprint for integrators who vendor dependencies manually. `proto-google-common-protos` is now a direct dependency (the generated messages reference `google.api.*` annotations).
+
 ## [1.5.3] - 2026-07-06
 
 ### Fixed
