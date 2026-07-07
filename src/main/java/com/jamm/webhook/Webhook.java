@@ -11,6 +11,7 @@ import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.Message;
 import com.google.protobuf.util.JsonFormat;
 
 import javax.crypto.Mac;
@@ -80,6 +81,23 @@ public final class Webhook {
      * @throws IllegalArgumentException if the json is null/empty, or the event type is unsupported or missing
      */
     public static Object parse(String json) throws InvalidProtocolBufferException {
+        return parseEvent(json).getContent();
+    }
+
+    /**
+     * Parses the incoming webhook JSON and returns both the {@code event_type} and the parsed
+     * content. Like {@link #parse(String)}, but also exposes the event type — the reliable way to
+     * distinguish {@code EVENT_TYPE_CHARGE_SUCCESS} from {@code EVENT_TYPE_CHARGE_FAIL}, or charge
+     * events from refund events (both deserialize to a {@code ChargeMessage}).
+     *
+     * <p>This method does NOT verify the signature. Prefer {@link #verifyAndParseEvent(String, String)}.
+     *
+     * @param json the raw JSON string from the webhook request body
+     * @return the event type and parsed content
+     * @throws InvalidProtocolBufferException if the content cannot be parsed
+     * @throws IllegalArgumentException if the json is null/empty, or the event type is unsupported or missing
+     */
+    public static WebhookEvent parseEvent(String json) throws InvalidProtocolBufferException {
         if (json == null || json.isEmpty()) {
             throw new IllegalArgumentException("json cannot be null or empty");
         }
@@ -98,32 +116,32 @@ public final class Webhook {
         // Extract content JSON using proper JSON parsing
         String contentJson = extractContentJson(rootNode);
 
+        Object content;
         switch (eventType) {
             case EVENT_TYPE_CHARGE_CREATED:
             case EVENT_TYPE_CHARGE_UPDATED:
             case EVENT_TYPE_CHARGE_SUCCESS:
             case EVENT_TYPE_CHARGE_FAIL:
-                ChargeMessage.Builder chargeBuilder = ChargeMessage.newBuilder();
-                JsonFormat.parser().ignoringUnknownFields().merge(contentJson, chargeBuilder);
-                return chargeBuilder.build();
+                content = mergeContent(contentJson, ChargeMessage.newBuilder());
+                break;
 
             case EVENT_TYPE_REFUND_SUCCEEDED:
             case EVENT_TYPE_REFUND_FAILED:
-                return parseRefundContent(contentJson);
+                content = parseRefundContent(contentJson);
+                break;
 
             case EVENT_TYPE_CONTRACT_ACTIVATED:
-                ContractMessage.Builder contractBuilder = ContractMessage.newBuilder();
-                JsonFormat.parser().ignoringUnknownFields().merge(contentJson, contractBuilder);
-                return contractBuilder.build();
+                content = mergeContent(contentJson, ContractMessage.newBuilder());
+                break;
 
             case EVENT_TYPE_USER_ACCOUNT_DELETED:
-                UserAccountMessage.Builder userAccountBuilder = UserAccountMessage.newBuilder();
-                JsonFormat.parser().ignoringUnknownFields().merge(contentJson, userAccountBuilder);
-                return userAccountBuilder.build();
+                content = mergeContent(contentJson, UserAccountMessage.newBuilder());
+                break;
 
             default:
                 throw new IllegalArgumentException("Unsupported event type: " + eventType);
         }
+        return new WebhookEvent(eventType, content);
     }
 
     /**
@@ -149,6 +167,33 @@ public final class Webhook {
      */
     public static Object verifyAndParse(String rawBody, String clientSecret)
             throws InvalidProtocolBufferException {
+        verifySignature(rawBody, clientSecret);
+        return parse(rawBody);
+    }
+
+    /**
+     * Verifies the signature and parses in one step, returning both the {@code event_type} and the
+     * content. Same guarantees as {@link #verifyAndParse(String, String)} (verification is done over
+     * the exact received {@code content} bytes), but also exposes the event type.
+     *
+     * @param rawBody      the raw, unmodified webhook request body
+     * @param clientSecret the merchant client secret used for HMAC verification
+     * @return the event type and parsed content
+     * @throws InvalidSignatureException if the signature does not match
+     * @throws InvalidProtocolBufferException if the content cannot be parsed
+     * @throws IllegalArgumentException if rawBody or clientSecret is null/empty, or the payload
+     *                                  is missing the {@code signature} or {@code content} field
+     */
+    public static WebhookEvent verifyAndParseEvent(String rawBody, String clientSecret)
+            throws InvalidProtocolBufferException {
+        verifySignature(rawBody, clientSecret);
+        return parseEvent(rawBody);
+    }
+
+    /**
+     * Verifies the webhook HMAC signature over the exact received {@code content} bytes.
+     */
+    private static void verifySignature(String rawBody, String clientSecret) {
         if (rawBody == null || rawBody.isEmpty()) {
             throw new IllegalArgumentException("rawBody cannot be null or empty");
         }
@@ -170,7 +215,6 @@ public final class Webhook {
 
         String rawContent = extractRawContent(rawBody);
         verify(rawContent, signatureNode.asText(), clientSecret);
-        return parse(rawBody);
     }
 
     /**
@@ -198,6 +242,15 @@ public final class Webhook {
             throw new IllegalArgumentException("Invalid JSON format: " + e.getMessage(), e);
         }
         throw new IllegalArgumentException("Webhook message does not contain 'content' field");
+    }
+
+    /**
+     * Merges the {@code content} JSON into the given builder (ignoring unknown fields) and builds it.
+     */
+    private static Message mergeContent(String contentJson, Message.Builder builder)
+            throws InvalidProtocolBufferException {
+        JsonFormat.parser().ignoringUnknownFields().merge(contentJson, builder);
+        return builder.build();
     }
 
     /**

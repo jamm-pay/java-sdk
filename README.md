@@ -151,50 +151,48 @@ GetChargeResponse charge = client.payments().getCharge("trx-xxxxxxxx");
 
 ```java
 import com.jamm.webhook.Webhook;
+import com.jamm.webhook.WebhookEvent;
 import com.api.v1.ChargeMessage;
 
 // Parse and verify an incoming webhook
 String jsonBody = request.getBody(); // from your HTTP handler
 
-// verifyAndParse checks the HMAC signature over the exact received bytes and then
-// parses. Prefer it over calling verify/parse separately: it cannot be accidentally
-// skipped, and it is not broken by JSON re-serialization of the content.
-Object content = Webhook.verifyAndParse(jsonBody, clientSecret);
-if (content instanceof ChargeMessage) {
-    ChargeMessage charge = (ChargeMessage) content;
-    // Handle charge event...
+// verifyAndParseEvent checks the HMAC signature over the exact received bytes, then parses and
+// returns the event_type together with the content. Prefer it over calling verify/parse
+// separately: it cannot be accidentally skipped, and it is not broken by JSON re-serialization.
+WebhookEvent event = Webhook.verifyAndParseEvent(jsonBody, clientSecret);
 
-    // api_source tells you which API triggered the charge:
-    // OFF_SESSION_SYNC, OFF_SESSION_ASYNC, or ON_SESSION.
-    switch (charge.getApiSource()) {
-        case API_SOURCE_OFF_SESSION_SYNC:
-            // synchronous off-session charge
-            break;
-        case API_SOURCE_OFF_SESSION_ASYNC:
-            // async off-session charge
-            break;
-        case API_SOURCE_ON_SESSION:
-            // on-session (customer-present) charge
-            break;
-        default:
-            // api_source not set
-            break;
+// event_type is the reliable way to tell charge success from fail, and charge from refund events
+// (both deserialize to a ChargeMessage).
+switch (event.getEventType()) {
+    case EVENT_TYPE_CHARGE_SUCCESS: {
+        ChargeMessage charge = (ChargeMessage) event.getContent();
+        // charge.getApiSource() tells you which API triggered it (OFF_SESSION_SYNC/ASYNC, ON_SESSION).
+        break;
     }
-
-    // For EVENT_TYPE_CHARGE_FAIL webhooks, access error details:
-    if (charge.hasError()) {
-        System.out.println("Error code: " + charge.getError().getCode());
-        System.out.println("Error message: " + charge.getError().getMessage());
+    case EVENT_TYPE_CHARGE_FAIL: {
+        ChargeMessage charge = (ChargeMessage) event.getContent();
+        if (charge.hasError()) {
+            System.out.println("Error code: " + charge.getError().getCode());
+            System.out.println("Error message: " + charge.getError().getMessage());
+        }
+        break;
     }
-
-    // For refund/cancel webhooks (EVENT_TYPE_REFUND_SUCCEEDED / EVENT_TYPE_REFUND_FAILED),
-    // the transaction fields are flattened onto the charge and refund details live on getRefund():
-    if (charge.hasRefund()) {
+    case EVENT_TYPE_REFUND_SUCCEEDED:
+    case EVENT_TYPE_REFUND_FAILED: {
+        // Transaction fields are flattened onto the charge; refund details live on getRefund().
+        ChargeMessage charge = (ChargeMessage) event.getContent();
         System.out.println("Refund ID: " + charge.getRefund().getRefundId()); // rfd-...
         System.out.println("Amount refunded: " + charge.getRefund().getAmountRefunded());
+        break;
     }
+    default:
+        break;
 }
 ```
+
+> `Webhook.verifyAndParse(...)` (returning only the content `Object`) is still available for
+> backward compatibility.
 
 ## Platform Mode
 

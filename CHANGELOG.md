@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.6.0] - 2026-07-07
 
+### Added
+
+- **`Webhook.verifyAndParseEvent(...)` and `Webhook.parseEvent(...)`** — return a `WebhookEvent` exposing both the envelope's `event_type` (`getEventType()`) and the parsed `content` (`getContent()`). Previously `event_type` was consumed internally and not exposed, so callers could not reliably distinguish `EVENT_TYPE_CHARGE_SUCCESS` from `EVENT_TYPE_CHARGE_FAIL`, or charge events from refund events (both deserialize to `ChargeMessage`). The existing `verifyAndParse` / `parse` (returning only the content) are unchanged.
+
 ### Removed
 
 - **Dropped the gRPC/Netty dependencies** (`grpc-stub`, `grpc-protobuf`, `grpc-netty-shaded` and their transitive Netty stack, ~11.5 MB). The SDK communicates over REST/OkHttp and never used gRPC — the dependency existed only because generated `*ServiceGrpc.java` service stubs were compiled into the jar. Those stubs are no longer compiled, and the generated `com.api.v1.*ServiceGrpc` classes are no longer present in the artifact. This significantly shrinks the footprint for integrators who vendor dependencies manually. `proto-google-common-protos` is now a direct dependency (the generated messages reference `google.api.*` annotations).
