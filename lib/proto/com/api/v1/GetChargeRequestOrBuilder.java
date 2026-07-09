@@ -15,7 +15,7 @@ public interface GetChargeRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>string charge = 2 [json_name = "charge"];</code>
    * @return The charge.
    */
   java.lang.String getCharge();
@@ -24,7 +24,7 @@ public interface GetChargeRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>string charge = 2 [json_name = "charge"];</code>
    * @return The bytes for charge.
    */
   com.google.protobuf.ByteString

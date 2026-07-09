@@ -7,13 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.6.0] - 2026-07-07
 
+### Changed
+
+- **Replaced Jackson with gson for JSON handling** — dropped the `jackson-databind` / `jackson-annotations` dependencies (and their transitive `jackson-core`) in favour of `gson`, which was already on the classpath transitively via `protobuf-java-util` and is now a direct dependency. Integrators who vendor dependencies by hand no longer have to reconcile the SDK's Jackson version against their own. No public API changes. The only behavioural difference is `ApiException.getBody()`: JSON numbers in the untyped map are now `Double` (gson's default) rather than `Integer`/`Long` — the typed `getCode()` / `getErrorCode()` accessors are unaffected. Webhook signature verification is unchanged: it still hashes the exact received `content` bytes.
+
+### Removed
+
+- **Dropped the OkHttp dependency** (`okhttp`, and its transitive `okio` and Kotlin standard-library jars — 8 jars total). The HTTP transport now uses the JDK's built-in `java.net.HttpURLConnection`, so the SDK ships with **no runtime HTTP dependency to vendor**. No public API changes; timeouts, retries, authentication, and error handling behave as before. (OkHttp remains a test-only dependency via `mockwebserver`.)
+
+- **Dropped `protovalidate` and `proto-google-common-protos`** (and their transitive CEL, ANTLR4, re2j, threeten-extra, SnakeYAML, and annotation jars — ~15 jars, including the Guava stack that `protobuf-java-util` no longer needs). The generated protobuf classes previously embedded `google.api.http` routing annotations and `buf.validate` field-constraint options, which pulled these in. The SDK routes via hardcoded REST paths and never runs a validator, so those options are dead weight; `make gen` now regenerates `lib/proto` with them stripped from the descriptors (see `packages/backends/api/proto` — `cmd/protostrip` + `buf.gen.java.yaml`). No public API or behaviour changes. **This brings the runtime dependency set to 7 jars** (from ~33): `protobuf-java`, `protobuf-java-util`, `gson`, `slf4j-api`, `javax.annotation-api`, `jsr305`, `error_prone_annotations`.
+
 ### Added
 
 - **`Webhook.verifyAndParseEvent(...)` and `Webhook.parseEvent(...)`** — return a `WebhookEvent` exposing both the envelope's `event_type` (`getEventType()`) and the parsed `content` (`getContent()`). Previously `event_type` was consumed internally and not exposed, so callers could not reliably distinguish `EVENT_TYPE_CHARGE_SUCCESS` from `EVENT_TYPE_CHARGE_FAIL`, or charge events from refund events (both deserialize to `ChargeMessage`). The existing `verifyAndParse` / `parse` (returning only the content) are unchanged.
 
 ### Removed
 
-- **Dropped the gRPC/Netty dependencies** (`grpc-stub`, `grpc-protobuf`, `grpc-netty-shaded` and their transitive Netty stack, ~11.5 MB). The SDK communicates over REST/OkHttp and never used gRPC — the dependency existed only because generated `*ServiceGrpc.java` service stubs were compiled into the jar. Those stubs are no longer compiled, and the generated `com.api.v1.*ServiceGrpc` classes are no longer present in the artifact. This significantly shrinks the footprint for integrators who vendor dependencies manually. `proto-google-common-protos` is now a direct dependency (the generated messages reference `google.api.*` annotations).
+- **Dropped the gRPC/Netty dependencies** (`grpc-stub`, `grpc-protobuf`, `grpc-netty-shaded` and their transitive Netty stack, ~11.5 MB). The SDK communicates over REST and never used gRPC — the dependency existed only because generated `*ServiceGrpc.java` service stubs were compiled into the jar. Those stubs are no longer compiled, and the generated `com.api.v1.*ServiceGrpc` classes are no longer present in the artifact. This significantly shrinks the footprint for integrators who vendor dependencies manually.
 
 ## [1.5.3] - 2026-07-06
 

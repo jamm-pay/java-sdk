@@ -15,7 +15,7 @@ public interface StatusOrBuilder extends
    * Payment authorization status
    * </pre>
    *
-   * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment"];</code>
    * @return The enum numeric value on the wire for payment.
    */
   int getPaymentValue();
@@ -24,7 +24,7 @@ public interface StatusOrBuilder extends
    * Payment authorization status
    * </pre>
    *
-   * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment"];</code>
    * @return The payment.
    */
   com.api.v1.PaymentAuthorizationStatus getPayment();
@@ -34,7 +34,7 @@ public interface StatusOrBuilder extends
    * KYC verification status
    * </pre>
    *
-   * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc"];</code>
    * @return The enum numeric value on the wire for kyc.
    */
   int getKycValue();
@@ -43,7 +43,7 @@ public interface StatusOrBuilder extends
    * KYC verification status
    * </pre>
    *
-   * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc"];</code>
    * @return The kyc.
    */
   com.api.v1.KycStatus getKyc();

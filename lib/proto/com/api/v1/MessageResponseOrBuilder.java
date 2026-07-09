@@ -16,7 +16,7 @@ public interface MessageResponseOrBuilder extends
    * otherwise Proto to OpenAPI generator won't generate the message correctly.
    * </pre>
    *
-   * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage"];</code>
    * @return Whether the merchantWebhookMessage field is set.
    */
   boolean hasMerchantWebhookMessage();
@@ -26,7 +26,7 @@ public interface MessageResponseOrBuilder extends
    * otherwise Proto to OpenAPI generator won't generate the message correctly.
    * </pre>
    *
-   * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage"];</code>
    * @return The merchantWebhookMessage.
    */
   com.api.v1.MerchantWebhookMessage getMerchantWebhookMessage();
@@ -36,67 +36,67 @@ public interface MessageResponseOrBuilder extends
    * otherwise Proto to OpenAPI generator won't generate the message correctly.
    * </pre>
    *
-   * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage"];</code>
    */
   com.api.v1.MerchantWebhookMessageOrBuilder getMerchantWebhookMessageOrBuilder();
 
   /**
-   * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage"];</code>
    * @return Whether the chargeMessage field is set.
    */
   boolean hasChargeMessage();
   /**
-   * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage"];</code>
    * @return The chargeMessage.
    */
   com.api.v1.ChargeMessage getChargeMessage();
   /**
-   * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage"];</code>
    */
   com.api.v1.ChargeMessageOrBuilder getChargeMessageOrBuilder();
 
   /**
-   * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage"];</code>
    * @return Whether the contractMessage field is set.
    */
   boolean hasContractMessage();
   /**
-   * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage"];</code>
    * @return The contractMessage.
    */
   com.api.v1.ContractMessage getContractMessage();
   /**
-   * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage"];</code>
    */
   com.api.v1.ContractMessageOrBuilder getContractMessageOrBuilder();
 
   /**
-   * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage"];</code>
    * @return Whether the userAccountMessage field is set.
    */
   boolean hasUserAccountMessage();
   /**
-   * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage"];</code>
    * @return The userAccountMessage.
    */
   com.api.v1.UserAccountMessage getUserAccountMessage();
   /**
-   * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage"];</code>
    */
   com.api.v1.UserAccountMessageOrBuilder getUserAccountMessageOrBuilder();
 
   /**
-   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo"];</code>
    * @return Whether the refundInfo field is set.
    */
   boolean hasRefundInfo();
   /**
-   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo"];</code>
    * @return The refundInfo.
    */
   com.api.v1.RefundInfo getRefundInfo();
   /**
-   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo"];</code>
    */
   com.api.v1.RefundInfoOrBuilder getRefundInfoOrBuilder();
 }

@@ -11,7 +11,7 @@ public interface PaginationOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 page_size = 1 [json_name = "pageSize", (.buf.validate.field) = { ... }</code>
+   * <code>int32 page_size = 1 [json_name = "pageSize"];</code>
    * @return The pageSize.
    */
   int getPageSize();

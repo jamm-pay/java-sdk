@@ -16,7 +16,7 @@ public interface WithdrawAsyncStatusRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+   * <code>string request_id = 1 [json_name = "requestId"];</code>
    * @return The requestId.
    */
   java.lang.String getRequestId();
@@ -26,7 +26,7 @@ public interface WithdrawAsyncStatusRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+   * <code>string request_id = 1 [json_name = "requestId"];</code>
    * @return The bytes for requestId.
    */
   com.google.protobuf.ByteString

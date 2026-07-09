@@ -1,8 +1,8 @@
 package com.jamm.webhook;
 
 import com.api.v1.ChargeMessage;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.jamm.errors.InvalidSignatureException;
 import org.junit.jupiter.api.Test;
 
@@ -68,6 +68,26 @@ class WebhookSignatureEscapingTest {
     }
 
     @Test
+    void verifyAndParseSucceedsWhenContentIsNested() throws Exception {
+        // Refund webhooks nest the content ({ transaction: {...}, refund: {...} }). The raw-content
+        // extractor must recover the balanced nested object exactly, escapes and all.
+        String nestedContent =
+                "{\"transaction\":{\"id\":\"trx-2\",\"customer\":\"cus-2\",\"status\":\"STATUS_REFUNDED\","
+              + "\"description\":\"A \\u0026 B\",\"final_amount\":300,\"currency\":\"JPY\"},"
+              + "\"refund\":{\"refund_id\":\"rfd-1\",\"amount_refunded\":100}}";
+        String body = "{\"id\":\"mwh-2\",\"signature\":\"sha256=" + hmac(nestedContent, SECRET) + "\","
+                + "\"event_type\":\"EVENT_TYPE_REFUND_SUCCEEDED\","
+                + "\"content\":" + nestedContent + ",\"created_at\":\"2024-11-29T02:17:05Z\"}";
+
+        Object content = Webhook.verifyAndParse(body, SECRET);
+
+        assertInstanceOf(ChargeMessage.class, content);
+        ChargeMessage charge = (ChargeMessage) content;
+        assertEquals("A & B", charge.getDescription());
+        assertEquals("rfd-1", charge.getRefund().getRefundId());
+    }
+
+    @Test
     void verifyAndParseThrowsOnTamperedContent() {
         // Same signature, but the transmitted content has been altered.
         String tamperedContent = CONTENT_WIRE.replace("300", "1");
@@ -76,6 +96,19 @@ class WebhookSignatureEscapingTest {
                 + "\"content\":" + tamperedContent + "}";
 
         assertThrows(InvalidSignatureException.class, () -> Webhook.verifyAndParse(body, SECRET));
+    }
+
+    @Test
+    void verifyAndParseRejectsDuplicateContent() {
+        // A second "content" whose value the JSON parser would keep (parsers keep the last on
+        // duplicate keys) while the signature covers the first — must be rejected outright so a
+        // signed value can't be swapped for an unsigned one.
+        String forged = CONTENT_WIRE.replace("300", "999");
+        String body = "{\"id\":\"mwh-1\",\"signature\":\"sha256=" + hmac(CONTENT_WIRE, SECRET) + "\","
+                + "\"event_type\":\"EVENT_TYPE_CHARGE_SUCCESS\","
+                + "\"content\":" + CONTENT_WIRE + ",\"content\":" + forged + "}";
+
+        assertThrows(IllegalArgumentException.class, () -> Webhook.verifyAndParse(body, SECRET));
     }
 
     @Test
@@ -99,17 +132,15 @@ class WebhookSignatureEscapingTest {
     }
 
     /**
-     * Documents the reason {@link Webhook#verifyAndParse} exists: the previously-documented path
-     * of re-serializing the parsed content via {@code JsonNode.toString()} un-escapes '&'/'<'/'>'
-     * and therefore fails verification for legitimate webhooks. Kept as a guard so nobody
-     * reintroduces that pattern.
+     * Documents the reason {@link Webhook#verifyAndParse} exists: re-serializing the parsed
+     * content back to JSON un-escapes '&'/'<'/'>' and therefore fails verification for legitimate
+     * webhooks. Kept as a guard so nobody reintroduces that pattern.
      */
     @Test
-    void reSerializedContentPathFailsVerification() throws Exception {
+    void reSerializedContentPathFailsVerification() {
         String body = buildBody();
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode payload = mapper.readTree(body);
-        String signature = payload.get("signature").asText();
+        JsonObject payload = JsonParser.parseString(body).getAsJsonObject();
+        String signature = payload.get("signature").getAsString();
         String reSerialized = payload.get("content").toString(); // un-escapes & -> &
 
         assertThrows(InvalidSignatureException.class,

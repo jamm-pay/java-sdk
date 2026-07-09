@@ -57,7 +57,7 @@ private static final long serialVersionUID = 0L;
    * Arbitrary query keyword to search banks.
    * </pre>
    *
-   * <code>string query = 1 [json_name = "query", (.buf.validate.field) = { ... }</code>
+   * <code>string query = 1 [json_name = "query"];</code>
    * @return The query.
    */
   @java.lang.Override
@@ -78,7 +78,7 @@ private static final long serialVersionUID = 0L;
    * Arbitrary query keyword to search banks.
    * </pre>
    *
-   * <code>string query = 1 [json_name = "query", (.buf.validate.field) = { ... }</code>
+   * <code>string query = 1 [json_name = "query"];</code>
    * @return The bytes for query.
    */
   @java.lang.Override
@@ -396,7 +396,7 @@ private static final long serialVersionUID = 0L;
      * Arbitrary query keyword to search banks.
      * </pre>
      *
-     * <code>string query = 1 [json_name = "query", (.buf.validate.field) = { ... }</code>
+     * <code>string query = 1 [json_name = "query"];</code>
      * @return The query.
      */
     public java.lang.String getQuery() {
@@ -416,7 +416,7 @@ private static final long serialVersionUID = 0L;
      * Arbitrary query keyword to search banks.
      * </pre>
      *
-     * <code>string query = 1 [json_name = "query", (.buf.validate.field) = { ... }</code>
+     * <code>string query = 1 [json_name = "query"];</code>
      * @return The bytes for query.
      */
     public com.google.protobuf.ByteString
@@ -437,7 +437,7 @@ private static final long serialVersionUID = 0L;
      * Arbitrary query keyword to search banks.
      * </pre>
      *
-     * <code>string query = 1 [json_name = "query", (.buf.validate.field) = { ... }</code>
+     * <code>string query = 1 [json_name = "query"];</code>
      * @param value The query to set.
      * @return This builder for chaining.
      */
@@ -454,7 +454,7 @@ private static final long serialVersionUID = 0L;
      * Arbitrary query keyword to search banks.
      * </pre>
      *
-     * <code>string query = 1 [json_name = "query", (.buf.validate.field) = { ... }</code>
+     * <code>string query = 1 [json_name = "query"];</code>
      * @return This builder for chaining.
      */
     public Builder clearQuery() {
@@ -468,7 +468,7 @@ private static final long serialVersionUID = 0L;
      * Arbitrary query keyword to search banks.
      * </pre>
      *
-     * <code>string query = 1 [json_name = "query", (.buf.validate.field) = { ... }</code>
+     * <code>string query = 1 [json_name = "query"];</code>
      * @param value The bytes for query to set.
      * @return This builder for chaining.
      */

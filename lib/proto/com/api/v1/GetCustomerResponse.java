@@ -52,7 +52,7 @@ private static final long serialVersionUID = 0L;
   public static final int CUSTOMER_FIELD_NUMBER = 1;
   private com.api.v1.Customer customer_;
   /**
-   * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
    * @return Whether the customer field is set.
    */
   @java.lang.Override
@@ -60,7 +60,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
    * @return The customer.
    */
   @java.lang.Override
@@ -68,7 +68,7 @@ private static final long serialVersionUID = 0L;
     return customer_ == null ? com.api.v1.Customer.getDefaultInstance() : customer_;
   }
   /**
-   * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
    */
   @java.lang.Override
   public com.api.v1.CustomerOrBuilder getCustomerOrBuilder() {
@@ -394,14 +394,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.Customer, com.api.v1.Customer.Builder, com.api.v1.CustomerOrBuilder> customerBuilder_;
     /**
-     * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
      * @return Whether the customer field is set.
      */
     public boolean hasCustomer() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
      * @return The customer.
      */
     public com.api.v1.Customer getCustomer() {
@@ -412,7 +412,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
      */
     public Builder setCustomer(com.api.v1.Customer value) {
       if (customerBuilder_ == null) {
@@ -428,7 +428,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
      */
     public Builder setCustomer(
         com.api.v1.Customer.Builder builderForValue) {
@@ -442,7 +442,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
      */
     public Builder mergeCustomer(com.api.v1.Customer value) {
       if (customerBuilder_ == null) {
@@ -463,7 +463,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
      */
     public Builder clearCustomer() {
       bitField0_ = (bitField0_ & ~0x00000001);
@@ -476,7 +476,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
      */
     public com.api.v1.Customer.Builder getCustomerBuilder() {
       bitField0_ |= 0x00000001;
@@ -484,7 +484,7 @@ private static final long serialVersionUID = 0L;
       return internalGetCustomerFieldBuilder().getBuilder();
     }
     /**
-     * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
      */
     public com.api.v1.CustomerOrBuilder getCustomerOrBuilder() {
       if (customerBuilder_ != null) {
@@ -495,7 +495,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.Customer, com.api.v1.Customer.Builder, com.api.v1.CustomerOrBuilder> 

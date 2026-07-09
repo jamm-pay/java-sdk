@@ -52,7 +52,7 @@ private static final long serialVersionUID = 0L;
   public static final int BRANCH_FIELD_NUMBER = 1;
   private com.api.v1.BankBranch branch_;
   /**
-   * <code>.api.v1.BankBranch branch = 1 [json_name = "branch", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.BankBranch branch = 1 [json_name = "branch"];</code>
    * @return Whether the branch field is set.
    */
   @java.lang.Override
@@ -60,7 +60,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.api.v1.BankBranch branch = 1 [json_name = "branch", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.BankBranch branch = 1 [json_name = "branch"];</code>
    * @return The branch.
    */
   @java.lang.Override
@@ -68,7 +68,7 @@ private static final long serialVersionUID = 0L;
     return branch_ == null ? com.api.v1.BankBranch.getDefaultInstance() : branch_;
   }
   /**
-   * <code>.api.v1.BankBranch branch = 1 [json_name = "branch", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.BankBranch branch = 1 [json_name = "branch"];</code>
    */
   @java.lang.Override
   public com.api.v1.BankBranchOrBuilder getBranchOrBuilder() {
@@ -394,14 +394,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.BankBranch, com.api.v1.BankBranch.Builder, com.api.v1.BankBranchOrBuilder> branchBuilder_;
     /**
-     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch"];</code>
      * @return Whether the branch field is set.
      */
     public boolean hasBranch() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch"];</code>
      * @return The branch.
      */
     public com.api.v1.BankBranch getBranch() {
@@ -412,7 +412,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch"];</code>
      */
     public Builder setBranch(com.api.v1.BankBranch value) {
       if (branchBuilder_ == null) {
@@ -428,7 +428,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch"];</code>
      */
     public Builder setBranch(
         com.api.v1.BankBranch.Builder builderForValue) {
@@ -442,7 +442,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch"];</code>
      */
     public Builder mergeBranch(com.api.v1.BankBranch value) {
       if (branchBuilder_ == null) {
@@ -463,7 +463,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch"];</code>
      */
     public Builder clearBranch() {
       bitField0_ = (bitField0_ & ~0x00000001);
@@ -476,7 +476,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch"];</code>
      */
     public com.api.v1.BankBranch.Builder getBranchBuilder() {
       bitField0_ |= 0x00000001;
@@ -484,7 +484,7 @@ private static final long serialVersionUID = 0L;
       return internalGetBranchFieldBuilder().getBuilder();
     }
     /**
-     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch"];</code>
      */
     public com.api.v1.BankBranchOrBuilder getBranchOrBuilder() {
       if (branchBuilder_ != null) {
@@ -495,7 +495,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.BankBranch branch = 1 [json_name = "branch"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.BankBranch, com.api.v1.BankBranch.Builder, com.api.v1.BankBranchOrBuilder> 

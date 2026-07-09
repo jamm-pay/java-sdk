@@ -15,7 +15,7 @@ public interface PaymentLinkOrBuilder extends
    * &#64;gotags: validate:"required,http_url"
    * </pre>
    *
-   * <code>string url = 1 [json_name = "url", (.buf.validate.field) = { ... }</code>
+   * <code>string url = 1 [json_name = "url"];</code>
    * @return The url.
    */
   java.lang.String getUrl();
@@ -24,24 +24,24 @@ public interface PaymentLinkOrBuilder extends
    * &#64;gotags: validate:"required,http_url"
    * </pre>
    *
-   * <code>string url = 1 [json_name = "url", (.buf.validate.field) = { ... }</code>
+   * <code>string url = 1 [json_name = "url"];</code>
    * @return The bytes for url.
    */
   com.google.protobuf.ByteString
       getUrlBytes();
 
   /**
-   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
   /**
-   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
   /**
-   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 
@@ -50,7 +50,7 @@ public interface PaymentLinkOrBuilder extends
    * Expiration time of the payment url.
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt"];</code>
    * @return Whether the expiresAt field is set.
    */
   boolean hasExpiresAt();
@@ -59,7 +59,7 @@ public interface PaymentLinkOrBuilder extends
    * Expiration time of the payment url.
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt"];</code>
    * @return The expiresAt.
    */
   com.google.protobuf.Timestamp getExpiresAt();
@@ -68,7 +68,7 @@ public interface PaymentLinkOrBuilder extends
    * Expiration time of the payment url.
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder();
 }

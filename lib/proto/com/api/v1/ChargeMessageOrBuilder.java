@@ -11,59 +11,59 @@ public interface ChargeMessageOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   java.lang.String getId();
   /**
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
       getIdBytes();
 
   /**
-   * <code>string customer = 2 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 2 [json_name = "customer"];</code>
    * @return The customer.
    */
   java.lang.String getCustomer();
   /**
-   * <code>string customer = 2 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 2 [json_name = "customer"];</code>
    * @return The bytes for customer.
    */
   com.google.protobuf.ByteString
       getCustomerBytes();
 
   /**
-   * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status"];</code>
    * @return The enum numeric value on the wire for status.
    */
   int getStatusValue();
   /**
-   * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status"];</code>
    * @return The status.
    */
   com.api.v1.ChargeMessage.Status getStatus();
 
   /**
-   * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+   * <code>string description = 4 [json_name = "description"];</code>
    * @return The description.
    */
   java.lang.String getDescription();
   /**
-   * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+   * <code>string description = 4 [json_name = "description"];</code>
    * @return The bytes for description.
    */
   com.google.protobuf.ByteString
       getDescriptionBytes();
 
   /**
-   * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+   * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
    * @return The merchantName.
    */
   java.lang.String getMerchantName();
   /**
-   * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+   * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
    * @return The bytes for merchantName.
    */
   com.google.protobuf.ByteString
@@ -74,7 +74,7 @@ public interface ChargeMessageOrBuilder extends
    * Original charge amount before discount and before any refund is applied.
    * </pre>
    *
-   * <code>int32 initial_amount = 6 [json_name = "initialAmount", (.buf.validate.field) = { ... }</code>
+   * <code>int32 initial_amount = 6 [json_name = "initialAmount"];</code>
    * @return The initialAmount.
    */
   int getInitialAmount();
@@ -84,7 +84,7 @@ public interface ChargeMessageOrBuilder extends
    * Discount amount deducted from the original charge amount.
    * </pre>
    *
-   * <code>int32 discount = 7 [json_name = "discount", (.buf.validate.field) = { ... }</code>
+   * <code>int32 discount = 7 [json_name = "discount"];</code>
    * @return The discount.
    */
   int getDiscount();
@@ -94,7 +94,7 @@ public interface ChargeMessageOrBuilder extends
    * Final charge amount after discount, before any refund is applied.
    * </pre>
    *
-   * <code>int32 final_amount = 8 [json_name = "finalAmount", (.buf.validate.field) = { ... }</code>
+   * <code>int32 final_amount = 8 [json_name = "finalAmount"];</code>
    * @return The finalAmount.
    */
   int getFinalAmount();
@@ -119,12 +119,12 @@ public interface ChargeMessageOrBuilder extends
   int getAmountRefunded();
 
   /**
-   * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+   * <code>string currency = 10 [json_name = "currency"];</code>
    * @return The currency.
    */
   java.lang.String getCurrency();
   /**
-   * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+   * <code>string currency = 10 [json_name = "currency"];</code>
    * @return The bytes for currency.
    */
   com.google.protobuf.ByteString
@@ -179,24 +179,24 @@ public interface ChargeMessageOrBuilder extends
   int getJammFee();
 
   /**
-   * <code>string created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>string created_at = 13 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   java.lang.String getCreatedAt();
   /**
-   * <code>string created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>string created_at = 13 [json_name = "createdAt"];</code>
    * @return The bytes for createdAt.
    */
   com.google.protobuf.ByteString
       getCreatedAtBytes();
 
   /**
-   * <code>string updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>string updated_at = 14 [json_name = "updatedAt"];</code>
    * @return The updatedAt.
    */
   java.lang.String getUpdatedAt();
   /**
-   * <code>string updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>string updated_at = 14 [json_name = "updatedAt"];</code>
    * @return The bytes for updatedAt.
    */
   com.google.protobuf.ByteString

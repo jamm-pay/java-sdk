@@ -105,164 +105,150 @@ public final class WebappProto extends com.google.protobuf.GeneratedFile {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\026common/v1/webapp.proto\022\tcommon.v1\032\033buf" +
-      "/validate/validate.proto\032\037google/protobu" +
-      "f/timestamp.proto\"\342\006\n\004Bank\022\037\n\004code\030\001 \001(\t" +
-      "B\013\272H\010r\003\230\001\004\310\001\001R\004code\022\032\n\004name\030\002 \001(\tB\006\272H\003\310\001" +
-      "\001R\004name\022+\n\rname_katakana\030\003 \001(\tB\006\272H\003\310\001\001R\014" +
-      "nameKatakana\022+\n\rname_hiragana\030\004 \001(\tB\006\272H\003" +
-      "\310\001\001R\014nameHiragana\022+\n\rname_alphabet\030\005 \001(\t" +
-      "B\006\272H\003\310\001\001R\014nameAlphabet\0225\n\006assets\030\013 \001(\0132\025" +
-      ".common.v1.BankAssetsB\006\272H\003\310\001\001R\006assets\0222\n" +
-      "\005quota\030\024 \001(\0132\024.common.v1.BankQuotaB\006\272H\003\310" +
-      "\001\001R\005quota\022+\n\ropening_hours\030\036 \001(\tB\006\272H\003\310\001\001" +
-      "R\014openingHours\022o\n\036bankpay_scheduled_main" +
-      "tenances\030( \003(\0132).common.v1.BankScheduled" +
-      "MaintenancePeriodR\034bankpayScheduledMaint" +
-      "enances\022i\n\033bank_scheduled_maintenances\030)" +
-      " \003(\0132).common.v1.BankScheduledMaintenanc" +
-      "ePeriodR\031bankScheduledMaintenances\022y\n#re" +
-      "gistration_scheduled_maintenances\030* \003(\0132" +
-      ").common.v1.BankScheduledMaintenancePeri" +
-      "odR!registrationScheduledMaintenances\022+\n" +
-      "\021bankpay_available\0302 \001(\010R\020bankpayAvailab" +
-      "le\022%\n\016bank_available\0303 \001(\010R\rbankAvailabl" +
-      "e\0225\n\026registration_available\0304 \001(\010R\025regis" +
-      "trationAvailable\022\034\n\toperating\030c \001(\010R\tope" +
-      "rating\"\313\006\n\tBankQuota\022a\n*offline_purchase" +
-      "_limit_per_charge_with_kyc\030\001 \001(\005B\007\272H\004\032\002(" +
-      "\000R$offlinePurchaseLimitPerChargeWithKyc\022" +
-      "g\n-offline_purchase_limit_per_charge_wit" +
-      "hout_kyc\030\002 \001(\005B\007\272H\004\032\002(\000R\'offlinePurchase" +
-      "LimitPerChargeWithoutKyc\022[\n\'offline_purc" +
-      "hase_limit_per_day_with_kyc\030\n \001(\005B\007\272H\004\032\002" +
-      "(\000R!offlinePurchaseLimitPerDayWithKyc\022a\n" +
-      "*offline_purchase_limit_per_day_without_" +
-      "kyc\030\013 \001(\005B\007\272H\004\032\002(\000R$offlinePurchaseLimit" +
-      "PerDayWithoutKyc\022k\n/subscription_purchas" +
-      "e_limit_per_charge_with_kyc\030\024 \001(\005B\007\272H\004\032\002" +
-      "(\000R)subscriptionPurchaseLimitPerChargeWi" +
-      "thKyc\022q\n2subscription_purchase_limit_per" +
-      "_charge_without_kyc\030\025 \001(\005B\007\272H\004\032\002(\000R,subs" +
-      "criptionPurchaseLimitPerChargeWithoutKyc" +
-      "\022e\n,subscription_purchase_limit_per_day_" +
-      "with_kyc\030\036 \001(\005B\007\272H\004\032\002(\000R&subscriptionPur" +
-      "chaseLimitPerDayWithKyc\022k\n/subscription_" +
-      "purchase_limit_per_day_without_kyc\030\037 \001(\005" +
-      "B\007\272H\004\032\002(\000R)subscriptionPurchaseLimitPerD" +
-      "ayWithoutKyc\"\352\001\n\036BankScheduledMaintenanc" +
-      "ePeriod\022(\n\tbank_code\030\001 \001(\tB\013\272H\010r\003\230\001\004\310\001\001R" +
-      "\010bankCode\022(\n\014start_at_jst\030\002 \001(\tB\006\272H\003\310\001\001R" +
-      "\nstartAtJst\022$\n\nend_at_jst\030\003 \001(\tB\006\272H\003\310\001\001R" +
-      "\010endAtJst\022(\n\014start_at_utc\030\004 \001(\tB\006\272H\003\310\001\001R" +
-      "\nstartAtUtc\022$\n\nend_at_utc\030\005 \001(\tB\006\272H\003\310\001\001R" +
-      "\010endAtUtc\"\367\001\n\nBankBranch\022(\n\tbank_code\030\001 " +
-      "\001(\tB\013\272H\010r\003\230\001\004\310\001\001R\010bankCode\022,\n\013branch_cod" +
-      "e\030\002 \001(\tB\013\272H\010r\003\230\001\003\310\001\001R\nbranchCode\022\032\n\004name" +
-      "\030\003 \001(\tB\006\272H\003\310\001\001R\004name\022#\n\rname_katakana\030\004 " +
-      "\001(\tR\014nameKatakana\022+\n\rname_hiragana\030\005 \001(\t" +
-      "B\006\272H\003\310\001\001R\014nameHiragana\022#\n\rname_alphabet\030" +
-      "\006 \001(\tR\014nameAlphabet\"\251\001\n\nBankAssets\022(\n\tba" +
-      "nk_code\030\001 \001(\tB\013\272H\010r\003\230\001\004\310\001\001R\010bankCode\022$\n\016" +
-      "logo_url_large\030\002 \001(\tR\014logoUrlLarge\022&\n\017lo" +
-      "go_url_medium\030\003 \001(\tR\rlogoUrlMedium\022#\n\tte" +
-      "rms_url\030\n \001(\tB\006\272H\003\310\001\001R\010termsUrl\"\347\004\n\005Buye" +
-      "r\022 \n\005email\030\001 \001(\tB\n\272H\007r\002`\001\310\001\001R\005email\022\033\n\tf" +
-      "orce_kyc\030\002 \001(\010R\010forceKyc\022\"\n\004name\030\004 \001(\tB\t" +
-      "\272H\006r\004\020\001\0302H\000R\004name\210\001\001\022<\n\022katakana_last_na" +
-      "me\030\013 \001(\tB\t\272H\006r\004\020\001\0302H\001R\020katakanaLastName\210" +
-      "\001\001\022>\n\023katakana_first_name\030\014 \001(\tB\t\272H\006r\004\020\001" +
-      "\0302H\002R\021katakanaFirstName\210\001\001\022(\n\007address\030\r " +
-      "\001(\tB\t\272H\006r\004\020\005\030dH\003R\007address\210\001\001\022A\n\nbirth_da" +
-      "te\030\024 \001(\tB\035\272H\032r\0302\026^(\\d{4}-\\d{2}-\\d{2})?$H" +
-      "\004R\tbirthDate\210\001\001\0229\n\006gender\030\025 \001(\tB\034\272H\031r\027R\006" +
-      "femaleR\004maleR\007unknownH\005R\006gender\210\001\001\022:\n\010me" +
-      "tadata\030\036 \003(\0132\036.common.v1.Buyer.MetadataE" +
-      "ntryR\010metadata\032;\n\rMetadataEntry\022\020\n\003key\030\001" +
-      " \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001B\007\n\005_" +
-      "nameB\025\n\023_katakana_last_nameB\026\n\024_katakana" +
-      "_first_nameB\n\n\010_addressB\r\n\013_birth_dateB\t" +
-      "\n\007_gender\"\203\001\n\003Kyc\022\033\n\tpublic_id\030\001 \001(\tR\010pu" +
-      "blicId\0221\n\005state\030\002 \001(\0162\023.common.v1.KycSta" +
-      "teB\006\272H\003\310\001\001R\005state\022,\n\006result\030\003 \001(\0162\024.comm" +
-      "on.v1.KycResultR\006result\"\210\001\n\nDateFilter\022," +
-      "\n\005range\030\001 \001(\0132\024.common.v1.DateRangeH\000R\005r" +
-      "ange\022;\n\nexact_date\030\002 \001(\0132\032.google.protob" +
-      "uf.TimestampH\000R\texactDateB\017\n\006filter\022\005\272H\002" +
-      "\010\001\"\370\001\n\tDateRange\022A\n\nstart_date\030\001 \001(\0132\032.g" +
-      "oogle.protobuf.TimestampB\006\272H\003\310\001\001R\tstartD" +
-      "ate\022=\n\010end_date\030\002 \001(\0132\032.google.protobuf." +
-      "TimestampB\006\272H\003\310\001\001R\007endDate:i\272Hf\032d\n\020date_" +
-      "range_order\022.start_date must be before o" +
-      "r equal to end_date\032 this.start_date <= " +
-      "this.end_date\"f\n\016UserAgreements\022T\n\023jamm_" +
-      "user_agreement\030\002 \001(\0132\034.common.v1.JammUse" +
-      "rAgreementB\006\272H\003\310\001\001R\021jammUserAgreement\"\316\001" +
-      "\n\021JammUserAgreement\022\'\n\013customer_id\030\001 \001(\t" +
-      "B\006\272H\003\310\001\001R\ncustomerId\022O\n\016agreement_name\030\002" +
-      " \001(\0162 .common.v1.JammUserAgreementNameB\006" +
-      "\272H\003\310\001\001R\ragreementName\022?\n\tagreed_at\030\004 \001(\013" +
-      "2\032.google.protobuf.TimestampB\006\272H\003\310\001\001R\010ag" +
-      "reedAt\"\206\004\n\rTrustdockData\022\026\n\002id\030\001 \001(\tB\006\272H" +
-      "\003\310\001\001R\002id\022#\n\tpublic_id\030\002 \001(\tB\006\272H\003\310\001\001R\010pub" +
-      "licId\022\034\n\005state\030\003 \001(\tB\006\272H\003\310\001\001R\005state\022\026\n\006r" +
-      "esult\030\004 \001(\tR\006result\022C\n\013accepted_at\030\005 \001(\013" +
-      "2\032.google.protobuf.TimestampB\006\272H\003\310\001\001R\nac" +
-      "ceptedAt\022F\n\021plans_selected_at\030\006 \001(\0132\032.go" +
-      "ogle.protobuf.TimestampR\017plansSelectedAt" +
-      "\022N\n\025document_submitted_at\030\007 \001(\0132\032.google" +
-      ".protobuf.TimestampR\023documentSubmittedAt" +
-      "\022;\n\013prepared_at\030\010 \001(\0132\032.google.protobuf." +
-      "TimestampR\npreparedAt\022;\n\013verified_at\030\t \001" +
-      "(\0132\032.google.protobuf.TimestampR\nverified" +
-      "At\022+\n\007records\030\n \003(\0132\021.common.v1.RecordR\007" +
-      "records\"\225\001\n\006Record\022\034\n\005state\030\001 \001(\tB\006\272H\003\310\001" +
-      "\001R\005state\022\026\n\006result\030\002 \001(\tR\006result\022\030\n\007cont" +
-      "ent\030\003 \001(\tR\007content\022;\n\013verified_at\030\004 \001(\0132" +
-      "\032.google.protobuf.TimestampR\nverifiedAt*" +
-      "X\n\006Gender\022\026\n\022GENDER_UNSPECIFIED\020\000\022\021\n\rGEN" +
-      "DER_FEMALE\020\001\022\017\n\013GENDER_MALE\020\002\022\022\n\016GENDER_" +
-      "UNKNOWN\020\003*\240\001\n\014CommonStatus\022\035\n\031COMMON_STA" +
-      "TUS_UNSPECIFIED\020\000\022\031\n\025COMMON_STATUS_INITI" +
-      "AL\020\001\022\033\n\027COMMON_STATUS_ACTIVATED\020\002\022\035\n\031COM" +
-      "MON_STATUS_DEACTIVATED\020\003\022\032\n\026COMMON_STATU" +
-      "S_BLOCKING\020\004*\363\001\n\014ChargeStatus\022\035\n\031CHARGE_" +
-      "STATUS_UNSPECIFIED\020\000\022\031\n\025CHARGE_STATUS_SU" +
-      "CCESS\020\001\022\031\n\025CHARGE_STATUS_FAILURE\020\002\022\036\n\032CH" +
-      "ARGE_STATUS_WAITING_EKYC\020\003\022\032\n\026CHARGE_STA" +
-      "TUS_BLOCKING\020\004\022\033\n\027CHARGE_STATUS_CANCELLE" +
-      "D\020\005\022\032\n\026CHARGE_STATUS_REFUNDED\020\006\022\031\n\025CHARG" +
-      "E_STATUS_PENDING\020\007*\235\001\n\025JammUserAgreement" +
-      "Name\022(\n$JAMM_USER_AGREEMENT_NAME_UNSPECI" +
-      "FIED\020\000\022+\n\'JAMM_USER_AGREEMENT_NAME_PRIVA" +
-      "CY_POLICY\020\001\022-\n)JAMM_USER_AGREEMENT_NAME_" +
-      "TERMS_OF_SERVICE\020\002*\341\001\n\010KycState\022\031\n\025KYC_S" +
-      "TATE_UNSPECIFIED\020\000\022\026\n\022KYC_STATE_ACCEPTED" +
-      "\020\001\022\034\n\030KYC_STATE_PLANS_SELECTED\020\002\022 \n\034KYC_" +
-      "STATE_DOCUMENT_SUBMITTED\020\003\022\031\n\025KYC_STATE_" +
-      "IN_PROGRESS\020\004\022\026\n\022KYC_STATE_VERIFIED\020\005\022\031\n" +
-      "\025KYC_STATE_NOT_STARTED\020\006\022\024\n\020KYC_STATE_DE" +
-      "NIED\020\007*W\n\tKycResult\022\032\n\026KYC_RESULT_UNSPEC" +
-      "IFIED\020\000\022\027\n\023KYC_RESULT_APPROVED\020\001\022\025\n\021KYC_" +
-      "RESULT_DENIED\020\002*\264\001\n\014RefundStatus\022\035\n\031REFU" +
-      "ND_STATUS_UNSPECIFIED\020\000\022&\n\"REFUND_STATUS" +
-      "_WAITING_CONFIRMATION\020\001\022\033\n\027REFUND_STATUS" +
-      "_CONFIRMED\020\002\022\030\n\024REFUND_STATUS_FAILED\020\003\022&" +
-      "\n\"REFUND_STATUS_CANCELED_BY_MERCHANT\020\004*\261" +
-      "\001\n\014RejectReason\022\035\n\031REJECT_REASON_UNSPECI" +
-      "FIED\020\000\022)\n%REJECT_REASON_MERCHANT_REQUEST" +
-      "_DENIED\020\001\022+\n\'REJECT_REASON_NEGATIVE_MERC" +
-      "HANT_BALANCE\020\002\022*\n&REJECT_REASON_PAYMENT_" +
-      "REJECTED_BY_BANK\020\003B\204\001\n\rcom.common.v1B\013We" +
-      "bappProtoP\001Z!api/proto/gen/common/v1;com" +
-      "mon_v1\242\002\003CXX\252\002\tCommon.V1\312\002\tCommon\\V1\342\002\025C" +
-      "ommon\\V1\\GPBMetadata\352\002\nCommon::V1b\006proto" +
-      "3"
+      "\n\026common/v1/webapp.proto\022\tcommon.v1\032\037goo" +
+      "gle/protobuf/timestamp.proto\"\255\006\n\004Bank\022\024\n" +
+      "\004code\030\001 \001(\tB\000R\004code\022\024\n\004name\030\002 \001(\tB\000R\004nam" +
+      "e\022%\n\rname_katakana\030\003 \001(\tB\000R\014nameKatakana" +
+      "\022%\n\rname_hiragana\030\004 \001(\tB\000R\014nameHiragana\022" +
+      "%\n\rname_alphabet\030\005 \001(\tB\000R\014nameAlphabet\022/" +
+      "\n\006assets\030\013 \001(\0132\025.common.v1.BankAssetsB\000R" +
+      "\006assets\022,\n\005quota\030\024 \001(\0132\024.common.v1.BankQ" +
+      "uotaB\000R\005quota\022%\n\ropening_hours\030\036 \001(\tB\000R\014" +
+      "openingHours\022o\n\036bankpay_scheduled_mainte" +
+      "nances\030( \003(\0132).common.v1.BankScheduledMa" +
+      "intenancePeriodR\034bankpayScheduledMainten" +
+      "ances\022i\n\033bank_scheduled_maintenances\030) \003" +
+      "(\0132).common.v1.BankScheduledMaintenanceP" +
+      "eriodR\031bankScheduledMaintenances\022y\n#regi" +
+      "stration_scheduled_maintenances\030* \003(\0132)." +
+      "common.v1.BankScheduledMaintenancePeriod" +
+      "R!registrationScheduledMaintenances\022+\n\021b" +
+      "ankpay_available\0302 \001(\010R\020bankpayAvailable" +
+      "\022%\n\016bank_available\0303 \001(\010R\rbankAvailable\022" +
+      "5\n\026registration_available\0304 \001(\010R\025registr" +
+      "ationAvailable\022\034\n\toperating\030c \001(\010R\topera" +
+      "ting\"\223\006\n\tBankQuota\022Z\n*offline_purchase_l" +
+      "imit_per_charge_with_kyc\030\001 \001(\005B\000R$offlin" +
+      "ePurchaseLimitPerChargeWithKyc\022`\n-offlin" +
+      "e_purchase_limit_per_charge_without_kyc\030" +
+      "\002 \001(\005B\000R\'offlinePurchaseLimitPerChargeWi" +
+      "thoutKyc\022T\n\'offline_purchase_limit_per_d" +
+      "ay_with_kyc\030\n \001(\005B\000R!offlinePurchaseLimi" +
+      "tPerDayWithKyc\022Z\n*offline_purchase_limit" +
+      "_per_day_without_kyc\030\013 \001(\005B\000R$offlinePur" +
+      "chaseLimitPerDayWithoutKyc\022d\n/subscripti" +
+      "on_purchase_limit_per_charge_with_kyc\030\024 " +
+      "\001(\005B\000R)subscriptionPurchaseLimitPerCharg" +
+      "eWithKyc\022j\n2subscription_purchase_limit_" +
+      "per_charge_without_kyc\030\025 \001(\005B\000R,subscrip" +
+      "tionPurchaseLimitPerChargeWithoutKyc\022^\n," +
+      "subscription_purchase_limit_per_day_with" +
+      "_kyc\030\036 \001(\005B\000R&subscriptionPurchaseLimitP" +
+      "erDayWithKyc\022d\n/subscription_purchase_li" +
+      "mit_per_day_without_kyc\030\037 \001(\005B\000R)subscri" +
+      "ptionPurchaseLimitPerDayWithoutKyc\"\307\001\n\036B" +
+      "ankScheduledMaintenancePeriod\022\035\n\tbank_co" +
+      "de\030\001 \001(\tB\000R\010bankCode\022\"\n\014start_at_jst\030\002 \001" +
+      "(\tB\000R\nstartAtJst\022\036\n\nend_at_jst\030\003 \001(\tB\000R\010" +
+      "endAtJst\022\"\n\014start_at_utc\030\004 \001(\tB\000R\nstartA" +
+      "tUtc\022\036\n\nend_at_utc\030\005 \001(\tB\000R\010endAtUtc\"\325\001\n" +
+      "\nBankBranch\022\035\n\tbank_code\030\001 \001(\tB\000R\010bankCo" +
+      "de\022!\n\013branch_code\030\002 \001(\tB\000R\nbranchCode\022\024\n" +
+      "\004name\030\003 \001(\tB\000R\004name\022#\n\rname_katakana\030\004 \001" +
+      "(\tR\014nameKatakana\022%\n\rname_hiragana\030\005 \001(\tB" +
+      "\000R\014nameHiragana\022#\n\rname_alphabet\030\006 \001(\tR\014" +
+      "nameAlphabet\"\230\001\n\nBankAssets\022\035\n\tbank_code" +
+      "\030\001 \001(\tB\000R\010bankCode\022$\n\016logo_url_large\030\002 \001" +
+      "(\tR\014logoUrlLarge\022&\n\017logo_url_medium\030\003 \001(" +
+      "\tR\rlogoUrlMedium\022\035\n\tterms_url\030\n \001(\tB\000R\010t" +
+      "ermsUrl\"\200\004\n\005Buyer\022\026\n\005email\030\001 \001(\tB\000R\005emai" +
+      "l\022\033\n\tforce_kyc\030\002 \001(\010R\010forceKyc\022\031\n\004name\030\004" +
+      " \001(\tB\000H\000R\004name\210\001\001\0223\n\022katakana_last_name\030" +
+      "\013 \001(\tB\000H\001R\020katakanaLastName\210\001\001\0225\n\023kataka" +
+      "na_first_name\030\014 \001(\tB\000H\002R\021katakanaFirstNa" +
+      "me\210\001\001\022\037\n\007address\030\r \001(\tB\000H\003R\007address\210\001\001\022$" +
+      "\n\nbirth_date\030\024 \001(\tB\000H\004R\tbirthDate\210\001\001\022\035\n\006" +
+      "gender\030\025 \001(\tB\000H\005R\006gender\210\001\001\022:\n\010metadata\030" +
+      "\036 \003(\0132\036.common.v1.Buyer.MetadataEntryR\010m" +
+      "etadata\032;\n\rMetadataEntry\022\020\n\003key\030\001 \001(\tR\003k" +
+      "ey\022\024\n\005value\030\002 \001(\tR\005value:\0028\001B\007\n\005_nameB\025\n" +
+      "\023_katakana_last_nameB\026\n\024_katakana_first_" +
+      "nameB\n\n\010_addressB\r\n\013_birth_dateB\t\n\007_gend" +
+      "er\"}\n\003Kyc\022\033\n\tpublic_id\030\001 \001(\tR\010publicId\022+" +
+      "\n\005state\030\002 \001(\0162\023.common.v1.KycStateB\000R\005st" +
+      "ate\022,\n\006result\030\003 \001(\0162\024.common.v1.KycResul" +
+      "tR\006result\"\203\001\n\nDateFilter\022,\n\005range\030\001 \001(\0132" +
+      "\024.common.v1.DateRangeH\000R\005range\022;\n\nexact_" +
+      "date\030\002 \001(\0132\032.google.protobuf.TimestampH\000" +
+      "R\texactDateB\n\n\006filter\022\000\"\203\001\n\tDateRange\022;\n" +
+      "\nstart_date\030\001 \001(\0132\032.google.protobuf.Time" +
+      "stampB\000R\tstartDate\0227\n\010end_date\030\002 \001(\0132\032.g" +
+      "oogle.protobuf.TimestampB\000R\007endDate:\000\"`\n" +
+      "\016UserAgreements\022N\n\023jamm_user_agreement\030\002" +
+      " \001(\0132\034.common.v1.JammUserAgreementB\000R\021ja" +
+      "mmUserAgreement\"\274\001\n\021JammUserAgreement\022!\n" +
+      "\013customer_id\030\001 \001(\tB\000R\ncustomerId\022I\n\016agre" +
+      "ement_name\030\002 \001(\0162 .common.v1.JammUserAgr" +
+      "eementNameB\000R\ragreementName\0229\n\tagreed_at" +
+      "\030\004 \001(\0132\032.google.protobuf.TimestampB\000R\010ag" +
+      "reedAt\"\356\003\n\rTrustdockData\022\020\n\002id\030\001 \001(\tB\000R\002" +
+      "id\022\035\n\tpublic_id\030\002 \001(\tB\000R\010publicId\022\026\n\005sta" +
+      "te\030\003 \001(\tB\000R\005state\022\026\n\006result\030\004 \001(\tR\006resul" +
+      "t\022=\n\013accepted_at\030\005 \001(\0132\032.google.protobuf" +
+      ".TimestampB\000R\nacceptedAt\022F\n\021plans_select" +
+      "ed_at\030\006 \001(\0132\032.google.protobuf.TimestampR" +
+      "\017plansSelectedAt\022N\n\025document_submitted_a" +
+      "t\030\007 \001(\0132\032.google.protobuf.TimestampR\023doc" +
+      "umentSubmittedAt\022;\n\013prepared_at\030\010 \001(\0132\032." +
+      "google.protobuf.TimestampR\npreparedAt\022;\n" +
+      "\013verified_at\030\t \001(\0132\032.google.protobuf.Tim" +
+      "estampR\nverifiedAt\022+\n\007records\030\n \003(\0132\021.co" +
+      "mmon.v1.RecordR\007records\"\217\001\n\006Record\022\026\n\005st" +
+      "ate\030\001 \001(\tB\000R\005state\022\026\n\006result\030\002 \001(\tR\006resu" +
+      "lt\022\030\n\007content\030\003 \001(\tR\007content\022;\n\013verified" +
+      "_at\030\004 \001(\0132\032.google.protobuf.TimestampR\nv" +
+      "erifiedAt*X\n\006Gender\022\026\n\022GENDER_UNSPECIFIE" +
+      "D\020\000\022\021\n\rGENDER_FEMALE\020\001\022\017\n\013GENDER_MALE\020\002\022" +
+      "\022\n\016GENDER_UNKNOWN\020\003*\240\001\n\014CommonStatus\022\035\n\031" +
+      "COMMON_STATUS_UNSPECIFIED\020\000\022\031\n\025COMMON_ST" +
+      "ATUS_INITIAL\020\001\022\033\n\027COMMON_STATUS_ACTIVATE" +
+      "D\020\002\022\035\n\031COMMON_STATUS_DEACTIVATED\020\003\022\032\n\026CO" +
+      "MMON_STATUS_BLOCKING\020\004*\363\001\n\014ChargeStatus\022" +
+      "\035\n\031CHARGE_STATUS_UNSPECIFIED\020\000\022\031\n\025CHARGE" +
+      "_STATUS_SUCCESS\020\001\022\031\n\025CHARGE_STATUS_FAILU" +
+      "RE\020\002\022\036\n\032CHARGE_STATUS_WAITING_EKYC\020\003\022\032\n\026" +
+      "CHARGE_STATUS_BLOCKING\020\004\022\033\n\027CHARGE_STATU" +
+      "S_CANCELLED\020\005\022\032\n\026CHARGE_STATUS_REFUNDED\020" +
+      "\006\022\031\n\025CHARGE_STATUS_PENDING\020\007*\235\001\n\025JammUse" +
+      "rAgreementName\022(\n$JAMM_USER_AGREEMENT_NA" +
+      "ME_UNSPECIFIED\020\000\022+\n\'JAMM_USER_AGREEMENT_" +
+      "NAME_PRIVACY_POLICY\020\001\022-\n)JAMM_USER_AGREE" +
+      "MENT_NAME_TERMS_OF_SERVICE\020\002*\341\001\n\010KycStat" +
+      "e\022\031\n\025KYC_STATE_UNSPECIFIED\020\000\022\026\n\022KYC_STAT" +
+      "E_ACCEPTED\020\001\022\034\n\030KYC_STATE_PLANS_SELECTED" +
+      "\020\002\022 \n\034KYC_STATE_DOCUMENT_SUBMITTED\020\003\022\031\n\025" +
+      "KYC_STATE_IN_PROGRESS\020\004\022\026\n\022KYC_STATE_VER" +
+      "IFIED\020\005\022\031\n\025KYC_STATE_NOT_STARTED\020\006\022\024\n\020KY" +
+      "C_STATE_DENIED\020\007*W\n\tKycResult\022\032\n\026KYC_RES" +
+      "ULT_UNSPECIFIED\020\000\022\027\n\023KYC_RESULT_APPROVED" +
+      "\020\001\022\025\n\021KYC_RESULT_DENIED\020\002*\264\001\n\014RefundStat" +
+      "us\022\035\n\031REFUND_STATUS_UNSPECIFIED\020\000\022&\n\"REF" +
+      "UND_STATUS_WAITING_CONFIRMATION\020\001\022\033\n\027REF" +
+      "UND_STATUS_CONFIRMED\020\002\022\030\n\024REFUND_STATUS_" +
+      "FAILED\020\003\022&\n\"REFUND_STATUS_CANCELED_BY_ME" +
+      "RCHANT\020\004*\261\001\n\014RejectReason\022\035\n\031REJECT_REAS" +
+      "ON_UNSPECIFIED\020\000\022)\n%REJECT_REASON_MERCHA" +
+      "NT_REQUEST_DENIED\020\001\022+\n\'REJECT_REASON_NEG" +
+      "ATIVE_MERCHANT_BALANCE\020\002\022*\n&REJECT_REASO" +
+      "N_PAYMENT_REJECTED_BY_BANK\020\003B\204\001\n\rcom.com" +
+      "mon.v1B\013WebappProtoP\001Z!api/proto/gen/com" +
+      "mon/v1;common_v1\242\002\003CXX\252\002\tCommon.V1\312\002\tCom" +
+      "mon\\V1\342\002\025Common\\V1\\GPBMetadata\352\002\nCommon:" +
+      ":V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.buf.validate.ValidateProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_common_v1_Bank_descriptor =
@@ -350,15 +336,7 @@ public final class WebappProto extends com.google.protobuf.GeneratedFile {
         internal_static_common_v1_Record_descriptor,
         new java.lang.String[] { "State", "Result", "Content", "VerifiedAt", });
     descriptor.resolveAllFeaturesImmutable();
-    com.buf.validate.ValidateProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
-    com.google.protobuf.ExtensionRegistry registry =
-        com.google.protobuf.ExtensionRegistry.newInstance();
-    registry.add(com.buf.validate.ValidateProto.field);
-    registry.add(com.buf.validate.ValidateProto.message);
-    registry.add(com.buf.validate.ValidateProto.oneof);
-    com.google.protobuf.Descriptors.FileDescriptor
-        .internalUpdateFileDescriptor(descriptor, registry);
   }
 
   // @@protoc_insertion_point(outer_class_scope)

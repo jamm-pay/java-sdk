@@ -35,27 +35,16 @@ public final class OpenapiProto extends com.google.protobuf.GeneratedFile {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024api/v1/openapi.proto\022\006api.v1\032.protoc-g" +
-      "en-openapiv2/options/annotations.protoB\310" +
-      "\001\n\ncom.api.v1B\014OpenapiProtoP\001Z\033api/proto" +
-      "/gen/api/v1;api_v1\242\002\003AXX\252\002\006Api.V1\312\002\006Api\\" +
-      "V1\342\002\022Api\\V1\\GPBMetadata\352\002\007Api::V1\222AU\022\017\n\010" +
-      "Jamm API2\0031.0*\001\0022\020application/json:\020appl" +
-      "ication/jsonr\033\n\004Jamm\022\023https://jamm-pay.j" +
-      "pb\006proto3"
+      "\n\024api/v1/openapi.proto\022\006api.v1Bp\n\ncom.ap" +
+      "i.v1B\014OpenapiProtoP\001Z\033api/proto/gen/api/" +
+      "v1;api_v1\242\002\003AXX\252\002\006Api.V1\312\002\006Api\\V1\342\002\022Api\\" +
+      "V1\\GPBMetadata\352\002\007Api::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.grpc.gateway.protoc_gen_openapiv2.options.AnnotationsProto.getDescriptor(),
         });
     descriptor.resolveAllFeaturesImmutable();
-    com.grpc.gateway.protoc_gen_openapiv2.options.AnnotationsProto.getDescriptor();
-    com.google.protobuf.ExtensionRegistry registry =
-        com.google.protobuf.ExtensionRegistry.newInstance();
-    registry.add(com.grpc.gateway.protoc_gen_openapiv2.options.AnnotationsProto.openapiv2Swagger);
-    com.google.protobuf.Descriptors.FileDescriptor
-        .internalUpdateFileDescriptor(descriptor, registry);
   }
 
   // @@protoc_insertion_point(outer_class_scope)

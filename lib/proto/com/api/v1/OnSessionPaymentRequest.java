@@ -69,7 +69,7 @@ private static final long serialVersionUID = 0L;
    * Must start with "cus-" prefix followed by additional characters
    * </pre>
    *
-   * <code>optional string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>optional string customer = 1 [json_name = "customer"];</code>
    * @return Whether the customer field is set.
    */
   @java.lang.Override
@@ -83,7 +83,7 @@ private static final long serialVersionUID = 0L;
    * Must start with "cus-" prefix followed by additional characters
    * </pre>
    *
-   * <code>optional string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>optional string customer = 1 [json_name = "customer"];</code>
    * @return The customer.
    */
   @java.lang.Override
@@ -106,7 +106,7 @@ private static final long serialVersionUID = 0L;
    * Must start with "cus-" prefix followed by additional characters
    * </pre>
    *
-   * <code>optional string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>optional string customer = 1 [json_name = "customer"];</code>
    * @return The bytes for customer.
    */
   @java.lang.Override
@@ -741,7 +741,7 @@ private static final long serialVersionUID = 0L;
      * Must start with "cus-" prefix followed by additional characters
      * </pre>
      *
-     * <code>optional string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>optional string customer = 1 [json_name = "customer"];</code>
      * @return Whether the customer field is set.
      */
     public boolean hasCustomer() {
@@ -754,7 +754,7 @@ private static final long serialVersionUID = 0L;
      * Must start with "cus-" prefix followed by additional characters
      * </pre>
      *
-     * <code>optional string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>optional string customer = 1 [json_name = "customer"];</code>
      * @return The customer.
      */
     public java.lang.String getCustomer() {
@@ -776,7 +776,7 @@ private static final long serialVersionUID = 0L;
      * Must start with "cus-" prefix followed by additional characters
      * </pre>
      *
-     * <code>optional string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>optional string customer = 1 [json_name = "customer"];</code>
      * @return The bytes for customer.
      */
     public com.google.protobuf.ByteString
@@ -799,7 +799,7 @@ private static final long serialVersionUID = 0L;
      * Must start with "cus-" prefix followed by additional characters
      * </pre>
      *
-     * <code>optional string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>optional string customer = 1 [json_name = "customer"];</code>
      * @param value The customer to set.
      * @return This builder for chaining.
      */
@@ -818,7 +818,7 @@ private static final long serialVersionUID = 0L;
      * Must start with "cus-" prefix followed by additional characters
      * </pre>
      *
-     * <code>optional string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>optional string customer = 1 [json_name = "customer"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCustomer() {
@@ -834,7 +834,7 @@ private static final long serialVersionUID = 0L;
      * Must start with "cus-" prefix followed by additional characters
      * </pre>
      *
-     * <code>optional string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>optional string customer = 1 [json_name = "customer"];</code>
      * @param value The bytes for customer to set.
      * @return This builder for chaining.
      */

@@ -52,7 +52,7 @@ private static final long serialVersionUID = 0L;
   public static final int BANK_FIELD_NUMBER = 1;
   private com.api.v1.Bank bank_;
   /**
-   * <code>.api.v1.Bank bank = 1 [json_name = "bank", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Bank bank = 1 [json_name = "bank"];</code>
    * @return Whether the bank field is set.
    */
   @java.lang.Override
@@ -60,7 +60,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.api.v1.Bank bank = 1 [json_name = "bank", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Bank bank = 1 [json_name = "bank"];</code>
    * @return The bank.
    */
   @java.lang.Override
@@ -68,7 +68,7 @@ private static final long serialVersionUID = 0L;
     return bank_ == null ? com.api.v1.Bank.getDefaultInstance() : bank_;
   }
   /**
-   * <code>.api.v1.Bank bank = 1 [json_name = "bank", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Bank bank = 1 [json_name = "bank"];</code>
    */
   @java.lang.Override
   public com.api.v1.BankOrBuilder getBankOrBuilder() {
@@ -394,14 +394,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.Bank, com.api.v1.Bank.Builder, com.api.v1.BankOrBuilder> bankBuilder_;
     /**
-     * <code>.api.v1.Bank bank = 1 [json_name = "bank", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Bank bank = 1 [json_name = "bank"];</code>
      * @return Whether the bank field is set.
      */
     public boolean hasBank() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>.api.v1.Bank bank = 1 [json_name = "bank", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Bank bank = 1 [json_name = "bank"];</code>
      * @return The bank.
      */
     public com.api.v1.Bank getBank() {
@@ -412,7 +412,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.api.v1.Bank bank = 1 [json_name = "bank", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Bank bank = 1 [json_name = "bank"];</code>
      */
     public Builder setBank(com.api.v1.Bank value) {
       if (bankBuilder_ == null) {
@@ -428,7 +428,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.Bank bank = 1 [json_name = "bank", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Bank bank = 1 [json_name = "bank"];</code>
      */
     public Builder setBank(
         com.api.v1.Bank.Builder builderForValue) {
@@ -442,7 +442,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.Bank bank = 1 [json_name = "bank", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Bank bank = 1 [json_name = "bank"];</code>
      */
     public Builder mergeBank(com.api.v1.Bank value) {
       if (bankBuilder_ == null) {
@@ -463,7 +463,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.Bank bank = 1 [json_name = "bank", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Bank bank = 1 [json_name = "bank"];</code>
      */
     public Builder clearBank() {
       bitField0_ = (bitField0_ & ~0x00000001);
@@ -476,7 +476,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.Bank bank = 1 [json_name = "bank", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Bank bank = 1 [json_name = "bank"];</code>
      */
     public com.api.v1.Bank.Builder getBankBuilder() {
       bitField0_ |= 0x00000001;
@@ -484,7 +484,7 @@ private static final long serialVersionUID = 0L;
       return internalGetBankFieldBuilder().getBuilder();
     }
     /**
-     * <code>.api.v1.Bank bank = 1 [json_name = "bank", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Bank bank = 1 [json_name = "bank"];</code>
      */
     public com.api.v1.BankOrBuilder getBankOrBuilder() {
       if (bankBuilder_ != null) {
@@ -495,7 +495,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.api.v1.Bank bank = 1 [json_name = "bank", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Bank bank = 1 [json_name = "bank"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.Bank, com.api.v1.Bank.Builder, com.api.v1.BankOrBuilder> 

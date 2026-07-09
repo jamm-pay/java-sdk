@@ -59,7 +59,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object customerId_ = "";
   /**
-   * <code>string customer_id = 1 [json_name = "customerId", (.buf.validate.field) = { ... }</code>
+   * <code>string customer_id = 1 [json_name = "customerId"];</code>
    * @return The customerId.
    */
   @java.lang.Override
@@ -76,7 +76,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string customer_id = 1 [json_name = "customerId", (.buf.validate.field) = { ... }</code>
+   * <code>string customer_id = 1 [json_name = "customerId"];</code>
    * @return The bytes for customerId.
    */
   @java.lang.Override
@@ -97,14 +97,14 @@ private static final long serialVersionUID = 0L;
   public static final int AGREEMENT_NAME_FIELD_NUMBER = 2;
   private int agreementName_ = 0;
   /**
-   * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName"];</code>
    * @return The enum numeric value on the wire for agreementName.
    */
   @java.lang.Override public int getAgreementNameValue() {
     return agreementName_;
   }
   /**
-   * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName"];</code>
    * @return The agreementName.
    */
   @java.lang.Override public com.common.v1.JammUserAgreementName getAgreementName() {
@@ -115,7 +115,7 @@ private static final long serialVersionUID = 0L;
   public static final int AGREED_AT_FIELD_NUMBER = 4;
   private com.google.protobuf.Timestamp agreedAt_;
   /**
-   * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt"];</code>
    * @return Whether the agreedAt field is set.
    */
   @java.lang.Override
@@ -123,7 +123,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt"];</code>
    * @return The agreedAt.
    */
   @java.lang.Override
@@ -131,7 +131,7 @@ private static final long serialVersionUID = 0L;
     return agreedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : agreedAt_;
   }
   /**
-   * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getAgreedAtOrBuilder() {
@@ -505,7 +505,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object customerId_ = "";
     /**
-     * <code>string customer_id = 1 [json_name = "customerId", (.buf.validate.field) = { ... }</code>
+     * <code>string customer_id = 1 [json_name = "customerId"];</code>
      * @return The customerId.
      */
     public java.lang.String getCustomerId() {
@@ -521,7 +521,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string customer_id = 1 [json_name = "customerId", (.buf.validate.field) = { ... }</code>
+     * <code>string customer_id = 1 [json_name = "customerId"];</code>
      * @return The bytes for customerId.
      */
     public com.google.protobuf.ByteString
@@ -538,7 +538,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string customer_id = 1 [json_name = "customerId", (.buf.validate.field) = { ... }</code>
+     * <code>string customer_id = 1 [json_name = "customerId"];</code>
      * @param value The customerId to set.
      * @return This builder for chaining.
      */
@@ -551,7 +551,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string customer_id = 1 [json_name = "customerId", (.buf.validate.field) = { ... }</code>
+     * <code>string customer_id = 1 [json_name = "customerId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCustomerId() {
@@ -561,7 +561,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string customer_id = 1 [json_name = "customerId", (.buf.validate.field) = { ... }</code>
+     * <code>string customer_id = 1 [json_name = "customerId"];</code>
      * @param value The bytes for customerId to set.
      * @return This builder for chaining.
      */
@@ -577,14 +577,14 @@ private static final long serialVersionUID = 0L;
 
     private int agreementName_ = 0;
     /**
-     * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName"];</code>
      * @return The enum numeric value on the wire for agreementName.
      */
     @java.lang.Override public int getAgreementNameValue() {
       return agreementName_;
     }
     /**
-     * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName"];</code>
      * @param value The enum numeric value on the wire for agreementName to set.
      * @throws IllegalArgumentException if UNRECOGNIZED is provided.
      * @return This builder for chaining.
@@ -596,7 +596,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName"];</code>
      * @return The agreementName.
      */
     @java.lang.Override
@@ -605,7 +605,7 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.common.v1.JammUserAgreementName.UNRECOGNIZED : result;
     }
     /**
-     * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName"];</code>
      * @param value The agreementName to set.
      * @return This builder for chaining.
      */
@@ -617,7 +617,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName"];</code>
      * @return This builder for chaining.
      */
     public Builder clearAgreementName() {
@@ -631,14 +631,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> agreedAtBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt"];</code>
      * @return Whether the agreedAt field is set.
      */
     public boolean hasAgreedAt() {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt"];</code>
      * @return The agreedAt.
      */
     public com.google.protobuf.Timestamp getAgreedAt() {
@@ -649,7 +649,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt"];</code>
      */
     public Builder setAgreedAt(com.google.protobuf.Timestamp value) {
       if (agreedAtBuilder_ == null) {
@@ -665,7 +665,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt"];</code>
      */
     public Builder setAgreedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -679,7 +679,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt"];</code>
      */
     public Builder mergeAgreedAt(com.google.protobuf.Timestamp value) {
       if (agreedAtBuilder_ == null) {
@@ -700,7 +700,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt"];</code>
      */
     public Builder clearAgreedAt() {
       bitField0_ = (bitField0_ & ~0x00000004);
@@ -713,7 +713,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getAgreedAtBuilder() {
       bitField0_ |= 0x00000004;
@@ -721,7 +721,7 @@ private static final long serialVersionUID = 0L;
       return internalGetAgreedAtFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getAgreedAtOrBuilder() {
       if (agreedAtBuilder_ != null) {
@@ -732,7 +732,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 

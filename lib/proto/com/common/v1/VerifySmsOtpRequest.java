@@ -57,7 +57,7 @@ private static final long serialVersionUID = 0L;
    * 6 digit validation for now
    * </pre>
    *
-   * <code>string otp = 1 [json_name = "otp", (.buf.validate.field) = { ... }</code>
+   * <code>string otp = 1 [json_name = "otp"];</code>
    * @return The otp.
    */
   @java.lang.Override
@@ -78,7 +78,7 @@ private static final long serialVersionUID = 0L;
    * 6 digit validation for now
    * </pre>
    *
-   * <code>string otp = 1 [json_name = "otp", (.buf.validate.field) = { ... }</code>
+   * <code>string otp = 1 [json_name = "otp"];</code>
    * @return The bytes for otp.
    */
   @java.lang.Override
@@ -396,7 +396,7 @@ private static final long serialVersionUID = 0L;
      * 6 digit validation for now
      * </pre>
      *
-     * <code>string otp = 1 [json_name = "otp", (.buf.validate.field) = { ... }</code>
+     * <code>string otp = 1 [json_name = "otp"];</code>
      * @return The otp.
      */
     public java.lang.String getOtp() {
@@ -416,7 +416,7 @@ private static final long serialVersionUID = 0L;
      * 6 digit validation for now
      * </pre>
      *
-     * <code>string otp = 1 [json_name = "otp", (.buf.validate.field) = { ... }</code>
+     * <code>string otp = 1 [json_name = "otp"];</code>
      * @return The bytes for otp.
      */
     public com.google.protobuf.ByteString
@@ -437,7 +437,7 @@ private static final long serialVersionUID = 0L;
      * 6 digit validation for now
      * </pre>
      *
-     * <code>string otp = 1 [json_name = "otp", (.buf.validate.field) = { ... }</code>
+     * <code>string otp = 1 [json_name = "otp"];</code>
      * @param value The otp to set.
      * @return This builder for chaining.
      */
@@ -454,7 +454,7 @@ private static final long serialVersionUID = 0L;
      * 6 digit validation for now
      * </pre>
      *
-     * <code>string otp = 1 [json_name = "otp", (.buf.validate.field) = { ... }</code>
+     * <code>string otp = 1 [json_name = "otp"];</code>
      * @return This builder for chaining.
      */
     public Builder clearOtp() {
@@ -468,7 +468,7 @@ private static final long serialVersionUID = 0L;
      * 6 digit validation for now
      * </pre>
      *
-     * <code>string otp = 1 [json_name = "otp", (.buf.validate.field) = { ... }</code>
+     * <code>string otp = 1 [json_name = "otp"];</code>
      * @param value The bytes for otp to set.
      * @return This builder for chaining.
      */

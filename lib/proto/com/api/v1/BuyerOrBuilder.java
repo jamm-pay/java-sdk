@@ -19,7 +19,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>string email = 1 [json_name = "email", (.buf.validate.field) = { ... }</code>
+   * <code>string email = 1 [json_name = "email"];</code>
    * @return The email.
    */
   java.lang.String getEmail();
@@ -32,7 +32,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>string email = 1 [json_name = "email", (.buf.validate.field) = { ... }</code>
+   * <code>string email = 1 [json_name = "email"];</code>
    * @return The bytes for email.
    */
   com.google.protobuf.ByteString
@@ -69,7 +69,7 @@ public interface BuyerOrBuilder extends
    * 携帯電話番号（070/080/090）のみ保存され、それ以外の番号は無視されます。
    * </pre>
    *
-   * <code>optional string phone = 3 [json_name = "phone", (.buf.validate.field) = { ... }</code>
+   * <code>optional string phone = 3 [json_name = "phone"];</code>
    * @return Whether the phone field is set.
    */
   boolean hasPhone();
@@ -92,7 +92,7 @@ public interface BuyerOrBuilder extends
    * 携帯電話番号（070/080/090）のみ保存され、それ以外の番号は無視されます。
    * </pre>
    *
-   * <code>optional string phone = 3 [json_name = "phone", (.buf.validate.field) = { ... }</code>
+   * <code>optional string phone = 3 [json_name = "phone"];</code>
    * @return The phone.
    */
   java.lang.String getPhone();
@@ -115,7 +115,7 @@ public interface BuyerOrBuilder extends
    * 携帯電話番号（070/080/090）のみ保存され、それ以外の番号は無視されます。
    * </pre>
    *
-   * <code>optional string phone = 3 [json_name = "phone", (.buf.validate.field) = { ... }</code>
+   * <code>optional string phone = 3 [json_name = "phone"];</code>
    * @return The bytes for phone.
    */
   com.google.protobuf.ByteString
@@ -134,7 +134,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>optional string name = 4 [json_name = "name"];</code>
    * @return Whether the name field is set.
    */
   boolean hasName();
@@ -151,7 +151,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>optional string name = 4 [json_name = "name"];</code>
    * @return The name.
    */
   java.lang.String getName();
@@ -168,7 +168,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>optional string name = 4 [json_name = "name"];</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
@@ -185,7 +185,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
    * @return Whether the katakanaLastName field is set.
    */
   boolean hasKatakanaLastName();
@@ -200,7 +200,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
    * @return The katakanaLastName.
    */
   java.lang.String getKatakanaLastName();
@@ -215,7 +215,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
    * @return The bytes for katakanaLastName.
    */
   com.google.protobuf.ByteString
@@ -232,7 +232,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
    * @return Whether the katakanaFirstName field is set.
    */
   boolean hasKatakanaFirstName();
@@ -247,7 +247,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
    * @return The katakanaFirstName.
    */
   java.lang.String getKatakanaFirstName();
@@ -262,7 +262,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
    * @return The bytes for katakanaFirstName.
    */
   com.google.protobuf.ByteString
@@ -280,7 +280,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+   * <code>optional string address = 13 [json_name = "address"];</code>
    * @return Whether the address field is set.
    */
   boolean hasAddress();
@@ -296,7 +296,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+   * <code>optional string address = 13 [json_name = "address"];</code>
    * @return The address.
    */
   java.lang.String getAddress();
@@ -312,7 +312,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+   * <code>optional string address = 13 [json_name = "address"];</code>
    * @return The bytes for address.
    */
   com.google.protobuf.ByteString
@@ -330,7 +330,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+   * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
    * @return Whether the birthDate field is set.
    */
   boolean hasBirthDate();
@@ -346,7 +346,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+   * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
    * @return The birthDate.
    */
   java.lang.String getBirthDate();
@@ -362,7 +362,7 @@ public interface BuyerOrBuilder extends
    * この値は UpdateCustomer エンドポイントを通じて後で更新できます。
    * </pre>
    *
-   * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+   * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
    * @return The bytes for birthDate.
    */
   com.google.protobuf.ByteString
@@ -375,7 +375,7 @@ public interface BuyerOrBuilder extends
    * Customerの性別。
    * </pre>
    *
-   * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+   * <code>optional string gender = 21 [json_name = "gender"];</code>
    * @return Whether the gender field is set.
    */
   boolean hasGender();
@@ -386,7 +386,7 @@ public interface BuyerOrBuilder extends
    * Customerの性別。
    * </pre>
    *
-   * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+   * <code>optional string gender = 21 [json_name = "gender"];</code>
    * @return The gender.
    */
   java.lang.String getGender();
@@ -397,7 +397,7 @@ public interface BuyerOrBuilder extends
    * Customerの性別。
    * </pre>
    *
-   * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+   * <code>optional string gender = 21 [json_name = "gender"];</code>
    * @return The bytes for gender.
    */
   com.google.protobuf.ByteString
@@ -411,7 +411,7 @@ public interface BuyerOrBuilder extends
    * 決済の有効期限。未指定の場合は90分後に自動失効します。
    * </pre>
    *
-   * <code>optional .google.protobuf.Timestamp expires_at = 22 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+   * <code>optional .google.protobuf.Timestamp expires_at = 22 [json_name = "expiresAt"];</code>
    * @return Whether the expiresAt field is set.
    */
   boolean hasExpiresAt();
@@ -423,7 +423,7 @@ public interface BuyerOrBuilder extends
    * 決済の有効期限。未指定の場合は90分後に自動失効します。
    * </pre>
    *
-   * <code>optional .google.protobuf.Timestamp expires_at = 22 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+   * <code>optional .google.protobuf.Timestamp expires_at = 22 [json_name = "expiresAt"];</code>
    * @return The expiresAt.
    */
   com.google.protobuf.Timestamp getExpiresAt();
@@ -435,7 +435,7 @@ public interface BuyerOrBuilder extends
    * 決済の有効期限。未指定の場合は90分後に自動失効します。
    * </pre>
    *
-   * <code>optional .google.protobuf.Timestamp expires_at = 22 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+   * <code>optional .google.protobuf.Timestamp expires_at = 22 [json_name = "expiresAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder();
 

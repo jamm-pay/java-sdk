@@ -49,17 +49,17 @@ public interface VerifySmsOtpResponseOrBuilder extends
   com.common.v1.VerifyErrorType getErrorType();
 
   /**
-   * <code>optional string error_message = 3 [json_name = "errorMessage", (.buf.validate.field) = { ... }</code>
+   * <code>optional string error_message = 3 [json_name = "errorMessage"];</code>
    * @return Whether the errorMessage field is set.
    */
   boolean hasErrorMessage();
   /**
-   * <code>optional string error_message = 3 [json_name = "errorMessage", (.buf.validate.field) = { ... }</code>
+   * <code>optional string error_message = 3 [json_name = "errorMessage"];</code>
    * @return The errorMessage.
    */
   java.lang.String getErrorMessage();
   /**
-   * <code>optional string error_message = 3 [json_name = "errorMessage", (.buf.validate.field) = { ... }</code>
+   * <code>optional string error_message = 3 [json_name = "errorMessage"];</code>
    * @return The bytes for errorMessage.
    */
   com.google.protobuf.ByteString
@@ -70,7 +70,7 @@ public interface VerifySmsOtpResponseOrBuilder extends
    * Remaining attempts (0 means locked out)
    * </pre>
    *
-   * <code>int32 attempts_remaining = 4 [json_name = "attemptsRemaining", (.buf.validate.field) = { ... }</code>
+   * <code>int32 attempts_remaining = 4 [json_name = "attemptsRemaining"];</code>
    * @return The attemptsRemaining.
    */
   int getAttemptsRemaining();

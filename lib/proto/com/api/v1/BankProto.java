@@ -86,24 +86,21 @@ public final class BankProto extends com.google.protobuf.GeneratedFile {
   static {
     java.lang.String[] descriptorData = {
       "\n\021api/v1/bank.proto\022\006api.v1\032\023api/v1/comm" +
-      "on.proto\032\033buf/validate/validate.proto\":\n" +
-      "\016GetBankRequest\022(\n\tbank_code\030\001 \001(\tB\013\272H\010r" +
-      "\003\230\001\004\310\001\001R\010bankCode\";\n\017GetBankResponse\022(\n\004" +
-      "bank\030\001 \001(\0132\014.api.v1.BankB\006\272H\003\310\001\001R\004bank\"8" +
-      "\n\022SearchBanksRequest\022\"\n\005query\030\001 \001(\tB\014\272H\t" +
-      "r\004\020\001\0302\310\001\001R\005query\"9\n\023SearchBanksResponse\022" +
-      "\"\n\005banks\030\001 \003(\0132\014.api.v1.BankR\005banks\"j\n\020G" +
-      "etBranchRequest\022(\n\tbank_code\030\001 \001(\tB\013\272H\010r" +
-      "\003\230\001\004\310\001\001R\010bankCode\022,\n\013branch_code\030\002 \001(\tB\013" +
-      "\272H\010r\003\230\001\003\310\001\001R\nbranchCode\"G\n\021GetBranchResp" +
-      "onse\0222\n\006branch\030\001 \001(\0132\022.api.v1.BankBranch" +
-      "B\006\272H\003\310\001\001R\006branch\">\n\022GetBranchesRequest\022(" +
-      "\n\tbank_code\030\001 \001(\tB\013\272H\010r\003\230\001\004\310\001\001R\010bankCode" +
-      "\"E\n\023GetBranchesResponse\022.\n\010branches\030\001 \003(" +
-      "\0132\022.api.v1.BankBranchR\010branches\"e\n\025Searc" +
-      "hBranchesRequest\022(\n\tbank_code\030\001 \001(\tB\013\272H\010" +
-      "r\003\230\001\004\310\001\001R\010bankCode\022\"\n\005query\030\002 \001(\tB\014\272H\tr\004" +
-      "\020\001\0302\310\001\001R\005query\"H\n\026SearchBranchesResponse" +
+      "on.proto\"/\n\016GetBankRequest\022\035\n\tbank_code\030" +
+      "\001 \001(\tB\000R\010bankCode\"5\n\017GetBankResponse\022\"\n\004" +
+      "bank\030\001 \001(\0132\014.api.v1.BankB\000R\004bank\",\n\022Sear" +
+      "chBanksRequest\022\026\n\005query\030\001 \001(\tB\000R\005query\"9" +
+      "\n\023SearchBanksResponse\022\"\n\005banks\030\001 \003(\0132\014.a" +
+      "pi.v1.BankR\005banks\"T\n\020GetBranchRequest\022\035\n" +
+      "\tbank_code\030\001 \001(\tB\000R\010bankCode\022!\n\013branch_c" +
+      "ode\030\002 \001(\tB\000R\nbranchCode\"A\n\021GetBranchResp" +
+      "onse\022,\n\006branch\030\001 \001(\0132\022.api.v1.BankBranch" +
+      "B\000R\006branch\"3\n\022GetBranchesRequest\022\035\n\tbank" +
+      "_code\030\001 \001(\tB\000R\010bankCode\"E\n\023GetBranchesRe" +
+      "sponse\022.\n\010branches\030\001 \003(\0132\022.api.v1.BankBr" +
+      "anchR\010branches\"N\n\025SearchBranchesRequest\022" +
+      "\035\n\tbank_code\030\001 \001(\tB\000R\010bankCode\022\026\n\005query\030" +
+      "\002 \001(\tB\000R\005query\"H\n\026SearchBranchesResponse" +
       "\022.\n\010branches\030\001 \003(\0132\022.api.v1.BankBranchR\010" +
       "branches2\366\002\n\013BankService\022<\n\007GetBank\022\026.ap" +
       "i.v1.GetBankRequest\032\027.api.v1.GetBankResp" +
@@ -123,7 +120,6 @@ public final class BankProto extends com.google.protobuf.GeneratedFile {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.api.v1.CommonProto.getDescriptor(),
-          com.buf.validate.ValidateProto.getDescriptor(),
         });
     internal_static_api_v1_GetBankRequest_descriptor =
       getDescriptor().getMessageType(0);
@@ -187,12 +183,6 @@ public final class BankProto extends com.google.protobuf.GeneratedFile {
         new java.lang.String[] { "Branches", });
     descriptor.resolveAllFeaturesImmutable();
     com.api.v1.CommonProto.getDescriptor();
-    com.buf.validate.ValidateProto.getDescriptor();
-    com.google.protobuf.ExtensionRegistry registry =
-        com.google.protobuf.ExtensionRegistry.newInstance();
-    registry.add(com.buf.validate.ValidateProto.field);
-    com.google.protobuf.Descriptors.FileDescriptor
-        .internalUpdateFileDescriptor(descriptor, registry);
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -18,7 +18,7 @@ public interface CreateContractWithChargeRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
    * @return Whether the buyer field is set.
    */
   boolean hasBuyer();
@@ -30,7 +30,7 @@ public interface CreateContractWithChargeRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
    * @return The buyer.
    */
   com.api.v1.Buyer getBuyer();
@@ -42,7 +42,7 @@ public interface CreateContractWithChargeRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
    */
   com.api.v1.BuyerOrBuilder getBuyerOrBuilder();
 
@@ -54,7 +54,7 @@ public interface CreateContractWithChargeRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
    * @return Whether the charge field is set.
    */
   boolean hasCharge();
@@ -66,7 +66,7 @@ public interface CreateContractWithChargeRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
    * @return The charge.
    */
   com.api.v1.InitialCharge getCharge();
@@ -78,7 +78,7 @@ public interface CreateContractWithChargeRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
    */
   com.api.v1.InitialChargeOrBuilder getChargeOrBuilder();
 

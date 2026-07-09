@@ -19,7 +19,7 @@ public interface ContractOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   java.lang.String getId();
@@ -32,7 +32,7 @@ public interface ContractOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
@@ -43,7 +43,7 @@ public interface ContractOrBuilder extends
    * Status of the contract.
    * </pre>
    *
-   * <code>.api.v1.ContractStatus status = 2 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ContractStatus status = 2 [json_name = "status"];</code>
    * @return The enum numeric value on the wire for status.
    */
   int getStatusValue();
@@ -52,7 +52,7 @@ public interface ContractOrBuilder extends
    * Status of the contract.
    * </pre>
    *
-   * <code>.api.v1.ContractStatus status = 2 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ContractStatus status = 2 [json_name = "status"];</code>
    * @return The status.
    */
   com.api.v1.ContractStatus getStatus();
@@ -64,7 +64,7 @@ public interface ContractOrBuilder extends
    * 契約の作成日時。
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 20 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 20 [json_name = "createdAt"];</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
@@ -75,7 +75,7 @@ public interface ContractOrBuilder extends
    * 契約の作成日時。
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 20 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 20 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
@@ -86,7 +86,7 @@ public interface ContractOrBuilder extends
    * 契約の作成日時。
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp created_at = 20 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 20 [json_name = "createdAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 
@@ -97,7 +97,7 @@ public interface ContractOrBuilder extends
    * 契約の更新日時。
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 21 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 21 [json_name = "updatedAt"];</code>
    * @return Whether the updatedAt field is set.
    */
   boolean hasUpdatedAt();
@@ -108,7 +108,7 @@ public interface ContractOrBuilder extends
    * 契約の更新日時。
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 21 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 21 [json_name = "updatedAt"];</code>
    * @return The updatedAt.
    */
   com.google.protobuf.Timestamp getUpdatedAt();
@@ -119,7 +119,7 @@ public interface ContractOrBuilder extends
    * 契約の更新日時。
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp updated_at = 21 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 21 [json_name = "updatedAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
 }

@@ -63,7 +63,7 @@ private static final long serialVersionUID = 0L;
    * Jamm defined error code.
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+   * <code>string code = 1 [json_name = "code"];</code>
    * @return The code.
    */
   @java.lang.Override
@@ -84,7 +84,7 @@ private static final long serialVersionUID = 0L;
    * Jamm defined error code.
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+   * <code>string code = 1 [json_name = "code"];</code>
    * @return The bytes for code.
    */
   @java.lang.Override
@@ -110,7 +110,7 @@ private static final long serialVersionUID = 0L;
    * Human readable error message.
    * </pre>
    *
-   * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
   @java.lang.Override
@@ -131,7 +131,7 @@ private static final long serialVersionUID = 0L;
    * Human readable error message.
    * </pre>
    *
-   * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
   @java.lang.Override
@@ -157,7 +157,7 @@ private static final long serialVersionUID = 0L;
    * ConnectRPC error details.
    * </pre>
    *
-   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
    */
   @java.lang.Override
   public java.util.List<com.api.v1.ErrorDetail> getDetailsList() {
@@ -168,7 +168,7 @@ private static final long serialVersionUID = 0L;
    * ConnectRPC error details.
    * </pre>
    *
-   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.api.v1.ErrorDetailOrBuilder> 
@@ -180,7 +180,7 @@ private static final long serialVersionUID = 0L;
    * ConnectRPC error details.
    * </pre>
    *
-   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
    */
   @java.lang.Override
   public int getDetailsCount() {
@@ -191,7 +191,7 @@ private static final long serialVersionUID = 0L;
    * ConnectRPC error details.
    * </pre>
    *
-   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
    */
   @java.lang.Override
   public com.api.v1.ErrorDetail getDetails(int index) {
@@ -202,7 +202,7 @@ private static final long serialVersionUID = 0L;
    * ConnectRPC error details.
    * </pre>
    *
-   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
    */
   @java.lang.Override
   public com.api.v1.ErrorDetailOrBuilder getDetailsOrBuilder(
@@ -615,7 +615,7 @@ private static final long serialVersionUID = 0L;
      * Jamm defined error code.
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+     * <code>string code = 1 [json_name = "code"];</code>
      * @return The code.
      */
     public java.lang.String getCode() {
@@ -635,7 +635,7 @@ private static final long serialVersionUID = 0L;
      * Jamm defined error code.
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+     * <code>string code = 1 [json_name = "code"];</code>
      * @return The bytes for code.
      */
     public com.google.protobuf.ByteString
@@ -656,7 +656,7 @@ private static final long serialVersionUID = 0L;
      * Jamm defined error code.
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+     * <code>string code = 1 [json_name = "code"];</code>
      * @param value The code to set.
      * @return This builder for chaining.
      */
@@ -673,7 +673,7 @@ private static final long serialVersionUID = 0L;
      * Jamm defined error code.
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+     * <code>string code = 1 [json_name = "code"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCode() {
@@ -687,7 +687,7 @@ private static final long serialVersionUID = 0L;
      * Jamm defined error code.
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+     * <code>string code = 1 [json_name = "code"];</code>
      * @param value The bytes for code to set.
      * @return This builder for chaining.
      */
@@ -707,7 +707,7 @@ private static final long serialVersionUID = 0L;
      * Human readable error message.
      * </pre>
      *
-     * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>string message = 2 [json_name = "message"];</code>
      * @return The message.
      */
     public java.lang.String getMessage() {
@@ -727,7 +727,7 @@ private static final long serialVersionUID = 0L;
      * Human readable error message.
      * </pre>
      *
-     * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>string message = 2 [json_name = "message"];</code>
      * @return The bytes for message.
      */
     public com.google.protobuf.ByteString
@@ -748,7 +748,7 @@ private static final long serialVersionUID = 0L;
      * Human readable error message.
      * </pre>
      *
-     * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>string message = 2 [json_name = "message"];</code>
      * @param value The message to set.
      * @return This builder for chaining.
      */
@@ -765,7 +765,7 @@ private static final long serialVersionUID = 0L;
      * Human readable error message.
      * </pre>
      *
-     * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>string message = 2 [json_name = "message"];</code>
      * @return This builder for chaining.
      */
     public Builder clearMessage() {
@@ -779,7 +779,7 @@ private static final long serialVersionUID = 0L;
      * Human readable error message.
      * </pre>
      *
-     * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>string message = 2 [json_name = "message"];</code>
      * @param value The bytes for message to set.
      * @return This builder for chaining.
      */
@@ -810,7 +810,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public java.util.List<com.api.v1.ErrorDetail> getDetailsList() {
       if (detailsBuilder_ == null) {
@@ -824,7 +824,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public int getDetailsCount() {
       if (detailsBuilder_ == null) {
@@ -838,7 +838,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public com.api.v1.ErrorDetail getDetails(int index) {
       if (detailsBuilder_ == null) {
@@ -852,7 +852,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public Builder setDetails(
         int index, com.api.v1.ErrorDetail value) {
@@ -873,7 +873,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public Builder setDetails(
         int index, com.api.v1.ErrorDetail.Builder builderForValue) {
@@ -891,7 +891,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public Builder addDetails(com.api.v1.ErrorDetail value) {
       if (detailsBuilder_ == null) {
@@ -911,7 +911,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public Builder addDetails(
         int index, com.api.v1.ErrorDetail value) {
@@ -932,7 +932,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public Builder addDetails(
         com.api.v1.ErrorDetail.Builder builderForValue) {
@@ -950,7 +950,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public Builder addDetails(
         int index, com.api.v1.ErrorDetail.Builder builderForValue) {
@@ -968,7 +968,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public Builder addAllDetails(
         java.lang.Iterable<? extends com.api.v1.ErrorDetail> values) {
@@ -987,7 +987,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public Builder clearDetails() {
       if (detailsBuilder_ == null) {
@@ -1004,7 +1004,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public Builder removeDetails(int index) {
       if (detailsBuilder_ == null) {
@@ -1021,7 +1021,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public com.api.v1.ErrorDetail.Builder getDetailsBuilder(
         int index) {
@@ -1032,7 +1032,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public com.api.v1.ErrorDetailOrBuilder getDetailsOrBuilder(
         int index) {
@@ -1046,7 +1046,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public java.util.List<? extends com.api.v1.ErrorDetailOrBuilder> 
          getDetailsOrBuilderList() {
@@ -1061,7 +1061,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public com.api.v1.ErrorDetail.Builder addDetailsBuilder() {
       return internalGetDetailsFieldBuilder().addBuilder(
@@ -1072,7 +1072,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public com.api.v1.ErrorDetail.Builder addDetailsBuilder(
         int index) {
@@ -1084,7 +1084,7 @@ private static final long serialVersionUID = 0L;
      * ConnectRPC error details.
      * </pre>
      *
-     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+     * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
      */
     public java.util.List<com.api.v1.ErrorDetail.Builder> 
          getDetailsBuilderList() {

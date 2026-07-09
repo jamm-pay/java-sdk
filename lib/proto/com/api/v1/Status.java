@@ -61,7 +61,7 @@ private static final long serialVersionUID = 0L;
    * Payment authorization status
    * </pre>
    *
-   * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment"];</code>
    * @return The enum numeric value on the wire for payment.
    */
   @java.lang.Override public int getPaymentValue() {
@@ -72,7 +72,7 @@ private static final long serialVersionUID = 0L;
    * Payment authorization status
    * </pre>
    *
-   * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment"];</code>
    * @return The payment.
    */
   @java.lang.Override public com.api.v1.PaymentAuthorizationStatus getPayment() {
@@ -87,7 +87,7 @@ private static final long serialVersionUID = 0L;
    * KYC verification status
    * </pre>
    *
-   * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc"];</code>
    * @return The enum numeric value on the wire for kyc.
    */
   @java.lang.Override public int getKycValue() {
@@ -98,7 +98,7 @@ private static final long serialVersionUID = 0L;
    * KYC verification status
    * </pre>
    *
-   * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc"];</code>
    * @return The kyc.
    */
   @java.lang.Override public com.api.v1.KycStatus getKyc() {
@@ -430,7 +430,7 @@ private static final long serialVersionUID = 0L;
      * Payment authorization status
      * </pre>
      *
-     * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment"];</code>
      * @return The enum numeric value on the wire for payment.
      */
     @java.lang.Override public int getPaymentValue() {
@@ -441,7 +441,7 @@ private static final long serialVersionUID = 0L;
      * Payment authorization status
      * </pre>
      *
-     * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment"];</code>
      * @param value The enum numeric value on the wire for payment to set.
      * @throws IllegalArgumentException if UNRECOGNIZED is provided.
      * @return This builder for chaining.
@@ -457,7 +457,7 @@ private static final long serialVersionUID = 0L;
      * Payment authorization status
      * </pre>
      *
-     * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment"];</code>
      * @return The payment.
      */
     @java.lang.Override
@@ -470,7 +470,7 @@ private static final long serialVersionUID = 0L;
      * Payment authorization status
      * </pre>
      *
-     * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment"];</code>
      * @param value The payment to set.
      * @return This builder for chaining.
      */
@@ -486,7 +486,7 @@ private static final long serialVersionUID = 0L;
      * Payment authorization status
      * </pre>
      *
-     * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.PaymentAuthorizationStatus payment = 1 [json_name = "payment"];</code>
      * @return This builder for chaining.
      */
     public Builder clearPayment() {
@@ -502,7 +502,7 @@ private static final long serialVersionUID = 0L;
      * KYC verification status
      * </pre>
      *
-     * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc"];</code>
      * @return The enum numeric value on the wire for kyc.
      */
     @java.lang.Override public int getKycValue() {
@@ -513,7 +513,7 @@ private static final long serialVersionUID = 0L;
      * KYC verification status
      * </pre>
      *
-     * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc"];</code>
      * @param value The enum numeric value on the wire for kyc to set.
      * @throws IllegalArgumentException if UNRECOGNIZED is provided.
      * @return This builder for chaining.
@@ -529,7 +529,7 @@ private static final long serialVersionUID = 0L;
      * KYC verification status
      * </pre>
      *
-     * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc"];</code>
      * @return The kyc.
      */
     @java.lang.Override
@@ -542,7 +542,7 @@ private static final long serialVersionUID = 0L;
      * KYC verification status
      * </pre>
      *
-     * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc"];</code>
      * @param value The kyc to set.
      * @return This builder for chaining.
      */
@@ -558,7 +558,7 @@ private static final long serialVersionUID = 0L;
      * KYC verification status
      * </pre>
      *
-     * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.KycStatus kyc = 2 [json_name = "kyc"];</code>
      * @return This builder for chaining.
      */
     public Builder clearKyc() {

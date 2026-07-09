@@ -11,12 +11,12 @@ public interface RecordOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string state = 1 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>string state = 1 [json_name = "state"];</code>
    * @return The state.
    */
   java.lang.String getState();
   /**
-   * <code>string state = 1 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>string state = 1 [json_name = "state"];</code>
    * @return The bytes for state.
    */
   com.google.protobuf.ByteString

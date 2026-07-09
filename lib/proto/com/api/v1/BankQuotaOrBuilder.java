@@ -16,7 +16,7 @@ public interface BankQuotaOrBuilder extends
    * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
    * </pre>
    *
-   * <code>int32 offline_purchase_limit_per_charge_with_kyc = 1 [json_name = "offlinePurchaseLimitPerChargeWithKyc", (.buf.validate.field) = { ... }</code>
+   * <code>int32 offline_purchase_limit_per_charge_with_kyc = 1 [json_name = "offlinePurchaseLimitPerChargeWithKyc"];</code>
    * @return The offlinePurchaseLimitPerChargeWithKyc.
    */
   int getOfflinePurchaseLimitPerChargeWithKyc();
@@ -27,7 +27,7 @@ public interface BankQuotaOrBuilder extends
    * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
    * </pre>
    *
-   * <code>int32 offline_purchase_limit_per_charge_without_kyc = 2 [json_name = "offlinePurchaseLimitPerChargeWithoutKyc", (.buf.validate.field) = { ... }</code>
+   * <code>int32 offline_purchase_limit_per_charge_without_kyc = 2 [json_name = "offlinePurchaseLimitPerChargeWithoutKyc"];</code>
    * @return The offlinePurchaseLimitPerChargeWithoutKyc.
    */
   int getOfflinePurchaseLimitPerChargeWithoutKyc();
@@ -38,7 +38,7 @@ public interface BankQuotaOrBuilder extends
    * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
    * </pre>
    *
-   * <code>int32 offline_purchase_limit_per_day_with_kyc = 10 [json_name = "offlinePurchaseLimitPerDayWithKyc", (.buf.validate.field) = { ... }</code>
+   * <code>int32 offline_purchase_limit_per_day_with_kyc = 10 [json_name = "offlinePurchaseLimitPerDayWithKyc"];</code>
    * @return The offlinePurchaseLimitPerDayWithKyc.
    */
   int getOfflinePurchaseLimitPerDayWithKyc();
@@ -49,7 +49,7 @@ public interface BankQuotaOrBuilder extends
    * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
    * </pre>
    *
-   * <code>int32 offline_purchase_limit_per_day_without_kyc = 11 [json_name = "offlinePurchaseLimitPerDayWithoutKyc", (.buf.validate.field) = { ... }</code>
+   * <code>int32 offline_purchase_limit_per_day_without_kyc = 11 [json_name = "offlinePurchaseLimitPerDayWithoutKyc"];</code>
    * @return The offlinePurchaseLimitPerDayWithoutKyc.
    */
   int getOfflinePurchaseLimitPerDayWithoutKyc();
@@ -60,7 +60,7 @@ public interface BankQuotaOrBuilder extends
    * Corresponds to Bankpay PaymentType=03 (継続課金)
    * </pre>
    *
-   * <code>int32 subscription_purchase_limit_per_charge_with_kyc = 20 [json_name = "subscriptionPurchaseLimitPerChargeWithKyc", (.buf.validate.field) = { ... }</code>
+   * <code>int32 subscription_purchase_limit_per_charge_with_kyc = 20 [json_name = "subscriptionPurchaseLimitPerChargeWithKyc"];</code>
    * @return The subscriptionPurchaseLimitPerChargeWithKyc.
    */
   int getSubscriptionPurchaseLimitPerChargeWithKyc();
@@ -71,7 +71,7 @@ public interface BankQuotaOrBuilder extends
    * Corresponds to Bankpay PaymentType=03 (継続課金)
    * </pre>
    *
-   * <code>int32 subscription_purchase_limit_per_charge_without_kyc = 21 [json_name = "subscriptionPurchaseLimitPerChargeWithoutKyc", (.buf.validate.field) = { ... }</code>
+   * <code>int32 subscription_purchase_limit_per_charge_without_kyc = 21 [json_name = "subscriptionPurchaseLimitPerChargeWithoutKyc"];</code>
    * @return The subscriptionPurchaseLimitPerChargeWithoutKyc.
    */
   int getSubscriptionPurchaseLimitPerChargeWithoutKyc();
@@ -82,7 +82,7 @@ public interface BankQuotaOrBuilder extends
    * Corresponds to Bankpay PaymentType=03 (継続課金)
    * </pre>
    *
-   * <code>int32 subscription_purchase_limit_per_day_with_kyc = 30 [json_name = "subscriptionPurchaseLimitPerDayWithKyc", (.buf.validate.field) = { ... }</code>
+   * <code>int32 subscription_purchase_limit_per_day_with_kyc = 30 [json_name = "subscriptionPurchaseLimitPerDayWithKyc"];</code>
    * @return The subscriptionPurchaseLimitPerDayWithKyc.
    */
   int getSubscriptionPurchaseLimitPerDayWithKyc();
@@ -93,7 +93,7 @@ public interface BankQuotaOrBuilder extends
    * Corresponds to Bankpay PaymentType=03 (継続課金)
    * </pre>
    *
-   * <code>int32 subscription_purchase_limit_per_day_without_kyc = 31 [json_name = "subscriptionPurchaseLimitPerDayWithoutKyc", (.buf.validate.field) = { ... }</code>
+   * <code>int32 subscription_purchase_limit_per_day_without_kyc = 31 [json_name = "subscriptionPurchaseLimitPerDayWithoutKyc"];</code>
    * @return The subscriptionPurchaseLimitPerDayWithoutKyc.
    */
   int getSubscriptionPurchaseLimitPerDayWithoutKyc();

@@ -11,24 +11,24 @@ public interface SearchBranchesRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bankCode.
    */
   java.lang.String getBankCode();
   /**
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bytes for bankCode.
    */
   com.google.protobuf.ByteString
       getBankCodeBytes();
 
   /**
-   * <code>string query = 2 [json_name = "query", (.buf.validate.field) = { ... }</code>
+   * <code>string query = 2 [json_name = "query"];</code>
    * @return The query.
    */
   java.lang.String getQuery();
   /**
-   * <code>string query = 2 [json_name = "query", (.buf.validate.field) = { ... }</code>
+   * <code>string query = 2 [json_name = "query"];</code>
    * @return The bytes for query.
    */
   com.google.protobuf.ByteString

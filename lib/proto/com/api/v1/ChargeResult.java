@@ -78,7 +78,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object chargeId_ = "";
   /**
-   * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+   * <code>string charge_id = 1 [json_name = "chargeId"];</code>
    * @return The chargeId.
    */
   @java.lang.Override
@@ -95,7 +95,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+   * <code>string charge_id = 1 [json_name = "chargeId"];</code>
    * @return The bytes for chargeId.
    */
   @java.lang.Override
@@ -138,7 +138,7 @@ private static final long serialVersionUID = 0L;
    * reason, because Jamm may update the reason at any time.
    * </pre>
    *
-   * <code>string reason = 3 [json_name = "reason", (.buf.validate.field) = { ... }</code>
+   * <code>string reason = 3 [json_name = "reason"];</code>
    * @return The reason.
    */
   @java.lang.Override
@@ -161,7 +161,7 @@ private static final long serialVersionUID = 0L;
    * reason, because Jamm may update the reason at any time.
    * </pre>
    *
-   * <code>string reason = 3 [json_name = "reason", (.buf.validate.field) = { ... }</code>
+   * <code>string reason = 3 [json_name = "reason"];</code>
    * @return The bytes for reason.
    */
   @java.lang.Override
@@ -183,7 +183,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object description_ = "";
   /**
-   * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+   * <code>string description = 4 [json_name = "description"];</code>
    * @return The description.
    */
   @java.lang.Override
@@ -200,7 +200,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+   * <code>string description = 4 [json_name = "description"];</code>
    * @return The bytes for description.
    */
   @java.lang.Override
@@ -222,7 +222,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object merchantName_ = "";
   /**
-   * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+   * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
    * @return The merchantName.
    */
   @java.lang.Override
@@ -239,7 +239,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+   * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
    * @return The bytes for merchantName.
    */
   @java.lang.Override
@@ -260,7 +260,7 @@ private static final long serialVersionUID = 0L;
   public static final int INITIAL_AMOUNT_FIELD_NUMBER = 6;
   private int initialAmount_ = 0;
   /**
-   * <code>int32 initial_amount = 6 [json_name = "initialAmount", (.buf.validate.field) = { ... }</code>
+   * <code>int32 initial_amount = 6 [json_name = "initialAmount"];</code>
    * @return The initialAmount.
    */
   @java.lang.Override
@@ -271,7 +271,7 @@ private static final long serialVersionUID = 0L;
   public static final int DISCOUNT_FIELD_NUMBER = 7;
   private int discount_ = 0;
   /**
-   * <code>int32 discount = 7 [json_name = "discount", (.buf.validate.field) = { ... }</code>
+   * <code>int32 discount = 7 [json_name = "discount"];</code>
    * @return The discount.
    */
   @java.lang.Override
@@ -282,7 +282,7 @@ private static final long serialVersionUID = 0L;
   public static final int FINAL_AMOUNT_FIELD_NUMBER = 8;
   private int finalAmount_ = 0;
   /**
-   * <code>int32 final_amount = 8 [json_name = "finalAmount", (.buf.validate.field) = { ... }</code>
+   * <code>int32 final_amount = 8 [json_name = "finalAmount"];</code>
    * @return The finalAmount.
    */
   @java.lang.Override
@@ -313,7 +313,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object currency_ = "";
   /**
-   * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+   * <code>string currency = 10 [json_name = "currency"];</code>
    * @return The currency.
    */
   @java.lang.Override
@@ -330,7 +330,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+   * <code>string currency = 10 [json_name = "currency"];</code>
    * @return The bytes for currency.
    */
   @java.lang.Override
@@ -352,7 +352,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object tokenId_ = "";
   /**
-   * <code>string token_id = 11 [json_name = "tokenId", (.buf.validate.field) = { ... }</code>
+   * <code>string token_id = 11 [json_name = "tokenId"];</code>
    * @return The tokenId.
    */
   @java.lang.Override
@@ -369,7 +369,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string token_id = 11 [json_name = "tokenId", (.buf.validate.field) = { ... }</code>
+   * <code>string token_id = 11 [json_name = "tokenId"];</code>
    * @return The bytes for tokenId.
    */
   @java.lang.Override
@@ -469,7 +469,7 @@ java.lang.String defaultValue) {
   public static final int CREATED_AT_FIELD_NUMBER = 13;
   private com.google.protobuf.Timestamp createdAt_;
   /**
-   * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt"];</code>
    * @return Whether the createdAt field is set.
    */
   @java.lang.Override
@@ -477,7 +477,7 @@ java.lang.String defaultValue) {
     return ((bitField0_ & 0x00000002) != 0);
   }
   /**
-   * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   @java.lang.Override
@@ -485,7 +485,7 @@ java.lang.String defaultValue) {
     return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
   }
   /**
-   * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
@@ -495,7 +495,7 @@ java.lang.String defaultValue) {
   public static final int UPDATED_AT_FIELD_NUMBER = 14;
   private com.google.protobuf.Timestamp updatedAt_;
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt"];</code>
    * @return Whether the updatedAt field is set.
    */
   @java.lang.Override
@@ -503,7 +503,7 @@ java.lang.String defaultValue) {
     return ((bitField0_ & 0x00000004) != 0);
   }
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt"];</code>
    * @return The updatedAt.
    */
   @java.lang.Override
@@ -511,7 +511,7 @@ java.lang.String defaultValue) {
     return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
   }
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
@@ -551,7 +551,7 @@ java.lang.String defaultValue) {
    * Charge status for polling and state handling.
    * </pre>
    *
-   * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus"];</code>
    * @return The enum numeric value on the wire for chargeStatus.
    */
   @java.lang.Override public int getChargeStatusValue() {
@@ -562,7 +562,7 @@ java.lang.String defaultValue) {
    * Charge status for polling and state handling.
    * </pre>
    *
-   * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus"];</code>
    * @return The chargeStatus.
    */
   @java.lang.Override public com.api.v1.ChargeStatus getChargeStatus() {
@@ -1394,7 +1394,7 @@ java.lang.String defaultValue) {
 
     private java.lang.Object chargeId_ = "";
     /**
-     * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+     * <code>string charge_id = 1 [json_name = "chargeId"];</code>
      * @return The chargeId.
      */
     public java.lang.String getChargeId() {
@@ -1410,7 +1410,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+     * <code>string charge_id = 1 [json_name = "chargeId"];</code>
      * @return The bytes for chargeId.
      */
     public com.google.protobuf.ByteString
@@ -1427,7 +1427,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+     * <code>string charge_id = 1 [json_name = "chargeId"];</code>
      * @param value The chargeId to set.
      * @return This builder for chaining.
      */
@@ -1440,7 +1440,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+     * <code>string charge_id = 1 [json_name = "chargeId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearChargeId() {
@@ -1450,7 +1450,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+     * <code>string charge_id = 1 [json_name = "chargeId"];</code>
      * @param value The bytes for chargeId to set.
      * @return This builder for chaining.
      */
@@ -1516,7 +1516,7 @@ java.lang.String defaultValue) {
      * reason, because Jamm may update the reason at any time.
      * </pre>
      *
-     * <code>string reason = 3 [json_name = "reason", (.buf.validate.field) = { ... }</code>
+     * <code>string reason = 3 [json_name = "reason"];</code>
      * @return The reason.
      */
     public java.lang.String getReason() {
@@ -1538,7 +1538,7 @@ java.lang.String defaultValue) {
      * reason, because Jamm may update the reason at any time.
      * </pre>
      *
-     * <code>string reason = 3 [json_name = "reason", (.buf.validate.field) = { ... }</code>
+     * <code>string reason = 3 [json_name = "reason"];</code>
      * @return The bytes for reason.
      */
     public com.google.protobuf.ByteString
@@ -1561,7 +1561,7 @@ java.lang.String defaultValue) {
      * reason, because Jamm may update the reason at any time.
      * </pre>
      *
-     * <code>string reason = 3 [json_name = "reason", (.buf.validate.field) = { ... }</code>
+     * <code>string reason = 3 [json_name = "reason"];</code>
      * @param value The reason to set.
      * @return This builder for chaining.
      */
@@ -1580,7 +1580,7 @@ java.lang.String defaultValue) {
      * reason, because Jamm may update the reason at any time.
      * </pre>
      *
-     * <code>string reason = 3 [json_name = "reason", (.buf.validate.field) = { ... }</code>
+     * <code>string reason = 3 [json_name = "reason"];</code>
      * @return This builder for chaining.
      */
     public Builder clearReason() {
@@ -1596,7 +1596,7 @@ java.lang.String defaultValue) {
      * reason, because Jamm may update the reason at any time.
      * </pre>
      *
-     * <code>string reason = 3 [json_name = "reason", (.buf.validate.field) = { ... }</code>
+     * <code>string reason = 3 [json_name = "reason"];</code>
      * @param value The bytes for reason to set.
      * @return This builder for chaining.
      */
@@ -1612,7 +1612,7 @@ java.lang.String defaultValue) {
 
     private java.lang.Object description_ = "";
     /**
-     * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+     * <code>string description = 4 [json_name = "description"];</code>
      * @return The description.
      */
     public java.lang.String getDescription() {
@@ -1628,7 +1628,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+     * <code>string description = 4 [json_name = "description"];</code>
      * @return The bytes for description.
      */
     public com.google.protobuf.ByteString
@@ -1645,7 +1645,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+     * <code>string description = 4 [json_name = "description"];</code>
      * @param value The description to set.
      * @return This builder for chaining.
      */
@@ -1658,7 +1658,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+     * <code>string description = 4 [json_name = "description"];</code>
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
@@ -1668,7 +1668,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+     * <code>string description = 4 [json_name = "description"];</code>
      * @param value The bytes for description to set.
      * @return This builder for chaining.
      */
@@ -1684,7 +1684,7 @@ java.lang.String defaultValue) {
 
     private java.lang.Object merchantName_ = "";
     /**
-     * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+     * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
      * @return The merchantName.
      */
     public java.lang.String getMerchantName() {
@@ -1700,7 +1700,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+     * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
      * @return The bytes for merchantName.
      */
     public com.google.protobuf.ByteString
@@ -1717,7 +1717,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+     * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
      * @param value The merchantName to set.
      * @return This builder for chaining.
      */
@@ -1730,7 +1730,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+     * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
      * @return This builder for chaining.
      */
     public Builder clearMerchantName() {
@@ -1740,7 +1740,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+     * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
      * @param value The bytes for merchantName to set.
      * @return This builder for chaining.
      */
@@ -1756,7 +1756,7 @@ java.lang.String defaultValue) {
 
     private int initialAmount_ ;
     /**
-     * <code>int32 initial_amount = 6 [json_name = "initialAmount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 initial_amount = 6 [json_name = "initialAmount"];</code>
      * @return The initialAmount.
      */
     @java.lang.Override
@@ -1764,7 +1764,7 @@ java.lang.String defaultValue) {
       return initialAmount_;
     }
     /**
-     * <code>int32 initial_amount = 6 [json_name = "initialAmount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 initial_amount = 6 [json_name = "initialAmount"];</code>
      * @param value The initialAmount to set.
      * @return This builder for chaining.
      */
@@ -1776,7 +1776,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>int32 initial_amount = 6 [json_name = "initialAmount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 initial_amount = 6 [json_name = "initialAmount"];</code>
      * @return This builder for chaining.
      */
     public Builder clearInitialAmount() {
@@ -1788,7 +1788,7 @@ java.lang.String defaultValue) {
 
     private int discount_ ;
     /**
-     * <code>int32 discount = 7 [json_name = "discount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 discount = 7 [json_name = "discount"];</code>
      * @return The discount.
      */
     @java.lang.Override
@@ -1796,7 +1796,7 @@ java.lang.String defaultValue) {
       return discount_;
     }
     /**
-     * <code>int32 discount = 7 [json_name = "discount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 discount = 7 [json_name = "discount"];</code>
      * @param value The discount to set.
      * @return This builder for chaining.
      */
@@ -1808,7 +1808,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>int32 discount = 7 [json_name = "discount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 discount = 7 [json_name = "discount"];</code>
      * @return This builder for chaining.
      */
     public Builder clearDiscount() {
@@ -1820,7 +1820,7 @@ java.lang.String defaultValue) {
 
     private int finalAmount_ ;
     /**
-     * <code>int32 final_amount = 8 [json_name = "finalAmount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 final_amount = 8 [json_name = "finalAmount"];</code>
      * @return The finalAmount.
      */
     @java.lang.Override
@@ -1828,7 +1828,7 @@ java.lang.String defaultValue) {
       return finalAmount_;
     }
     /**
-     * <code>int32 final_amount = 8 [json_name = "finalAmount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 final_amount = 8 [json_name = "finalAmount"];</code>
      * @param value The finalAmount to set.
      * @return This builder for chaining.
      */
@@ -1840,7 +1840,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>int32 final_amount = 8 [json_name = "finalAmount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 final_amount = 8 [json_name = "finalAmount"];</code>
      * @return This builder for chaining.
      */
     public Builder clearFinalAmount() {
@@ -1892,7 +1892,7 @@ java.lang.String defaultValue) {
 
     private java.lang.Object currency_ = "";
     /**
-     * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+     * <code>string currency = 10 [json_name = "currency"];</code>
      * @return The currency.
      */
     public java.lang.String getCurrency() {
@@ -1908,7 +1908,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+     * <code>string currency = 10 [json_name = "currency"];</code>
      * @return The bytes for currency.
      */
     public com.google.protobuf.ByteString
@@ -1925,7 +1925,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+     * <code>string currency = 10 [json_name = "currency"];</code>
      * @param value The currency to set.
      * @return This builder for chaining.
      */
@@ -1938,7 +1938,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+     * <code>string currency = 10 [json_name = "currency"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCurrency() {
@@ -1948,7 +1948,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+     * <code>string currency = 10 [json_name = "currency"];</code>
      * @param value The bytes for currency to set.
      * @return This builder for chaining.
      */
@@ -1964,7 +1964,7 @@ java.lang.String defaultValue) {
 
     private java.lang.Object tokenId_ = "";
     /**
-     * <code>string token_id = 11 [json_name = "tokenId", (.buf.validate.field) = { ... }</code>
+     * <code>string token_id = 11 [json_name = "tokenId"];</code>
      * @return The tokenId.
      */
     public java.lang.String getTokenId() {
@@ -1980,7 +1980,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>string token_id = 11 [json_name = "tokenId", (.buf.validate.field) = { ... }</code>
+     * <code>string token_id = 11 [json_name = "tokenId"];</code>
      * @return The bytes for tokenId.
      */
     public com.google.protobuf.ByteString
@@ -1997,7 +1997,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>string token_id = 11 [json_name = "tokenId", (.buf.validate.field) = { ... }</code>
+     * <code>string token_id = 11 [json_name = "tokenId"];</code>
      * @param value The tokenId to set.
      * @return This builder for chaining.
      */
@@ -2010,7 +2010,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>string token_id = 11 [json_name = "tokenId", (.buf.validate.field) = { ... }</code>
+     * <code>string token_id = 11 [json_name = "tokenId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTokenId() {
@@ -2020,7 +2020,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>string token_id = 11 [json_name = "tokenId", (.buf.validate.field) = { ... }</code>
+     * <code>string token_id = 11 [json_name = "tokenId"];</code>
      * @param value The bytes for tokenId to set.
      * @return This builder for chaining.
      */
@@ -2165,14 +2165,14 @@ java.lang.String defaultValue) {
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createdAtBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt"];</code>
      * @return Whether the createdAt field is set.
      */
     public boolean hasCreatedAt() {
       return ((bitField0_ & 0x00001000) != 0);
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt"];</code>
      * @return The createdAt.
      */
     public com.google.protobuf.Timestamp getCreatedAt() {
@@ -2183,7 +2183,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt"];</code>
      */
     public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -2199,7 +2199,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt"];</code>
      */
     public Builder setCreatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -2213,7 +2213,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt"];</code>
      */
     public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -2234,7 +2234,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt"];</code>
      */
     public Builder clearCreatedAt() {
       bitField0_ = (bitField0_ & ~0x00001000);
@@ -2247,7 +2247,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
       bitField0_ |= 0x00001000;
@@ -2255,7 +2255,7 @@ java.lang.String defaultValue) {
       return internalGetCreatedAtFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
       if (createdAtBuilder_ != null) {
@@ -2266,7 +2266,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -2286,14 +2286,14 @@ java.lang.String defaultValue) {
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updatedAtBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt"];</code>
      * @return Whether the updatedAt field is set.
      */
     public boolean hasUpdatedAt() {
       return ((bitField0_ & 0x00002000) != 0);
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt"];</code>
      * @return The updatedAt.
      */
     public com.google.protobuf.Timestamp getUpdatedAt() {
@@ -2304,7 +2304,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt"];</code>
      */
     public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
       if (updatedAtBuilder_ == null) {
@@ -2320,7 +2320,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt"];</code>
      */
     public Builder setUpdatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -2334,7 +2334,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt"];</code>
      */
     public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
       if (updatedAtBuilder_ == null) {
@@ -2355,7 +2355,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt"];</code>
      */
     public Builder clearUpdatedAt() {
       bitField0_ = (bitField0_ & ~0x00002000);
@@ -2368,7 +2368,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
       bitField0_ |= 0x00002000;
@@ -2376,7 +2376,7 @@ java.lang.String defaultValue) {
       return internalGetUpdatedAtFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
       if (updatedAtBuilder_ != null) {
@@ -2387,7 +2387,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -2530,7 +2530,7 @@ java.lang.String defaultValue) {
      * Charge status for polling and state handling.
      * </pre>
      *
-     * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus"];</code>
      * @return The enum numeric value on the wire for chargeStatus.
      */
     @java.lang.Override public int getChargeStatusValue() {
@@ -2541,7 +2541,7 @@ java.lang.String defaultValue) {
      * Charge status for polling and state handling.
      * </pre>
      *
-     * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus"];</code>
      * @param value The enum numeric value on the wire for chargeStatus to set.
      * @throws IllegalArgumentException if UNRECOGNIZED is provided.
      * @return This builder for chaining.
@@ -2557,7 +2557,7 @@ java.lang.String defaultValue) {
      * Charge status for polling and state handling.
      * </pre>
      *
-     * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus"];</code>
      * @return The chargeStatus.
      */
     @java.lang.Override
@@ -2570,7 +2570,7 @@ java.lang.String defaultValue) {
      * Charge status for polling and state handling.
      * </pre>
      *
-     * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus"];</code>
      * @param value The chargeStatus to set.
      * @return This builder for chaining.
      */
@@ -2586,7 +2586,7 @@ java.lang.String defaultValue) {
      * Charge status for polling and state handling.
      * </pre>
      *
-     * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus"];</code>
      * @return This builder for chaining.
      */
     public Builder clearChargeStatus() {

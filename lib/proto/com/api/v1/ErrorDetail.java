@@ -60,7 +60,7 @@ private static final long serialVersionUID = 0L;
    * e.g. google.protobuf.StringValue
    * </pre>
    *
-   * <code>string type = 1 [json_name = "type", (.buf.validate.field) = { ... }</code>
+   * <code>string type = 1 [json_name = "type"];</code>
    * @return The type.
    */
   @java.lang.Override
@@ -82,7 +82,7 @@ private static final long serialVersionUID = 0L;
    * e.g. google.protobuf.StringValue
    * </pre>
    *
-   * <code>string type = 1 [json_name = "type", (.buf.validate.field) = { ... }</code>
+   * <code>string type = 1 [json_name = "type"];</code>
    * @return The bytes for type.
    */
   @java.lang.Override
@@ -108,7 +108,7 @@ private static final long serialVersionUID = 0L;
    * Base64 encoded value of the message.
    * </pre>
    *
-   * <code>string value = 2 [json_name = "value", (.buf.validate.field) = { ... }</code>
+   * <code>string value = 2 [json_name = "value"];</code>
    * @return The value.
    */
   @java.lang.Override
@@ -129,7 +129,7 @@ private static final long serialVersionUID = 0L;
    * Base64 encoded value of the message.
    * </pre>
    *
-   * <code>string value = 2 [json_name = "value", (.buf.validate.field) = { ... }</code>
+   * <code>string value = 2 [json_name = "value"];</code>
    * @return The bytes for value.
    */
   @java.lang.Override
@@ -547,7 +547,7 @@ private static final long serialVersionUID = 0L;
      * e.g. google.protobuf.StringValue
      * </pre>
      *
-     * <code>string type = 1 [json_name = "type", (.buf.validate.field) = { ... }</code>
+     * <code>string type = 1 [json_name = "type"];</code>
      * @return The type.
      */
     public java.lang.String getType() {
@@ -568,7 +568,7 @@ private static final long serialVersionUID = 0L;
      * e.g. google.protobuf.StringValue
      * </pre>
      *
-     * <code>string type = 1 [json_name = "type", (.buf.validate.field) = { ... }</code>
+     * <code>string type = 1 [json_name = "type"];</code>
      * @return The bytes for type.
      */
     public com.google.protobuf.ByteString
@@ -590,7 +590,7 @@ private static final long serialVersionUID = 0L;
      * e.g. google.protobuf.StringValue
      * </pre>
      *
-     * <code>string type = 1 [json_name = "type", (.buf.validate.field) = { ... }</code>
+     * <code>string type = 1 [json_name = "type"];</code>
      * @param value The type to set.
      * @return This builder for chaining.
      */
@@ -608,7 +608,7 @@ private static final long serialVersionUID = 0L;
      * e.g. google.protobuf.StringValue
      * </pre>
      *
-     * <code>string type = 1 [json_name = "type", (.buf.validate.field) = { ... }</code>
+     * <code>string type = 1 [json_name = "type"];</code>
      * @return This builder for chaining.
      */
     public Builder clearType() {
@@ -623,7 +623,7 @@ private static final long serialVersionUID = 0L;
      * e.g. google.protobuf.StringValue
      * </pre>
      *
-     * <code>string type = 1 [json_name = "type", (.buf.validate.field) = { ... }</code>
+     * <code>string type = 1 [json_name = "type"];</code>
      * @param value The bytes for type to set.
      * @return This builder for chaining.
      */
@@ -643,7 +643,7 @@ private static final long serialVersionUID = 0L;
      * Base64 encoded value of the message.
      * </pre>
      *
-     * <code>string value = 2 [json_name = "value", (.buf.validate.field) = { ... }</code>
+     * <code>string value = 2 [json_name = "value"];</code>
      * @return The value.
      */
     public java.lang.String getValue() {
@@ -663,7 +663,7 @@ private static final long serialVersionUID = 0L;
      * Base64 encoded value of the message.
      * </pre>
      *
-     * <code>string value = 2 [json_name = "value", (.buf.validate.field) = { ... }</code>
+     * <code>string value = 2 [json_name = "value"];</code>
      * @return The bytes for value.
      */
     public com.google.protobuf.ByteString
@@ -684,7 +684,7 @@ private static final long serialVersionUID = 0L;
      * Base64 encoded value of the message.
      * </pre>
      *
-     * <code>string value = 2 [json_name = "value", (.buf.validate.field) = { ... }</code>
+     * <code>string value = 2 [json_name = "value"];</code>
      * @param value The value to set.
      * @return This builder for chaining.
      */
@@ -701,7 +701,7 @@ private static final long serialVersionUID = 0L;
      * Base64 encoded value of the message.
      * </pre>
      *
-     * <code>string value = 2 [json_name = "value", (.buf.validate.field) = { ... }</code>
+     * <code>string value = 2 [json_name = "value"];</code>
      * @return This builder for chaining.
      */
     public Builder clearValue() {
@@ -715,7 +715,7 @@ private static final long serialVersionUID = 0L;
      * Base64 encoded value of the message.
      * </pre>
      *
-     * <code>string value = 2 [json_name = "value", (.buf.validate.field) = { ... }</code>
+     * <code>string value = 2 [json_name = "value"];</code>
      * @param value The bytes for value to set.
      * @return This builder for chaining.
      */

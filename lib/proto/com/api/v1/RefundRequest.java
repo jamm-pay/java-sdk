@@ -70,7 +70,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+   * <code>string charge_id = 1 [json_name = "chargeId"];</code>
    * @return The chargeId.
    */
   @java.lang.Override
@@ -95,7 +95,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+   * <code>string charge_id = 1 [json_name = "chargeId"];</code>
    * @return The bytes for chargeId.
    */
   @java.lang.Override
@@ -124,7 +124,7 @@ private static final long serialVersionUID = 0L;
    * 省略した場合、全額返金となります。
    * </pre>
    *
-   * <code>optional int32 amount = 2 [json_name = "amount", (.buf.validate.field) = { ... }</code>
+   * <code>optional int32 amount = 2 [json_name = "amount"];</code>
    * @return Whether the amount field is set.
    */
   @java.lang.Override
@@ -140,7 +140,7 @@ private static final long serialVersionUID = 0L;
    * 省略した場合、全額返金となります。
    * </pre>
    *
-   * <code>optional int32 amount = 2 [json_name = "amount", (.buf.validate.field) = { ... }</code>
+   * <code>optional int32 amount = 2 [json_name = "amount"];</code>
    * @return The amount.
    */
   @java.lang.Override
@@ -556,7 +556,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+     * <code>string charge_id = 1 [json_name = "chargeId"];</code>
      * @return The chargeId.
      */
     public java.lang.String getChargeId() {
@@ -580,7 +580,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+     * <code>string charge_id = 1 [json_name = "chargeId"];</code>
      * @return The bytes for chargeId.
      */
     public com.google.protobuf.ByteString
@@ -605,7 +605,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+     * <code>string charge_id = 1 [json_name = "chargeId"];</code>
      * @param value The chargeId to set.
      * @return This builder for chaining.
      */
@@ -626,7 +626,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+     * <code>string charge_id = 1 [json_name = "chargeId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearChargeId() {
@@ -644,7 +644,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+     * <code>string charge_id = 1 [json_name = "chargeId"];</code>
      * @param value The bytes for chargeId to set.
      * @return This builder for chaining.
      */
@@ -668,7 +668,7 @@ private static final long serialVersionUID = 0L;
      * 省略した場合、全額返金となります。
      * </pre>
      *
-     * <code>optional int32 amount = 2 [json_name = "amount", (.buf.validate.field) = { ... }</code>
+     * <code>optional int32 amount = 2 [json_name = "amount"];</code>
      * @return Whether the amount field is set.
      */
     @java.lang.Override
@@ -684,7 +684,7 @@ private static final long serialVersionUID = 0L;
      * 省略した場合、全額返金となります。
      * </pre>
      *
-     * <code>optional int32 amount = 2 [json_name = "amount", (.buf.validate.field) = { ... }</code>
+     * <code>optional int32 amount = 2 [json_name = "amount"];</code>
      * @return The amount.
      */
     @java.lang.Override
@@ -700,7 +700,7 @@ private static final long serialVersionUID = 0L;
      * 省略した場合、全額返金となります。
      * </pre>
      *
-     * <code>optional int32 amount = 2 [json_name = "amount", (.buf.validate.field) = { ... }</code>
+     * <code>optional int32 amount = 2 [json_name = "amount"];</code>
      * @param value The amount to set.
      * @return This builder for chaining.
      */
@@ -720,7 +720,7 @@ private static final long serialVersionUID = 0L;
      * 省略した場合、全額返金となります。
      * </pre>
      *
-     * <code>optional int32 amount = 2 [json_name = "amount", (.buf.validate.field) = { ... }</code>
+     * <code>optional int32 amount = 2 [json_name = "amount"];</code>
      * @return This builder for chaining.
      */
     public Builder clearAmount() {

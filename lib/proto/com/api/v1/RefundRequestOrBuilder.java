@@ -19,7 +19,7 @@ public interface RefundRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+   * <code>string charge_id = 1 [json_name = "chargeId"];</code>
    * @return The chargeId.
    */
   java.lang.String getChargeId();
@@ -32,7 +32,7 @@ public interface RefundRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+   * <code>string charge_id = 1 [json_name = "chargeId"];</code>
    * @return The bytes for chargeId.
    */
   com.google.protobuf.ByteString
@@ -47,7 +47,7 @@ public interface RefundRequestOrBuilder extends
    * 省略した場合、全額返金となります。
    * </pre>
    *
-   * <code>optional int32 amount = 2 [json_name = "amount", (.buf.validate.field) = { ... }</code>
+   * <code>optional int32 amount = 2 [json_name = "amount"];</code>
    * @return Whether the amount field is set.
    */
   boolean hasAmount();
@@ -60,7 +60,7 @@ public interface RefundRequestOrBuilder extends
    * 省略した場合、全額返金となります。
    * </pre>
    *
-   * <code>optional int32 amount = 2 [json_name = "amount", (.buf.validate.field) = { ... }</code>
+   * <code>optional int32 amount = 2 [json_name = "amount"];</code>
    * @return The amount.
    */
   int getAmount();

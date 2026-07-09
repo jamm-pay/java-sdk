@@ -11,32 +11,32 @@ public interface MerchantCustomerOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
    * @return Whether the customer field is set.
    */
   boolean hasCustomer();
   /**
-   * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
    * @return The customer.
    */
   com.api.v1.Customer getCustomer();
   /**
-   * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
    */
   com.api.v1.CustomerOrBuilder getCustomerOrBuilder();
 
   /**
-   * <code>.api.v1.Merchant merchant = 2 [json_name = "merchant", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Merchant merchant = 2 [json_name = "merchant"];</code>
    * @return Whether the merchant field is set.
    */
   boolean hasMerchant();
   /**
-   * <code>.api.v1.Merchant merchant = 2 [json_name = "merchant", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Merchant merchant = 2 [json_name = "merchant"];</code>
    * @return The merchant.
    */
   com.api.v1.Merchant getMerchant();
   /**
-   * <code>.api.v1.Merchant merchant = 2 [json_name = "merchant", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Merchant merchant = 2 [json_name = "merchant"];</code>
    */
   com.api.v1.MerchantOrBuilder getMerchantOrBuilder();
 }

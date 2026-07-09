@@ -16,7 +16,7 @@ public interface WithdrawAsyncResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+   * <code>string request_id = 1 [json_name = "requestId"];</code>
    * @return The requestId.
    */
   java.lang.String getRequestId();
@@ -26,7 +26,7 @@ public interface WithdrawAsyncResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+   * <code>string request_id = 1 [json_name = "requestId"];</code>
    * @return The bytes for requestId.
    */
   com.google.protobuf.ByteString
@@ -38,7 +38,7 @@ public interface WithdrawAsyncResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.AsyncStatus status = 2 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.AsyncStatus status = 2 [json_name = "status"];</code>
    * @return The enum numeric value on the wire for status.
    */
   int getStatusValue();
@@ -48,7 +48,7 @@ public interface WithdrawAsyncResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.AsyncStatus status = 2 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.AsyncStatus status = 2 [json_name = "status"];</code>
    * @return The status.
    */
   com.api.v1.AsyncStatus getStatus();
@@ -59,7 +59,7 @@ public interface WithdrawAsyncResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string charge_id = 3 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+   * <code>string charge_id = 3 [json_name = "chargeId"];</code>
    * @return The chargeId.
    */
   java.lang.String getChargeId();
@@ -69,7 +69,7 @@ public interface WithdrawAsyncResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string charge_id = 3 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+   * <code>string charge_id = 3 [json_name = "chargeId"];</code>
    * @return The bytes for chargeId.
    */
   com.google.protobuf.ByteString

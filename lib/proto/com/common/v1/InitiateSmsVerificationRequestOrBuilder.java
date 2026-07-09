@@ -11,12 +11,12 @@ public interface InitiateSmsVerificationRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string phone_number = 1 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
+   * <code>string phone_number = 1 [json_name = "phoneNumber"];</code>
    * @return The phoneNumber.
    */
   java.lang.String getPhoneNumber();
   /**
-   * <code>string phone_number = 1 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
+   * <code>string phone_number = 1 [json_name = "phoneNumber"];</code>
    * @return The bytes for phoneNumber.
    */
   com.google.protobuf.ByteString

@@ -65,74 +65,69 @@ public final class MfaProto extends com.google.protobuf.GeneratedFile {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023common/v1/mfa.proto\022\tcommon.v1\032\033buf/va" +
-      "lidate/validate.proto\"c\n\036InitiateSmsVeri" +
-      "ficationRequest\022A\n\014phone_number\030\001 \001(\tB\036\272" +
-      "H\033r\0262\021^0[789]0[0-9]{8}$\230\001\013\310\001\001R\013phoneNumb" +
-      "er\"\365\002\n\037InitiateSmsVerificationResponse\0224" +
-      "\n\022expires_in_seconds\030\001 \001(\005B\006\272H\003\310\001\001R\020expi" +
-      "resInSeconds\0228\n\024resend_delay_seconds\030\002 \001" +
-      "(\005B\006\272H\003\310\001\001R\022resendDelaySeconds\022@\n\nerror_" +
-      "type\030\003 \001(\0162\034.common.v1.InitiateErrorType" +
-      "H\000R\terrorType\210\001\001\0222\n\rerror_message\030\004 \001(\tB" +
-      "\010\272H\005r\003\030\364\003H\001R\014errorMessage\210\001\001\0223\n\023retry_af" +
-      "ter_seconds\030\005 \001(\005H\002R\021retryAfterSeconds\210\001" +
-      "\001B\r\n\013_error_typeB\020\n\016_error_messageB\026\n\024_r" +
-      "etry_after_seconds\"\036\n\034ResendSmsVerificat" +
-      "ionRequest\"\361\002\n\035ResendSmsVerificationResp" +
-      "onse\0224\n\022expires_in_seconds\030\001 \001(\005B\006\272H\003\310\001\001" +
-      "R\020expiresInSeconds\0228\n\024resend_delay_secon" +
-      "ds\030\002 \001(\005B\006\272H\003\310\001\001R\022resendDelaySeconds\022>\n\n" +
-      "error_type\030\003 \001(\0162\032.common.v1.ResendError" +
-      "TypeH\000R\terrorType\210\001\001\0222\n\rerror_message\030\004 " +
-      "\001(\tB\010\272H\005r\003\030\364\003H\001R\014errorMessage\210\001\001\0223\n\023retr" +
-      "y_after_seconds\030\005 \001(\005H\002R\021retryAfterSecon" +
-      "ds\210\001\001B\r\n\013_error_typeB\020\n\016_error_messageB\026" +
-      "\n\024_retry_after_seconds\"@\n\023VerifySmsOtpRe" +
-      "quest\022)\n\003otp\030\001 \001(\tB\027\272H\024r\0172\n^[0-9]{6}$\230\001\006" +
-      "\310\001\001R\003otp\"\376\001\n\024VerifySmsOtpResponse\022\032\n\010ver" +
-      "ified\030\001 \001(\010R\010verified\022>\n\nerror_type\030\002 \001(" +
-      "\0162\032.common.v1.VerifyErrorTypeH\000R\terrorTy" +
-      "pe\210\001\001\0222\n\rerror_message\030\003 \001(\tB\010\272H\005r\003\030\364\003H\001" +
-      "R\014errorMessage\210\001\001\0225\n\022attempts_remaining\030" +
-      "\004 \001(\005B\006\272H\003\310\001\001R\021attemptsRemainingB\r\n\013_err" +
-      "or_typeB\020\n\016_error_message*\205\002\n\021InitiateEr" +
-      "rorType\022#\n\037INITIATE_ERROR_TYPE_UNSPECIFI" +
-      "ED\020\000\022$\n INITIATE_ERROR_TYPE_RATE_LIMITED" +
-      "\020\001\022%\n!INITIATE_ERROR_TYPE_INVALID_PHONE\020" +
-      "\002\022+\n\'INITIATE_ERROR_TYPE_SERVICE_UNAVAIL" +
-      "ABLE\020\003\022\'\n#INITIATE_ERROR_TYPE_INVALID_SE" +
-      "SSION\020\004\022(\n$INITIATE_ERROR_TYPE_ALREADY_V" +
-      "ERIFIED\020\005*\371\001\n\017ResendErrorType\022!\n\035RESEND_" +
-      "ERROR_TYPE_UNSPECIFIED\020\000\022\036\n\032RESEND_ERROR" +
-      "_TYPE_TOO_SOON\020\001\022%\n!RESEND_ERROR_TYPE_IN" +
-      "VALID_SESSION\020\002\022\"\n\036RESEND_ERROR_TYPE_MAX" +
-      "_ATTEMPTS\020\003\022-\n)RESEND_ERROR_TYPE_NO_PEND" +
-      "ING_VERIFICATION\020\004\022)\n%RESEND_ERROR_TYPE_" +
-      "SERVICE_UNAVAILABLE\020\005*\360\001\n\017VerifyErrorTyp" +
-      "e\022!\n\035VERIFY_ERROR_TYPE_UNSPECIFIED\020\000\022!\n\035" +
-      "VERIFY_ERROR_TYPE_INVALID_OTP\020\001\022\035\n\031VERIF" +
-      "Y_ERROR_TYPE_EXPIRED\020\002\022\"\n\036VERIFY_ERROR_T" +
-      "YPE_MAX_ATTEMPTS\020\003\022%\n!VERIFY_ERROR_TYPE_" +
-      "INVALID_SESSION\020\004\022-\n)VERIFY_ERROR_TYPE_N" +
-      "O_PENDING_VERIFICATION\020\0052\273\002\n\nMFAService\022" +
-      "p\n\027InitiateSmsVerification\022).common.v1.I" +
-      "nitiateSmsVerificationRequest\032*.common.v" +
-      "1.InitiateSmsVerificationResponse\022j\n\025Res" +
-      "endSmsVerification\022\'.common.v1.ResendSms" +
-      "VerificationRequest\032(.common.v1.ResendSm" +
-      "sVerificationResponse\022O\n\014VerifySmsOtp\022\036." +
-      "common.v1.VerifySmsOtpRequest\032\037.common.v" +
-      "1.VerifySmsOtpResponseB\201\001\n\rcom.common.v1" +
-      "B\010MfaProtoP\001Z!api/proto/gen/common/v1;co" +
-      "mmon_v1\242\002\003CXX\252\002\tCommon.V1\312\002\tCommon\\V1\342\002\025" +
-      "Common\\V1\\GPBMetadata\352\002\nCommon::V1b\006prot" +
-      "o3"
+      "\n\023common/v1/mfa.proto\022\tcommon.v1\"E\n\036Init" +
+      "iateSmsVerificationRequest\022#\n\014phone_numb" +
+      "er\030\001 \001(\tB\000R\013phoneNumber\"\341\002\n\037InitiateSmsV" +
+      "erificationResponse\022.\n\022expires_in_second" +
+      "s\030\001 \001(\005B\000R\020expiresInSeconds\0222\n\024resend_de" +
+      "lay_seconds\030\002 \001(\005B\000R\022resendDelaySeconds\022" +
+      "@\n\nerror_type\030\003 \001(\0162\034.common.v1.Initiate" +
+      "ErrorTypeH\000R\terrorType\210\001\001\022*\n\rerror_messa" +
+      "ge\030\004 \001(\tB\000H\001R\014errorMessage\210\001\001\0223\n\023retry_a" +
+      "fter_seconds\030\005 \001(\005H\002R\021retryAfterSeconds\210" +
+      "\001\001B\r\n\013_error_typeB\020\n\016_error_messageB\026\n\024_" +
+      "retry_after_seconds\"\036\n\034ResendSmsVerifica" +
+      "tionRequest\"\335\002\n\035ResendSmsVerificationRes" +
+      "ponse\022.\n\022expires_in_seconds\030\001 \001(\005B\000R\020exp" +
+      "iresInSeconds\0222\n\024resend_delay_seconds\030\002 " +
+      "\001(\005B\000R\022resendDelaySeconds\022>\n\nerror_type\030" +
+      "\003 \001(\0162\032.common.v1.ResendErrorTypeH\000R\terr" +
+      "orType\210\001\001\022*\n\rerror_message\030\004 \001(\tB\000H\001R\014er" +
+      "rorMessage\210\001\001\0223\n\023retry_after_seconds\030\005 \001" +
+      "(\005H\002R\021retryAfterSeconds\210\001\001B\r\n\013_error_typ" +
+      "eB\020\n\016_error_messageB\026\n\024_retry_after_seco" +
+      "nds\")\n\023VerifySmsOtpRequest\022\022\n\003otp\030\001 \001(\tB" +
+      "\000R\003otp\"\360\001\n\024VerifySmsOtpResponse\022\032\n\010verif" +
+      "ied\030\001 \001(\010R\010verified\022>\n\nerror_type\030\002 \001(\0162" +
+      "\032.common.v1.VerifyErrorTypeH\000R\terrorType" +
+      "\210\001\001\022*\n\rerror_message\030\003 \001(\tB\000H\001R\014errorMes" +
+      "sage\210\001\001\022/\n\022attempts_remaining\030\004 \001(\005B\000R\021a" +
+      "ttemptsRemainingB\r\n\013_error_typeB\020\n\016_erro" +
+      "r_message*\205\002\n\021InitiateErrorType\022#\n\037INITI" +
+      "ATE_ERROR_TYPE_UNSPECIFIED\020\000\022$\n INITIATE" +
+      "_ERROR_TYPE_RATE_LIMITED\020\001\022%\n!INITIATE_E" +
+      "RROR_TYPE_INVALID_PHONE\020\002\022+\n\'INITIATE_ER" +
+      "ROR_TYPE_SERVICE_UNAVAILABLE\020\003\022\'\n#INITIA" +
+      "TE_ERROR_TYPE_INVALID_SESSION\020\004\022(\n$INITI" +
+      "ATE_ERROR_TYPE_ALREADY_VERIFIED\020\005*\371\001\n\017Re" +
+      "sendErrorType\022!\n\035RESEND_ERROR_TYPE_UNSPE" +
+      "CIFIED\020\000\022\036\n\032RESEND_ERROR_TYPE_TOO_SOON\020\001" +
+      "\022%\n!RESEND_ERROR_TYPE_INVALID_SESSION\020\002\022" +
+      "\"\n\036RESEND_ERROR_TYPE_MAX_ATTEMPTS\020\003\022-\n)R" +
+      "ESEND_ERROR_TYPE_NO_PENDING_VERIFICATION" +
+      "\020\004\022)\n%RESEND_ERROR_TYPE_SERVICE_UNAVAILA" +
+      "BLE\020\005*\360\001\n\017VerifyErrorType\022!\n\035VERIFY_ERRO" +
+      "R_TYPE_UNSPECIFIED\020\000\022!\n\035VERIFY_ERROR_TYP" +
+      "E_INVALID_OTP\020\001\022\035\n\031VERIFY_ERROR_TYPE_EXP" +
+      "IRED\020\002\022\"\n\036VERIFY_ERROR_TYPE_MAX_ATTEMPTS" +
+      "\020\003\022%\n!VERIFY_ERROR_TYPE_INVALID_SESSION\020" +
+      "\004\022-\n)VERIFY_ERROR_TYPE_NO_PENDING_VERIFI" +
+      "CATION\020\0052\273\002\n\nMFAService\022p\n\027InitiateSmsVe" +
+      "rification\022).common.v1.InitiateSmsVerifi" +
+      "cationRequest\032*.common.v1.InitiateSmsVer" +
+      "ificationResponse\022j\n\025ResendSmsVerificati" +
+      "on\022\'.common.v1.ResendSmsVerificationRequ" +
+      "est\032(.common.v1.ResendSmsVerificationRes" +
+      "ponse\022O\n\014VerifySmsOtp\022\036.common.v1.Verify" +
+      "SmsOtpRequest\032\037.common.v1.VerifySmsOtpRe" +
+      "sponseB\201\001\n\rcom.common.v1B\010MfaProtoP\001Z!ap" +
+      "i/proto/gen/common/v1;common_v1\242\002\003CXX\252\002\t" +
+      "Common.V1\312\002\tCommon\\V1\342\002\025Common\\V1\\GPBMet" +
+      "adata\352\002\nCommon::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.buf.validate.ValidateProto.getDescriptor(),
         });
     internal_static_common_v1_InitiateSmsVerificationRequest_descriptor =
       getDescriptor().getMessageType(0);
@@ -171,12 +166,6 @@ public final class MfaProto extends com.google.protobuf.GeneratedFile {
         internal_static_common_v1_VerifySmsOtpResponse_descriptor,
         new java.lang.String[] { "Verified", "ErrorType", "ErrorMessage", "AttemptsRemaining", });
     descriptor.resolveAllFeaturesImmutable();
-    com.buf.validate.ValidateProto.getDescriptor();
-    com.google.protobuf.ExtensionRegistry registry =
-        com.google.protobuf.ExtensionRegistry.newInstance();
-    registry.add(com.buf.validate.ValidateProto.field);
-    com.google.protobuf.Descriptors.FileDescriptor
-        .internalUpdateFileDescriptor(descriptor, registry);
   }
 
   // @@protoc_insertion_point(outer_class_scope)

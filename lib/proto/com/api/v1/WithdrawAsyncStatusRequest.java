@@ -64,7 +64,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+   * <code>string request_id = 1 [json_name = "requestId"];</code>
    * @return The requestId.
    */
   @java.lang.Override
@@ -86,7 +86,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+   * <code>string request_id = 1 [json_name = "requestId"];</code>
    * @return The bytes for requestId.
    */
   @java.lang.Override
@@ -411,7 +411,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+     * <code>string request_id = 1 [json_name = "requestId"];</code>
      * @return The requestId.
      */
     public java.lang.String getRequestId() {
@@ -432,7 +432,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+     * <code>string request_id = 1 [json_name = "requestId"];</code>
      * @return The bytes for requestId.
      */
     public com.google.protobuf.ByteString
@@ -454,7 +454,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+     * <code>string request_id = 1 [json_name = "requestId"];</code>
      * @param value The requestId to set.
      * @return This builder for chaining.
      */
@@ -472,7 +472,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+     * <code>string request_id = 1 [json_name = "requestId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearRequestId() {
@@ -487,7 +487,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+     * <code>string request_id = 1 [json_name = "requestId"];</code>
      * @param value The bytes for requestId to set.
      * @return This builder for chaining.
      */

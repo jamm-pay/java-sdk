@@ -11,32 +11,32 @@ public interface DateRangeOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate"];</code>
    * @return Whether the startDate field is set.
    */
   boolean hasStartDate();
   /**
-   * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate"];</code>
    * @return The startDate.
    */
   com.google.protobuf.Timestamp getStartDate();
   /**
-   * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getStartDateOrBuilder();
 
   /**
-   * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate"];</code>
    * @return Whether the endDate field is set.
    */
   boolean hasEndDate();
   /**
-   * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate"];</code>
    * @return The endDate.
    */
   com.google.protobuf.Timestamp getEndDate();
   /**
-   * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getEndDateOrBuilder();
 }

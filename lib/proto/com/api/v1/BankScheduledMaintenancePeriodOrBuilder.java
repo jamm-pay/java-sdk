@@ -15,7 +15,7 @@ public interface BankScheduledMaintenancePeriodOrBuilder extends
    * Bank code, e.g. "0001"
    * </pre>
    *
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bankCode.
    */
   java.lang.String getBankCode();
@@ -24,7 +24,7 @@ public interface BankScheduledMaintenancePeriodOrBuilder extends
    * Bank code, e.g. "0001"
    * </pre>
    *
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bytes for bankCode.
    */
   com.google.protobuf.ByteString
@@ -35,7 +35,7 @@ public interface BankScheduledMaintenancePeriodOrBuilder extends
    * Scheduled maintenance start time in JST, e.g. "2021-01-01T00:00:00"
    * </pre>
    *
-   * <code>string start_at_jst = 2 [json_name = "startAtJst", (.buf.validate.field) = { ... }</code>
+   * <code>string start_at_jst = 2 [json_name = "startAtJst"];</code>
    * @return The startAtJst.
    */
   java.lang.String getStartAtJst();
@@ -44,7 +44,7 @@ public interface BankScheduledMaintenancePeriodOrBuilder extends
    * Scheduled maintenance start time in JST, e.g. "2021-01-01T00:00:00"
    * </pre>
    *
-   * <code>string start_at_jst = 2 [json_name = "startAtJst", (.buf.validate.field) = { ... }</code>
+   * <code>string start_at_jst = 2 [json_name = "startAtJst"];</code>
    * @return The bytes for startAtJst.
    */
   com.google.protobuf.ByteString
@@ -55,7 +55,7 @@ public interface BankScheduledMaintenancePeriodOrBuilder extends
    * Scheduled maintenance end time in JST, e.g. "2021-01-01T00:00:00"
    * </pre>
    *
-   * <code>string end_at_jst = 3 [json_name = "endAtJst", (.buf.validate.field) = { ... }</code>
+   * <code>string end_at_jst = 3 [json_name = "endAtJst"];</code>
    * @return The endAtJst.
    */
   java.lang.String getEndAtJst();
@@ -64,7 +64,7 @@ public interface BankScheduledMaintenancePeriodOrBuilder extends
    * Scheduled maintenance end time in JST, e.g. "2021-01-01T00:00:00"
    * </pre>
    *
-   * <code>string end_at_jst = 3 [json_name = "endAtJst", (.buf.validate.field) = { ... }</code>
+   * <code>string end_at_jst = 3 [json_name = "endAtJst"];</code>
    * @return The bytes for endAtJst.
    */
   com.google.protobuf.ByteString
@@ -75,7 +75,7 @@ public interface BankScheduledMaintenancePeriodOrBuilder extends
    * Scheduled maintenance start time in UTC, e.g. "2021-01-01T00:00:00Z"
    * </pre>
    *
-   * <code>string start_at_utc = 4 [json_name = "startAtUtc", (.buf.validate.field) = { ... }</code>
+   * <code>string start_at_utc = 4 [json_name = "startAtUtc"];</code>
    * @return The startAtUtc.
    */
   java.lang.String getStartAtUtc();
@@ -84,7 +84,7 @@ public interface BankScheduledMaintenancePeriodOrBuilder extends
    * Scheduled maintenance start time in UTC, e.g. "2021-01-01T00:00:00Z"
    * </pre>
    *
-   * <code>string start_at_utc = 4 [json_name = "startAtUtc", (.buf.validate.field) = { ... }</code>
+   * <code>string start_at_utc = 4 [json_name = "startAtUtc"];</code>
    * @return The bytes for startAtUtc.
    */
   com.google.protobuf.ByteString
@@ -95,7 +95,7 @@ public interface BankScheduledMaintenancePeriodOrBuilder extends
    * Scheduled maintenance end time in UTC, e.g. "2021-01-01T00:00:00Z"
    * </pre>
    *
-   * <code>string end_at_utc = 5 [json_name = "endAtUtc", (.buf.validate.field) = { ... }</code>
+   * <code>string end_at_utc = 5 [json_name = "endAtUtc"];</code>
    * @return The endAtUtc.
    */
   java.lang.String getEndAtUtc();
@@ -104,7 +104,7 @@ public interface BankScheduledMaintenancePeriodOrBuilder extends
    * Scheduled maintenance end time in UTC, e.g. "2021-01-01T00:00:00Z"
    * </pre>
    *
-   * <code>string end_at_utc = 5 [json_name = "endAtUtc", (.buf.validate.field) = { ... }</code>
+   * <code>string end_at_utc = 5 [json_name = "endAtUtc"];</code>
    * @return The bytes for endAtUtc.
    */
   com.google.protobuf.ByteString

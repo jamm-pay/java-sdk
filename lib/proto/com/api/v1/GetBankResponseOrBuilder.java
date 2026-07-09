@@ -11,17 +11,17 @@ public interface GetBankResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.api.v1.Bank bank = 1 [json_name = "bank", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Bank bank = 1 [json_name = "bank"];</code>
    * @return Whether the bank field is set.
    */
   boolean hasBank();
   /**
-   * <code>.api.v1.Bank bank = 1 [json_name = "bank", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Bank bank = 1 [json_name = "bank"];</code>
    * @return The bank.
    */
   com.api.v1.Bank getBank();
   /**
-   * <code>.api.v1.Bank bank = 1 [json_name = "bank", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Bank bank = 1 [json_name = "bank"];</code>
    */
   com.api.v1.BankOrBuilder getBankOrBuilder();
 }

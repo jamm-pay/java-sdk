@@ -18,7 +18,7 @@ public interface OffSessionPaymentAsyncRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The customer.
    */
   java.lang.String getCustomer();
@@ -30,7 +30,7 @@ public interface OffSessionPaymentAsyncRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The bytes for customer.
    */
   com.google.protobuf.ByteString
@@ -42,7 +42,7 @@ public interface OffSessionPaymentAsyncRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
    * @return Whether the charge field is set.
    */
   boolean hasCharge();
@@ -52,7 +52,7 @@ public interface OffSessionPaymentAsyncRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
    * @return The charge.
    */
   com.api.v1.InitialCharge getCharge();
@@ -62,7 +62,7 @@ public interface OffSessionPaymentAsyncRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
    */
   com.api.v1.InitialChargeOrBuilder getChargeOrBuilder();
 
@@ -75,7 +75,7 @@ public interface OffSessionPaymentAsyncRequestOrBuilder extends
    * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
    * </pre>
    *
-   * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey", (.buf.validate.field) = { ... }</code>
+   * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey"];</code>
    * @return Whether the idempotencyKey field is set.
    */
   boolean hasIdempotencyKey();
@@ -88,7 +88,7 @@ public interface OffSessionPaymentAsyncRequestOrBuilder extends
    * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
    * </pre>
    *
-   * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey", (.buf.validate.field) = { ... }</code>
+   * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey"];</code>
    * @return The idempotencyKey.
    */
   java.lang.String getIdempotencyKey();
@@ -101,7 +101,7 @@ public interface OffSessionPaymentAsyncRequestOrBuilder extends
    * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
    * </pre>
    *
-   * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey", (.buf.validate.field) = { ... }</code>
+   * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey"];</code>
    * @return The bytes for idempotencyKey.
    */
   com.google.protobuf.ByteString

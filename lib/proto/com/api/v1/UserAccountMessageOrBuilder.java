@@ -11,48 +11,48 @@ public interface UserAccountMessageOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The customer.
    */
   java.lang.String getCustomer();
   /**
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The bytes for customer.
    */
   com.google.protobuf.ByteString
       getCustomerBytes();
 
   /**
-   * <code>string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+   * <code>string email = 2 [json_name = "email"];</code>
    * @return The email.
    */
   java.lang.String getEmail();
   /**
-   * <code>string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+   * <code>string email = 2 [json_name = "email"];</code>
    * @return The bytes for email.
    */
   com.google.protobuf.ByteString
       getEmailBytes();
 
   /**
-   * <code>string deleted_at = 3 [json_name = "deletedAt", (.buf.validate.field) = { ... }</code>
+   * <code>string deleted_at = 3 [json_name = "deletedAt"];</code>
    * @return The deletedAt.
    */
   java.lang.String getDeletedAt();
   /**
-   * <code>string deleted_at = 3 [json_name = "deletedAt", (.buf.validate.field) = { ... }</code>
+   * <code>string deleted_at = 3 [json_name = "deletedAt"];</code>
    * @return The bytes for deletedAt.
    */
   com.google.protobuf.ByteString
       getDeletedAtBytes();
 
   /**
-   * <code>string merchant_name = 4 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+   * <code>string merchant_name = 4 [json_name = "merchantName"];</code>
    * @return The merchantName.
    */
   java.lang.String getMerchantName();
   /**
-   * <code>string merchant_name = 4 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+   * <code>string merchant_name = 4 [json_name = "merchantName"];</code>
    * @return The bytes for merchantName.
    */
   com.google.protobuf.ByteString

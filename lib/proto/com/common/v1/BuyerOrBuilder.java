@@ -16,7 +16,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>string email = 1 [json_name = "email", (.buf.validate.field) = { ... }</code>
+   * <code>string email = 1 [json_name = "email"];</code>
    * @return The email.
    */
   java.lang.String getEmail();
@@ -26,7 +26,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>string email = 1 [json_name = "email", (.buf.validate.field) = { ... }</code>
+   * <code>string email = 1 [json_name = "email"];</code>
    * @return The bytes for email.
    */
   com.google.protobuf.ByteString
@@ -48,7 +48,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>optional string name = 4 [json_name = "name"];</code>
    * @return Whether the name field is set.
    */
   boolean hasName();
@@ -58,7 +58,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>optional string name = 4 [json_name = "name"];</code>
    * @return The name.
    */
   java.lang.String getName();
@@ -68,7 +68,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>optional string name = 4 [json_name = "name"];</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
@@ -80,7 +80,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
    * @return Whether the katakanaLastName field is set.
    */
   boolean hasKatakanaLastName();
@@ -90,7 +90,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
    * @return The katakanaLastName.
    */
   java.lang.String getKatakanaLastName();
@@ -100,7 +100,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
    * @return The bytes for katakanaLastName.
    */
   com.google.protobuf.ByteString
@@ -112,7 +112,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
    * @return Whether the katakanaFirstName field is set.
    */
   boolean hasKatakanaFirstName();
@@ -122,7 +122,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
    * @return The katakanaFirstName.
    */
   java.lang.String getKatakanaFirstName();
@@ -132,7 +132,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
    * @return The bytes for katakanaFirstName.
    */
   com.google.protobuf.ByteString
@@ -144,7 +144,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+   * <code>optional string address = 13 [json_name = "address"];</code>
    * @return Whether the address field is set.
    */
   boolean hasAddress();
@@ -154,7 +154,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+   * <code>optional string address = 13 [json_name = "address"];</code>
    * @return The address.
    */
   java.lang.String getAddress();
@@ -164,7 +164,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+   * <code>optional string address = 13 [json_name = "address"];</code>
    * @return The bytes for address.
    */
   com.google.protobuf.ByteString
@@ -176,7 +176,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+   * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
    * @return Whether the birthDate field is set.
    */
   boolean hasBirthDate();
@@ -186,7 +186,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+   * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
    * @return The birthDate.
    */
   java.lang.String getBirthDate();
@@ -196,7 +196,7 @@ public interface BuyerOrBuilder extends
    * Merchant can update this value later through the UpdateCustomer endpoint.
    * </pre>
    *
-   * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+   * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
    * @return The bytes for birthDate.
    */
   com.google.protobuf.ByteString
@@ -207,7 +207,7 @@ public interface BuyerOrBuilder extends
    * Gender of the customer.
    * </pre>
    *
-   * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+   * <code>optional string gender = 21 [json_name = "gender"];</code>
    * @return Whether the gender field is set.
    */
   boolean hasGender();
@@ -216,7 +216,7 @@ public interface BuyerOrBuilder extends
    * Gender of the customer.
    * </pre>
    *
-   * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+   * <code>optional string gender = 21 [json_name = "gender"];</code>
    * @return The gender.
    */
   java.lang.String getGender();
@@ -225,7 +225,7 @@ public interface BuyerOrBuilder extends
    * Gender of the customer.
    * </pre>
    *
-   * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+   * <code>optional string gender = 21 [json_name = "gender"];</code>
    * @return The bytes for gender.
    */
   com.google.protobuf.ByteString

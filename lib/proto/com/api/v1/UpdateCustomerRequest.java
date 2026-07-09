@@ -88,7 +88,7 @@ private static final long serialVersionUID = 0L;
    * Immutable
    * </pre>
    *
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The customer.
    */
   @java.lang.Override
@@ -109,7 +109,7 @@ private static final long serialVersionUID = 0L;
    * Immutable
    * </pre>
    *
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The bytes for customer.
    */
   @java.lang.Override
@@ -131,7 +131,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object email_ = "";
   /**
-   * <code>optional string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+   * <code>optional string email = 2 [json_name = "email"];</code>
    * @return Whether the email field is set.
    */
   @java.lang.Override
@@ -139,7 +139,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>optional string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+   * <code>optional string email = 2 [json_name = "email"];</code>
    * @return The email.
    */
   @java.lang.Override
@@ -156,7 +156,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>optional string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+   * <code>optional string email = 2 [json_name = "email"];</code>
    * @return The bytes for email.
    */
   @java.lang.Override
@@ -197,7 +197,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object name_ = "";
   /**
-   * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>optional string name = 4 [json_name = "name"];</code>
    * @return Whether the name field is set.
    */
   @java.lang.Override
@@ -205,7 +205,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000004) != 0);
   }
   /**
-   * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>optional string name = 4 [json_name = "name"];</code>
    * @return The name.
    */
   @java.lang.Override
@@ -222,7 +222,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>optional string name = 4 [json_name = "name"];</code>
    * @return The bytes for name.
    */
   @java.lang.Override
@@ -244,7 +244,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object phone_ = "";
   /**
-   * <code>optional string phone = 5 [json_name = "phone", (.buf.validate.field) = { ... }</code>
+   * <code>optional string phone = 5 [json_name = "phone"];</code>
    * @return Whether the phone field is set.
    */
   @java.lang.Override
@@ -252,7 +252,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000008) != 0);
   }
   /**
-   * <code>optional string phone = 5 [json_name = "phone", (.buf.validate.field) = { ... }</code>
+   * <code>optional string phone = 5 [json_name = "phone"];</code>
    * @return The phone.
    */
   @java.lang.Override
@@ -269,7 +269,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>optional string phone = 5 [json_name = "phone", (.buf.validate.field) = { ... }</code>
+   * <code>optional string phone = 5 [json_name = "phone"];</code>
    * @return The bytes for phone.
    */
   @java.lang.Override
@@ -291,7 +291,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object katakanaLastName_ = "";
   /**
-   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
    * @return Whether the katakanaLastName field is set.
    */
   @java.lang.Override
@@ -299,7 +299,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000010) != 0);
   }
   /**
-   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
    * @return The katakanaLastName.
    */
   @java.lang.Override
@@ -316,7 +316,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
    * @return The bytes for katakanaLastName.
    */
   @java.lang.Override
@@ -338,7 +338,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object katakanaFirstName_ = "";
   /**
-   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
    * @return Whether the katakanaFirstName field is set.
    */
   @java.lang.Override
@@ -346,7 +346,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000020) != 0);
   }
   /**
-   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
    * @return The katakanaFirstName.
    */
   @java.lang.Override
@@ -363,7 +363,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
    * @return The bytes for katakanaFirstName.
    */
   @java.lang.Override
@@ -385,7 +385,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object address_ = "";
   /**
-   * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+   * <code>optional string address = 13 [json_name = "address"];</code>
    * @return Whether the address field is set.
    */
   @java.lang.Override
@@ -393,7 +393,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000040) != 0);
   }
   /**
-   * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+   * <code>optional string address = 13 [json_name = "address"];</code>
    * @return The address.
    */
   @java.lang.Override
@@ -410,7 +410,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+   * <code>optional string address = 13 [json_name = "address"];</code>
    * @return The bytes for address.
    */
   @java.lang.Override
@@ -432,7 +432,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object birthDate_ = "";
   /**
-   * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+   * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
    * @return Whether the birthDate field is set.
    */
   @java.lang.Override
@@ -440,7 +440,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000080) != 0);
   }
   /**
-   * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+   * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
    * @return The birthDate.
    */
   @java.lang.Override
@@ -457,7 +457,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+   * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
    * @return The bytes for birthDate.
    */
   @java.lang.Override
@@ -479,7 +479,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object gender_ = "";
   /**
-   * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+   * <code>optional string gender = 21 [json_name = "gender"];</code>
    * @return Whether the gender field is set.
    */
   @java.lang.Override
@@ -487,7 +487,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000100) != 0);
   }
   /**
-   * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+   * <code>optional string gender = 21 [json_name = "gender"];</code>
    * @return The gender.
    */
   @java.lang.Override
@@ -504,7 +504,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+   * <code>optional string gender = 21 [json_name = "gender"];</code>
    * @return The bytes for gender.
    */
   @java.lang.Override
@@ -1276,7 +1276,7 @@ java.lang.String defaultValue) {
      * Immutable
      * </pre>
      *
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @return The customer.
      */
     public java.lang.String getCustomer() {
@@ -1296,7 +1296,7 @@ java.lang.String defaultValue) {
      * Immutable
      * </pre>
      *
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @return The bytes for customer.
      */
     public com.google.protobuf.ByteString
@@ -1317,7 +1317,7 @@ java.lang.String defaultValue) {
      * Immutable
      * </pre>
      *
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @param value The customer to set.
      * @return This builder for chaining.
      */
@@ -1334,7 +1334,7 @@ java.lang.String defaultValue) {
      * Immutable
      * </pre>
      *
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCustomer() {
@@ -1348,7 +1348,7 @@ java.lang.String defaultValue) {
      * Immutable
      * </pre>
      *
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @param value The bytes for customer to set.
      * @return This builder for chaining.
      */
@@ -1364,14 +1364,14 @@ java.lang.String defaultValue) {
 
     private java.lang.Object email_ = "";
     /**
-     * <code>optional string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+     * <code>optional string email = 2 [json_name = "email"];</code>
      * @return Whether the email field is set.
      */
     public boolean hasEmail() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+     * <code>optional string email = 2 [json_name = "email"];</code>
      * @return The email.
      */
     public java.lang.String getEmail() {
@@ -1387,7 +1387,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>optional string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+     * <code>optional string email = 2 [json_name = "email"];</code>
      * @return The bytes for email.
      */
     public com.google.protobuf.ByteString
@@ -1404,7 +1404,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>optional string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+     * <code>optional string email = 2 [json_name = "email"];</code>
      * @param value The email to set.
      * @return This builder for chaining.
      */
@@ -1417,7 +1417,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>optional string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+     * <code>optional string email = 2 [json_name = "email"];</code>
      * @return This builder for chaining.
      */
     public Builder clearEmail() {
@@ -1427,7 +1427,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>optional string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+     * <code>optional string email = 2 [json_name = "email"];</code>
      * @param value The bytes for email to set.
      * @return This builder for chaining.
      */
@@ -1483,14 +1483,14 @@ java.lang.String defaultValue) {
 
     private java.lang.Object name_ = "";
     /**
-     * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * <code>optional string name = 4 [json_name = "name"];</code>
      * @return Whether the name field is set.
      */
     public boolean hasName() {
       return ((bitField0_ & 0x00000008) != 0);
     }
     /**
-     * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * <code>optional string name = 4 [json_name = "name"];</code>
      * @return The name.
      */
     public java.lang.String getName() {
@@ -1506,7 +1506,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * <code>optional string name = 4 [json_name = "name"];</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
@@ -1523,7 +1523,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * <code>optional string name = 4 [json_name = "name"];</code>
      * @param value The name to set.
      * @return This builder for chaining.
      */
@@ -1536,7 +1536,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * <code>optional string name = 4 [json_name = "name"];</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
@@ -1546,7 +1546,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * <code>optional string name = 4 [json_name = "name"];</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
@@ -1562,14 +1562,14 @@ java.lang.String defaultValue) {
 
     private java.lang.Object phone_ = "";
     /**
-     * <code>optional string phone = 5 [json_name = "phone", (.buf.validate.field) = { ... }</code>
+     * <code>optional string phone = 5 [json_name = "phone"];</code>
      * @return Whether the phone field is set.
      */
     public boolean hasPhone() {
       return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>optional string phone = 5 [json_name = "phone", (.buf.validate.field) = { ... }</code>
+     * <code>optional string phone = 5 [json_name = "phone"];</code>
      * @return The phone.
      */
     public java.lang.String getPhone() {
@@ -1585,7 +1585,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>optional string phone = 5 [json_name = "phone", (.buf.validate.field) = { ... }</code>
+     * <code>optional string phone = 5 [json_name = "phone"];</code>
      * @return The bytes for phone.
      */
     public com.google.protobuf.ByteString
@@ -1602,7 +1602,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>optional string phone = 5 [json_name = "phone", (.buf.validate.field) = { ... }</code>
+     * <code>optional string phone = 5 [json_name = "phone"];</code>
      * @param value The phone to set.
      * @return This builder for chaining.
      */
@@ -1615,7 +1615,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>optional string phone = 5 [json_name = "phone", (.buf.validate.field) = { ... }</code>
+     * <code>optional string phone = 5 [json_name = "phone"];</code>
      * @return This builder for chaining.
      */
     public Builder clearPhone() {
@@ -1625,7 +1625,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>optional string phone = 5 [json_name = "phone", (.buf.validate.field) = { ... }</code>
+     * <code>optional string phone = 5 [json_name = "phone"];</code>
      * @param value The bytes for phone to set.
      * @return This builder for chaining.
      */
@@ -1641,14 +1641,14 @@ java.lang.String defaultValue) {
 
     private java.lang.Object katakanaLastName_ = "";
     /**
-     * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+     * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
      * @return Whether the katakanaLastName field is set.
      */
     public boolean hasKatakanaLastName() {
       return ((bitField0_ & 0x00000020) != 0);
     }
     /**
-     * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+     * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
      * @return The katakanaLastName.
      */
     public java.lang.String getKatakanaLastName() {
@@ -1664,7 +1664,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+     * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
      * @return The bytes for katakanaLastName.
      */
     public com.google.protobuf.ByteString
@@ -1681,7 +1681,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+     * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
      * @param value The katakanaLastName to set.
      * @return This builder for chaining.
      */
@@ -1694,7 +1694,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+     * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
      * @return This builder for chaining.
      */
     public Builder clearKatakanaLastName() {
@@ -1704,7 +1704,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+     * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
      * @param value The bytes for katakanaLastName to set.
      * @return This builder for chaining.
      */
@@ -1720,14 +1720,14 @@ java.lang.String defaultValue) {
 
     private java.lang.Object katakanaFirstName_ = "";
     /**
-     * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+     * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
      * @return Whether the katakanaFirstName field is set.
      */
     public boolean hasKatakanaFirstName() {
       return ((bitField0_ & 0x00000040) != 0);
     }
     /**
-     * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+     * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
      * @return The katakanaFirstName.
      */
     public java.lang.String getKatakanaFirstName() {
@@ -1743,7 +1743,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+     * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
      * @return The bytes for katakanaFirstName.
      */
     public com.google.protobuf.ByteString
@@ -1760,7 +1760,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+     * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
      * @param value The katakanaFirstName to set.
      * @return This builder for chaining.
      */
@@ -1773,7 +1773,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+     * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
      * @return This builder for chaining.
      */
     public Builder clearKatakanaFirstName() {
@@ -1783,7 +1783,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+     * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
      * @param value The bytes for katakanaFirstName to set.
      * @return This builder for chaining.
      */
@@ -1799,14 +1799,14 @@ java.lang.String defaultValue) {
 
     private java.lang.Object address_ = "";
     /**
-     * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+     * <code>optional string address = 13 [json_name = "address"];</code>
      * @return Whether the address field is set.
      */
     public boolean hasAddress() {
       return ((bitField0_ & 0x00000080) != 0);
     }
     /**
-     * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+     * <code>optional string address = 13 [json_name = "address"];</code>
      * @return The address.
      */
     public java.lang.String getAddress() {
@@ -1822,7 +1822,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+     * <code>optional string address = 13 [json_name = "address"];</code>
      * @return The bytes for address.
      */
     public com.google.protobuf.ByteString
@@ -1839,7 +1839,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+     * <code>optional string address = 13 [json_name = "address"];</code>
      * @param value The address to set.
      * @return This builder for chaining.
      */
@@ -1852,7 +1852,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+     * <code>optional string address = 13 [json_name = "address"];</code>
      * @return This builder for chaining.
      */
     public Builder clearAddress() {
@@ -1862,7 +1862,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+     * <code>optional string address = 13 [json_name = "address"];</code>
      * @param value The bytes for address to set.
      * @return This builder for chaining.
      */
@@ -1878,14 +1878,14 @@ java.lang.String defaultValue) {
 
     private java.lang.Object birthDate_ = "";
     /**
-     * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+     * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
      * @return Whether the birthDate field is set.
      */
     public boolean hasBirthDate() {
       return ((bitField0_ & 0x00000100) != 0);
     }
     /**
-     * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+     * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
      * @return The birthDate.
      */
     public java.lang.String getBirthDate() {
@@ -1901,7 +1901,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+     * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
      * @return The bytes for birthDate.
      */
     public com.google.protobuf.ByteString
@@ -1918,7 +1918,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+     * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
      * @param value The birthDate to set.
      * @return This builder for chaining.
      */
@@ -1931,7 +1931,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+     * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
      * @return This builder for chaining.
      */
     public Builder clearBirthDate() {
@@ -1941,7 +1941,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+     * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
      * @param value The bytes for birthDate to set.
      * @return This builder for chaining.
      */
@@ -1957,14 +1957,14 @@ java.lang.String defaultValue) {
 
     private java.lang.Object gender_ = "";
     /**
-     * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+     * <code>optional string gender = 21 [json_name = "gender"];</code>
      * @return Whether the gender field is set.
      */
     public boolean hasGender() {
       return ((bitField0_ & 0x00000200) != 0);
     }
     /**
-     * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+     * <code>optional string gender = 21 [json_name = "gender"];</code>
      * @return The gender.
      */
     public java.lang.String getGender() {
@@ -1980,7 +1980,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+     * <code>optional string gender = 21 [json_name = "gender"];</code>
      * @return The bytes for gender.
      */
     public com.google.protobuf.ByteString
@@ -1997,7 +1997,7 @@ java.lang.String defaultValue) {
       }
     }
     /**
-     * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+     * <code>optional string gender = 21 [json_name = "gender"];</code>
      * @param value The gender to set.
      * @return This builder for chaining.
      */
@@ -2010,7 +2010,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+     * <code>optional string gender = 21 [json_name = "gender"];</code>
      * @return This builder for chaining.
      */
     public Builder clearGender() {
@@ -2020,7 +2020,7 @@ java.lang.String defaultValue) {
       return this;
     }
     /**
-     * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+     * <code>optional string gender = 21 [json_name = "gender"];</code>
      * @param value The bytes for gender to set.
      * @return This builder for chaining.
      */

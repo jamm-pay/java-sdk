@@ -15,7 +15,7 @@ public interface BankInformationOrBuilder extends
    * Masked account number
    * </pre>
    *
-   * <code>string account_number = 1 [json_name = "accountNumber", (.buf.validate.field) = { ... }</code>
+   * <code>string account_number = 1 [json_name = "accountNumber"];</code>
    * @return The accountNumber.
    */
   java.lang.String getAccountNumber();
@@ -24,7 +24,7 @@ public interface BankInformationOrBuilder extends
    * Masked account number
    * </pre>
    *
-   * <code>string account_number = 1 [json_name = "accountNumber", (.buf.validate.field) = { ... }</code>
+   * <code>string account_number = 1 [json_name = "accountNumber"];</code>
    * @return The bytes for accountNumber.
    */
   com.google.protobuf.ByteString
@@ -35,7 +35,7 @@ public interface BankInformationOrBuilder extends
    * Bank name
    * </pre>
    *
-   * <code>string bank_name = 2 [json_name = "bankName", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_name = 2 [json_name = "bankName"];</code>
    * @return The bankName.
    */
   java.lang.String getBankName();
@@ -44,7 +44,7 @@ public interface BankInformationOrBuilder extends
    * Bank name
    * </pre>
    *
-   * <code>string bank_name = 2 [json_name = "bankName", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_name = 2 [json_name = "bankName"];</code>
    * @return The bytes for bankName.
    */
   com.google.protobuf.ByteString
@@ -55,7 +55,7 @@ public interface BankInformationOrBuilder extends
    * Branch name
    * </pre>
    *
-   * <code>string branch_name = 3 [json_name = "branchName", (.buf.validate.field) = { ... }</code>
+   * <code>string branch_name = 3 [json_name = "branchName"];</code>
    * @return The branchName.
    */
   java.lang.String getBranchName();
@@ -64,7 +64,7 @@ public interface BankInformationOrBuilder extends
    * Branch name
    * </pre>
    *
-   * <code>string branch_name = 3 [json_name = "branchName", (.buf.validate.field) = { ... }</code>
+   * <code>string branch_name = 3 [json_name = "branchName"];</code>
    * @return The bytes for branchName.
    */
   com.google.protobuf.ByteString
@@ -76,7 +76,7 @@ public interface BankInformationOrBuilder extends
    * 口座種別（普通または当座）
    * </pre>
    *
-   * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType"];</code>
    * @return The enum numeric value on the wire for depositType.
    */
   int getDepositTypeValue();
@@ -86,7 +86,7 @@ public interface BankInformationOrBuilder extends
    * 口座種別（普通または当座）
    * </pre>
    *
-   * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType"];</code>
    * @return The depositType.
    */
   com.api.v1.DepositType getDepositType();

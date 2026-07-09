@@ -65,7 +65,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required,http_url"
    * </pre>
    *
-   * <code>string url = 1 [json_name = "url", (.buf.validate.field) = { ... }</code>
+   * <code>string url = 1 [json_name = "url"];</code>
    * @return The url.
    */
   @java.lang.Override
@@ -86,7 +86,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required,http_url"
    * </pre>
    *
-   * <code>string url = 1 [json_name = "url", (.buf.validate.field) = { ... }</code>
+   * <code>string url = 1 [json_name = "url"];</code>
    * @return The bytes for url.
    */
   @java.lang.Override
@@ -107,7 +107,7 @@ private static final long serialVersionUID = 0L;
   public static final int CREATED_AT_FIELD_NUMBER = 10;
   private com.google.protobuf.Timestamp createdAt_;
   /**
-   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
    * @return Whether the createdAt field is set.
    */
   @java.lang.Override
@@ -115,7 +115,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   @java.lang.Override
@@ -123,7 +123,7 @@ private static final long serialVersionUID = 0L;
     return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
   }
   /**
-   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
@@ -137,7 +137,7 @@ private static final long serialVersionUID = 0L;
    * Expiration time of the payment url.
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt"];</code>
    * @return Whether the expiresAt field is set.
    */
   @java.lang.Override
@@ -149,7 +149,7 @@ private static final long serialVersionUID = 0L;
    * Expiration time of the payment url.
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt"];</code>
    * @return The expiresAt.
    */
   @java.lang.Override
@@ -161,7 +161,7 @@ private static final long serialVersionUID = 0L;
    * Expiration time of the payment url.
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder() {
@@ -558,7 +558,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required,http_url"
      * </pre>
      *
-     * <code>string url = 1 [json_name = "url", (.buf.validate.field) = { ... }</code>
+     * <code>string url = 1 [json_name = "url"];</code>
      * @return The url.
      */
     public java.lang.String getUrl() {
@@ -578,7 +578,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required,http_url"
      * </pre>
      *
-     * <code>string url = 1 [json_name = "url", (.buf.validate.field) = { ... }</code>
+     * <code>string url = 1 [json_name = "url"];</code>
      * @return The bytes for url.
      */
     public com.google.protobuf.ByteString
@@ -599,7 +599,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required,http_url"
      * </pre>
      *
-     * <code>string url = 1 [json_name = "url", (.buf.validate.field) = { ... }</code>
+     * <code>string url = 1 [json_name = "url"];</code>
      * @param value The url to set.
      * @return This builder for chaining.
      */
@@ -616,7 +616,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required,http_url"
      * </pre>
      *
-     * <code>string url = 1 [json_name = "url", (.buf.validate.field) = { ... }</code>
+     * <code>string url = 1 [json_name = "url"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUrl() {
@@ -630,7 +630,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required,http_url"
      * </pre>
      *
-     * <code>string url = 1 [json_name = "url", (.buf.validate.field) = { ... }</code>
+     * <code>string url = 1 [json_name = "url"];</code>
      * @param value The bytes for url to set.
      * @return This builder for chaining.
      */
@@ -648,14 +648,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createdAtBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      * @return Whether the createdAt field is set.
      */
     public boolean hasCreatedAt() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      * @return The createdAt.
      */
     public com.google.protobuf.Timestamp getCreatedAt() {
@@ -666,7 +666,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      */
     public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -682,7 +682,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      */
     public Builder setCreatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -696,7 +696,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      */
     public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -717,7 +717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      */
     public Builder clearCreatedAt() {
       bitField0_ = (bitField0_ & ~0x00000002);
@@ -730,7 +730,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
       bitField0_ |= 0x00000002;
@@ -738,7 +738,7 @@ private static final long serialVersionUID = 0L;
       return internalGetCreatedAtFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
       if (createdAtBuilder_ != null) {
@@ -749,7 +749,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -773,7 +773,7 @@ private static final long serialVersionUID = 0L;
      * Expiration time of the payment url.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt"];</code>
      * @return Whether the expiresAt field is set.
      */
     public boolean hasExpiresAt() {
@@ -784,7 +784,7 @@ private static final long serialVersionUID = 0L;
      * Expiration time of the payment url.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt"];</code>
      * @return The expiresAt.
      */
     public com.google.protobuf.Timestamp getExpiresAt() {
@@ -799,7 +799,7 @@ private static final long serialVersionUID = 0L;
      * Expiration time of the payment url.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt"];</code>
      */
     public Builder setExpiresAt(com.google.protobuf.Timestamp value) {
       if (expiresAtBuilder_ == null) {
@@ -819,7 +819,7 @@ private static final long serialVersionUID = 0L;
      * Expiration time of the payment url.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt"];</code>
      */
     public Builder setExpiresAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -837,7 +837,7 @@ private static final long serialVersionUID = 0L;
      * Expiration time of the payment url.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt"];</code>
      */
     public Builder mergeExpiresAt(com.google.protobuf.Timestamp value) {
       if (expiresAtBuilder_ == null) {
@@ -862,7 +862,7 @@ private static final long serialVersionUID = 0L;
      * Expiration time of the payment url.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt"];</code>
      */
     public Builder clearExpiresAt() {
       bitField0_ = (bitField0_ & ~0x00000004);
@@ -879,7 +879,7 @@ private static final long serialVersionUID = 0L;
      * Expiration time of the payment url.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getExpiresAtBuilder() {
       bitField0_ |= 0x00000004;
@@ -891,7 +891,7 @@ private static final long serialVersionUID = 0L;
      * Expiration time of the payment url.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder() {
       if (expiresAtBuilder_ != null) {
@@ -906,7 +906,7 @@ private static final long serialVersionUID = 0L;
      * Expiration time of the payment url.
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp expires_at = 11 [json_name = "expiresAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 

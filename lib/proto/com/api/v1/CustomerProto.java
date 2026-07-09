@@ -91,86 +91,57 @@ public final class CustomerProto extends com.google.protobuf.GeneratedFile {
   static {
     java.lang.String[] descriptorData = {
       "\n\025api/v1/customer.proto\022\006api.v1\032\023api/v1/" +
-      "common.proto\032\033buf/validate/validate.prot" +
-      "o\032\034google/api/annotations.proto\032.protoc-" +
-      "gen-openapiv2/options/annotations.proto\"" +
-      "D\n\025CreateCustomerRequest\022+\n\005buyer\030\001 \001(\0132" +
-      "\r.api.v1.BuyerB\006\272H\003\310\001\001R\005buyer\"V\n\026CreateC" +
-      "ustomerResponse\022<\n\010customer\030\001 \001(\0132\030.api." +
-      "v1.MerchantCustomerB\006\272H\003\310\001\001R\010customer\"D\n" +
-      "\022GetCustomerRequest\022.\n\010customer\030\001 \001(\tB\022\272" +
-      "H\017r\n2\010^cus-.*$\310\001\001R\010customer\"K\n\023GetCustom" +
-      "erResponse\0224\n\010customer\030\001 \001(\0132\020.api.v1.Cu" +
-      "stomerB\006\272H\003\310\001\001R\010customer\"\223\006\n\025UpdateCusto" +
-      "merRequest\022.\n\010customer\030\001 \001(\tB\022\272H\017r\n2\010^cu" +
-      "s-.*$\310\001\001R\010customer\022\"\n\005email\030\002 \001(\tB\007\272H\004r\002" +
-      "`\001H\000R\005email\210\001\001\022 \n\tforce_kyc\030\003 \001(\010H\001R\010for" +
-      "ceKyc\210\001\001\022\"\n\004name\030\004 \001(\tB\t\272H\006r\004\020\001\0302H\002R\004nam" +
-      "e\210\001\001\0224\n\005phone\030\005 \001(\tB\031\272H\026r\024\020\n\030\0132\016^0[0-9]{" +
-      "9,10}$H\003R\005phone\210\001\001\022<\n\022katakana_last_name" +
-      "\030\013 \001(\tB\t\272H\006r\004\020\001\0302H\004R\020katakanaLastName\210\001\001" +
-      "\022>\n\023katakana_first_name\030\014 \001(\tB\t\272H\006r\004\020\001\0302" +
-      "H\005R\021katakanaFirstName\210\001\001\022(\n\007address\030\r \001(" +
-      "\tB\t\272H\006r\004\020\005\030dH\006R\007address\210\001\001\022A\n\nbirth_date" +
-      "\030\024 \001(\tB\035\272H\032r\0302\026^(\\d{4}-\\d{2}-\\d{2})?$H\007R" +
-      "\tbirthDate\210\001\001\0229\n\006gender\030\025 \001(\tB\034\272H\031r\027R\006fe" +
-      "maleR\004maleR\007unknownH\010R\006gender\210\001\001\022G\n\010meta" +
-      "data\030\036 \003(\0132+.api.v1.UpdateCustomerReques" +
-      "t.MetadataEntryR\010metadata\032;\n\rMetadataEnt" +
-      "ry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005val" +
-      "ue:\0028\001B\010\n\006_emailB\014\n\n_force_kycB\007\n\005_nameB" +
-      "\010\n\006_phoneB\025\n\023_katakana_last_nameB\026\n\024_kat" +
-      "akana_first_nameB\n\n\010_addressB\r\n\013_birth_d" +
-      "ateB\t\n\007_gender\"V\n\026UpdateCustomerResponse" +
-      "\022<\n\010customer\030\001 \001(\0132\030.api.v1.MerchantCust" +
-      "omerB\006\272H\003\310\001\001R\010customer\"G\n\025DeleteCustomer" +
-      "Request\022.\n\010customer\030\001 \001(\tB\022\272H\017r\n2\010^cus-." +
-      "*$\310\001\001R\010customer\"4\n\026DeleteCustomerRespons" +
-      "e\022\032\n\010accepted\030\001 \001(\010R\010accepted\"D\n\022GetCont" +
-      "ractRequest\022.\n\010customer\030\001 \001(\tB\022\272H\017r\n2\010^c" +
-      "us-.*$\310\001\001R\010customer\"\211\001\n\023GetContractRespo" +
-      "nse\022<\n\010customer\030\001 \001(\0132\030.api.v1.MerchantC" +
-      "ustomerB\006\272H\003\310\001\001R\010customer\0224\n\010contract\030\002 " +
-      "\001(\0132\020.api.v1.ContractB\006\272H\003\310\001\001R\010contract2" +
-      "\324\010\n\017CustomerService\022\312\001\n\016CreateCustomer\022\035" +
-      ".api.v1.CreateCustomerRequest\032\036.api.v1.C" +
-      "reateCustomerResponse\"y\222A^\n\010customer\022\017Cr" +
-      "eate customer\0329Intended for pre-register" +
-      "ing merchant customer into Jamm.*\006create" +
-      "\202\323\344\223\002\022\"\r/v1/customers:\001*\022\344\001\n\013GetCustomer" +
-      "\022\032.api.v1.GetCustomerRequest\032\033.api.v1.Ge" +
-      "tCustomerResponse\"\233\001\222Ax\n\010customer\022\014Get c" +
-      "ustomer\032YRetrieve a merchant customer fr" +
-      "om Jamm. The merchant customer must be r" +
-      "egistered in Jamm.*\003get\202\323\344\223\002\032\022\030/v1/custo" +
-      "mers/{customer}\022\367\001\n\016UpdateCustomer\022\035.api" +
-      ".v1.UpdateCustomerRequest\032\036.api.v1.Updat" +
-      "eCustomerResponse\"\245\001\222A\177\n\010customer\022\017Updat" +
-      "e customer\032ZUpdate customer metadata whe" +
-      "n they updated their information in merc" +
-      "hant e-commerce store.*\006update\202\323\344\223\002\035\032\030/v" +
-      "1/customers/{customer}:\001*\022\263\001\n\016DeleteCust" +
-      "omer\022\035.api.v1.DeleteCustomerRequest\032\036.ap" +
-      "i.v1.DeleteCustomerResponse\"b\222A?\n\010custom" +
-      "er\022\017Delete customer\032\032Delete customer fro" +
-      "m Jamm.*\006delete\202\323\344\223\002\032*\030/v1/customers/{cu" +
-      "stomer}\022\334\001\n\013GetContract\022\032.api.v1.GetCont" +
-      "ractRequest\032\033.api.v1.GetContractResponse" +
-      "\"\223\001\222Ag\n\010customer\022&Get a contract belongs" +
-      " to the customer\032&Get a contract belongs" +
-      " to the customer*\013getContract\202\323\344\223\002#\022!/v1" +
-      "/customers/{customer}/contractBq\n\ncom.ap" +
-      "i.v1B\rCustomerProtoP\001Z\033api/proto/gen/api" +
-      "/v1;api_v1\242\002\003AXX\252\002\006Api.V1\312\002\006Api\\V1\342\002\022Api" +
-      "\\V1\\GPBMetadata\352\002\007Api::V1b\006proto3"
+      "common.proto\">\n\025CreateCustomerRequest\022%\n" +
+      "\005buyer\030\001 \001(\0132\r.api.v1.BuyerB\000R\005buyer\"P\n\026" +
+      "CreateCustomerResponse\0226\n\010customer\030\001 \001(\013" +
+      "2\030.api.v1.MerchantCustomerB\000R\010customer\"2" +
+      "\n\022GetCustomerRequest\022\034\n\010customer\030\001 \001(\tB\000" +
+      "R\010customer\"E\n\023GetCustomerResponse\022.\n\010cus" +
+      "tomer\030\001 \001(\0132\020.api.v1.CustomerB\000R\010custome" +
+      "r\"\204\005\n\025UpdateCustomerRequest\022\034\n\010customer\030" +
+      "\001 \001(\tB\000R\010customer\022\033\n\005email\030\002 \001(\tB\000H\000R\005em" +
+      "ail\210\001\001\022 \n\tforce_kyc\030\003 \001(\010H\001R\010forceKyc\210\001\001" +
+      "\022\031\n\004name\030\004 \001(\tB\000H\002R\004name\210\001\001\022\033\n\005phone\030\005 \001" +
+      "(\tB\000H\003R\005phone\210\001\001\0223\n\022katakana_last_name\030\013" +
+      " \001(\tB\000H\004R\020katakanaLastName\210\001\001\0225\n\023katakan" +
+      "a_first_name\030\014 \001(\tB\000H\005R\021katakanaFirstNam" +
+      "e\210\001\001\022\037\n\007address\030\r \001(\tB\000H\006R\007address\210\001\001\022$\n" +
+      "\nbirth_date\030\024 \001(\tB\000H\007R\tbirthDate\210\001\001\022\035\n\006g" +
+      "ender\030\025 \001(\tB\000H\010R\006gender\210\001\001\022G\n\010metadata\030\036" +
+      " \003(\0132+.api.v1.UpdateCustomerRequest.Meta" +
+      "dataEntryR\010metadata\032;\n\rMetadataEntry\022\020\n\003" +
+      "key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001" +
+      "B\010\n\006_emailB\014\n\n_force_kycB\007\n\005_nameB\010\n\006_ph" +
+      "oneB\025\n\023_katakana_last_nameB\026\n\024_katakana_" +
+      "first_nameB\n\n\010_addressB\r\n\013_birth_dateB\t\n" +
+      "\007_gender\"P\n\026UpdateCustomerResponse\0226\n\010cu" +
+      "stomer\030\001 \001(\0132\030.api.v1.MerchantCustomerB\000" +
+      "R\010customer\"5\n\025DeleteCustomerRequest\022\034\n\010c" +
+      "ustomer\030\001 \001(\tB\000R\010customer\"4\n\026DeleteCusto" +
+      "merResponse\022\032\n\010accepted\030\001 \001(\010R\010accepted\"" +
+      "2\n\022GetContractRequest\022\034\n\010customer\030\001 \001(\tB" +
+      "\000R\010customer\"}\n\023GetContractResponse\0226\n\010cu" +
+      "stomer\030\001 \001(\0132\030.api.v1.MerchantCustomerB\000" +
+      "R\010customer\022.\n\010contract\030\002 \001(\0132\020.api.v1.Co" +
+      "ntractB\000R\010contract2\236\003\n\017CustomerService\022Q" +
+      "\n\016CreateCustomer\022\035.api.v1.CreateCustomer" +
+      "Request\032\036.api.v1.CreateCustomerResponse\"" +
+      "\000\022H\n\013GetCustomer\022\032.api.v1.GetCustomerReq" +
+      "uest\032\033.api.v1.GetCustomerResponse\"\000\022Q\n\016U" +
+      "pdateCustomer\022\035.api.v1.UpdateCustomerReq" +
+      "uest\032\036.api.v1.UpdateCustomerResponse\"\000\022Q" +
+      "\n\016DeleteCustomer\022\035.api.v1.DeleteCustomer" +
+      "Request\032\036.api.v1.DeleteCustomerResponse\"" +
+      "\000\022H\n\013GetContract\022\032.api.v1.GetContractReq" +
+      "uest\032\033.api.v1.GetContractResponse\"\000Bq\n\nc" +
+      "om.api.v1B\rCustomerProtoP\001Z\033api/proto/ge" +
+      "n/api/v1;api_v1\242\002\003AXX\252\002\006Api.V1\312\002\006Api\\V1\342" +
+      "\002\022Api\\V1\\GPBMetadata\352\002\007Api::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.api.v1.CommonProto.getDescriptor(),
-          com.buf.validate.ValidateProto.getDescriptor(),
-          com.google.api.AnnotationsProto.getDescriptor(),
-          com.grpc.gateway.protoc_gen_openapiv2.options.AnnotationsProto.getDescriptor(),
         });
     internal_static_api_v1_CreateCustomerRequest_descriptor =
       getDescriptor().getMessageType(0);
@@ -240,16 +211,6 @@ public final class CustomerProto extends com.google.protobuf.GeneratedFile {
         new java.lang.String[] { "Customer", "Contract", });
     descriptor.resolveAllFeaturesImmutable();
     com.api.v1.CommonProto.getDescriptor();
-    com.buf.validate.ValidateProto.getDescriptor();
-    com.google.api.AnnotationsProto.getDescriptor();
-    com.grpc.gateway.protoc_gen_openapiv2.options.AnnotationsProto.getDescriptor();
-    com.google.protobuf.ExtensionRegistry registry =
-        com.google.protobuf.ExtensionRegistry.newInstance();
-    registry.add(com.buf.validate.ValidateProto.field);
-    registry.add(com.google.api.AnnotationsProto.http);
-    registry.add(com.grpc.gateway.protoc_gen_openapiv2.options.AnnotationsProto.openapiv2Operation);
-    com.google.protobuf.Descriptors.FileDescriptor
-        .internalUpdateFileDescriptor(descriptor, registry);
   }
 
   // @@protoc_insertion_point(outer_class_scope)

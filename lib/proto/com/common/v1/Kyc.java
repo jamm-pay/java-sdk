@@ -93,14 +93,14 @@ private static final long serialVersionUID = 0L;
   public static final int STATE_FIELD_NUMBER = 2;
   private int state_ = 0;
   /**
-   * <code>.common.v1.KycState state = 2 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.KycState state = 2 [json_name = "state"];</code>
    * @return The enum numeric value on the wire for state.
    */
   @java.lang.Override public int getStateValue() {
     return state_;
   }
   /**
-   * <code>.common.v1.KycState state = 2 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.KycState state = 2 [json_name = "state"];</code>
    * @return The state.
    */
   @java.lang.Override public com.common.v1.KycState getState() {
@@ -538,14 +538,14 @@ private static final long serialVersionUID = 0L;
 
     private int state_ = 0;
     /**
-     * <code>.common.v1.KycState state = 2 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.KycState state = 2 [json_name = "state"];</code>
      * @return The enum numeric value on the wire for state.
      */
     @java.lang.Override public int getStateValue() {
       return state_;
     }
     /**
-     * <code>.common.v1.KycState state = 2 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.KycState state = 2 [json_name = "state"];</code>
      * @param value The enum numeric value on the wire for state to set.
      * @throws IllegalArgumentException if UNRECOGNIZED is provided.
      * @return This builder for chaining.
@@ -557,7 +557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.common.v1.KycState state = 2 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.KycState state = 2 [json_name = "state"];</code>
      * @return The state.
      */
     @java.lang.Override
@@ -566,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.common.v1.KycState.UNRECOGNIZED : result;
     }
     /**
-     * <code>.common.v1.KycState state = 2 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.KycState state = 2 [json_name = "state"];</code>
      * @param value The state to set.
      * @return This builder for chaining.
      */
@@ -578,7 +578,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.common.v1.KycState state = 2 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.KycState state = 2 [json_name = "state"];</code>
      * @return This builder for chaining.
      */
     public Builder clearState() {

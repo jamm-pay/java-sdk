@@ -11,17 +11,17 @@ public interface GetCustomerResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
    * @return Whether the customer field is set.
    */
   boolean hasCustomer();
   /**
-   * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
    * @return The customer.
    */
   com.api.v1.Customer getCustomer();
   /**
-   * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
    */
   com.api.v1.CustomerOrBuilder getCustomerOrBuilder();
 }

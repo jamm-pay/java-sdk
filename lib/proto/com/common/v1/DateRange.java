@@ -52,7 +52,7 @@ private static final long serialVersionUID = 0L;
   public static final int START_DATE_FIELD_NUMBER = 1;
   private com.google.protobuf.Timestamp startDate_;
   /**
-   * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate"];</code>
    * @return Whether the startDate field is set.
    */
   @java.lang.Override
@@ -60,7 +60,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate"];</code>
    * @return The startDate.
    */
   @java.lang.Override
@@ -68,7 +68,7 @@ private static final long serialVersionUID = 0L;
     return startDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startDate_;
   }
   /**
-   * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getStartDateOrBuilder() {
@@ -78,7 +78,7 @@ private static final long serialVersionUID = 0L;
   public static final int END_DATE_FIELD_NUMBER = 2;
   private com.google.protobuf.Timestamp endDate_;
   /**
-   * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate"];</code>
    * @return Whether the endDate field is set.
    */
   @java.lang.Override
@@ -86,7 +86,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000002) != 0);
   }
   /**
-   * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate"];</code>
    * @return The endDate.
    */
   @java.lang.Override
@@ -94,7 +94,7 @@ private static final long serialVersionUID = 0L;
     return endDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endDate_;
   }
   /**
-   * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEndDateOrBuilder() {
@@ -458,14 +458,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> startDateBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate"];</code>
      * @return Whether the startDate field is set.
      */
     public boolean hasStartDate() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate"];</code>
      * @return The startDate.
      */
     public com.google.protobuf.Timestamp getStartDate() {
@@ -476,7 +476,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate"];</code>
      */
     public Builder setStartDate(com.google.protobuf.Timestamp value) {
       if (startDateBuilder_ == null) {
@@ -492,7 +492,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate"];</code>
      */
     public Builder setStartDate(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -506,7 +506,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate"];</code>
      */
     public Builder mergeStartDate(com.google.protobuf.Timestamp value) {
       if (startDateBuilder_ == null) {
@@ -527,7 +527,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate"];</code>
      */
     public Builder clearStartDate() {
       bitField0_ = (bitField0_ & ~0x00000001);
@@ -540,7 +540,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getStartDateBuilder() {
       bitField0_ |= 0x00000001;
@@ -548,7 +548,7 @@ private static final long serialVersionUID = 0L;
       return internalGetStartDateFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getStartDateOrBuilder() {
       if (startDateBuilder_ != null) {
@@ -559,7 +559,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_date = 1 [json_name = "startDate"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -579,14 +579,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> endDateBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate"];</code>
      * @return Whether the endDate field is set.
      */
     public boolean hasEndDate() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate"];</code>
      * @return The endDate.
      */
     public com.google.protobuf.Timestamp getEndDate() {
@@ -597,7 +597,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate"];</code>
      */
     public Builder setEndDate(com.google.protobuf.Timestamp value) {
       if (endDateBuilder_ == null) {
@@ -613,7 +613,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate"];</code>
      */
     public Builder setEndDate(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -627,7 +627,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate"];</code>
      */
     public Builder mergeEndDate(com.google.protobuf.Timestamp value) {
       if (endDateBuilder_ == null) {
@@ -648,7 +648,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate"];</code>
      */
     public Builder clearEndDate() {
       bitField0_ = (bitField0_ & ~0x00000002);
@@ -661,7 +661,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getEndDateBuilder() {
       bitField0_ |= 0x00000002;
@@ -669,7 +669,7 @@ private static final long serialVersionUID = 0L;
       return internalGetEndDateFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getEndDateOrBuilder() {
       if (endDateBuilder_ != null) {
@@ -680,7 +680,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_date = 2 [json_name = "endDate"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 

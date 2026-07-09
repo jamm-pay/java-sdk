@@ -11,12 +11,12 @@ public interface ErrorResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType", (.buf.validate.field) = { ... }</code>
+   * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType"];</code>
    * @return The enum numeric value on the wire for errorType.
    */
   int getErrorTypeValue();
   /**
-   * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType", (.buf.validate.field) = { ... }</code>
+   * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType"];</code>
    * @return The errorType.
    */
   com.error.v1.ErrorType getErrorType();

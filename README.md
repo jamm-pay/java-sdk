@@ -286,6 +286,9 @@ If you want to build from source:
 make build
 ```
 
+Vendoring dependencies by hand (no Maven/Gradle)? See [DEPENDENCIES.md](DEPENDENCIES.md) for the
+complete 7-jar runtime set and versions.
+
 ## Configuration
 
 ```java

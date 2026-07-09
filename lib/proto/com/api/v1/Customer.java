@@ -63,7 +63,7 @@ private static final long serialVersionUID = 0L;
    * Customer ID
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   @java.lang.Override
@@ -84,7 +84,7 @@ private static final long serialVersionUID = 0L;
    * Customer ID
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   @java.lang.Override
@@ -110,7 +110,7 @@ private static final long serialVersionUID = 0L;
    * Customer's email address
    * </pre>
    *
-   * <code>string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+   * <code>string email = 2 [json_name = "email"];</code>
    * @return The email.
    */
   @java.lang.Override
@@ -131,7 +131,7 @@ private static final long serialVersionUID = 0L;
    * Customer's email address
    * </pre>
    *
-   * <code>string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+   * <code>string email = 2 [json_name = "email"];</code>
    * @return The bytes for email.
    */
   @java.lang.Override
@@ -186,7 +186,7 @@ private static final long serialVersionUID = 0L;
    * Customer status information
    * </pre>
    *
-   * <code>.api.v1.Status status = 5 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Status status = 5 [json_name = "status"];</code>
    * @return Whether the status field is set.
    */
   @java.lang.Override
@@ -198,7 +198,7 @@ private static final long serialVersionUID = 0L;
    * Customer status information
    * </pre>
    *
-   * <code>.api.v1.Status status = 5 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Status status = 5 [json_name = "status"];</code>
    * @return The status.
    */
   @java.lang.Override
@@ -210,7 +210,7 @@ private static final long serialVersionUID = 0L;
    * Customer status information
    * </pre>
    *
-   * <code>.api.v1.Status status = 5 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Status status = 5 [json_name = "status"];</code>
    */
   @java.lang.Override
   public com.api.v1.StatusOrBuilder getStatusOrBuilder() {
@@ -258,7 +258,7 @@ private static final long serialVersionUID = 0L;
   public static final int CREATED_AT_FIELD_NUMBER = 10;
   private com.google.protobuf.Timestamp createdAt_;
   /**
-   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
    * @return Whether the createdAt field is set.
    */
   @java.lang.Override
@@ -266,7 +266,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000004) != 0);
   }
   /**
-   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   @java.lang.Override
@@ -274,7 +274,7 @@ private static final long serialVersionUID = 0L;
     return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
   }
   /**
-   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
@@ -284,7 +284,7 @@ private static final long serialVersionUID = 0L;
   public static final int UPDATED_AT_FIELD_NUMBER = 11;
   private com.google.protobuf.Timestamp updatedAt_;
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
    * @return Whether the updatedAt field is set.
    */
   @java.lang.Override
@@ -292,7 +292,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000008) != 0);
   }
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
    * @return The updatedAt.
    */
   @java.lang.Override
@@ -300,7 +300,7 @@ private static final long serialVersionUID = 0L;
     return updatedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updatedAt_;
   }
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
@@ -842,7 +842,7 @@ private static final long serialVersionUID = 0L;
      * Customer ID
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return The id.
      */
     public java.lang.String getId() {
@@ -862,7 +862,7 @@ private static final long serialVersionUID = 0L;
      * Customer ID
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
@@ -883,7 +883,7 @@ private static final long serialVersionUID = 0L;
      * Customer ID
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -900,7 +900,7 @@ private static final long serialVersionUID = 0L;
      * Customer ID
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
@@ -914,7 +914,7 @@ private static final long serialVersionUID = 0L;
      * Customer ID
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
@@ -934,7 +934,7 @@ private static final long serialVersionUID = 0L;
      * Customer's email address
      * </pre>
      *
-     * <code>string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+     * <code>string email = 2 [json_name = "email"];</code>
      * @return The email.
      */
     public java.lang.String getEmail() {
@@ -954,7 +954,7 @@ private static final long serialVersionUID = 0L;
      * Customer's email address
      * </pre>
      *
-     * <code>string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+     * <code>string email = 2 [json_name = "email"];</code>
      * @return The bytes for email.
      */
     public com.google.protobuf.ByteString
@@ -975,7 +975,7 @@ private static final long serialVersionUID = 0L;
      * Customer's email address
      * </pre>
      *
-     * <code>string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+     * <code>string email = 2 [json_name = "email"];</code>
      * @param value The email to set.
      * @return This builder for chaining.
      */
@@ -992,7 +992,7 @@ private static final long serialVersionUID = 0L;
      * Customer's email address
      * </pre>
      *
-     * <code>string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+     * <code>string email = 2 [json_name = "email"];</code>
      * @return This builder for chaining.
      */
     public Builder clearEmail() {
@@ -1006,7 +1006,7 @@ private static final long serialVersionUID = 0L;
      * Customer's email address
      * </pre>
      *
-     * <code>string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+     * <code>string email = 2 [json_name = "email"];</code>
      * @param value The bytes for email to set.
      * @return This builder for chaining.
      */
@@ -1116,7 +1116,7 @@ private static final long serialVersionUID = 0L;
      * Customer status information
      * </pre>
      *
-     * <code>.api.v1.Status status = 5 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Status status = 5 [json_name = "status"];</code>
      * @return Whether the status field is set.
      */
     public boolean hasStatus() {
@@ -1127,7 +1127,7 @@ private static final long serialVersionUID = 0L;
      * Customer status information
      * </pre>
      *
-     * <code>.api.v1.Status status = 5 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Status status = 5 [json_name = "status"];</code>
      * @return The status.
      */
     public com.api.v1.Status getStatus() {
@@ -1142,7 +1142,7 @@ private static final long serialVersionUID = 0L;
      * Customer status information
      * </pre>
      *
-     * <code>.api.v1.Status status = 5 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Status status = 5 [json_name = "status"];</code>
      */
     public Builder setStatus(com.api.v1.Status value) {
       if (statusBuilder_ == null) {
@@ -1162,7 +1162,7 @@ private static final long serialVersionUID = 0L;
      * Customer status information
      * </pre>
      *
-     * <code>.api.v1.Status status = 5 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Status status = 5 [json_name = "status"];</code>
      */
     public Builder setStatus(
         com.api.v1.Status.Builder builderForValue) {
@@ -1180,7 +1180,7 @@ private static final long serialVersionUID = 0L;
      * Customer status information
      * </pre>
      *
-     * <code>.api.v1.Status status = 5 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Status status = 5 [json_name = "status"];</code>
      */
     public Builder mergeStatus(com.api.v1.Status value) {
       if (statusBuilder_ == null) {
@@ -1205,7 +1205,7 @@ private static final long serialVersionUID = 0L;
      * Customer status information
      * </pre>
      *
-     * <code>.api.v1.Status status = 5 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Status status = 5 [json_name = "status"];</code>
      */
     public Builder clearStatus() {
       bitField0_ = (bitField0_ & ~0x00000010);
@@ -1222,7 +1222,7 @@ private static final long serialVersionUID = 0L;
      * Customer status information
      * </pre>
      *
-     * <code>.api.v1.Status status = 5 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Status status = 5 [json_name = "status"];</code>
      */
     public com.api.v1.Status.Builder getStatusBuilder() {
       bitField0_ |= 0x00000010;
@@ -1234,7 +1234,7 @@ private static final long serialVersionUID = 0L;
      * Customer status information
      * </pre>
      *
-     * <code>.api.v1.Status status = 5 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Status status = 5 [json_name = "status"];</code>
      */
     public com.api.v1.StatusOrBuilder getStatusOrBuilder() {
       if (statusBuilder_ != null) {
@@ -1249,7 +1249,7 @@ private static final long serialVersionUID = 0L;
      * Customer status information
      * </pre>
      *
-     * <code>.api.v1.Status status = 5 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Status status = 5 [json_name = "status"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.Status, com.api.v1.Status.Builder, com.api.v1.StatusOrBuilder> 
@@ -1426,14 +1426,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createdAtBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      * @return Whether the createdAt field is set.
      */
     public boolean hasCreatedAt() {
       return ((bitField0_ & 0x00000040) != 0);
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      * @return The createdAt.
      */
     public com.google.protobuf.Timestamp getCreatedAt() {
@@ -1444,7 +1444,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      */
     public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -1460,7 +1460,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      */
     public Builder setCreatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1474,7 +1474,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      */
     public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -1495,7 +1495,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      */
     public Builder clearCreatedAt() {
       bitField0_ = (bitField0_ & ~0x00000040);
@@ -1508,7 +1508,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
       bitField0_ |= 0x00000040;
@@ -1516,7 +1516,7 @@ private static final long serialVersionUID = 0L;
       return internalGetCreatedAtFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
       if (createdAtBuilder_ != null) {
@@ -1527,7 +1527,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -1547,14 +1547,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updatedAtBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
      * @return Whether the updatedAt field is set.
      */
     public boolean hasUpdatedAt() {
       return ((bitField0_ & 0x00000080) != 0);
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
      * @return The updatedAt.
      */
     public com.google.protobuf.Timestamp getUpdatedAt() {
@@ -1565,7 +1565,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
      */
     public Builder setUpdatedAt(com.google.protobuf.Timestamp value) {
       if (updatedAtBuilder_ == null) {
@@ -1581,7 +1581,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
      */
     public Builder setUpdatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1595,7 +1595,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
      */
     public Builder mergeUpdatedAt(com.google.protobuf.Timestamp value) {
       if (updatedAtBuilder_ == null) {
@@ -1616,7 +1616,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
      */
     public Builder clearUpdatedAt() {
       bitField0_ = (bitField0_ & ~0x00000080);
@@ -1629,7 +1629,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdatedAtBuilder() {
       bitField0_ |= 0x00000080;
@@ -1637,7 +1637,7 @@ private static final long serialVersionUID = 0L;
       return internalGetUpdatedAtFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder() {
       if (updatedAtBuilder_ != null) {
@@ -1648,7 +1648,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 

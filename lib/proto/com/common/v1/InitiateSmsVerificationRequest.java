@@ -53,7 +53,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object phoneNumber_ = "";
   /**
-   * <code>string phone_number = 1 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
+   * <code>string phone_number = 1 [json_name = "phoneNumber"];</code>
    * @return The phoneNumber.
    */
   @java.lang.Override
@@ -70,7 +70,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string phone_number = 1 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
+   * <code>string phone_number = 1 [json_name = "phoneNumber"];</code>
    * @return The bytes for phoneNumber.
    */
   @java.lang.Override
@@ -384,7 +384,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object phoneNumber_ = "";
     /**
-     * <code>string phone_number = 1 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
+     * <code>string phone_number = 1 [json_name = "phoneNumber"];</code>
      * @return The phoneNumber.
      */
     public java.lang.String getPhoneNumber() {
@@ -400,7 +400,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string phone_number = 1 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
+     * <code>string phone_number = 1 [json_name = "phoneNumber"];</code>
      * @return The bytes for phoneNumber.
      */
     public com.google.protobuf.ByteString
@@ -417,7 +417,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string phone_number = 1 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
+     * <code>string phone_number = 1 [json_name = "phoneNumber"];</code>
      * @param value The phoneNumber to set.
      * @return This builder for chaining.
      */
@@ -430,7 +430,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string phone_number = 1 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
+     * <code>string phone_number = 1 [json_name = "phoneNumber"];</code>
      * @return This builder for chaining.
      */
     public Builder clearPhoneNumber() {
@@ -440,7 +440,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string phone_number = 1 [json_name = "phoneNumber", (.buf.validate.field) = { ... }</code>
+     * <code>string phone_number = 1 [json_name = "phoneNumber"];</code>
      * @param value The bytes for phoneNumber to set.
      * @return This builder for chaining.
      */

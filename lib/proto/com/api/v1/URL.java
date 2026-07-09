@@ -63,7 +63,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"omitempty,http_url"
    * </pre>
    *
-   * <code>optional string success_url = 1 [json_name = "successUrl", (.buf.validate.field) = { ... }</code>
+   * <code>optional string success_url = 1 [json_name = "successUrl"];</code>
    * @return Whether the successUrl field is set.
    */
   @java.lang.Override
@@ -79,7 +79,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"omitempty,http_url"
    * </pre>
    *
-   * <code>optional string success_url = 1 [json_name = "successUrl", (.buf.validate.field) = { ... }</code>
+   * <code>optional string success_url = 1 [json_name = "successUrl"];</code>
    * @return The successUrl.
    */
   @java.lang.Override
@@ -104,7 +104,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"omitempty,http_url"
    * </pre>
    *
-   * <code>optional string success_url = 1 [json_name = "successUrl", (.buf.validate.field) = { ... }</code>
+   * <code>optional string success_url = 1 [json_name = "successUrl"];</code>
    * @return The bytes for successUrl.
    */
   @java.lang.Override
@@ -134,7 +134,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"omitempty,http_url"
    * </pre>
    *
-   * <code>optional string failure_url = 2 [json_name = "failureUrl", (.buf.validate.field) = { ... }</code>
+   * <code>optional string failure_url = 2 [json_name = "failureUrl"];</code>
    * @return Whether the failureUrl field is set.
    */
   @java.lang.Override
@@ -150,7 +150,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"omitempty,http_url"
    * </pre>
    *
-   * <code>optional string failure_url = 2 [json_name = "failureUrl", (.buf.validate.field) = { ... }</code>
+   * <code>optional string failure_url = 2 [json_name = "failureUrl"];</code>
    * @return The failureUrl.
    */
   @java.lang.Override
@@ -175,7 +175,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"omitempty,http_url"
    * </pre>
    *
-   * <code>optional string failure_url = 2 [json_name = "failureUrl", (.buf.validate.field) = { ... }</code>
+   * <code>optional string failure_url = 2 [json_name = "failureUrl"];</code>
    * @return The bytes for failureUrl.
    */
   @java.lang.Override
@@ -535,7 +535,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"omitempty,http_url"
      * </pre>
      *
-     * <code>optional string success_url = 1 [json_name = "successUrl", (.buf.validate.field) = { ... }</code>
+     * <code>optional string success_url = 1 [json_name = "successUrl"];</code>
      * @return Whether the successUrl field is set.
      */
     public boolean hasSuccessUrl() {
@@ -550,7 +550,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"omitempty,http_url"
      * </pre>
      *
-     * <code>optional string success_url = 1 [json_name = "successUrl", (.buf.validate.field) = { ... }</code>
+     * <code>optional string success_url = 1 [json_name = "successUrl"];</code>
      * @return The successUrl.
      */
     public java.lang.String getSuccessUrl() {
@@ -574,7 +574,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"omitempty,http_url"
      * </pre>
      *
-     * <code>optional string success_url = 1 [json_name = "successUrl", (.buf.validate.field) = { ... }</code>
+     * <code>optional string success_url = 1 [json_name = "successUrl"];</code>
      * @return The bytes for successUrl.
      */
     public com.google.protobuf.ByteString
@@ -599,7 +599,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"omitempty,http_url"
      * </pre>
      *
-     * <code>optional string success_url = 1 [json_name = "successUrl", (.buf.validate.field) = { ... }</code>
+     * <code>optional string success_url = 1 [json_name = "successUrl"];</code>
      * @param value The successUrl to set.
      * @return This builder for chaining.
      */
@@ -620,7 +620,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"omitempty,http_url"
      * </pre>
      *
-     * <code>optional string success_url = 1 [json_name = "successUrl", (.buf.validate.field) = { ... }</code>
+     * <code>optional string success_url = 1 [json_name = "successUrl"];</code>
      * @return This builder for chaining.
      */
     public Builder clearSuccessUrl() {
@@ -638,7 +638,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"omitempty,http_url"
      * </pre>
      *
-     * <code>optional string success_url = 1 [json_name = "successUrl", (.buf.validate.field) = { ... }</code>
+     * <code>optional string success_url = 1 [json_name = "successUrl"];</code>
      * @param value The bytes for successUrl to set.
      * @return This builder for chaining.
      */
@@ -662,7 +662,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"omitempty,http_url"
      * </pre>
      *
-     * <code>optional string failure_url = 2 [json_name = "failureUrl", (.buf.validate.field) = { ... }</code>
+     * <code>optional string failure_url = 2 [json_name = "failureUrl"];</code>
      * @return Whether the failureUrl field is set.
      */
     public boolean hasFailureUrl() {
@@ -677,7 +677,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"omitempty,http_url"
      * </pre>
      *
-     * <code>optional string failure_url = 2 [json_name = "failureUrl", (.buf.validate.field) = { ... }</code>
+     * <code>optional string failure_url = 2 [json_name = "failureUrl"];</code>
      * @return The failureUrl.
      */
     public java.lang.String getFailureUrl() {
@@ -701,7 +701,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"omitempty,http_url"
      * </pre>
      *
-     * <code>optional string failure_url = 2 [json_name = "failureUrl", (.buf.validate.field) = { ... }</code>
+     * <code>optional string failure_url = 2 [json_name = "failureUrl"];</code>
      * @return The bytes for failureUrl.
      */
     public com.google.protobuf.ByteString
@@ -726,7 +726,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"omitempty,http_url"
      * </pre>
      *
-     * <code>optional string failure_url = 2 [json_name = "failureUrl", (.buf.validate.field) = { ... }</code>
+     * <code>optional string failure_url = 2 [json_name = "failureUrl"];</code>
      * @param value The failureUrl to set.
      * @return This builder for chaining.
      */
@@ -747,7 +747,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"omitempty,http_url"
      * </pre>
      *
-     * <code>optional string failure_url = 2 [json_name = "failureUrl", (.buf.validate.field) = { ... }</code>
+     * <code>optional string failure_url = 2 [json_name = "failureUrl"];</code>
      * @return This builder for chaining.
      */
     public Builder clearFailureUrl() {
@@ -765,7 +765,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"omitempty,http_url"
      * </pre>
      *
-     * <code>optional string failure_url = 2 [json_name = "failureUrl", (.buf.validate.field) = { ... }</code>
+     * <code>optional string failure_url = 2 [json_name = "failureUrl"];</code>
      * @param value The bytes for failureUrl to set.
      * @return This builder for chaining.
      */

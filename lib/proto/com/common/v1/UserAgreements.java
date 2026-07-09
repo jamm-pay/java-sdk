@@ -58,7 +58,7 @@ private static final long serialVersionUID = 0L;
    * 2. Customer and per-Bank
    * </pre>
    *
-   * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement"];</code>
    * @return Whether the jammUserAgreement field is set.
    */
   @java.lang.Override
@@ -72,7 +72,7 @@ private static final long serialVersionUID = 0L;
    * 2. Customer and per-Bank
    * </pre>
    *
-   * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement"];</code>
    * @return The jammUserAgreement.
    */
   @java.lang.Override
@@ -86,7 +86,7 @@ private static final long serialVersionUID = 0L;
    * 2. Customer and per-Bank
    * </pre>
    *
-   * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement"];</code>
    */
   @java.lang.Override
   public com.common.v1.JammUserAgreementOrBuilder getJammUserAgreementOrBuilder() {
@@ -418,7 +418,7 @@ private static final long serialVersionUID = 0L;
      * 2. Customer and per-Bank
      * </pre>
      *
-     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement"];</code>
      * @return Whether the jammUserAgreement field is set.
      */
     public boolean hasJammUserAgreement() {
@@ -431,7 +431,7 @@ private static final long serialVersionUID = 0L;
      * 2. Customer and per-Bank
      * </pre>
      *
-     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement"];</code>
      * @return The jammUserAgreement.
      */
     public com.common.v1.JammUserAgreement getJammUserAgreement() {
@@ -448,7 +448,7 @@ private static final long serialVersionUID = 0L;
      * 2. Customer and per-Bank
      * </pre>
      *
-     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement"];</code>
      */
     public Builder setJammUserAgreement(com.common.v1.JammUserAgreement value) {
       if (jammUserAgreementBuilder_ == null) {
@@ -470,7 +470,7 @@ private static final long serialVersionUID = 0L;
      * 2. Customer and per-Bank
      * </pre>
      *
-     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement"];</code>
      */
     public Builder setJammUserAgreement(
         com.common.v1.JammUserAgreement.Builder builderForValue) {
@@ -490,7 +490,7 @@ private static final long serialVersionUID = 0L;
      * 2. Customer and per-Bank
      * </pre>
      *
-     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement"];</code>
      */
     public Builder mergeJammUserAgreement(com.common.v1.JammUserAgreement value) {
       if (jammUserAgreementBuilder_ == null) {
@@ -517,7 +517,7 @@ private static final long serialVersionUID = 0L;
      * 2. Customer and per-Bank
      * </pre>
      *
-     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement"];</code>
      */
     public Builder clearJammUserAgreement() {
       bitField0_ = (bitField0_ & ~0x00000001);
@@ -536,7 +536,7 @@ private static final long serialVersionUID = 0L;
      * 2. Customer and per-Bank
      * </pre>
      *
-     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement"];</code>
      */
     public com.common.v1.JammUserAgreement.Builder getJammUserAgreementBuilder() {
       bitField0_ |= 0x00000001;
@@ -550,7 +550,7 @@ private static final long serialVersionUID = 0L;
      * 2. Customer and per-Bank
      * </pre>
      *
-     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement"];</code>
      */
     public com.common.v1.JammUserAgreementOrBuilder getJammUserAgreementOrBuilder() {
       if (jammUserAgreementBuilder_ != null) {
@@ -567,7 +567,7 @@ private static final long serialVersionUID = 0L;
      * 2. Customer and per-Bank
      * </pre>
      *
-     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.common.v1.JammUserAgreement, com.common.v1.JammUserAgreement.Builder, com.common.v1.JammUserAgreementOrBuilder> 

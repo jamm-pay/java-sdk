@@ -67,7 +67,7 @@ private static final long serialVersionUID = 0L;
    * Use this value to avoid processing the same message multiple times.
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   @java.lang.Override
@@ -90,7 +90,7 @@ private static final long serialVersionUID = 0L;
    * Use this value to avoid processing the same message multiple times.
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   @java.lang.Override
@@ -116,7 +116,7 @@ private static final long serialVersionUID = 0L;
    * Signature of the message.
    * </pre>
    *
-   * <code>string signature = 2 [json_name = "signature", (.buf.validate.field) = { ... }</code>
+   * <code>string signature = 2 [json_name = "signature"];</code>
    * @return The signature.
    */
   @java.lang.Override
@@ -137,7 +137,7 @@ private static final long serialVersionUID = 0L;
    * Signature of the message.
    * </pre>
    *
-   * <code>string signature = 2 [json_name = "signature", (.buf.validate.field) = { ... }</code>
+   * <code>string signature = 2 [json_name = "signature"];</code>
    * @return The bytes for signature.
    */
   @java.lang.Override
@@ -163,7 +163,7 @@ private static final long serialVersionUID = 0L;
    * Refer to this type when receiver decode (unmarshal) the message.
    * </pre>
    *
-   * <code>.api.v1.EventType event_type = 4 [json_name = "eventType", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.EventType event_type = 4 [json_name = "eventType"];</code>
    * @return The enum numeric value on the wire for eventType.
    */
   @java.lang.Override public int getEventTypeValue() {
@@ -175,7 +175,7 @@ private static final long serialVersionUID = 0L;
    * Refer to this type when receiver decode (unmarshal) the message.
    * </pre>
    *
-   * <code>.api.v1.EventType event_type = 4 [json_name = "eventType", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.EventType event_type = 4 [json_name = "eventType"];</code>
    * @return The eventType.
    */
   @java.lang.Override public com.api.v1.EventType getEventType() {
@@ -190,7 +190,7 @@ private static final long serialVersionUID = 0L;
    * Content includes message data.
    * </pre>
    *
-   * <code>.google.protobuf.Any content = 5 [json_name = "content", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Any content = 5 [json_name = "content"];</code>
    * @return Whether the content field is set.
    */
   @java.lang.Override
@@ -202,7 +202,7 @@ private static final long serialVersionUID = 0L;
    * Content includes message data.
    * </pre>
    *
-   * <code>.google.protobuf.Any content = 5 [json_name = "content", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Any content = 5 [json_name = "content"];</code>
    * @return The content.
    */
   @java.lang.Override
@@ -214,7 +214,7 @@ private static final long serialVersionUID = 0L;
    * Content includes message data.
    * </pre>
    *
-   * <code>.google.protobuf.Any content = 5 [json_name = "content", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Any content = 5 [json_name = "content"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.AnyOrBuilder getContentOrBuilder() {
@@ -224,7 +224,7 @@ private static final long serialVersionUID = 0L;
   public static final int CREATED_AT_FIELD_NUMBER = 999;
   private com.google.protobuf.Timestamp createdAt_;
   /**
-   * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt"];</code>
    * @return Whether the createdAt field is set.
    */
   @java.lang.Override
@@ -232,7 +232,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000002) != 0);
   }
   /**
-   * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   @java.lang.Override
@@ -240,7 +240,7 @@ private static final long serialVersionUID = 0L;
     return createdAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createdAt_;
   }
   /**
-   * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
@@ -683,7 +683,7 @@ private static final long serialVersionUID = 0L;
      * Use this value to avoid processing the same message multiple times.
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return The id.
      */
     public java.lang.String getId() {
@@ -705,7 +705,7 @@ private static final long serialVersionUID = 0L;
      * Use this value to avoid processing the same message multiple times.
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
@@ -728,7 +728,7 @@ private static final long serialVersionUID = 0L;
      * Use this value to avoid processing the same message multiple times.
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -747,7 +747,7 @@ private static final long serialVersionUID = 0L;
      * Use this value to avoid processing the same message multiple times.
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
@@ -763,7 +763,7 @@ private static final long serialVersionUID = 0L;
      * Use this value to avoid processing the same message multiple times.
      * </pre>
      *
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
@@ -783,7 +783,7 @@ private static final long serialVersionUID = 0L;
      * Signature of the message.
      * </pre>
      *
-     * <code>string signature = 2 [json_name = "signature", (.buf.validate.field) = { ... }</code>
+     * <code>string signature = 2 [json_name = "signature"];</code>
      * @return The signature.
      */
     public java.lang.String getSignature() {
@@ -803,7 +803,7 @@ private static final long serialVersionUID = 0L;
      * Signature of the message.
      * </pre>
      *
-     * <code>string signature = 2 [json_name = "signature", (.buf.validate.field) = { ... }</code>
+     * <code>string signature = 2 [json_name = "signature"];</code>
      * @return The bytes for signature.
      */
     public com.google.protobuf.ByteString
@@ -824,7 +824,7 @@ private static final long serialVersionUID = 0L;
      * Signature of the message.
      * </pre>
      *
-     * <code>string signature = 2 [json_name = "signature", (.buf.validate.field) = { ... }</code>
+     * <code>string signature = 2 [json_name = "signature"];</code>
      * @param value The signature to set.
      * @return This builder for chaining.
      */
@@ -841,7 +841,7 @@ private static final long serialVersionUID = 0L;
      * Signature of the message.
      * </pre>
      *
-     * <code>string signature = 2 [json_name = "signature", (.buf.validate.field) = { ... }</code>
+     * <code>string signature = 2 [json_name = "signature"];</code>
      * @return This builder for chaining.
      */
     public Builder clearSignature() {
@@ -855,7 +855,7 @@ private static final long serialVersionUID = 0L;
      * Signature of the message.
      * </pre>
      *
-     * <code>string signature = 2 [json_name = "signature", (.buf.validate.field) = { ... }</code>
+     * <code>string signature = 2 [json_name = "signature"];</code>
      * @param value The bytes for signature to set.
      * @return This builder for chaining.
      */
@@ -876,7 +876,7 @@ private static final long serialVersionUID = 0L;
      * Refer to this type when receiver decode (unmarshal) the message.
      * </pre>
      *
-     * <code>.api.v1.EventType event_type = 4 [json_name = "eventType", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.EventType event_type = 4 [json_name = "eventType"];</code>
      * @return The enum numeric value on the wire for eventType.
      */
     @java.lang.Override public int getEventTypeValue() {
@@ -888,7 +888,7 @@ private static final long serialVersionUID = 0L;
      * Refer to this type when receiver decode (unmarshal) the message.
      * </pre>
      *
-     * <code>.api.v1.EventType event_type = 4 [json_name = "eventType", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.EventType event_type = 4 [json_name = "eventType"];</code>
      * @param value The enum numeric value on the wire for eventType to set.
      * @throws IllegalArgumentException if UNRECOGNIZED is provided.
      * @return This builder for chaining.
@@ -905,7 +905,7 @@ private static final long serialVersionUID = 0L;
      * Refer to this type when receiver decode (unmarshal) the message.
      * </pre>
      *
-     * <code>.api.v1.EventType event_type = 4 [json_name = "eventType", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.EventType event_type = 4 [json_name = "eventType"];</code>
      * @return The eventType.
      */
     @java.lang.Override
@@ -919,7 +919,7 @@ private static final long serialVersionUID = 0L;
      * Refer to this type when receiver decode (unmarshal) the message.
      * </pre>
      *
-     * <code>.api.v1.EventType event_type = 4 [json_name = "eventType", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.EventType event_type = 4 [json_name = "eventType"];</code>
      * @param value The eventType to set.
      * @return This builder for chaining.
      */
@@ -936,7 +936,7 @@ private static final long serialVersionUID = 0L;
      * Refer to this type when receiver decode (unmarshal) the message.
      * </pre>
      *
-     * <code>.api.v1.EventType event_type = 4 [json_name = "eventType", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.EventType event_type = 4 [json_name = "eventType"];</code>
      * @return This builder for chaining.
      */
     public Builder clearEventType() {
@@ -954,7 +954,7 @@ private static final long serialVersionUID = 0L;
      * Content includes message data.
      * </pre>
      *
-     * <code>.google.protobuf.Any content = 5 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Any content = 5 [json_name = "content"];</code>
      * @return Whether the content field is set.
      */
     public boolean hasContent() {
@@ -965,7 +965,7 @@ private static final long serialVersionUID = 0L;
      * Content includes message data.
      * </pre>
      *
-     * <code>.google.protobuf.Any content = 5 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Any content = 5 [json_name = "content"];</code>
      * @return The content.
      */
     public com.google.protobuf.Any getContent() {
@@ -980,7 +980,7 @@ private static final long serialVersionUID = 0L;
      * Content includes message data.
      * </pre>
      *
-     * <code>.google.protobuf.Any content = 5 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Any content = 5 [json_name = "content"];</code>
      */
     public Builder setContent(com.google.protobuf.Any value) {
       if (contentBuilder_ == null) {
@@ -1000,7 +1000,7 @@ private static final long serialVersionUID = 0L;
      * Content includes message data.
      * </pre>
      *
-     * <code>.google.protobuf.Any content = 5 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Any content = 5 [json_name = "content"];</code>
      */
     public Builder setContent(
         com.google.protobuf.Any.Builder builderForValue) {
@@ -1018,7 +1018,7 @@ private static final long serialVersionUID = 0L;
      * Content includes message data.
      * </pre>
      *
-     * <code>.google.protobuf.Any content = 5 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Any content = 5 [json_name = "content"];</code>
      */
     public Builder mergeContent(com.google.protobuf.Any value) {
       if (contentBuilder_ == null) {
@@ -1043,7 +1043,7 @@ private static final long serialVersionUID = 0L;
      * Content includes message data.
      * </pre>
      *
-     * <code>.google.protobuf.Any content = 5 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Any content = 5 [json_name = "content"];</code>
      */
     public Builder clearContent() {
       bitField0_ = (bitField0_ & ~0x00000008);
@@ -1060,7 +1060,7 @@ private static final long serialVersionUID = 0L;
      * Content includes message data.
      * </pre>
      *
-     * <code>.google.protobuf.Any content = 5 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Any content = 5 [json_name = "content"];</code>
      */
     public com.google.protobuf.Any.Builder getContentBuilder() {
       bitField0_ |= 0x00000008;
@@ -1072,7 +1072,7 @@ private static final long serialVersionUID = 0L;
      * Content includes message data.
      * </pre>
      *
-     * <code>.google.protobuf.Any content = 5 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Any content = 5 [json_name = "content"];</code>
      */
     public com.google.protobuf.AnyOrBuilder getContentOrBuilder() {
       if (contentBuilder_ != null) {
@@ -1087,7 +1087,7 @@ private static final long serialVersionUID = 0L;
      * Content includes message data.
      * </pre>
      *
-     * <code>.google.protobuf.Any content = 5 [json_name = "content", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Any content = 5 [json_name = "content"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> 
@@ -1107,14 +1107,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createdAtBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt"];</code>
      * @return Whether the createdAt field is set.
      */
     public boolean hasCreatedAt() {
       return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt"];</code>
      * @return The createdAt.
      */
     public com.google.protobuf.Timestamp getCreatedAt() {
@@ -1125,7 +1125,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt"];</code>
      */
     public Builder setCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -1141,7 +1141,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt"];</code>
      */
     public Builder setCreatedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1155,7 +1155,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt"];</code>
      */
     public Builder mergeCreatedAt(com.google.protobuf.Timestamp value) {
       if (createdAtBuilder_ == null) {
@@ -1176,7 +1176,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt"];</code>
      */
     public Builder clearCreatedAt() {
       bitField0_ = (bitField0_ & ~0x00000010);
@@ -1189,7 +1189,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreatedAtBuilder() {
       bitField0_ |= 0x00000010;
@@ -1197,7 +1197,7 @@ private static final long serialVersionUID = 0L;
       return internalGetCreatedAtFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder() {
       if (createdAtBuilder_ != null) {
@@ -1208,7 +1208,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 

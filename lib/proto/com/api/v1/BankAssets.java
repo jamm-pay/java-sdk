@@ -60,7 +60,7 @@ private static final long serialVersionUID = 0L;
    * Bank code, e.g. "0001"
    * </pre>
    *
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bankCode.
    */
   @java.lang.Override
@@ -81,7 +81,7 @@ private static final long serialVersionUID = 0L;
    * Bank code, e.g. "0001"
    * </pre>
    *
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bytes for bankCode.
    */
   @java.lang.Override
@@ -212,7 +212,7 @@ private static final long serialVersionUID = 0L;
    * https://www.figma.com/design/7cabcqjzvKl9IwzvJCuQEW/Jamm-%CE%B2-UI-design?node-id=174-10898&amp;t=oyEUrdVtFOMV9xut-4
    * </pre>
    *
-   * <code>string terms_url = 10 [json_name = "termsUrl", (.buf.validate.field) = { ... }</code>
+   * <code>string terms_url = 10 [json_name = "termsUrl"];</code>
    * @return The termsUrl.
    */
   @java.lang.Override
@@ -236,7 +236,7 @@ private static final long serialVersionUID = 0L;
    * https://www.figma.com/design/7cabcqjzvKl9IwzvJCuQEW/Jamm-%CE%B2-UI-design?node-id=174-10898&amp;t=oyEUrdVtFOMV9xut-4
    * </pre>
    *
-   * <code>string terms_url = 10 [json_name = "termsUrl", (.buf.validate.field) = { ... }</code>
+   * <code>string terms_url = 10 [json_name = "termsUrl"];</code>
    * @return The bytes for termsUrl.
    */
   @java.lang.Override
@@ -626,7 +626,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @return The bankCode.
      */
     public java.lang.String getBankCode() {
@@ -646,7 +646,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @return The bytes for bankCode.
      */
     public com.google.protobuf.ByteString
@@ -667,7 +667,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @param value The bankCode to set.
      * @return This builder for chaining.
      */
@@ -684,7 +684,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @return This builder for chaining.
      */
     public Builder clearBankCode() {
@@ -698,7 +698,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @param value The bytes for bankCode to set.
      * @return This builder for chaining.
      */
@@ -925,7 +925,7 @@ private static final long serialVersionUID = 0L;
      * https://www.figma.com/design/7cabcqjzvKl9IwzvJCuQEW/Jamm-%CE%B2-UI-design?node-id=174-10898&amp;t=oyEUrdVtFOMV9xut-4
      * </pre>
      *
-     * <code>string terms_url = 10 [json_name = "termsUrl", (.buf.validate.field) = { ... }</code>
+     * <code>string terms_url = 10 [json_name = "termsUrl"];</code>
      * @return The termsUrl.
      */
     public java.lang.String getTermsUrl() {
@@ -948,7 +948,7 @@ private static final long serialVersionUID = 0L;
      * https://www.figma.com/design/7cabcqjzvKl9IwzvJCuQEW/Jamm-%CE%B2-UI-design?node-id=174-10898&amp;t=oyEUrdVtFOMV9xut-4
      * </pre>
      *
-     * <code>string terms_url = 10 [json_name = "termsUrl", (.buf.validate.field) = { ... }</code>
+     * <code>string terms_url = 10 [json_name = "termsUrl"];</code>
      * @return The bytes for termsUrl.
      */
     public com.google.protobuf.ByteString
@@ -972,7 +972,7 @@ private static final long serialVersionUID = 0L;
      * https://www.figma.com/design/7cabcqjzvKl9IwzvJCuQEW/Jamm-%CE%B2-UI-design?node-id=174-10898&amp;t=oyEUrdVtFOMV9xut-4
      * </pre>
      *
-     * <code>string terms_url = 10 [json_name = "termsUrl", (.buf.validate.field) = { ... }</code>
+     * <code>string terms_url = 10 [json_name = "termsUrl"];</code>
      * @param value The termsUrl to set.
      * @return This builder for chaining.
      */
@@ -992,7 +992,7 @@ private static final long serialVersionUID = 0L;
      * https://www.figma.com/design/7cabcqjzvKl9IwzvJCuQEW/Jamm-%CE%B2-UI-design?node-id=174-10898&amp;t=oyEUrdVtFOMV9xut-4
      * </pre>
      *
-     * <code>string terms_url = 10 [json_name = "termsUrl", (.buf.validate.field) = { ... }</code>
+     * <code>string terms_url = 10 [json_name = "termsUrl"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTermsUrl() {
@@ -1009,7 +1009,7 @@ private static final long serialVersionUID = 0L;
      * https://www.figma.com/design/7cabcqjzvKl9IwzvJCuQEW/Jamm-%CE%B2-UI-design?node-id=174-10898&amp;t=oyEUrdVtFOMV9xut-4
      * </pre>
      *
-     * <code>string terms_url = 10 [json_name = "termsUrl", (.buf.validate.field) = { ... }</code>
+     * <code>string terms_url = 10 [json_name = "termsUrl"];</code>
      * @param value The bytes for termsUrl to set.
      * @return This builder for chaining.
      */

@@ -226,7 +226,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object id_ = "";
   /**
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   @java.lang.Override
@@ -243,7 +243,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   @java.lang.Override
@@ -265,7 +265,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object customer_ = "";
   /**
-   * <code>string customer = 2 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 2 [json_name = "customer"];</code>
    * @return The customer.
    */
   @java.lang.Override
@@ -282,7 +282,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string customer = 2 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 2 [json_name = "customer"];</code>
    * @return The bytes for customer.
    */
   @java.lang.Override
@@ -303,14 +303,14 @@ private static final long serialVersionUID = 0L;
   public static final int STATUS_FIELD_NUMBER = 3;
   private int status_ = 0;
   /**
-   * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status"];</code>
    * @return The enum numeric value on the wire for status.
    */
   @java.lang.Override public int getStatusValue() {
     return status_;
   }
   /**
-   * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status"];</code>
    * @return The status.
    */
   @java.lang.Override public com.api.v1.ChargeMessage.Status getStatus() {
@@ -322,7 +322,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object description_ = "";
   /**
-   * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+   * <code>string description = 4 [json_name = "description"];</code>
    * @return The description.
    */
   @java.lang.Override
@@ -339,7 +339,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+   * <code>string description = 4 [json_name = "description"];</code>
    * @return The bytes for description.
    */
   @java.lang.Override
@@ -361,7 +361,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object merchantName_ = "";
   /**
-   * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+   * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
    * @return The merchantName.
    */
   @java.lang.Override
@@ -378,7 +378,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+   * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
    * @return The bytes for merchantName.
    */
   @java.lang.Override
@@ -403,7 +403,7 @@ private static final long serialVersionUID = 0L;
    * Original charge amount before discount and before any refund is applied.
    * </pre>
    *
-   * <code>int32 initial_amount = 6 [json_name = "initialAmount", (.buf.validate.field) = { ... }</code>
+   * <code>int32 initial_amount = 6 [json_name = "initialAmount"];</code>
    * @return The initialAmount.
    */
   @java.lang.Override
@@ -418,7 +418,7 @@ private static final long serialVersionUID = 0L;
    * Discount amount deducted from the original charge amount.
    * </pre>
    *
-   * <code>int32 discount = 7 [json_name = "discount", (.buf.validate.field) = { ... }</code>
+   * <code>int32 discount = 7 [json_name = "discount"];</code>
    * @return The discount.
    */
   @java.lang.Override
@@ -433,7 +433,7 @@ private static final long serialVersionUID = 0L;
    * Final charge amount after discount, before any refund is applied.
    * </pre>
    *
-   * <code>int32 final_amount = 8 [json_name = "finalAmount", (.buf.validate.field) = { ... }</code>
+   * <code>int32 final_amount = 8 [json_name = "finalAmount"];</code>
    * @return The finalAmount.
    */
   @java.lang.Override
@@ -472,7 +472,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object currency_ = "";
   /**
-   * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+   * <code>string currency = 10 [json_name = "currency"];</code>
    * @return The currency.
    */
   @java.lang.Override
@@ -489,7 +489,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+   * <code>string currency = 10 [json_name = "currency"];</code>
    * @return The bytes for currency.
    */
   @java.lang.Override
@@ -597,7 +597,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object createdAt_ = "";
   /**
-   * <code>string created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>string created_at = 13 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   @java.lang.Override
@@ -614,7 +614,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>string created_at = 13 [json_name = "createdAt"];</code>
    * @return The bytes for createdAt.
    */
   @java.lang.Override
@@ -636,7 +636,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object updatedAt_ = "";
   /**
-   * <code>string updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>string updated_at = 14 [json_name = "updatedAt"];</code>
    * @return The updatedAt.
    */
   @java.lang.Override
@@ -653,7 +653,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>string updated_at = 14 [json_name = "updatedAt"];</code>
    * @return The bytes for updatedAt.
    */
   @java.lang.Override
@@ -1674,7 +1674,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object id_ = "";
     /**
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return The id.
      */
     public java.lang.String getId() {
@@ -1690,7 +1690,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
@@ -1707,7 +1707,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -1720,7 +1720,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
@@ -1730,7 +1730,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
@@ -1746,7 +1746,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object customer_ = "";
     /**
-     * <code>string customer = 2 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 2 [json_name = "customer"];</code>
      * @return The customer.
      */
     public java.lang.String getCustomer() {
@@ -1762,7 +1762,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string customer = 2 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 2 [json_name = "customer"];</code>
      * @return The bytes for customer.
      */
     public com.google.protobuf.ByteString
@@ -1779,7 +1779,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string customer = 2 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 2 [json_name = "customer"];</code>
      * @param value The customer to set.
      * @return This builder for chaining.
      */
@@ -1792,7 +1792,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string customer = 2 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 2 [json_name = "customer"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCustomer() {
@@ -1802,7 +1802,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string customer = 2 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 2 [json_name = "customer"];</code>
      * @param value The bytes for customer to set.
      * @return This builder for chaining.
      */
@@ -1818,14 +1818,14 @@ private static final long serialVersionUID = 0L;
 
     private int status_ = 0;
     /**
-     * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status"];</code>
      * @return The enum numeric value on the wire for status.
      */
     @java.lang.Override public int getStatusValue() {
       return status_;
     }
     /**
-     * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status"];</code>
      * @param value The enum numeric value on the wire for status to set.
      * @throws IllegalArgumentException if UNRECOGNIZED is provided.
      * @return This builder for chaining.
@@ -1837,7 +1837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status"];</code>
      * @return The status.
      */
     @java.lang.Override
@@ -1846,7 +1846,7 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.api.v1.ChargeMessage.Status.UNRECOGNIZED : result;
     }
     /**
-     * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status"];</code>
      * @param value The status to set.
      * @return This builder for chaining.
      */
@@ -1858,7 +1858,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeMessage.Status status = 3 [json_name = "status"];</code>
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
@@ -1870,7 +1870,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object description_ = "";
     /**
-     * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+     * <code>string description = 4 [json_name = "description"];</code>
      * @return The description.
      */
     public java.lang.String getDescription() {
@@ -1886,7 +1886,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+     * <code>string description = 4 [json_name = "description"];</code>
      * @return The bytes for description.
      */
     public com.google.protobuf.ByteString
@@ -1903,7 +1903,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+     * <code>string description = 4 [json_name = "description"];</code>
      * @param value The description to set.
      * @return This builder for chaining.
      */
@@ -1916,7 +1916,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+     * <code>string description = 4 [json_name = "description"];</code>
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
@@ -1926,7 +1926,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+     * <code>string description = 4 [json_name = "description"];</code>
      * @param value The bytes for description to set.
      * @return This builder for chaining.
      */
@@ -1942,7 +1942,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object merchantName_ = "";
     /**
-     * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+     * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
      * @return The merchantName.
      */
     public java.lang.String getMerchantName() {
@@ -1958,7 +1958,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+     * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
      * @return The bytes for merchantName.
      */
     public com.google.protobuf.ByteString
@@ -1975,7 +1975,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+     * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
      * @param value The merchantName to set.
      * @return This builder for chaining.
      */
@@ -1988,7 +1988,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+     * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
      * @return This builder for chaining.
      */
     public Builder clearMerchantName() {
@@ -1998,7 +1998,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+     * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
      * @param value The bytes for merchantName to set.
      * @return This builder for chaining.
      */
@@ -2018,7 +2018,7 @@ private static final long serialVersionUID = 0L;
      * Original charge amount before discount and before any refund is applied.
      * </pre>
      *
-     * <code>int32 initial_amount = 6 [json_name = "initialAmount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 initial_amount = 6 [json_name = "initialAmount"];</code>
      * @return The initialAmount.
      */
     @java.lang.Override
@@ -2030,7 +2030,7 @@ private static final long serialVersionUID = 0L;
      * Original charge amount before discount and before any refund is applied.
      * </pre>
      *
-     * <code>int32 initial_amount = 6 [json_name = "initialAmount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 initial_amount = 6 [json_name = "initialAmount"];</code>
      * @param value The initialAmount to set.
      * @return This builder for chaining.
      */
@@ -2046,7 +2046,7 @@ private static final long serialVersionUID = 0L;
      * Original charge amount before discount and before any refund is applied.
      * </pre>
      *
-     * <code>int32 initial_amount = 6 [json_name = "initialAmount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 initial_amount = 6 [json_name = "initialAmount"];</code>
      * @return This builder for chaining.
      */
     public Builder clearInitialAmount() {
@@ -2062,7 +2062,7 @@ private static final long serialVersionUID = 0L;
      * Discount amount deducted from the original charge amount.
      * </pre>
      *
-     * <code>int32 discount = 7 [json_name = "discount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 discount = 7 [json_name = "discount"];</code>
      * @return The discount.
      */
     @java.lang.Override
@@ -2074,7 +2074,7 @@ private static final long serialVersionUID = 0L;
      * Discount amount deducted from the original charge amount.
      * </pre>
      *
-     * <code>int32 discount = 7 [json_name = "discount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 discount = 7 [json_name = "discount"];</code>
      * @param value The discount to set.
      * @return This builder for chaining.
      */
@@ -2090,7 +2090,7 @@ private static final long serialVersionUID = 0L;
      * Discount amount deducted from the original charge amount.
      * </pre>
      *
-     * <code>int32 discount = 7 [json_name = "discount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 discount = 7 [json_name = "discount"];</code>
      * @return This builder for chaining.
      */
     public Builder clearDiscount() {
@@ -2106,7 +2106,7 @@ private static final long serialVersionUID = 0L;
      * Final charge amount after discount, before any refund is applied.
      * </pre>
      *
-     * <code>int32 final_amount = 8 [json_name = "finalAmount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 final_amount = 8 [json_name = "finalAmount"];</code>
      * @return The finalAmount.
      */
     @java.lang.Override
@@ -2118,7 +2118,7 @@ private static final long serialVersionUID = 0L;
      * Final charge amount after discount, before any refund is applied.
      * </pre>
      *
-     * <code>int32 final_amount = 8 [json_name = "finalAmount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 final_amount = 8 [json_name = "finalAmount"];</code>
      * @param value The finalAmount to set.
      * @return This builder for chaining.
      */
@@ -2134,7 +2134,7 @@ private static final long serialVersionUID = 0L;
      * Final charge amount after discount, before any refund is applied.
      * </pre>
      *
-     * <code>int32 final_amount = 8 [json_name = "finalAmount", (.buf.validate.field) = { ... }</code>
+     * <code>int32 final_amount = 8 [json_name = "finalAmount"];</code>
      * @return This builder for chaining.
      */
     public Builder clearFinalAmount() {
@@ -2202,7 +2202,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object currency_ = "";
     /**
-     * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+     * <code>string currency = 10 [json_name = "currency"];</code>
      * @return The currency.
      */
     public java.lang.String getCurrency() {
@@ -2218,7 +2218,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+     * <code>string currency = 10 [json_name = "currency"];</code>
      * @return The bytes for currency.
      */
     public com.google.protobuf.ByteString
@@ -2235,7 +2235,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+     * <code>string currency = 10 [json_name = "currency"];</code>
      * @param value The currency to set.
      * @return This builder for chaining.
      */
@@ -2248,7 +2248,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+     * <code>string currency = 10 [json_name = "currency"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCurrency() {
@@ -2258,7 +2258,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+     * <code>string currency = 10 [json_name = "currency"];</code>
      * @param value The bytes for currency to set.
      * @return This builder for chaining.
      */
@@ -2433,7 +2433,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object createdAt_ = "";
     /**
-     * <code>string created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>string created_at = 13 [json_name = "createdAt"];</code>
      * @return The createdAt.
      */
     public java.lang.String getCreatedAt() {
@@ -2449,7 +2449,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>string created_at = 13 [json_name = "createdAt"];</code>
      * @return The bytes for createdAt.
      */
     public com.google.protobuf.ByteString
@@ -2466,7 +2466,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>string created_at = 13 [json_name = "createdAt"];</code>
      * @param value The createdAt to set.
      * @return This builder for chaining.
      */
@@ -2479,7 +2479,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>string created_at = 13 [json_name = "createdAt"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCreatedAt() {
@@ -2489,7 +2489,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>string created_at = 13 [json_name = "createdAt"];</code>
      * @param value The bytes for createdAt to set.
      * @return This builder for chaining.
      */
@@ -2505,7 +2505,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object updatedAt_ = "";
     /**
-     * <code>string updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>string updated_at = 14 [json_name = "updatedAt"];</code>
      * @return The updatedAt.
      */
     public java.lang.String getUpdatedAt() {
@@ -2521,7 +2521,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>string updated_at = 14 [json_name = "updatedAt"];</code>
      * @return The bytes for updatedAt.
      */
     public com.google.protobuf.ByteString
@@ -2538,7 +2538,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>string updated_at = 14 [json_name = "updatedAt"];</code>
      * @param value The updatedAt to set.
      * @return This builder for chaining.
      */
@@ -2551,7 +2551,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>string updated_at = 14 [json_name = "updatedAt"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUpdatedAt() {
@@ -2561,7 +2561,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>string updated_at = 14 [json_name = "updatedAt"];</code>
      * @param value The bytes for updatedAt to set.
      * @return This builder for chaining.
      */

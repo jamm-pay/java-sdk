@@ -15,7 +15,7 @@ public interface BankBranchOrBuilder extends
    * Bank code, e.g. "0001"
    * </pre>
    *
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bankCode.
    */
   java.lang.String getBankCode();
@@ -24,7 +24,7 @@ public interface BankBranchOrBuilder extends
    * Bank code, e.g. "0001"
    * </pre>
    *
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bytes for bankCode.
    */
   com.google.protobuf.ByteString
@@ -35,7 +35,7 @@ public interface BankBranchOrBuilder extends
    * Branch code, e.g. "001"
    * </pre>
    *
-   * <code>string branch_code = 2 [json_name = "branchCode", (.buf.validate.field) = { ... }</code>
+   * <code>string branch_code = 2 [json_name = "branchCode"];</code>
    * @return The branchCode.
    */
   java.lang.String getBranchCode();
@@ -44,7 +44,7 @@ public interface BankBranchOrBuilder extends
    * Branch code, e.g. "001"
    * </pre>
    *
-   * <code>string branch_code = 2 [json_name = "branchCode", (.buf.validate.field) = { ... }</code>
+   * <code>string branch_code = 2 [json_name = "branchCode"];</code>
    * @return The bytes for branchCode.
    */
   com.google.protobuf.ByteString
@@ -55,7 +55,7 @@ public interface BankBranchOrBuilder extends
    * Official name of the branch, e.g. "東京支店"
    * </pre>
    *
-   * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>string name = 3 [json_name = "name"];</code>
    * @return The name.
    */
   java.lang.String getName();
@@ -64,7 +64,7 @@ public interface BankBranchOrBuilder extends
    * Official name of the branch, e.g. "東京支店"
    * </pre>
    *
-   * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>string name = 3 [json_name = "name"];</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
@@ -95,7 +95,7 @@ public interface BankBranchOrBuilder extends
    * Hiragana name of the branch, e.g. "とうきょうしてん"
    * </pre>
    *
-   * <code>string name_hiragana = 5 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+   * <code>string name_hiragana = 5 [json_name = "nameHiragana"];</code>
    * @return The nameHiragana.
    */
   java.lang.String getNameHiragana();
@@ -104,7 +104,7 @@ public interface BankBranchOrBuilder extends
    * Hiragana name of the branch, e.g. "とうきょうしてん"
    * </pre>
    *
-   * <code>string name_hiragana = 5 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+   * <code>string name_hiragana = 5 [json_name = "nameHiragana"];</code>
    * @return The bytes for nameHiragana.
    */
   com.google.protobuf.ByteString

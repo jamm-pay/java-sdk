@@ -65,7 +65,7 @@ private static final long serialVersionUID = 0L;
    * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
    * </pre>
    *
-   * <code>int32 offline_purchase_limit_per_charge_with_kyc = 1 [json_name = "offlinePurchaseLimitPerChargeWithKyc", (.buf.validate.field) = { ... }</code>
+   * <code>int32 offline_purchase_limit_per_charge_with_kyc = 1 [json_name = "offlinePurchaseLimitPerChargeWithKyc"];</code>
    * @return The offlinePurchaseLimitPerChargeWithKyc.
    */
   @java.lang.Override
@@ -81,7 +81,7 @@ private static final long serialVersionUID = 0L;
    * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
    * </pre>
    *
-   * <code>int32 offline_purchase_limit_per_charge_without_kyc = 2 [json_name = "offlinePurchaseLimitPerChargeWithoutKyc", (.buf.validate.field) = { ... }</code>
+   * <code>int32 offline_purchase_limit_per_charge_without_kyc = 2 [json_name = "offlinePurchaseLimitPerChargeWithoutKyc"];</code>
    * @return The offlinePurchaseLimitPerChargeWithoutKyc.
    */
   @java.lang.Override
@@ -97,7 +97,7 @@ private static final long serialVersionUID = 0L;
    * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
    * </pre>
    *
-   * <code>int32 offline_purchase_limit_per_day_with_kyc = 10 [json_name = "offlinePurchaseLimitPerDayWithKyc", (.buf.validate.field) = { ... }</code>
+   * <code>int32 offline_purchase_limit_per_day_with_kyc = 10 [json_name = "offlinePurchaseLimitPerDayWithKyc"];</code>
    * @return The offlinePurchaseLimitPerDayWithKyc.
    */
   @java.lang.Override
@@ -113,7 +113,7 @@ private static final long serialVersionUID = 0L;
    * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
    * </pre>
    *
-   * <code>int32 offline_purchase_limit_per_day_without_kyc = 11 [json_name = "offlinePurchaseLimitPerDayWithoutKyc", (.buf.validate.field) = { ... }</code>
+   * <code>int32 offline_purchase_limit_per_day_without_kyc = 11 [json_name = "offlinePurchaseLimitPerDayWithoutKyc"];</code>
    * @return The offlinePurchaseLimitPerDayWithoutKyc.
    */
   @java.lang.Override
@@ -129,7 +129,7 @@ private static final long serialVersionUID = 0L;
    * Corresponds to Bankpay PaymentType=03 (継続課金)
    * </pre>
    *
-   * <code>int32 subscription_purchase_limit_per_charge_with_kyc = 20 [json_name = "subscriptionPurchaseLimitPerChargeWithKyc", (.buf.validate.field) = { ... }</code>
+   * <code>int32 subscription_purchase_limit_per_charge_with_kyc = 20 [json_name = "subscriptionPurchaseLimitPerChargeWithKyc"];</code>
    * @return The subscriptionPurchaseLimitPerChargeWithKyc.
    */
   @java.lang.Override
@@ -145,7 +145,7 @@ private static final long serialVersionUID = 0L;
    * Corresponds to Bankpay PaymentType=03 (継続課金)
    * </pre>
    *
-   * <code>int32 subscription_purchase_limit_per_charge_without_kyc = 21 [json_name = "subscriptionPurchaseLimitPerChargeWithoutKyc", (.buf.validate.field) = { ... }</code>
+   * <code>int32 subscription_purchase_limit_per_charge_without_kyc = 21 [json_name = "subscriptionPurchaseLimitPerChargeWithoutKyc"];</code>
    * @return The subscriptionPurchaseLimitPerChargeWithoutKyc.
    */
   @java.lang.Override
@@ -161,7 +161,7 @@ private static final long serialVersionUID = 0L;
    * Corresponds to Bankpay PaymentType=03 (継続課金)
    * </pre>
    *
-   * <code>int32 subscription_purchase_limit_per_day_with_kyc = 30 [json_name = "subscriptionPurchaseLimitPerDayWithKyc", (.buf.validate.field) = { ... }</code>
+   * <code>int32 subscription_purchase_limit_per_day_with_kyc = 30 [json_name = "subscriptionPurchaseLimitPerDayWithKyc"];</code>
    * @return The subscriptionPurchaseLimitPerDayWithKyc.
    */
   @java.lang.Override
@@ -177,7 +177,7 @@ private static final long serialVersionUID = 0L;
    * Corresponds to Bankpay PaymentType=03 (継続課金)
    * </pre>
    *
-   * <code>int32 subscription_purchase_limit_per_day_without_kyc = 31 [json_name = "subscriptionPurchaseLimitPerDayWithoutKyc", (.buf.validate.field) = { ... }</code>
+   * <code>int32 subscription_purchase_limit_per_day_without_kyc = 31 [json_name = "subscriptionPurchaseLimitPerDayWithoutKyc"];</code>
    * @return The subscriptionPurchaseLimitPerDayWithoutKyc.
    */
   @java.lang.Override
@@ -655,7 +655,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
      * </pre>
      *
-     * <code>int32 offline_purchase_limit_per_charge_with_kyc = 1 [json_name = "offlinePurchaseLimitPerChargeWithKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 offline_purchase_limit_per_charge_with_kyc = 1 [json_name = "offlinePurchaseLimitPerChargeWithKyc"];</code>
      * @return The offlinePurchaseLimitPerChargeWithKyc.
      */
     @java.lang.Override
@@ -668,7 +668,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
      * </pre>
      *
-     * <code>int32 offline_purchase_limit_per_charge_with_kyc = 1 [json_name = "offlinePurchaseLimitPerChargeWithKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 offline_purchase_limit_per_charge_with_kyc = 1 [json_name = "offlinePurchaseLimitPerChargeWithKyc"];</code>
      * @param value The offlinePurchaseLimitPerChargeWithKyc to set.
      * @return This builder for chaining.
      */
@@ -685,7 +685,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
      * </pre>
      *
-     * <code>int32 offline_purchase_limit_per_charge_with_kyc = 1 [json_name = "offlinePurchaseLimitPerChargeWithKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 offline_purchase_limit_per_charge_with_kyc = 1 [json_name = "offlinePurchaseLimitPerChargeWithKyc"];</code>
      * @return This builder for chaining.
      */
     public Builder clearOfflinePurchaseLimitPerChargeWithKyc() {
@@ -702,7 +702,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
      * </pre>
      *
-     * <code>int32 offline_purchase_limit_per_charge_without_kyc = 2 [json_name = "offlinePurchaseLimitPerChargeWithoutKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 offline_purchase_limit_per_charge_without_kyc = 2 [json_name = "offlinePurchaseLimitPerChargeWithoutKyc"];</code>
      * @return The offlinePurchaseLimitPerChargeWithoutKyc.
      */
     @java.lang.Override
@@ -715,7 +715,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
      * </pre>
      *
-     * <code>int32 offline_purchase_limit_per_charge_without_kyc = 2 [json_name = "offlinePurchaseLimitPerChargeWithoutKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 offline_purchase_limit_per_charge_without_kyc = 2 [json_name = "offlinePurchaseLimitPerChargeWithoutKyc"];</code>
      * @param value The offlinePurchaseLimitPerChargeWithoutKyc to set.
      * @return This builder for chaining.
      */
@@ -732,7 +732,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
      * </pre>
      *
-     * <code>int32 offline_purchase_limit_per_charge_without_kyc = 2 [json_name = "offlinePurchaseLimitPerChargeWithoutKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 offline_purchase_limit_per_charge_without_kyc = 2 [json_name = "offlinePurchaseLimitPerChargeWithoutKyc"];</code>
      * @return This builder for chaining.
      */
     public Builder clearOfflinePurchaseLimitPerChargeWithoutKyc() {
@@ -749,7 +749,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
      * </pre>
      *
-     * <code>int32 offline_purchase_limit_per_day_with_kyc = 10 [json_name = "offlinePurchaseLimitPerDayWithKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 offline_purchase_limit_per_day_with_kyc = 10 [json_name = "offlinePurchaseLimitPerDayWithKyc"];</code>
      * @return The offlinePurchaseLimitPerDayWithKyc.
      */
     @java.lang.Override
@@ -762,7 +762,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
      * </pre>
      *
-     * <code>int32 offline_purchase_limit_per_day_with_kyc = 10 [json_name = "offlinePurchaseLimitPerDayWithKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 offline_purchase_limit_per_day_with_kyc = 10 [json_name = "offlinePurchaseLimitPerDayWithKyc"];</code>
      * @param value The offlinePurchaseLimitPerDayWithKyc to set.
      * @return This builder for chaining.
      */
@@ -779,7 +779,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
      * </pre>
      *
-     * <code>int32 offline_purchase_limit_per_day_with_kyc = 10 [json_name = "offlinePurchaseLimitPerDayWithKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 offline_purchase_limit_per_day_with_kyc = 10 [json_name = "offlinePurchaseLimitPerDayWithKyc"];</code>
      * @return This builder for chaining.
      */
     public Builder clearOfflinePurchaseLimitPerDayWithKyc() {
@@ -796,7 +796,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
      * </pre>
      *
-     * <code>int32 offline_purchase_limit_per_day_without_kyc = 11 [json_name = "offlinePurchaseLimitPerDayWithoutKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 offline_purchase_limit_per_day_without_kyc = 11 [json_name = "offlinePurchaseLimitPerDayWithoutKyc"];</code>
      * @return The offlinePurchaseLimitPerDayWithoutKyc.
      */
     @java.lang.Override
@@ -809,7 +809,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
      * </pre>
      *
-     * <code>int32 offline_purchase_limit_per_day_without_kyc = 11 [json_name = "offlinePurchaseLimitPerDayWithoutKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 offline_purchase_limit_per_day_without_kyc = 11 [json_name = "offlinePurchaseLimitPerDayWithoutKyc"];</code>
      * @param value The offlinePurchaseLimitPerDayWithoutKyc to set.
      * @return This builder for chaining.
      */
@@ -826,7 +826,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=02 (非対面都度決済)
      * </pre>
      *
-     * <code>int32 offline_purchase_limit_per_day_without_kyc = 11 [json_name = "offlinePurchaseLimitPerDayWithoutKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 offline_purchase_limit_per_day_without_kyc = 11 [json_name = "offlinePurchaseLimitPerDayWithoutKyc"];</code>
      * @return This builder for chaining.
      */
     public Builder clearOfflinePurchaseLimitPerDayWithoutKyc() {
@@ -843,7 +843,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=03 (継続課金)
      * </pre>
      *
-     * <code>int32 subscription_purchase_limit_per_charge_with_kyc = 20 [json_name = "subscriptionPurchaseLimitPerChargeWithKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 subscription_purchase_limit_per_charge_with_kyc = 20 [json_name = "subscriptionPurchaseLimitPerChargeWithKyc"];</code>
      * @return The subscriptionPurchaseLimitPerChargeWithKyc.
      */
     @java.lang.Override
@@ -856,7 +856,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=03 (継続課金)
      * </pre>
      *
-     * <code>int32 subscription_purchase_limit_per_charge_with_kyc = 20 [json_name = "subscriptionPurchaseLimitPerChargeWithKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 subscription_purchase_limit_per_charge_with_kyc = 20 [json_name = "subscriptionPurchaseLimitPerChargeWithKyc"];</code>
      * @param value The subscriptionPurchaseLimitPerChargeWithKyc to set.
      * @return This builder for chaining.
      */
@@ -873,7 +873,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=03 (継続課金)
      * </pre>
      *
-     * <code>int32 subscription_purchase_limit_per_charge_with_kyc = 20 [json_name = "subscriptionPurchaseLimitPerChargeWithKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 subscription_purchase_limit_per_charge_with_kyc = 20 [json_name = "subscriptionPurchaseLimitPerChargeWithKyc"];</code>
      * @return This builder for chaining.
      */
     public Builder clearSubscriptionPurchaseLimitPerChargeWithKyc() {
@@ -890,7 +890,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=03 (継続課金)
      * </pre>
      *
-     * <code>int32 subscription_purchase_limit_per_charge_without_kyc = 21 [json_name = "subscriptionPurchaseLimitPerChargeWithoutKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 subscription_purchase_limit_per_charge_without_kyc = 21 [json_name = "subscriptionPurchaseLimitPerChargeWithoutKyc"];</code>
      * @return The subscriptionPurchaseLimitPerChargeWithoutKyc.
      */
     @java.lang.Override
@@ -903,7 +903,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=03 (継続課金)
      * </pre>
      *
-     * <code>int32 subscription_purchase_limit_per_charge_without_kyc = 21 [json_name = "subscriptionPurchaseLimitPerChargeWithoutKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 subscription_purchase_limit_per_charge_without_kyc = 21 [json_name = "subscriptionPurchaseLimitPerChargeWithoutKyc"];</code>
      * @param value The subscriptionPurchaseLimitPerChargeWithoutKyc to set.
      * @return This builder for chaining.
      */
@@ -920,7 +920,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=03 (継続課金)
      * </pre>
      *
-     * <code>int32 subscription_purchase_limit_per_charge_without_kyc = 21 [json_name = "subscriptionPurchaseLimitPerChargeWithoutKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 subscription_purchase_limit_per_charge_without_kyc = 21 [json_name = "subscriptionPurchaseLimitPerChargeWithoutKyc"];</code>
      * @return This builder for chaining.
      */
     public Builder clearSubscriptionPurchaseLimitPerChargeWithoutKyc() {
@@ -937,7 +937,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=03 (継続課金)
      * </pre>
      *
-     * <code>int32 subscription_purchase_limit_per_day_with_kyc = 30 [json_name = "subscriptionPurchaseLimitPerDayWithKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 subscription_purchase_limit_per_day_with_kyc = 30 [json_name = "subscriptionPurchaseLimitPerDayWithKyc"];</code>
      * @return The subscriptionPurchaseLimitPerDayWithKyc.
      */
     @java.lang.Override
@@ -950,7 +950,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=03 (継続課金)
      * </pre>
      *
-     * <code>int32 subscription_purchase_limit_per_day_with_kyc = 30 [json_name = "subscriptionPurchaseLimitPerDayWithKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 subscription_purchase_limit_per_day_with_kyc = 30 [json_name = "subscriptionPurchaseLimitPerDayWithKyc"];</code>
      * @param value The subscriptionPurchaseLimitPerDayWithKyc to set.
      * @return This builder for chaining.
      */
@@ -967,7 +967,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=03 (継続課金)
      * </pre>
      *
-     * <code>int32 subscription_purchase_limit_per_day_with_kyc = 30 [json_name = "subscriptionPurchaseLimitPerDayWithKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 subscription_purchase_limit_per_day_with_kyc = 30 [json_name = "subscriptionPurchaseLimitPerDayWithKyc"];</code>
      * @return This builder for chaining.
      */
     public Builder clearSubscriptionPurchaseLimitPerDayWithKyc() {
@@ -984,7 +984,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=03 (継続課金)
      * </pre>
      *
-     * <code>int32 subscription_purchase_limit_per_day_without_kyc = 31 [json_name = "subscriptionPurchaseLimitPerDayWithoutKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 subscription_purchase_limit_per_day_without_kyc = 31 [json_name = "subscriptionPurchaseLimitPerDayWithoutKyc"];</code>
      * @return The subscriptionPurchaseLimitPerDayWithoutKyc.
      */
     @java.lang.Override
@@ -997,7 +997,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=03 (継続課金)
      * </pre>
      *
-     * <code>int32 subscription_purchase_limit_per_day_without_kyc = 31 [json_name = "subscriptionPurchaseLimitPerDayWithoutKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 subscription_purchase_limit_per_day_without_kyc = 31 [json_name = "subscriptionPurchaseLimitPerDayWithoutKyc"];</code>
      * @param value The subscriptionPurchaseLimitPerDayWithoutKyc to set.
      * @return This builder for chaining.
      */
@@ -1014,7 +1014,7 @@ private static final long serialVersionUID = 0L;
      * Corresponds to Bankpay PaymentType=03 (継続課金)
      * </pre>
      *
-     * <code>int32 subscription_purchase_limit_per_day_without_kyc = 31 [json_name = "subscriptionPurchaseLimitPerDayWithoutKyc", (.buf.validate.field) = { ... }</code>
+     * <code>int32 subscription_purchase_limit_per_day_without_kyc = 31 [json_name = "subscriptionPurchaseLimitPerDayWithoutKyc"];</code>
      * @return This builder for chaining.
      */
     public Builder clearSubscriptionPurchaseLimitPerDayWithoutKyc() {

@@ -16,7 +16,7 @@ public interface WithdrawAsyncStatusResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.AsyncStatus status = 1 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.AsyncStatus status = 1 [json_name = "status"];</code>
    * @return The enum numeric value on the wire for status.
    */
   int getStatusValue();
@@ -26,7 +26,7 @@ public interface WithdrawAsyncStatusResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.AsyncStatus status = 1 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.AsyncStatus status = 1 [json_name = "status"];</code>
    * @return The status.
    */
   com.api.v1.AsyncStatus getStatus();
@@ -37,7 +37,7 @@ public interface WithdrawAsyncStatusResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Customer customer = 2 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 2 [json_name = "customer"];</code>
    * @return Whether the customer field is set.
    */
   boolean hasCustomer();
@@ -47,7 +47,7 @@ public interface WithdrawAsyncStatusResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Customer customer = 2 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 2 [json_name = "customer"];</code>
    * @return The customer.
    */
   com.api.v1.Customer getCustomer();
@@ -57,7 +57,7 @@ public interface WithdrawAsyncStatusResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Customer customer = 2 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 2 [json_name = "customer"];</code>
    */
   com.api.v1.CustomerOrBuilder getCustomerOrBuilder();
 

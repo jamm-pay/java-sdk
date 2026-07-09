@@ -11,36 +11,36 @@ public interface TrustdockDataOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   java.lang.String getId();
   /**
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
       getIdBytes();
 
   /**
-   * <code>string public_id = 2 [json_name = "publicId", (.buf.validate.field) = { ... }</code>
+   * <code>string public_id = 2 [json_name = "publicId"];</code>
    * @return The publicId.
    */
   java.lang.String getPublicId();
   /**
-   * <code>string public_id = 2 [json_name = "publicId", (.buf.validate.field) = { ... }</code>
+   * <code>string public_id = 2 [json_name = "publicId"];</code>
    * @return The bytes for publicId.
    */
   com.google.protobuf.ByteString
       getPublicIdBytes();
 
   /**
-   * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>string state = 3 [json_name = "state"];</code>
    * @return The state.
    */
   java.lang.String getState();
   /**
-   * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>string state = 3 [json_name = "state"];</code>
    * @return The bytes for state.
    */
   com.google.protobuf.ByteString
@@ -59,17 +59,17 @@ public interface TrustdockDataOrBuilder extends
       getResultBytes();
 
   /**
-   * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt"];</code>
    * @return Whether the acceptedAt field is set.
    */
   boolean hasAcceptedAt();
   /**
-   * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt"];</code>
    * @return The acceptedAt.
    */
   com.google.protobuf.Timestamp getAcceptedAt();
   /**
-   * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getAcceptedAtOrBuilder();
 

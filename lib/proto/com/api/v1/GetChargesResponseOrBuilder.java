@@ -59,7 +59,7 @@ public interface GetChargesResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Customer customer = 2 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 2 [json_name = "customer"];</code>
    * @return Whether the customer field is set.
    */
   boolean hasCustomer();
@@ -68,7 +68,7 @@ public interface GetChargesResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Customer customer = 2 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 2 [json_name = "customer"];</code>
    * @return The customer.
    */
   com.api.v1.Customer getCustomer();
@@ -77,7 +77,7 @@ public interface GetChargesResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Customer customer = 2 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 2 [json_name = "customer"];</code>
    */
   com.api.v1.CustomerOrBuilder getCustomerOrBuilder();
 
@@ -86,7 +86,7 @@ public interface GetChargesResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Pagination pagination = 3 [json_name = "pagination", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Pagination pagination = 3 [json_name = "pagination"];</code>
    * @return Whether the pagination field is set.
    */
   boolean hasPagination();
@@ -95,7 +95,7 @@ public interface GetChargesResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Pagination pagination = 3 [json_name = "pagination", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Pagination pagination = 3 [json_name = "pagination"];</code>
    * @return The pagination.
    */
   com.api.v1.Pagination getPagination();
@@ -104,7 +104,7 @@ public interface GetChargesResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Pagination pagination = 3 [json_name = "pagination", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Pagination pagination = 3 [json_name = "pagination"];</code>
    */
   com.api.v1.PaginationOrBuilder getPaginationOrBuilder();
 }

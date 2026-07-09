@@ -70,7 +70,7 @@ private static final long serialVersionUID = 0L;
    * Bank code, e.g. "0001"
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+   * <code>string code = 1 [json_name = "code"];</code>
    * @return The code.
    */
   @java.lang.Override
@@ -91,7 +91,7 @@ private static final long serialVersionUID = 0L;
    * Bank code, e.g. "0001"
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+   * <code>string code = 1 [json_name = "code"];</code>
    * @return The bytes for code.
    */
   @java.lang.Override
@@ -117,7 +117,7 @@ private static final long serialVersionUID = 0L;
    * Official name of the bank, e.g. "みずほ銀行"
    * </pre>
    *
-   * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>string name = 2 [json_name = "name"];</code>
    * @return The name.
    */
   @java.lang.Override
@@ -138,7 +138,7 @@ private static final long serialVersionUID = 0L;
    * Official name of the bank, e.g. "みずほ銀行"
    * </pre>
    *
-   * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>string name = 2 [json_name = "name"];</code>
    * @return The bytes for name.
    */
   @java.lang.Override
@@ -164,7 +164,7 @@ private static final long serialVersionUID = 0L;
    * Katakana name of the bank, e.g. "ミズホギンコウ"
    * </pre>
    *
-   * <code>string name_katakana = 3 [json_name = "nameKatakana", (.buf.validate.field) = { ... }</code>
+   * <code>string name_katakana = 3 [json_name = "nameKatakana"];</code>
    * @return The nameKatakana.
    */
   @java.lang.Override
@@ -185,7 +185,7 @@ private static final long serialVersionUID = 0L;
    * Katakana name of the bank, e.g. "ミズホギンコウ"
    * </pre>
    *
-   * <code>string name_katakana = 3 [json_name = "nameKatakana", (.buf.validate.field) = { ... }</code>
+   * <code>string name_katakana = 3 [json_name = "nameKatakana"];</code>
    * @return The bytes for nameKatakana.
    */
   @java.lang.Override
@@ -211,7 +211,7 @@ private static final long serialVersionUID = 0L;
    * Hiragana name of the bank, e.g. "みずほぎんこう"
    * </pre>
    *
-   * <code>string name_hiragana = 4 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+   * <code>string name_hiragana = 4 [json_name = "nameHiragana"];</code>
    * @return The nameHiragana.
    */
   @java.lang.Override
@@ -232,7 +232,7 @@ private static final long serialVersionUID = 0L;
    * Hiragana name of the bank, e.g. "みずほぎんこう"
    * </pre>
    *
-   * <code>string name_hiragana = 4 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+   * <code>string name_hiragana = 4 [json_name = "nameHiragana"];</code>
    * @return The bytes for nameHiragana.
    */
   @java.lang.Override
@@ -258,7 +258,7 @@ private static final long serialVersionUID = 0L;
    * Alphabet name of the bank, e.g. "Mizuho Bank"
    * </pre>
    *
-   * <code>string name_alphabet = 5 [json_name = "nameAlphabet", (.buf.validate.field) = { ... }</code>
+   * <code>string name_alphabet = 5 [json_name = "nameAlphabet"];</code>
    * @return The nameAlphabet.
    */
   @java.lang.Override
@@ -279,7 +279,7 @@ private static final long serialVersionUID = 0L;
    * Alphabet name of the bank, e.g. "Mizuho Bank"
    * </pre>
    *
-   * <code>string name_alphabet = 5 [json_name = "nameAlphabet", (.buf.validate.field) = { ... }</code>
+   * <code>string name_alphabet = 5 [json_name = "nameAlphabet"];</code>
    * @return The bytes for nameAlphabet.
    */
   @java.lang.Override
@@ -304,7 +304,7 @@ private static final long serialVersionUID = 0L;
    * Contains bank brand assets and metadata (e.g. Terms URL and Logo)
    * </pre>
    *
-   * <code>.common.v1.BankAssets assets = 11 [json_name = "assets", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.BankAssets assets = 11 [json_name = "assets"];</code>
    * @return Whether the assets field is set.
    */
   @java.lang.Override
@@ -316,7 +316,7 @@ private static final long serialVersionUID = 0L;
    * Contains bank brand assets and metadata (e.g. Terms URL and Logo)
    * </pre>
    *
-   * <code>.common.v1.BankAssets assets = 11 [json_name = "assets", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.BankAssets assets = 11 [json_name = "assets"];</code>
    * @return The assets.
    */
   @java.lang.Override
@@ -328,7 +328,7 @@ private static final long serialVersionUID = 0L;
    * Contains bank brand assets and metadata (e.g. Terms URL and Logo)
    * </pre>
    *
-   * <code>.common.v1.BankAssets assets = 11 [json_name = "assets", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.BankAssets assets = 11 [json_name = "assets"];</code>
    */
   @java.lang.Override
   public com.common.v1.BankAssetsOrBuilder getAssetsOrBuilder() {
@@ -342,7 +342,7 @@ private static final long serialVersionUID = 0L;
    * Quota of the bank.
    * </pre>
    *
-   * <code>.common.v1.BankQuota quota = 20 [json_name = "quota", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.BankQuota quota = 20 [json_name = "quota"];</code>
    * @return Whether the quota field is set.
    */
   @java.lang.Override
@@ -354,7 +354,7 @@ private static final long serialVersionUID = 0L;
    * Quota of the bank.
    * </pre>
    *
-   * <code>.common.v1.BankQuota quota = 20 [json_name = "quota", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.BankQuota quota = 20 [json_name = "quota"];</code>
    * @return The quota.
    */
   @java.lang.Override
@@ -366,7 +366,7 @@ private static final long serialVersionUID = 0L;
    * Quota of the bank.
    * </pre>
    *
-   * <code>.common.v1.BankQuota quota = 20 [json_name = "quota", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.BankQuota quota = 20 [json_name = "quota"];</code>
    */
   @java.lang.Override
   public com.common.v1.BankQuotaOrBuilder getQuotaOrBuilder() {
@@ -377,7 +377,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object openingHours_ = "";
   /**
-   * <code>string opening_hours = 30 [json_name = "openingHours", (.buf.validate.field) = { ... }</code>
+   * <code>string opening_hours = 30 [json_name = "openingHours"];</code>
    * @return The openingHours.
    */
   @java.lang.Override
@@ -394,7 +394,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string opening_hours = 30 [json_name = "openingHours", (.buf.validate.field) = { ... }</code>
+   * <code>string opening_hours = 30 [json_name = "openingHours"];</code>
    * @return The bytes for openingHours.
    */
   @java.lang.Override
@@ -1428,7 +1428,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+     * <code>string code = 1 [json_name = "code"];</code>
      * @return The code.
      */
     public java.lang.String getCode() {
@@ -1448,7 +1448,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+     * <code>string code = 1 [json_name = "code"];</code>
      * @return The bytes for code.
      */
     public com.google.protobuf.ByteString
@@ -1469,7 +1469,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+     * <code>string code = 1 [json_name = "code"];</code>
      * @param value The code to set.
      * @return This builder for chaining.
      */
@@ -1486,7 +1486,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+     * <code>string code = 1 [json_name = "code"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCode() {
@@ -1500,7 +1500,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+     * <code>string code = 1 [json_name = "code"];</code>
      * @param value The bytes for code to set.
      * @return This builder for chaining.
      */
@@ -1520,7 +1520,7 @@ private static final long serialVersionUID = 0L;
      * Official name of the bank, e.g. "みずほ銀行"
      * </pre>
      *
-     * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * <code>string name = 2 [json_name = "name"];</code>
      * @return The name.
      */
     public java.lang.String getName() {
@@ -1540,7 +1540,7 @@ private static final long serialVersionUID = 0L;
      * Official name of the bank, e.g. "みずほ銀行"
      * </pre>
      *
-     * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * <code>string name = 2 [json_name = "name"];</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
@@ -1561,7 +1561,7 @@ private static final long serialVersionUID = 0L;
      * Official name of the bank, e.g. "みずほ銀行"
      * </pre>
      *
-     * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * <code>string name = 2 [json_name = "name"];</code>
      * @param value The name to set.
      * @return This builder for chaining.
      */
@@ -1578,7 +1578,7 @@ private static final long serialVersionUID = 0L;
      * Official name of the bank, e.g. "みずほ銀行"
      * </pre>
      *
-     * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * <code>string name = 2 [json_name = "name"];</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
@@ -1592,7 +1592,7 @@ private static final long serialVersionUID = 0L;
      * Official name of the bank, e.g. "みずほ銀行"
      * </pre>
      *
-     * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * <code>string name = 2 [json_name = "name"];</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
@@ -1612,7 +1612,7 @@ private static final long serialVersionUID = 0L;
      * Katakana name of the bank, e.g. "ミズホギンコウ"
      * </pre>
      *
-     * <code>string name_katakana = 3 [json_name = "nameKatakana", (.buf.validate.field) = { ... }</code>
+     * <code>string name_katakana = 3 [json_name = "nameKatakana"];</code>
      * @return The nameKatakana.
      */
     public java.lang.String getNameKatakana() {
@@ -1632,7 +1632,7 @@ private static final long serialVersionUID = 0L;
      * Katakana name of the bank, e.g. "ミズホギンコウ"
      * </pre>
      *
-     * <code>string name_katakana = 3 [json_name = "nameKatakana", (.buf.validate.field) = { ... }</code>
+     * <code>string name_katakana = 3 [json_name = "nameKatakana"];</code>
      * @return The bytes for nameKatakana.
      */
     public com.google.protobuf.ByteString
@@ -1653,7 +1653,7 @@ private static final long serialVersionUID = 0L;
      * Katakana name of the bank, e.g. "ミズホギンコウ"
      * </pre>
      *
-     * <code>string name_katakana = 3 [json_name = "nameKatakana", (.buf.validate.field) = { ... }</code>
+     * <code>string name_katakana = 3 [json_name = "nameKatakana"];</code>
      * @param value The nameKatakana to set.
      * @return This builder for chaining.
      */
@@ -1670,7 +1670,7 @@ private static final long serialVersionUID = 0L;
      * Katakana name of the bank, e.g. "ミズホギンコウ"
      * </pre>
      *
-     * <code>string name_katakana = 3 [json_name = "nameKatakana", (.buf.validate.field) = { ... }</code>
+     * <code>string name_katakana = 3 [json_name = "nameKatakana"];</code>
      * @return This builder for chaining.
      */
     public Builder clearNameKatakana() {
@@ -1684,7 +1684,7 @@ private static final long serialVersionUID = 0L;
      * Katakana name of the bank, e.g. "ミズホギンコウ"
      * </pre>
      *
-     * <code>string name_katakana = 3 [json_name = "nameKatakana", (.buf.validate.field) = { ... }</code>
+     * <code>string name_katakana = 3 [json_name = "nameKatakana"];</code>
      * @param value The bytes for nameKatakana to set.
      * @return This builder for chaining.
      */
@@ -1704,7 +1704,7 @@ private static final long serialVersionUID = 0L;
      * Hiragana name of the bank, e.g. "みずほぎんこう"
      * </pre>
      *
-     * <code>string name_hiragana = 4 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+     * <code>string name_hiragana = 4 [json_name = "nameHiragana"];</code>
      * @return The nameHiragana.
      */
     public java.lang.String getNameHiragana() {
@@ -1724,7 +1724,7 @@ private static final long serialVersionUID = 0L;
      * Hiragana name of the bank, e.g. "みずほぎんこう"
      * </pre>
      *
-     * <code>string name_hiragana = 4 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+     * <code>string name_hiragana = 4 [json_name = "nameHiragana"];</code>
      * @return The bytes for nameHiragana.
      */
     public com.google.protobuf.ByteString
@@ -1745,7 +1745,7 @@ private static final long serialVersionUID = 0L;
      * Hiragana name of the bank, e.g. "みずほぎんこう"
      * </pre>
      *
-     * <code>string name_hiragana = 4 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+     * <code>string name_hiragana = 4 [json_name = "nameHiragana"];</code>
      * @param value The nameHiragana to set.
      * @return This builder for chaining.
      */
@@ -1762,7 +1762,7 @@ private static final long serialVersionUID = 0L;
      * Hiragana name of the bank, e.g. "みずほぎんこう"
      * </pre>
      *
-     * <code>string name_hiragana = 4 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+     * <code>string name_hiragana = 4 [json_name = "nameHiragana"];</code>
      * @return This builder for chaining.
      */
     public Builder clearNameHiragana() {
@@ -1776,7 +1776,7 @@ private static final long serialVersionUID = 0L;
      * Hiragana name of the bank, e.g. "みずほぎんこう"
      * </pre>
      *
-     * <code>string name_hiragana = 4 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+     * <code>string name_hiragana = 4 [json_name = "nameHiragana"];</code>
      * @param value The bytes for nameHiragana to set.
      * @return This builder for chaining.
      */
@@ -1796,7 +1796,7 @@ private static final long serialVersionUID = 0L;
      * Alphabet name of the bank, e.g. "Mizuho Bank"
      * </pre>
      *
-     * <code>string name_alphabet = 5 [json_name = "nameAlphabet", (.buf.validate.field) = { ... }</code>
+     * <code>string name_alphabet = 5 [json_name = "nameAlphabet"];</code>
      * @return The nameAlphabet.
      */
     public java.lang.String getNameAlphabet() {
@@ -1816,7 +1816,7 @@ private static final long serialVersionUID = 0L;
      * Alphabet name of the bank, e.g. "Mizuho Bank"
      * </pre>
      *
-     * <code>string name_alphabet = 5 [json_name = "nameAlphabet", (.buf.validate.field) = { ... }</code>
+     * <code>string name_alphabet = 5 [json_name = "nameAlphabet"];</code>
      * @return The bytes for nameAlphabet.
      */
     public com.google.protobuf.ByteString
@@ -1837,7 +1837,7 @@ private static final long serialVersionUID = 0L;
      * Alphabet name of the bank, e.g. "Mizuho Bank"
      * </pre>
      *
-     * <code>string name_alphabet = 5 [json_name = "nameAlphabet", (.buf.validate.field) = { ... }</code>
+     * <code>string name_alphabet = 5 [json_name = "nameAlphabet"];</code>
      * @param value The nameAlphabet to set.
      * @return This builder for chaining.
      */
@@ -1854,7 +1854,7 @@ private static final long serialVersionUID = 0L;
      * Alphabet name of the bank, e.g. "Mizuho Bank"
      * </pre>
      *
-     * <code>string name_alphabet = 5 [json_name = "nameAlphabet", (.buf.validate.field) = { ... }</code>
+     * <code>string name_alphabet = 5 [json_name = "nameAlphabet"];</code>
      * @return This builder for chaining.
      */
     public Builder clearNameAlphabet() {
@@ -1868,7 +1868,7 @@ private static final long serialVersionUID = 0L;
      * Alphabet name of the bank, e.g. "Mizuho Bank"
      * </pre>
      *
-     * <code>string name_alphabet = 5 [json_name = "nameAlphabet", (.buf.validate.field) = { ... }</code>
+     * <code>string name_alphabet = 5 [json_name = "nameAlphabet"];</code>
      * @param value The bytes for nameAlphabet to set.
      * @return This builder for chaining.
      */
@@ -1890,7 +1890,7 @@ private static final long serialVersionUID = 0L;
      * Contains bank brand assets and metadata (e.g. Terms URL and Logo)
      * </pre>
      *
-     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets"];</code>
      * @return Whether the assets field is set.
      */
     public boolean hasAssets() {
@@ -1901,7 +1901,7 @@ private static final long serialVersionUID = 0L;
      * Contains bank brand assets and metadata (e.g. Terms URL and Logo)
      * </pre>
      *
-     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets"];</code>
      * @return The assets.
      */
     public com.common.v1.BankAssets getAssets() {
@@ -1916,7 +1916,7 @@ private static final long serialVersionUID = 0L;
      * Contains bank brand assets and metadata (e.g. Terms URL and Logo)
      * </pre>
      *
-     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets"];</code>
      */
     public Builder setAssets(com.common.v1.BankAssets value) {
       if (assetsBuilder_ == null) {
@@ -1936,7 +1936,7 @@ private static final long serialVersionUID = 0L;
      * Contains bank brand assets and metadata (e.g. Terms URL and Logo)
      * </pre>
      *
-     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets"];</code>
      */
     public Builder setAssets(
         com.common.v1.BankAssets.Builder builderForValue) {
@@ -1954,7 +1954,7 @@ private static final long serialVersionUID = 0L;
      * Contains bank brand assets and metadata (e.g. Terms URL and Logo)
      * </pre>
      *
-     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets"];</code>
      */
     public Builder mergeAssets(com.common.v1.BankAssets value) {
       if (assetsBuilder_ == null) {
@@ -1979,7 +1979,7 @@ private static final long serialVersionUID = 0L;
      * Contains bank brand assets and metadata (e.g. Terms URL and Logo)
      * </pre>
      *
-     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets"];</code>
      */
     public Builder clearAssets() {
       bitField0_ = (bitField0_ & ~0x00000020);
@@ -1996,7 +1996,7 @@ private static final long serialVersionUID = 0L;
      * Contains bank brand assets and metadata (e.g. Terms URL and Logo)
      * </pre>
      *
-     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets"];</code>
      */
     public com.common.v1.BankAssets.Builder getAssetsBuilder() {
       bitField0_ |= 0x00000020;
@@ -2008,7 +2008,7 @@ private static final long serialVersionUID = 0L;
      * Contains bank brand assets and metadata (e.g. Terms URL and Logo)
      * </pre>
      *
-     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets"];</code>
      */
     public com.common.v1.BankAssetsOrBuilder getAssetsOrBuilder() {
       if (assetsBuilder_ != null) {
@@ -2023,7 +2023,7 @@ private static final long serialVersionUID = 0L;
      * Contains bank brand assets and metadata (e.g. Terms URL and Logo)
      * </pre>
      *
-     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankAssets assets = 11 [json_name = "assets"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.common.v1.BankAssets, com.common.v1.BankAssets.Builder, com.common.v1.BankAssetsOrBuilder> 
@@ -2047,7 +2047,7 @@ private static final long serialVersionUID = 0L;
      * Quota of the bank.
      * </pre>
      *
-     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota"];</code>
      * @return Whether the quota field is set.
      */
     public boolean hasQuota() {
@@ -2058,7 +2058,7 @@ private static final long serialVersionUID = 0L;
      * Quota of the bank.
      * </pre>
      *
-     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota"];</code>
      * @return The quota.
      */
     public com.common.v1.BankQuota getQuota() {
@@ -2073,7 +2073,7 @@ private static final long serialVersionUID = 0L;
      * Quota of the bank.
      * </pre>
      *
-     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota"];</code>
      */
     public Builder setQuota(com.common.v1.BankQuota value) {
       if (quotaBuilder_ == null) {
@@ -2093,7 +2093,7 @@ private static final long serialVersionUID = 0L;
      * Quota of the bank.
      * </pre>
      *
-     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota"];</code>
      */
     public Builder setQuota(
         com.common.v1.BankQuota.Builder builderForValue) {
@@ -2111,7 +2111,7 @@ private static final long serialVersionUID = 0L;
      * Quota of the bank.
      * </pre>
      *
-     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota"];</code>
      */
     public Builder mergeQuota(com.common.v1.BankQuota value) {
       if (quotaBuilder_ == null) {
@@ -2136,7 +2136,7 @@ private static final long serialVersionUID = 0L;
      * Quota of the bank.
      * </pre>
      *
-     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota"];</code>
      */
     public Builder clearQuota() {
       bitField0_ = (bitField0_ & ~0x00000040);
@@ -2153,7 +2153,7 @@ private static final long serialVersionUID = 0L;
      * Quota of the bank.
      * </pre>
      *
-     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota"];</code>
      */
     public com.common.v1.BankQuota.Builder getQuotaBuilder() {
       bitField0_ |= 0x00000040;
@@ -2165,7 +2165,7 @@ private static final long serialVersionUID = 0L;
      * Quota of the bank.
      * </pre>
      *
-     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota"];</code>
      */
     public com.common.v1.BankQuotaOrBuilder getQuotaOrBuilder() {
       if (quotaBuilder_ != null) {
@@ -2180,7 +2180,7 @@ private static final long serialVersionUID = 0L;
      * Quota of the bank.
      * </pre>
      *
-     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota", (.buf.validate.field) = { ... }</code>
+     * <code>.common.v1.BankQuota quota = 20 [json_name = "quota"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.common.v1.BankQuota, com.common.v1.BankQuota.Builder, com.common.v1.BankQuotaOrBuilder> 
@@ -2198,7 +2198,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object openingHours_ = "";
     /**
-     * <code>string opening_hours = 30 [json_name = "openingHours", (.buf.validate.field) = { ... }</code>
+     * <code>string opening_hours = 30 [json_name = "openingHours"];</code>
      * @return The openingHours.
      */
     public java.lang.String getOpeningHours() {
@@ -2214,7 +2214,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string opening_hours = 30 [json_name = "openingHours", (.buf.validate.field) = { ... }</code>
+     * <code>string opening_hours = 30 [json_name = "openingHours"];</code>
      * @return The bytes for openingHours.
      */
     public com.google.protobuf.ByteString
@@ -2231,7 +2231,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string opening_hours = 30 [json_name = "openingHours", (.buf.validate.field) = { ... }</code>
+     * <code>string opening_hours = 30 [json_name = "openingHours"];</code>
      * @param value The openingHours to set.
      * @return This builder for chaining.
      */
@@ -2244,7 +2244,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string opening_hours = 30 [json_name = "openingHours", (.buf.validate.field) = { ... }</code>
+     * <code>string opening_hours = 30 [json_name = "openingHours"];</code>
      * @return This builder for chaining.
      */
     public Builder clearOpeningHours() {
@@ -2254,7 +2254,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string opening_hours = 30 [json_name = "openingHours", (.buf.validate.field) = { ... }</code>
+     * <code>string opening_hours = 30 [json_name = "openingHours"];</code>
      * @param value The bytes for openingHours to set.
      * @return This builder for chaining.
      */

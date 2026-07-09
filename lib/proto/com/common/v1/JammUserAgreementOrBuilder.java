@@ -11,40 +11,40 @@ public interface JammUserAgreementOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string customer_id = 1 [json_name = "customerId", (.buf.validate.field) = { ... }</code>
+   * <code>string customer_id = 1 [json_name = "customerId"];</code>
    * @return The customerId.
    */
   java.lang.String getCustomerId();
   /**
-   * <code>string customer_id = 1 [json_name = "customerId", (.buf.validate.field) = { ... }</code>
+   * <code>string customer_id = 1 [json_name = "customerId"];</code>
    * @return The bytes for customerId.
    */
   com.google.protobuf.ByteString
       getCustomerIdBytes();
 
   /**
-   * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName"];</code>
    * @return The enum numeric value on the wire for agreementName.
    */
   int getAgreementNameValue();
   /**
-   * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.JammUserAgreementName agreement_name = 2 [json_name = "agreementName"];</code>
    * @return The agreementName.
    */
   com.common.v1.JammUserAgreementName getAgreementName();
 
   /**
-   * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt"];</code>
    * @return Whether the agreedAt field is set.
    */
   boolean hasAgreedAt();
   /**
-   * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt"];</code>
    * @return The agreedAt.
    */
   com.google.protobuf.Timestamp getAgreedAt();
   /**
-   * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp agreed_at = 4 [json_name = "agreedAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getAgreedAtOrBuilder();
 }

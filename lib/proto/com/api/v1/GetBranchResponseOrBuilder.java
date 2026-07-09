@@ -11,17 +11,17 @@ public interface GetBranchResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.api.v1.BankBranch branch = 1 [json_name = "branch", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.BankBranch branch = 1 [json_name = "branch"];</code>
    * @return Whether the branch field is set.
    */
   boolean hasBranch();
   /**
-   * <code>.api.v1.BankBranch branch = 1 [json_name = "branch", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.BankBranch branch = 1 [json_name = "branch"];</code>
    * @return The branch.
    */
   com.api.v1.BankBranch getBranch();
   /**
-   * <code>.api.v1.BankBranch branch = 1 [json_name = "branch", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.BankBranch branch = 1 [json_name = "branch"];</code>
    */
   com.api.v1.BankBranchOrBuilder getBranchOrBuilder();
 }

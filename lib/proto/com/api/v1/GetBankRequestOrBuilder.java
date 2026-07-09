@@ -11,12 +11,12 @@ public interface GetBankRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bankCode.
    */
   java.lang.String getBankCode();
   /**
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bytes for bankCode.
    */
   com.google.protobuf.ByteString

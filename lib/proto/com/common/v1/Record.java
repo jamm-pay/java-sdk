@@ -56,7 +56,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object state_ = "";
   /**
-   * <code>string state = 1 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>string state = 1 [json_name = "state"];</code>
    * @return The state.
    */
   @java.lang.Override
@@ -73,7 +73,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string state = 1 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>string state = 1 [json_name = "state"];</code>
    * @return The bytes for state.
    */
   @java.lang.Override
@@ -584,7 +584,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object state_ = "";
     /**
-     * <code>string state = 1 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>string state = 1 [json_name = "state"];</code>
      * @return The state.
      */
     public java.lang.String getState() {
@@ -600,7 +600,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string state = 1 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>string state = 1 [json_name = "state"];</code>
      * @return The bytes for state.
      */
     public com.google.protobuf.ByteString
@@ -617,7 +617,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string state = 1 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>string state = 1 [json_name = "state"];</code>
      * @param value The state to set.
      * @return This builder for chaining.
      */
@@ -630,7 +630,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string state = 1 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>string state = 1 [json_name = "state"];</code>
      * @return This builder for chaining.
      */
     public Builder clearState() {
@@ -640,7 +640,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string state = 1 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>string state = 1 [json_name = "state"];</code>
      * @param value The bytes for state to set.
      * @return This builder for chaining.
      */

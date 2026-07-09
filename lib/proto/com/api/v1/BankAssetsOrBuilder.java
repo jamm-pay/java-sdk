@@ -15,7 +15,7 @@ public interface BankAssetsOrBuilder extends
    * Bank code, e.g. "0001"
    * </pre>
    *
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bankCode.
    */
   java.lang.String getBankCode();
@@ -24,7 +24,7 @@ public interface BankAssetsOrBuilder extends
    * Bank code, e.g. "0001"
    * </pre>
    *
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bytes for bankCode.
    */
   com.google.protobuf.ByteString
@@ -86,7 +86,7 @@ public interface BankAssetsOrBuilder extends
    * https://www.figma.com/design/7cabcqjzvKl9IwzvJCuQEW/Jamm-%CE%B2-UI-design?node-id=174-10898&amp;t=oyEUrdVtFOMV9xut-4
    * </pre>
    *
-   * <code>string terms_url = 10 [json_name = "termsUrl", (.buf.validate.field) = { ... }</code>
+   * <code>string terms_url = 10 [json_name = "termsUrl"];</code>
    * @return The termsUrl.
    */
   java.lang.String getTermsUrl();
@@ -98,7 +98,7 @@ public interface BankAssetsOrBuilder extends
    * https://www.figma.com/design/7cabcqjzvKl9IwzvJCuQEW/Jamm-%CE%B2-UI-design?node-id=174-10898&amp;t=oyEUrdVtFOMV9xut-4
    * </pre>
    *
-   * <code>string terms_url = 10 [json_name = "termsUrl", (.buf.validate.field) = { ... }</code>
+   * <code>string terms_url = 10 [json_name = "termsUrl"];</code>
    * @return The bytes for termsUrl.
    */
   com.google.protobuf.ByteString

@@ -11,24 +11,24 @@ public interface GetBranchRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bankCode.
    */
   java.lang.String getBankCode();
   /**
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bytes for bankCode.
    */
   com.google.protobuf.ByteString
       getBankCodeBytes();
 
   /**
-   * <code>string branch_code = 2 [json_name = "branchCode", (.buf.validate.field) = { ... }</code>
+   * <code>string branch_code = 2 [json_name = "branchCode"];</code>
    * @return The branchCode.
    */
   java.lang.String getBranchCode();
   /**
-   * <code>string branch_code = 2 [json_name = "branchCode", (.buf.validate.field) = { ... }</code>
+   * <code>string branch_code = 2 [json_name = "branchCode"];</code>
    * @return The bytes for branchCode.
    */
   com.google.protobuf.ByteString

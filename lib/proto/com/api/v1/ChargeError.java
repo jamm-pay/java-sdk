@@ -64,7 +64,7 @@ private static final long serialVersionUID = 0L;
    * Jamm defined error code (e.g. "ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT").
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+   * <code>string code = 1 [json_name = "code"];</code>
    * @return The code.
    */
   @java.lang.Override
@@ -85,7 +85,7 @@ private static final long serialVersionUID = 0L;
    * Jamm defined error code (e.g. "ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT").
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+   * <code>string code = 1 [json_name = "code"];</code>
    * @return The bytes for code.
    */
   @java.lang.Override
@@ -111,7 +111,7 @@ private static final long serialVersionUID = 0L;
    * Human readable error message.
    * </pre>
    *
-   * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
   @java.lang.Override
@@ -132,7 +132,7 @@ private static final long serialVersionUID = 0L;
    * Human readable error message.
    * </pre>
    *
-   * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
   @java.lang.Override
@@ -480,7 +480,7 @@ private static final long serialVersionUID = 0L;
      * Jamm defined error code (e.g. "ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT").
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+     * <code>string code = 1 [json_name = "code"];</code>
      * @return The code.
      */
     public java.lang.String getCode() {
@@ -500,7 +500,7 @@ private static final long serialVersionUID = 0L;
      * Jamm defined error code (e.g. "ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT").
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+     * <code>string code = 1 [json_name = "code"];</code>
      * @return The bytes for code.
      */
     public com.google.protobuf.ByteString
@@ -521,7 +521,7 @@ private static final long serialVersionUID = 0L;
      * Jamm defined error code (e.g. "ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT").
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+     * <code>string code = 1 [json_name = "code"];</code>
      * @param value The code to set.
      * @return This builder for chaining.
      */
@@ -538,7 +538,7 @@ private static final long serialVersionUID = 0L;
      * Jamm defined error code (e.g. "ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT").
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+     * <code>string code = 1 [json_name = "code"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCode() {
@@ -552,7 +552,7 @@ private static final long serialVersionUID = 0L;
      * Jamm defined error code (e.g. "ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT").
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+     * <code>string code = 1 [json_name = "code"];</code>
      * @param value The bytes for code to set.
      * @return This builder for chaining.
      */
@@ -572,7 +572,7 @@ private static final long serialVersionUID = 0L;
      * Human readable error message.
      * </pre>
      *
-     * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>string message = 2 [json_name = "message"];</code>
      * @return The message.
      */
     public java.lang.String getMessage() {
@@ -592,7 +592,7 @@ private static final long serialVersionUID = 0L;
      * Human readable error message.
      * </pre>
      *
-     * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>string message = 2 [json_name = "message"];</code>
      * @return The bytes for message.
      */
     public com.google.protobuf.ByteString
@@ -613,7 +613,7 @@ private static final long serialVersionUID = 0L;
      * Human readable error message.
      * </pre>
      *
-     * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>string message = 2 [json_name = "message"];</code>
      * @param value The message to set.
      * @return This builder for chaining.
      */
@@ -630,7 +630,7 @@ private static final long serialVersionUID = 0L;
      * Human readable error message.
      * </pre>
      *
-     * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>string message = 2 [json_name = "message"];</code>
      * @return This builder for chaining.
      */
     public Builder clearMessage() {
@@ -644,7 +644,7 @@ private static final long serialVersionUID = 0L;
      * Human readable error message.
      * </pre>
      *
-     * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+     * <code>string message = 2 [json_name = "message"];</code>
      * @param value The bytes for message to set.
      * @return This builder for chaining.
      */

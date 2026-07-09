@@ -11,48 +11,48 @@ public interface ContractMessageOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The customer.
    */
   java.lang.String getCustomer();
   /**
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The bytes for customer.
    */
   com.google.protobuf.ByteString
       getCustomerBytes();
 
   /**
-   * <code>string created_at = 2 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>string created_at = 2 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   java.lang.String getCreatedAt();
   /**
-   * <code>string created_at = 2 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>string created_at = 2 [json_name = "createdAt"];</code>
    * @return The bytes for createdAt.
    */
   com.google.protobuf.ByteString
       getCreatedAtBytes();
 
   /**
-   * <code>string activated_at = 3 [json_name = "activatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>string activated_at = 3 [json_name = "activatedAt"];</code>
    * @return The activatedAt.
    */
   java.lang.String getActivatedAt();
   /**
-   * <code>string activated_at = 3 [json_name = "activatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>string activated_at = 3 [json_name = "activatedAt"];</code>
    * @return The bytes for activatedAt.
    */
   com.google.protobuf.ByteString
       getActivatedAtBytes();
 
   /**
-   * <code>string merchant_name = 4 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+   * <code>string merchant_name = 4 [json_name = "merchantName"];</code>
    * @return The merchantName.
    */
   java.lang.String getMerchantName();
   /**
-   * <code>string merchant_name = 4 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+   * <code>string merchant_name = 4 [json_name = "merchantName"];</code>
    * @return The bytes for merchantName.
    */
   com.google.protobuf.ByteString

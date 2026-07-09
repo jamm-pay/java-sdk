@@ -15,7 +15,7 @@ public interface ChargeErrorOrBuilder extends
    * Jamm defined error code (e.g. "ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT").
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+   * <code>string code = 1 [json_name = "code"];</code>
    * @return The code.
    */
   java.lang.String getCode();
@@ -24,7 +24,7 @@ public interface ChargeErrorOrBuilder extends
    * Jamm defined error code (e.g. "ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT").
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+   * <code>string code = 1 [json_name = "code"];</code>
    * @return The bytes for code.
    */
   com.google.protobuf.ByteString
@@ -35,7 +35,7 @@ public interface ChargeErrorOrBuilder extends
    * Human readable error message.
    * </pre>
    *
-   * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
   java.lang.String getMessage();
@@ -44,7 +44,7 @@ public interface ChargeErrorOrBuilder extends
    * Human readable error message.
    * </pre>
    *
-   * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
   com.google.protobuf.ByteString

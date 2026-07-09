@@ -15,7 +15,7 @@ public interface UpdateCustomerRequestOrBuilder extends
    * Immutable
    * </pre>
    *
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The customer.
    */
   java.lang.String getCustomer();
@@ -24,24 +24,24 @@ public interface UpdateCustomerRequestOrBuilder extends
    * Immutable
    * </pre>
    *
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The bytes for customer.
    */
   com.google.protobuf.ByteString
       getCustomerBytes();
 
   /**
-   * <code>optional string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+   * <code>optional string email = 2 [json_name = "email"];</code>
    * @return Whether the email field is set.
    */
   boolean hasEmail();
   /**
-   * <code>optional string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+   * <code>optional string email = 2 [json_name = "email"];</code>
    * @return The email.
    */
   java.lang.String getEmail();
   /**
-   * <code>optional string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+   * <code>optional string email = 2 [json_name = "email"];</code>
    * @return The bytes for email.
    */
   com.google.protobuf.ByteString
@@ -59,119 +59,119 @@ public interface UpdateCustomerRequestOrBuilder extends
   boolean getForceKyc();
 
   /**
-   * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>optional string name = 4 [json_name = "name"];</code>
    * @return Whether the name field is set.
    */
   boolean hasName();
   /**
-   * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>optional string name = 4 [json_name = "name"];</code>
    * @return The name.
    */
   java.lang.String getName();
   /**
-   * <code>optional string name = 4 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>optional string name = 4 [json_name = "name"];</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
-   * <code>optional string phone = 5 [json_name = "phone", (.buf.validate.field) = { ... }</code>
+   * <code>optional string phone = 5 [json_name = "phone"];</code>
    * @return Whether the phone field is set.
    */
   boolean hasPhone();
   /**
-   * <code>optional string phone = 5 [json_name = "phone", (.buf.validate.field) = { ... }</code>
+   * <code>optional string phone = 5 [json_name = "phone"];</code>
    * @return The phone.
    */
   java.lang.String getPhone();
   /**
-   * <code>optional string phone = 5 [json_name = "phone", (.buf.validate.field) = { ... }</code>
+   * <code>optional string phone = 5 [json_name = "phone"];</code>
    * @return The bytes for phone.
    */
   com.google.protobuf.ByteString
       getPhoneBytes();
 
   /**
-   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
    * @return Whether the katakanaLastName field is set.
    */
   boolean hasKatakanaLastName();
   /**
-   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
    * @return The katakanaLastName.
    */
   java.lang.String getKatakanaLastName();
   /**
-   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_last_name = 11 [json_name = "katakanaLastName"];</code>
    * @return The bytes for katakanaLastName.
    */
   com.google.protobuf.ByteString
       getKatakanaLastNameBytes();
 
   /**
-   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
    * @return Whether the katakanaFirstName field is set.
    */
   boolean hasKatakanaFirstName();
   /**
-   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
    * @return The katakanaFirstName.
    */
   java.lang.String getKatakanaFirstName();
   /**
-   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName", (.buf.validate.field) = { ... }</code>
+   * <code>optional string katakana_first_name = 12 [json_name = "katakanaFirstName"];</code>
    * @return The bytes for katakanaFirstName.
    */
   com.google.protobuf.ByteString
       getKatakanaFirstNameBytes();
 
   /**
-   * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+   * <code>optional string address = 13 [json_name = "address"];</code>
    * @return Whether the address field is set.
    */
   boolean hasAddress();
   /**
-   * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+   * <code>optional string address = 13 [json_name = "address"];</code>
    * @return The address.
    */
   java.lang.String getAddress();
   /**
-   * <code>optional string address = 13 [json_name = "address", (.buf.validate.field) = { ... }</code>
+   * <code>optional string address = 13 [json_name = "address"];</code>
    * @return The bytes for address.
    */
   com.google.protobuf.ByteString
       getAddressBytes();
 
   /**
-   * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+   * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
    * @return Whether the birthDate field is set.
    */
   boolean hasBirthDate();
   /**
-   * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+   * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
    * @return The birthDate.
    */
   java.lang.String getBirthDate();
   /**
-   * <code>optional string birth_date = 20 [json_name = "birthDate", (.buf.validate.field) = { ... }</code>
+   * <code>optional string birth_date = 20 [json_name = "birthDate"];</code>
    * @return The bytes for birthDate.
    */
   com.google.protobuf.ByteString
       getBirthDateBytes();
 
   /**
-   * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+   * <code>optional string gender = 21 [json_name = "gender"];</code>
    * @return Whether the gender field is set.
    */
   boolean hasGender();
   /**
-   * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+   * <code>optional string gender = 21 [json_name = "gender"];</code>
    * @return The gender.
    */
   java.lang.String getGender();
   /**
-   * <code>optional string gender = 21 [json_name = "gender", (.buf.validate.field) = { ... }</code>
+   * <code>optional string gender = 21 [json_name = "gender"];</code>
    * @return The bytes for gender.
    */
   com.google.protobuf.ByteString

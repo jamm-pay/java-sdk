@@ -56,7 +56,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object customer_ = "";
   /**
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The customer.
    */
   @java.lang.Override
@@ -73,7 +73,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The bytes for customer.
    */
   @java.lang.Override
@@ -95,7 +95,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object createdAt_ = "";
   /**
-   * <code>string created_at = 2 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>string created_at = 2 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   @java.lang.Override
@@ -112,7 +112,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string created_at = 2 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>string created_at = 2 [json_name = "createdAt"];</code>
    * @return The bytes for createdAt.
    */
   @java.lang.Override
@@ -134,7 +134,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object activatedAt_ = "";
   /**
-   * <code>string activated_at = 3 [json_name = "activatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>string activated_at = 3 [json_name = "activatedAt"];</code>
    * @return The activatedAt.
    */
   @java.lang.Override
@@ -151,7 +151,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string activated_at = 3 [json_name = "activatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>string activated_at = 3 [json_name = "activatedAt"];</code>
    * @return The bytes for activatedAt.
    */
   @java.lang.Override
@@ -173,7 +173,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object merchantName_ = "";
   /**
-   * <code>string merchant_name = 4 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+   * <code>string merchant_name = 4 [json_name = "merchantName"];</code>
    * @return The merchantName.
    */
   @java.lang.Override
@@ -190,7 +190,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string merchant_name = 4 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+   * <code>string merchant_name = 4 [json_name = "merchantName"];</code>
    * @return The bytes for merchantName.
    */
   @java.lang.Override
@@ -576,7 +576,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object customer_ = "";
     /**
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @return The customer.
      */
     public java.lang.String getCustomer() {
@@ -592,7 +592,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @return The bytes for customer.
      */
     public com.google.protobuf.ByteString
@@ -609,7 +609,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @param value The customer to set.
      * @return This builder for chaining.
      */
@@ -622,7 +622,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCustomer() {
@@ -632,7 +632,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @param value The bytes for customer to set.
      * @return This builder for chaining.
      */
@@ -648,7 +648,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object createdAt_ = "";
     /**
-     * <code>string created_at = 2 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>string created_at = 2 [json_name = "createdAt"];</code>
      * @return The createdAt.
      */
     public java.lang.String getCreatedAt() {
@@ -664,7 +664,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string created_at = 2 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>string created_at = 2 [json_name = "createdAt"];</code>
      * @return The bytes for createdAt.
      */
     public com.google.protobuf.ByteString
@@ -681,7 +681,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string created_at = 2 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>string created_at = 2 [json_name = "createdAt"];</code>
      * @param value The createdAt to set.
      * @return This builder for chaining.
      */
@@ -694,7 +694,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string created_at = 2 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>string created_at = 2 [json_name = "createdAt"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCreatedAt() {
@@ -704,7 +704,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string created_at = 2 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+     * <code>string created_at = 2 [json_name = "createdAt"];</code>
      * @param value The bytes for createdAt to set.
      * @return This builder for chaining.
      */
@@ -720,7 +720,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object activatedAt_ = "";
     /**
-     * <code>string activated_at = 3 [json_name = "activatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>string activated_at = 3 [json_name = "activatedAt"];</code>
      * @return The activatedAt.
      */
     public java.lang.String getActivatedAt() {
@@ -736,7 +736,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string activated_at = 3 [json_name = "activatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>string activated_at = 3 [json_name = "activatedAt"];</code>
      * @return The bytes for activatedAt.
      */
     public com.google.protobuf.ByteString
@@ -753,7 +753,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string activated_at = 3 [json_name = "activatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>string activated_at = 3 [json_name = "activatedAt"];</code>
      * @param value The activatedAt to set.
      * @return This builder for chaining.
      */
@@ -766,7 +766,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string activated_at = 3 [json_name = "activatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>string activated_at = 3 [json_name = "activatedAt"];</code>
      * @return This builder for chaining.
      */
     public Builder clearActivatedAt() {
@@ -776,7 +776,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string activated_at = 3 [json_name = "activatedAt", (.buf.validate.field) = { ... }</code>
+     * <code>string activated_at = 3 [json_name = "activatedAt"];</code>
      * @param value The bytes for activatedAt to set.
      * @return This builder for chaining.
      */
@@ -792,7 +792,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object merchantName_ = "";
     /**
-     * <code>string merchant_name = 4 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+     * <code>string merchant_name = 4 [json_name = "merchantName"];</code>
      * @return The merchantName.
      */
     public java.lang.String getMerchantName() {
@@ -808,7 +808,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string merchant_name = 4 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+     * <code>string merchant_name = 4 [json_name = "merchantName"];</code>
      * @return The bytes for merchantName.
      */
     public com.google.protobuf.ByteString
@@ -825,7 +825,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string merchant_name = 4 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+     * <code>string merchant_name = 4 [json_name = "merchantName"];</code>
      * @param value The merchantName to set.
      * @return This builder for chaining.
      */
@@ -838,7 +838,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string merchant_name = 4 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+     * <code>string merchant_name = 4 [json_name = "merchantName"];</code>
      * @return This builder for chaining.
      */
     public Builder clearMerchantName() {
@@ -848,7 +848,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string merchant_name = 4 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+     * <code>string merchant_name = 4 [json_name = "merchantName"];</code>
      * @param value The bytes for merchantName to set.
      * @return This builder for chaining.
      */

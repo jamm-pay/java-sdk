@@ -18,7 +18,7 @@ public interface AddChargeRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The customer.
    */
   java.lang.String getCustomer();
@@ -30,7 +30,7 @@ public interface AddChargeRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The bytes for customer.
    */
   com.google.protobuf.ByteString
@@ -44,7 +44,7 @@ public interface AddChargeRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
    * @return Whether the charge field is set.
    */
   boolean hasCharge();
@@ -56,7 +56,7 @@ public interface AddChargeRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
    * @return The charge.
    */
   com.api.v1.InitialCharge getCharge();
@@ -68,7 +68,7 @@ public interface AddChargeRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
    */
   com.api.v1.InitialChargeOrBuilder getChargeOrBuilder();
 

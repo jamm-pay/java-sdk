@@ -17,7 +17,7 @@ public interface OnSessionPaymentRequestOrBuilder extends
    * Must start with "cus-" prefix followed by additional characters
    * </pre>
    *
-   * <code>optional string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>optional string customer = 1 [json_name = "customer"];</code>
    * @return Whether the customer field is set.
    */
   boolean hasCustomer();
@@ -28,7 +28,7 @@ public interface OnSessionPaymentRequestOrBuilder extends
    * Must start with "cus-" prefix followed by additional characters
    * </pre>
    *
-   * <code>optional string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>optional string customer = 1 [json_name = "customer"];</code>
    * @return The customer.
    */
   java.lang.String getCustomer();
@@ -39,7 +39,7 @@ public interface OnSessionPaymentRequestOrBuilder extends
    * Must start with "cus-" prefix followed by additional characters
    * </pre>
    *
-   * <code>optional string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>optional string customer = 1 [json_name = "customer"];</code>
    * @return The bytes for customer.
    */
   com.google.protobuf.ByteString

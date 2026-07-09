@@ -15,7 +15,7 @@ public interface OnSessionPaymentErrorOrBuilder extends
    * Error code from OnSessionPaymentErrorCode enum
    * </pre>
    *
-   * <code>.api.v1.OnSessionPaymentErrorCode code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.OnSessionPaymentErrorCode code = 1 [json_name = "code"];</code>
    * @return The enum numeric value on the wire for code.
    */
   int getCodeValue();
@@ -24,7 +24,7 @@ public interface OnSessionPaymentErrorOrBuilder extends
    * Error code from OnSessionPaymentErrorCode enum
    * </pre>
    *
-   * <code>.api.v1.OnSessionPaymentErrorCode code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.OnSessionPaymentErrorCode code = 1 [json_name = "code"];</code>
    * @return The code.
    */
   com.api.v1.OnSessionPaymentErrorCode getCode();
@@ -34,7 +34,7 @@ public interface OnSessionPaymentErrorOrBuilder extends
    * Human-readable error message
    * </pre>
    *
-   * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
   java.lang.String getMessage();
@@ -43,7 +43,7 @@ public interface OnSessionPaymentErrorOrBuilder extends
    * Human-readable error message
    * </pre>
    *
-   * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
   com.google.protobuf.ByteString

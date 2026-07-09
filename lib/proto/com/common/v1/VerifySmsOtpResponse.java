@@ -107,7 +107,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object errorMessage_ = "";
   /**
-   * <code>optional string error_message = 3 [json_name = "errorMessage", (.buf.validate.field) = { ... }</code>
+   * <code>optional string error_message = 3 [json_name = "errorMessage"];</code>
    * @return Whether the errorMessage field is set.
    */
   @java.lang.Override
@@ -115,7 +115,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000002) != 0);
   }
   /**
-   * <code>optional string error_message = 3 [json_name = "errorMessage", (.buf.validate.field) = { ... }</code>
+   * <code>optional string error_message = 3 [json_name = "errorMessage"];</code>
    * @return The errorMessage.
    */
   @java.lang.Override
@@ -132,7 +132,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>optional string error_message = 3 [json_name = "errorMessage", (.buf.validate.field) = { ... }</code>
+   * <code>optional string error_message = 3 [json_name = "errorMessage"];</code>
    * @return The bytes for errorMessage.
    */
   @java.lang.Override
@@ -157,7 +157,7 @@ private static final long serialVersionUID = 0L;
    * Remaining attempts (0 means locked out)
    * </pre>
    *
-   * <code>int32 attempts_remaining = 4 [json_name = "attemptsRemaining", (.buf.validate.field) = { ... }</code>
+   * <code>int32 attempts_remaining = 4 [json_name = "attemptsRemaining"];</code>
    * @return The attemptsRemaining.
    */
   @java.lang.Override
@@ -671,14 +671,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object errorMessage_ = "";
     /**
-     * <code>optional string error_message = 3 [json_name = "errorMessage", (.buf.validate.field) = { ... }</code>
+     * <code>optional string error_message = 3 [json_name = "errorMessage"];</code>
      * @return Whether the errorMessage field is set.
      */
     public boolean hasErrorMessage() {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>optional string error_message = 3 [json_name = "errorMessage", (.buf.validate.field) = { ... }</code>
+     * <code>optional string error_message = 3 [json_name = "errorMessage"];</code>
      * @return The errorMessage.
      */
     public java.lang.String getErrorMessage() {
@@ -694,7 +694,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>optional string error_message = 3 [json_name = "errorMessage", (.buf.validate.field) = { ... }</code>
+     * <code>optional string error_message = 3 [json_name = "errorMessage"];</code>
      * @return The bytes for errorMessage.
      */
     public com.google.protobuf.ByteString
@@ -711,7 +711,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>optional string error_message = 3 [json_name = "errorMessage", (.buf.validate.field) = { ... }</code>
+     * <code>optional string error_message = 3 [json_name = "errorMessage"];</code>
      * @param value The errorMessage to set.
      * @return This builder for chaining.
      */
@@ -724,7 +724,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>optional string error_message = 3 [json_name = "errorMessage", (.buf.validate.field) = { ... }</code>
+     * <code>optional string error_message = 3 [json_name = "errorMessage"];</code>
      * @return This builder for chaining.
      */
     public Builder clearErrorMessage() {
@@ -734,7 +734,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>optional string error_message = 3 [json_name = "errorMessage", (.buf.validate.field) = { ... }</code>
+     * <code>optional string error_message = 3 [json_name = "errorMessage"];</code>
      * @param value The bytes for errorMessage to set.
      * @return This builder for chaining.
      */
@@ -754,7 +754,7 @@ private static final long serialVersionUID = 0L;
      * Remaining attempts (0 means locked out)
      * </pre>
      *
-     * <code>int32 attempts_remaining = 4 [json_name = "attemptsRemaining", (.buf.validate.field) = { ... }</code>
+     * <code>int32 attempts_remaining = 4 [json_name = "attemptsRemaining"];</code>
      * @return The attemptsRemaining.
      */
     @java.lang.Override
@@ -766,7 +766,7 @@ private static final long serialVersionUID = 0L;
      * Remaining attempts (0 means locked out)
      * </pre>
      *
-     * <code>int32 attempts_remaining = 4 [json_name = "attemptsRemaining", (.buf.validate.field) = { ... }</code>
+     * <code>int32 attempts_remaining = 4 [json_name = "attemptsRemaining"];</code>
      * @param value The attemptsRemaining to set.
      * @return This builder for chaining.
      */
@@ -782,7 +782,7 @@ private static final long serialVersionUID = 0L;
      * Remaining attempts (0 means locked out)
      * </pre>
      *
-     * <code>int32 attempts_remaining = 4 [json_name = "attemptsRemaining", (.buf.validate.field) = { ... }</code>
+     * <code>int32 attempts_remaining = 4 [json_name = "attemptsRemaining"];</code>
      * @return This builder for chaining.
      */
     public Builder clearAttemptsRemaining() {

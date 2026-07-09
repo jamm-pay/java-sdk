@@ -17,7 +17,7 @@ public interface UserAgreementsOrBuilder extends
    * 2. Customer and per-Bank
    * </pre>
    *
-   * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement"];</code>
    * @return Whether the jammUserAgreement field is set.
    */
   boolean hasJammUserAgreement();
@@ -28,7 +28,7 @@ public interface UserAgreementsOrBuilder extends
    * 2. Customer and per-Bank
    * </pre>
    *
-   * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement"];</code>
    * @return The jammUserAgreement.
    */
   com.common.v1.JammUserAgreement getJammUserAgreement();
@@ -39,7 +39,7 @@ public interface UserAgreementsOrBuilder extends
    * 2. Customer and per-Bank
    * </pre>
    *
-   * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.JammUserAgreement jamm_user_agreement = 2 [json_name = "jammUserAgreement"];</code>
    */
   com.common.v1.JammUserAgreementOrBuilder getJammUserAgreementOrBuilder();
 }

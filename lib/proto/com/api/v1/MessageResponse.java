@@ -57,7 +57,7 @@ private static final long serialVersionUID = 0L;
    * otherwise Proto to OpenAPI generator won't generate the message correctly.
    * </pre>
    *
-   * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage"];</code>
    * @return Whether the merchantWebhookMessage field is set.
    */
   @java.lang.Override
@@ -70,7 +70,7 @@ private static final long serialVersionUID = 0L;
    * otherwise Proto to OpenAPI generator won't generate the message correctly.
    * </pre>
    *
-   * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage"];</code>
    * @return The merchantWebhookMessage.
    */
   @java.lang.Override
@@ -83,7 +83,7 @@ private static final long serialVersionUID = 0L;
    * otherwise Proto to OpenAPI generator won't generate the message correctly.
    * </pre>
    *
-   * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage"];</code>
    */
   @java.lang.Override
   public com.api.v1.MerchantWebhookMessageOrBuilder getMerchantWebhookMessageOrBuilder() {
@@ -93,7 +93,7 @@ private static final long serialVersionUID = 0L;
   public static final int CHARGE_MESSAGE_FIELD_NUMBER = 2;
   private com.api.v1.ChargeMessage chargeMessage_;
   /**
-   * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage"];</code>
    * @return Whether the chargeMessage field is set.
    */
   @java.lang.Override
@@ -101,7 +101,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000002) != 0);
   }
   /**
-   * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage"];</code>
    * @return The chargeMessage.
    */
   @java.lang.Override
@@ -109,7 +109,7 @@ private static final long serialVersionUID = 0L;
     return chargeMessage_ == null ? com.api.v1.ChargeMessage.getDefaultInstance() : chargeMessage_;
   }
   /**
-   * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage"];</code>
    */
   @java.lang.Override
   public com.api.v1.ChargeMessageOrBuilder getChargeMessageOrBuilder() {
@@ -119,7 +119,7 @@ private static final long serialVersionUID = 0L;
   public static final int CONTRACT_MESSAGE_FIELD_NUMBER = 3;
   private com.api.v1.ContractMessage contractMessage_;
   /**
-   * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage"];</code>
    * @return Whether the contractMessage field is set.
    */
   @java.lang.Override
@@ -127,7 +127,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000004) != 0);
   }
   /**
-   * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage"];</code>
    * @return The contractMessage.
    */
   @java.lang.Override
@@ -135,7 +135,7 @@ private static final long serialVersionUID = 0L;
     return contractMessage_ == null ? com.api.v1.ContractMessage.getDefaultInstance() : contractMessage_;
   }
   /**
-   * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage"];</code>
    */
   @java.lang.Override
   public com.api.v1.ContractMessageOrBuilder getContractMessageOrBuilder() {
@@ -145,7 +145,7 @@ private static final long serialVersionUID = 0L;
   public static final int USER_ACCOUNT_MESSAGE_FIELD_NUMBER = 4;
   private com.api.v1.UserAccountMessage userAccountMessage_;
   /**
-   * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage"];</code>
    * @return Whether the userAccountMessage field is set.
    */
   @java.lang.Override
@@ -153,7 +153,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000008) != 0);
   }
   /**
-   * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage"];</code>
    * @return The userAccountMessage.
    */
   @java.lang.Override
@@ -161,7 +161,7 @@ private static final long serialVersionUID = 0L;
     return userAccountMessage_ == null ? com.api.v1.UserAccountMessage.getDefaultInstance() : userAccountMessage_;
   }
   /**
-   * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage"];</code>
    */
   @java.lang.Override
   public com.api.v1.UserAccountMessageOrBuilder getUserAccountMessageOrBuilder() {
@@ -171,7 +171,7 @@ private static final long serialVersionUID = 0L;
   public static final int REFUND_INFO_FIELD_NUMBER = 5;
   private com.api.v1.RefundInfo refundInfo_;
   /**
-   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo"];</code>
    * @return Whether the refundInfo field is set.
    */
   @java.lang.Override
@@ -179,7 +179,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000010) != 0);
   }
   /**
-   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo"];</code>
    * @return The refundInfo.
    */
   @java.lang.Override
@@ -187,7 +187,7 @@ private static final long serialVersionUID = 0L;
     return refundInfo_ == null ? com.api.v1.RefundInfo.getDefaultInstance() : refundInfo_;
   }
   /**
-   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo"];</code>
    */
   @java.lang.Override
   public com.api.v1.RefundInfoOrBuilder getRefundInfoOrBuilder() {
@@ -670,7 +670,7 @@ private static final long serialVersionUID = 0L;
      * otherwise Proto to OpenAPI generator won't generate the message correctly.
      * </pre>
      *
-     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage"];</code>
      * @return Whether the merchantWebhookMessage field is set.
      */
     public boolean hasMerchantWebhookMessage() {
@@ -682,7 +682,7 @@ private static final long serialVersionUID = 0L;
      * otherwise Proto to OpenAPI generator won't generate the message correctly.
      * </pre>
      *
-     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage"];</code>
      * @return The merchantWebhookMessage.
      */
     public com.api.v1.MerchantWebhookMessage getMerchantWebhookMessage() {
@@ -698,7 +698,7 @@ private static final long serialVersionUID = 0L;
      * otherwise Proto to OpenAPI generator won't generate the message correctly.
      * </pre>
      *
-     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage"];</code>
      */
     public Builder setMerchantWebhookMessage(com.api.v1.MerchantWebhookMessage value) {
       if (merchantWebhookMessageBuilder_ == null) {
@@ -719,7 +719,7 @@ private static final long serialVersionUID = 0L;
      * otherwise Proto to OpenAPI generator won't generate the message correctly.
      * </pre>
      *
-     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage"];</code>
      */
     public Builder setMerchantWebhookMessage(
         com.api.v1.MerchantWebhookMessage.Builder builderForValue) {
@@ -738,7 +738,7 @@ private static final long serialVersionUID = 0L;
      * otherwise Proto to OpenAPI generator won't generate the message correctly.
      * </pre>
      *
-     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage"];</code>
      */
     public Builder mergeMerchantWebhookMessage(com.api.v1.MerchantWebhookMessage value) {
       if (merchantWebhookMessageBuilder_ == null) {
@@ -764,7 +764,7 @@ private static final long serialVersionUID = 0L;
      * otherwise Proto to OpenAPI generator won't generate the message correctly.
      * </pre>
      *
-     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage"];</code>
      */
     public Builder clearMerchantWebhookMessage() {
       bitField0_ = (bitField0_ & ~0x00000001);
@@ -782,7 +782,7 @@ private static final long serialVersionUID = 0L;
      * otherwise Proto to OpenAPI generator won't generate the message correctly.
      * </pre>
      *
-     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage"];</code>
      */
     public com.api.v1.MerchantWebhookMessage.Builder getMerchantWebhookMessageBuilder() {
       bitField0_ |= 0x00000001;
@@ -795,7 +795,7 @@ private static final long serialVersionUID = 0L;
      * otherwise Proto to OpenAPI generator won't generate the message correctly.
      * </pre>
      *
-     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage"];</code>
      */
     public com.api.v1.MerchantWebhookMessageOrBuilder getMerchantWebhookMessageOrBuilder() {
       if (merchantWebhookMessageBuilder_ != null) {
@@ -811,7 +811,7 @@ private static final long serialVersionUID = 0L;
      * otherwise Proto to OpenAPI generator won't generate the message correctly.
      * </pre>
      *
-     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.MerchantWebhookMessage merchant_webhook_message = 1 [json_name = "merchantWebhookMessage"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.MerchantWebhookMessage, com.api.v1.MerchantWebhookMessage.Builder, com.api.v1.MerchantWebhookMessageOrBuilder> 
@@ -831,14 +831,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.ChargeMessage, com.api.v1.ChargeMessage.Builder, com.api.v1.ChargeMessageOrBuilder> chargeMessageBuilder_;
     /**
-     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage"];</code>
      * @return Whether the chargeMessage field is set.
      */
     public boolean hasChargeMessage() {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage"];</code>
      * @return The chargeMessage.
      */
     public com.api.v1.ChargeMessage getChargeMessage() {
@@ -849,7 +849,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage"];</code>
      */
     public Builder setChargeMessage(com.api.v1.ChargeMessage value) {
       if (chargeMessageBuilder_ == null) {
@@ -865,7 +865,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage"];</code>
      */
     public Builder setChargeMessage(
         com.api.v1.ChargeMessage.Builder builderForValue) {
@@ -879,7 +879,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage"];</code>
      */
     public Builder mergeChargeMessage(com.api.v1.ChargeMessage value) {
       if (chargeMessageBuilder_ == null) {
@@ -900,7 +900,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage"];</code>
      */
     public Builder clearChargeMessage() {
       bitField0_ = (bitField0_ & ~0x00000002);
@@ -913,7 +913,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage"];</code>
      */
     public com.api.v1.ChargeMessage.Builder getChargeMessageBuilder() {
       bitField0_ |= 0x00000002;
@@ -921,7 +921,7 @@ private static final long serialVersionUID = 0L;
       return internalGetChargeMessageFieldBuilder().getBuilder();
     }
     /**
-     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage"];</code>
      */
     public com.api.v1.ChargeMessageOrBuilder getChargeMessageOrBuilder() {
       if (chargeMessageBuilder_ != null) {
@@ -932,7 +932,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ChargeMessage charge_message = 2 [json_name = "chargeMessage"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.ChargeMessage, com.api.v1.ChargeMessage.Builder, com.api.v1.ChargeMessageOrBuilder> 
@@ -952,14 +952,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.ContractMessage, com.api.v1.ContractMessage.Builder, com.api.v1.ContractMessageOrBuilder> contractMessageBuilder_;
     /**
-     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage"];</code>
      * @return Whether the contractMessage field is set.
      */
     public boolean hasContractMessage() {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage"];</code>
      * @return The contractMessage.
      */
     public com.api.v1.ContractMessage getContractMessage() {
@@ -970,7 +970,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage"];</code>
      */
     public Builder setContractMessage(com.api.v1.ContractMessage value) {
       if (contractMessageBuilder_ == null) {
@@ -986,7 +986,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage"];</code>
      */
     public Builder setContractMessage(
         com.api.v1.ContractMessage.Builder builderForValue) {
@@ -1000,7 +1000,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage"];</code>
      */
     public Builder mergeContractMessage(com.api.v1.ContractMessage value) {
       if (contractMessageBuilder_ == null) {
@@ -1021,7 +1021,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage"];</code>
      */
     public Builder clearContractMessage() {
       bitField0_ = (bitField0_ & ~0x00000004);
@@ -1034,7 +1034,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage"];</code>
      */
     public com.api.v1.ContractMessage.Builder getContractMessageBuilder() {
       bitField0_ |= 0x00000004;
@@ -1042,7 +1042,7 @@ private static final long serialVersionUID = 0L;
       return internalGetContractMessageFieldBuilder().getBuilder();
     }
     /**
-     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage"];</code>
      */
     public com.api.v1.ContractMessageOrBuilder getContractMessageOrBuilder() {
       if (contractMessageBuilder_ != null) {
@@ -1053,7 +1053,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.ContractMessage contract_message = 3 [json_name = "contractMessage"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.ContractMessage, com.api.v1.ContractMessage.Builder, com.api.v1.ContractMessageOrBuilder> 
@@ -1073,14 +1073,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.UserAccountMessage, com.api.v1.UserAccountMessage.Builder, com.api.v1.UserAccountMessageOrBuilder> userAccountMessageBuilder_;
     /**
-     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage"];</code>
      * @return Whether the userAccountMessage field is set.
      */
     public boolean hasUserAccountMessage() {
       return ((bitField0_ & 0x00000008) != 0);
     }
     /**
-     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage"];</code>
      * @return The userAccountMessage.
      */
     public com.api.v1.UserAccountMessage getUserAccountMessage() {
@@ -1091,7 +1091,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage"];</code>
      */
     public Builder setUserAccountMessage(com.api.v1.UserAccountMessage value) {
       if (userAccountMessageBuilder_ == null) {
@@ -1107,7 +1107,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage"];</code>
      */
     public Builder setUserAccountMessage(
         com.api.v1.UserAccountMessage.Builder builderForValue) {
@@ -1121,7 +1121,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage"];</code>
      */
     public Builder mergeUserAccountMessage(com.api.v1.UserAccountMessage value) {
       if (userAccountMessageBuilder_ == null) {
@@ -1142,7 +1142,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage"];</code>
      */
     public Builder clearUserAccountMessage() {
       bitField0_ = (bitField0_ & ~0x00000008);
@@ -1155,7 +1155,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage"];</code>
      */
     public com.api.v1.UserAccountMessage.Builder getUserAccountMessageBuilder() {
       bitField0_ |= 0x00000008;
@@ -1163,7 +1163,7 @@ private static final long serialVersionUID = 0L;
       return internalGetUserAccountMessageFieldBuilder().getBuilder();
     }
     /**
-     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage"];</code>
      */
     public com.api.v1.UserAccountMessageOrBuilder getUserAccountMessageOrBuilder() {
       if (userAccountMessageBuilder_ != null) {
@@ -1174,7 +1174,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.UserAccountMessage user_account_message = 4 [json_name = "userAccountMessage"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.UserAccountMessage, com.api.v1.UserAccountMessage.Builder, com.api.v1.UserAccountMessageOrBuilder> 
@@ -1194,14 +1194,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.RefundInfo, com.api.v1.RefundInfo.Builder, com.api.v1.RefundInfoOrBuilder> refundInfoBuilder_;
     /**
-     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo"];</code>
      * @return Whether the refundInfo field is set.
      */
     public boolean hasRefundInfo() {
       return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo"];</code>
      * @return The refundInfo.
      */
     public com.api.v1.RefundInfo getRefundInfo() {
@@ -1212,7 +1212,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo"];</code>
      */
     public Builder setRefundInfo(com.api.v1.RefundInfo value) {
       if (refundInfoBuilder_ == null) {
@@ -1228,7 +1228,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo"];</code>
      */
     public Builder setRefundInfo(
         com.api.v1.RefundInfo.Builder builderForValue) {
@@ -1242,7 +1242,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo"];</code>
      */
     public Builder mergeRefundInfo(com.api.v1.RefundInfo value) {
       if (refundInfoBuilder_ == null) {
@@ -1263,7 +1263,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo"];</code>
      */
     public Builder clearRefundInfo() {
       bitField0_ = (bitField0_ & ~0x00000010);
@@ -1276,7 +1276,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo"];</code>
      */
     public com.api.v1.RefundInfo.Builder getRefundInfoBuilder() {
       bitField0_ |= 0x00000010;
@@ -1284,7 +1284,7 @@ private static final long serialVersionUID = 0L;
       return internalGetRefundInfoFieldBuilder().getBuilder();
     }
     /**
-     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo"];</code>
      */
     public com.api.v1.RefundInfoOrBuilder getRefundInfoOrBuilder() {
       if (refundInfoBuilder_ != null) {
@@ -1295,7 +1295,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.RefundInfo, com.api.v1.RefundInfo.Builder, com.api.v1.RefundInfoOrBuilder> 

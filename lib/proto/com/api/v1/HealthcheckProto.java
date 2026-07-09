@@ -45,25 +45,18 @@ public final class HealthcheckProto extends com.google.protobuf.GeneratedFile {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\030api/v1/healthcheck.proto\022\006api.v1\032\034goog" +
-      "le/api/annotations.proto\032.protoc-gen-ope" +
-      "napiv2/options/annotations.proto\"\r\n\013Ping" +
-      "Request\"\036\n\014PingResponse\022\016\n\002ok\030\001 \001(\010R\002ok2" +
-      "\303\001\n\022HealthcheckService\022\254\001\n\004Ping\022\023.api.v1" +
-      ".PingRequest\032\024.api.v1.PingResponse\"y\222A_\n" +
-      "\013healthcheck\022$Ping Jamm server to check " +
-      "connection\032$Ping Jamm server to check co" +
-      "nnection*\004ping\202\323\344\223\002\021\022\017/v1/healthcheckBt\n" +
-      "\ncom.api.v1B\020HealthcheckProtoP\001Z\033api/pro" +
-      "to/gen/api/v1;api_v1\242\002\003AXX\252\002\006Api.V1\312\002\006Ap" +
-      "i\\V1\342\002\022Api\\V1\\GPBMetadata\352\002\007Api::V1b\006pro" +
-      "to3"
+      "\n\030api/v1/healthcheck.proto\022\006api.v1\"\r\n\013Pi" +
+      "ngRequest\"\036\n\014PingResponse\022\016\n\002ok\030\001 \001(\010R\002o" +
+      "k2I\n\022HealthcheckService\0223\n\004Ping\022\023.api.v1" +
+      ".PingRequest\032\024.api.v1.PingResponse\"\000Bt\n\n" +
+      "com.api.v1B\020HealthcheckProtoP\001Z\033api/prot" +
+      "o/gen/api/v1;api_v1\242\002\003AXX\252\002\006Api.V1\312\002\006Api" +
+      "\\V1\342\002\022Api\\V1\\GPBMetadata\352\002\007Api::V1b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.api.AnnotationsProto.getDescriptor(),
-          com.grpc.gateway.protoc_gen_openapiv2.options.AnnotationsProto.getDescriptor(),
         });
     internal_static_api_v1_PingRequest_descriptor =
       getDescriptor().getMessageType(0);
@@ -78,14 +71,6 @@ public final class HealthcheckProto extends com.google.protobuf.GeneratedFile {
         internal_static_api_v1_PingResponse_descriptor,
         new java.lang.String[] { "Ok", });
     descriptor.resolveAllFeaturesImmutable();
-    com.google.api.AnnotationsProto.getDescriptor();
-    com.grpc.gateway.protoc_gen_openapiv2.options.AnnotationsProto.getDescriptor();
-    com.google.protobuf.ExtensionRegistry registry =
-        com.google.protobuf.ExtensionRegistry.newInstance();
-    registry.add(com.google.api.AnnotationsProto.http);
-    registry.add(com.grpc.gateway.protoc_gen_openapiv2.options.AnnotationsProto.openapiv2Operation);
-    com.google.protobuf.Descriptors.FileDescriptor
-        .internalUpdateFileDescriptor(descriptor, registry);
   }
 
   // @@protoc_insertion_point(outer_class_scope)

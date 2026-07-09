@@ -91,108 +91,97 @@ public final class MerchantWebhooksProto extends com.google.protobuf.GeneratedFi
   static {
     java.lang.String[] descriptorData = {
       "\n\036api/v1/merchant_webhooks.proto\022\006api.v1" +
-      "\032\033buf/validate/validate.proto\032\024error/v1/" +
-      "error.proto\032\034google/api/annotations.prot" +
-      "o\032\031google/protobuf/any.proto\032\037google/pro" +
-      "tobuf/timestamp.proto\"\016\n\014ErrorRequest\"K\n" +
-      "\rErrorResponse\022:\n\nerror_type\030\001 \001(\0162\023.err" +
-      "or.v1.ErrorTypeB\006\272H\003\310\001\001R\terrorType\"\020\n\016Me" +
-      "ssageRequest\"\230\003\n\017MessageResponse\022`\n\030merc" +
-      "hant_webhook_message\030\001 \001(\0132\036.api.v1.Merc" +
-      "hantWebhookMessageB\006\272H\003\310\001\001R\026merchantWebh" +
-      "ookMessage\022D\n\016charge_message\030\002 \001(\0132\025.api" +
-      ".v1.ChargeMessageB\006\272H\003\310\001\001R\rchargeMessage" +
-      "\022J\n\020contract_message\030\003 \001(\0132\027.api.v1.Cont" +
-      "ractMessageB\006\272H\003\310\001\001R\017contractMessage\022T\n\024" +
-      "user_account_message\030\004 \001(\0132\032.api.v1.User" +
-      "AccountMessageB\006\272H\003\310\001\001R\022userAccountMessa" +
-      "ge\022;\n\013refund_info\030\005 \001(\0132\022.api.v1.RefundI" +
-      "nfoB\006\272H\003\310\001\001R\nrefundInfo\"\214\002\n\026MerchantWebh" +
-      "ookMessage\022\026\n\002id\030\001 \001(\tB\006\272H\003\310\001\001R\002id\022$\n\tsi" +
-      "gnature\030\002 \001(\tB\006\272H\003\310\001\001R\tsignature\0228\n\neven" +
-      "t_type\030\004 \001(\0162\021.api.v1.EventTypeB\006\272H\003\310\001\001R" +
-      "\teventType\0226\n\007content\030\005 \001(\0132\024.google.pro" +
-      "tobuf.AnyB\006\272H\003\310\001\001R\007content\022B\n\ncreated_at" +
-      "\030\347\007 \001(\0132\032.google.protobuf.TimestampB\006\272H\003" +
-      "\310\001\001R\tcreatedAt\"\200\t\n\rChargeMessage\022\"\n\002id\030\001" +
-      " \001(\tB\022\272H\017r\n2\010^trx-.*$\310\001\001R\002id\022.\n\010customer" +
-      "\030\002 \001(\tB\022\272H\017r\n2\010^cus-.*$\310\001\001R\010customer\022<\n\006" +
-      "status\030\003 \001(\0162\034.api.v1.ChargeMessage.Stat" +
-      "usB\006\272H\003\310\001\001R\006status\022(\n\013description\030\004 \001(\tB" +
-      "\006\272H\003\310\001\001R\013description\022+\n\rmerchant_name\030\005 " +
-      "\001(\tB\006\272H\003\310\001\001R\014merchantName\022-\n\016initial_amo" +
-      "unt\030\006 \001(\005B\006\272H\003\310\001\001R\rinitialAmount\022\"\n\010disc" +
-      "ount\030\007 \001(\005B\006\272H\003\310\001\001R\010discount\022)\n\014final_am" +
-      "ount\030\010 \001(\005B\006\272H\003\310\001\001R\013finalAmount\022,\n\017amoun" +
-      "t_refunded\030\t \001(\005H\000R\016amountRefunded\210\001\001\022\"\n" +
-      "\010currency\030\n \001(\tB\006\272H\003\310\001\001R\010currency\022&\n\014pro" +
-      "cessed_at\030\013 \001(\tH\001R\013processedAt\210\001\001\022\036\n\010jam" +
-      "m_fee\030\014 \001(\005H\002R\007jammFee\210\001\001\022%\n\ncreated_at\030" +
-      "\r \001(\tB\006\272H\003\310\001\001R\tcreatedAt\022%\n\nupdated_at\030\016" +
-      " \001(\tB\006\272H\003\310\001\001R\tupdatedAt\022F\n\035original_tran" +
-      "saction_jamm_fee\030\017 \001(\tH\003R\032originalTransa" +
-      "ctionJammFee\210\001\001\022,\n\017consumption_tax\030\020 \001(\005" +
-      "H\004R\016consumptionTax\210\001\001\022(\n\005error\030\024 \001(\0132\r.a" +
-      "pi.v1.ErrorH\005R\005error\210\001\001\022 \n\trefund_id\030\025 \001" +
-      "(\tH\006R\010refundId\210\001\001\022/\n\006refund\030\026 \001(\0132\022.api." +
-      "v1.RefundInfoH\007R\006refund\210\001\001\"\241\001\n\006Status\022\026\n" +
-      "\022STATUS_UNSPECIFIED\020\000\022\022\n\016STATUS_SUCCESS\020" +
-      "\001\022\022\n\016STATUS_FAILURE\020\002\022\027\n\023STATUS_WAITING_" +
-      "EKYC\020\003\022\023\n\017STATUS_BLOCKING\020\004\022\024\n\020STATUS_CA" +
-      "NCELLED\020\005\022\023\n\017STATUS_REFUNDED\020\006B\022\n\020_amoun" +
-      "t_refundedB\017\n\r_processed_atB\013\n\t_jamm_fee" +
-      "B \n\036_original_transaction_jamm_feeB\022\n\020_c" +
-      "onsumption_taxB\010\n\006_errorB\014\n\n_refund_idB\t" +
-      "\n\007_refund\"\312\003\n\nRefundInfo\022 \n\trefund_id\030\001 " +
-      "\001(\tH\000R\010refundId\210\001\001\022,\n\017amount_refunded\030\002 " +
-      "\001(\005H\001R\016amountRefunded\210\001\001\022\036\n\010jamm_fee\030\003 \001" +
-      "(\005H\002R\007jammFee\210\001\001\022,\n\017consumption_tax\030\004 \001(" +
-      "\005H\003R\016consumptionTax\210\001\001\022J\n\037original_trans" +
-      "action_fee_waived\030\005 \001(\010H\004R\034originalTrans" +
-      "actionFeeWaived\210\001\001\022(\n\005error\030\006 \001(\0132\r.api." +
-      "v1.ErrorH\005R\005error\210\001\001\022&\n\014processed_at\030\007 \001" +
-      "(\tH\006R\013processedAt\210\001\001B\014\n\n_refund_idB\022\n\020_a" +
-      "mount_refundedB\013\n\t_jamm_feeB\022\n\020_consumpt" +
-      "ion_taxB\"\n _original_transaction_fee_wai" +
-      "vedB\010\n\006_errorB\017\n\r_processed_at\"\300\001\n\017Contr" +
-      "actMessage\022.\n\010customer\030\001 \001(\tB\022\272H\017r\n2\010^cu" +
-      "s-.*$\310\001\001R\010customer\022%\n\ncreated_at\030\002 \001(\tB\006" +
-      "\272H\003\310\001\001R\tcreatedAt\022)\n\014activated_at\030\003 \001(\tB" +
-      "\006\272H\003\310\001\001R\013activatedAt\022+\n\rmerchant_name\030\004 " +
-      "\001(\tB\006\272H\003\310\001\001R\014merchantName\"\266\001\n\022UserAccoun" +
-      "tMessage\022.\n\010customer\030\001 \001(\tB\022\272H\017r\n2\010^cus-" +
-      ".*$\310\001\001R\010customer\022\034\n\005email\030\002 \001(\tB\006\272H\003\310\001\001R" +
-      "\005email\022%\n\ndeleted_at\030\003 \001(\tB\006\272H\003\310\001\001R\tdele" +
-      "tedAt\022+\n\rmerchant_name\030\004 \001(\tB\006\272H\003\310\001\001R\014me" +
-      "rchantName\"~\n\005Error\022\032\n\004code\030\001 \001(\tB\006\272H\003\310\001" +
-      "\001R\004code\022 \n\007message\030\002 \001(\tB\006\272H\003\310\001\001R\007messag" +
-      "e\0227\n\007details\030\003 \003(\0132\023.api.v1.ErrorDetailB" +
-      "\010\272H\005\222\001\002\010\001R\007details\"]\n\013ErrorDetail\022\032\n\004typ" +
-      "e\030\001 \001(\tB\006\272H\003\310\001\001R\004type\022\034\n\005value\030\002 \001(\tB\006\272H" +
-      "\003\310\001\001R\005value\022\024\n\005debug\030\003 \001(\tR\005debug*\277\002\n\tEv" +
-      "entType\022\032\n\026EVENT_TYPE_UNSPECIFIED\020\000\022\035\n\031E" +
-      "VENT_TYPE_CHARGE_CREATED\020\003\022\035\n\031EVENT_TYPE" +
-      "_CHARGE_UPDATED\020\004\022\035\n\031EVENT_TYPE_CHARGE_S" +
-      "UCCESS\020\005\022\032\n\026EVENT_TYPE_CHARGE_FAIL\020\006\022\037\n\033" +
-      "EVENT_TYPE_REFUND_SUCCEEDED\020\007\022\034\n\030EVENT_T" +
-      "YPE_REFUND_FAILED\020\010\022!\n\035EVENT_TYPE_CONTRA" +
-      "CT_ACTIVATED\020\024\022#\n\037EVENT_TYPE_USER_ACCOUN" +
-      "T_DELETED\020\036\022\026\n\022EVENT_TYPE_TESTING\020c2\254\001\n\016" +
-      "WebhookService\022H\n\005Error\022\024.api.v1.ErrorRe" +
-      "quest\032\025.api.v1.ErrorResponse\"\022\202\323\344\223\002\014\"\007/e" +
-      "rrors:\001*\022P\n\007Message\022\026.api.v1.MessageRequ" +
-      "est\032\027.api.v1.MessageResponse\"\024\202\323\344\223\002\016\"\t/w" +
-      "ebhooks:\001*By\n\ncom.api.v1B\025MerchantWebhoo" +
-      "ksProtoP\001Z\033api/proto/gen/api/v1;api_v1\242\002" +
-      "\003AXX\252\002\006Api.V1\312\002\006Api\\V1\342\002\022Api\\V1\\GPBMetad" +
-      "ata\352\002\007Api::V1b\006proto3"
+      "\032\024error/v1/error.proto\032\031google/protobuf/" +
+      "any.proto\032\037google/protobuf/timestamp.pro" +
+      "to\"\016\n\014ErrorRequest\"E\n\rErrorResponse\0224\n\ne" +
+      "rror_type\030\001 \001(\0162\023.error.v1.ErrorTypeB\000R\t" +
+      "errorType\"\020\n\016MessageRequest\"\372\002\n\017MessageR" +
+      "esponse\022Z\n\030merchant_webhook_message\030\001 \001(" +
+      "\0132\036.api.v1.MerchantWebhookMessageB\000R\026mer" +
+      "chantWebhookMessage\022>\n\016charge_message\030\002 " +
+      "\001(\0132\025.api.v1.ChargeMessageB\000R\rchargeMess" +
+      "age\022D\n\020contract_message\030\003 \001(\0132\027.api.v1.C" +
+      "ontractMessageB\000R\017contractMessage\022N\n\024use" +
+      "r_account_message\030\004 \001(\0132\032.api.v1.UserAcc" +
+      "ountMessageB\000R\022userAccountMessage\0225\n\013ref" +
+      "und_info\030\005 \001(\0132\022.api.v1.RefundInfoB\000R\nre" +
+      "fundInfo\"\356\001\n\026MerchantWebhookMessage\022\020\n\002i" +
+      "d\030\001 \001(\tB\000R\002id\022\036\n\tsignature\030\002 \001(\tB\000R\tsign" +
+      "ature\0222\n\nevent_type\030\004 \001(\0162\021.api.v1.Event" +
+      "TypeB\000R\teventType\0220\n\007content\030\005 \001(\0132\024.goo" +
+      "gle.protobuf.AnyB\000R\007content\022<\n\ncreated_a" +
+      "t\030\347\007 \001(\0132\032.google.protobuf.TimestampB\000R\t" +
+      "createdAt\"\246\010\n\rChargeMessage\022\020\n\002id\030\001 \001(\tB" +
+      "\000R\002id\022\034\n\010customer\030\002 \001(\tB\000R\010customer\0226\n\006s" +
+      "tatus\030\003 \001(\0162\034.api.v1.ChargeMessage.Statu" +
+      "sB\000R\006status\022\"\n\013description\030\004 \001(\tB\000R\013desc" +
+      "ription\022%\n\rmerchant_name\030\005 \001(\tB\000R\014mercha" +
+      "ntName\022\'\n\016initial_amount\030\006 \001(\005B\000R\rinitia" +
+      "lAmount\022\034\n\010discount\030\007 \001(\005B\000R\010discount\022#\n" +
+      "\014final_amount\030\010 \001(\005B\000R\013finalAmount\022,\n\017am" +
+      "ount_refunded\030\t \001(\005H\000R\016amountRefunded\210\001\001" +
+      "\022\034\n\010currency\030\n \001(\tB\000R\010currency\022&\n\014proces" +
+      "sed_at\030\013 \001(\tH\001R\013processedAt\210\001\001\022\036\n\010jamm_f" +
+      "ee\030\014 \001(\005H\002R\007jammFee\210\001\001\022\037\n\ncreated_at\030\r \001" +
+      "(\tB\000R\tcreatedAt\022\037\n\nupdated_at\030\016 \001(\tB\000R\tu" +
+      "pdatedAt\022F\n\035original_transaction_jamm_fe" +
+      "e\030\017 \001(\tH\003R\032originalTransactionJammFee\210\001\001" +
+      "\022,\n\017consumption_tax\030\020 \001(\005H\004R\016consumption" +
+      "Tax\210\001\001\022(\n\005error\030\024 \001(\0132\r.api.v1.ErrorH\005R\005" +
+      "error\210\001\001\022 \n\trefund_id\030\025 \001(\tH\006R\010refundId\210" +
+      "\001\001\022/\n\006refund\030\026 \001(\0132\022.api.v1.RefundInfoH\007" +
+      "R\006refund\210\001\001\"\241\001\n\006Status\022\026\n\022STATUS_UNSPECI" +
+      "FIED\020\000\022\022\n\016STATUS_SUCCESS\020\001\022\022\n\016STATUS_FAI" +
+      "LURE\020\002\022\027\n\023STATUS_WAITING_EKYC\020\003\022\023\n\017STATU" +
+      "S_BLOCKING\020\004\022\024\n\020STATUS_CANCELLED\020\005\022\023\n\017ST" +
+      "ATUS_REFUNDED\020\006B\022\n\020_amount_refundedB\017\n\r_" +
+      "processed_atB\013\n\t_jamm_feeB \n\036_original_t" +
+      "ransaction_jamm_feeB\022\n\020_consumption_taxB" +
+      "\010\n\006_errorB\014\n\n_refund_idB\t\n\007_refund\"\312\003\n\nR" +
+      "efundInfo\022 \n\trefund_id\030\001 \001(\tH\000R\010refundId" +
+      "\210\001\001\022,\n\017amount_refunded\030\002 \001(\005H\001R\016amountRe" +
+      "funded\210\001\001\022\036\n\010jamm_fee\030\003 \001(\005H\002R\007jammFee\210\001" +
+      "\001\022,\n\017consumption_tax\030\004 \001(\005H\003R\016consumptio" +
+      "nTax\210\001\001\022J\n\037original_transaction_fee_waiv" +
+      "ed\030\005 \001(\010H\004R\034originalTransactionFeeWaived" +
+      "\210\001\001\022(\n\005error\030\006 \001(\0132\r.api.v1.ErrorH\005R\005err" +
+      "or\210\001\001\022&\n\014processed_at\030\007 \001(\tH\006R\013processed" +
+      "At\210\001\001B\014\n\n_refund_idB\022\n\020_amount_refundedB" +
+      "\013\n\t_jamm_feeB\022\n\020_consumption_taxB\"\n _ori" +
+      "ginal_transaction_fee_waivedB\010\n\006_errorB\017" +
+      "\n\r_processed_at\"\234\001\n\017ContractMessage\022\034\n\010c" +
+      "ustomer\030\001 \001(\tB\000R\010customer\022\037\n\ncreated_at\030" +
+      "\002 \001(\tB\000R\tcreatedAt\022#\n\014activated_at\030\003 \001(\t" +
+      "B\000R\013activatedAt\022%\n\rmerchant_name\030\004 \001(\tB\000" +
+      "R\014merchantName\"\222\001\n\022UserAccountMessage\022\034\n" +
+      "\010customer\030\001 \001(\tB\000R\010customer\022\026\n\005email\030\002 \001" +
+      "(\tB\000R\005email\022\037\n\ndeleted_at\030\003 \001(\tB\000R\tdelet" +
+      "edAt\022%\n\rmerchant_name\030\004 \001(\tB\000R\014merchantN" +
+      "ame\"j\n\005Error\022\024\n\004code\030\001 \001(\tB\000R\004code\022\032\n\007me" +
+      "ssage\030\002 \001(\tB\000R\007message\022/\n\007details\030\003 \003(\0132" +
+      "\023.api.v1.ErrorDetailB\000R\007details\"Q\n\013Error" +
+      "Detail\022\024\n\004type\030\001 \001(\tB\000R\004type\022\026\n\005value\030\002 " +
+      "\001(\tB\000R\005value\022\024\n\005debug\030\003 \001(\tR\005debug*\277\002\n\tE" +
+      "ventType\022\032\n\026EVENT_TYPE_UNSPECIFIED\020\000\022\035\n\031" +
+      "EVENT_TYPE_CHARGE_CREATED\020\003\022\035\n\031EVENT_TYP" +
+      "E_CHARGE_UPDATED\020\004\022\035\n\031EVENT_TYPE_CHARGE_" +
+      "SUCCESS\020\005\022\032\n\026EVENT_TYPE_CHARGE_FAIL\020\006\022\037\n" +
+      "\033EVENT_TYPE_REFUND_SUCCEEDED\020\007\022\034\n\030EVENT_" +
+      "TYPE_REFUND_FAILED\020\010\022!\n\035EVENT_TYPE_CONTR" +
+      "ACT_ACTIVATED\020\024\022#\n\037EVENT_TYPE_USER_ACCOU" +
+      "NT_DELETED\020\036\022\026\n\022EVENT_TYPE_TESTING\020c2\206\001\n" +
+      "\016WebhookService\0226\n\005Error\022\024.api.v1.ErrorR" +
+      "equest\032\025.api.v1.ErrorResponse\"\000\022<\n\007Messa" +
+      "ge\022\026.api.v1.MessageRequest\032\027.api.v1.Mess" +
+      "ageResponse\"\000By\n\ncom.api.v1B\025MerchantWeb" +
+      "hooksProtoP\001Z\033api/proto/gen/api/v1;api_v" +
+      "1\242\002\003AXX\252\002\006Api.V1\312\002\006Api\\V1\342\002\022Api\\V1\\GPBMe" +
+      "tadata\352\002\007Api::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.buf.validate.ValidateProto.getDescriptor(),
           com.error.v1.ErrorProto.getDescriptor(),
-          com.google.api.AnnotationsProto.getDescriptor(),
           com.google.protobuf.AnyProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
@@ -263,17 +252,9 @@ public final class MerchantWebhooksProto extends com.google.protobuf.GeneratedFi
         internal_static_api_v1_ErrorDetail_descriptor,
         new java.lang.String[] { "Type", "Value", "Debug", });
     descriptor.resolveAllFeaturesImmutable();
-    com.buf.validate.ValidateProto.getDescriptor();
     com.error.v1.ErrorProto.getDescriptor();
-    com.google.api.AnnotationsProto.getDescriptor();
     com.google.protobuf.AnyProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
-    com.google.protobuf.ExtensionRegistry registry =
-        com.google.protobuf.ExtensionRegistry.newInstance();
-    registry.add(com.buf.validate.ValidateProto.field);
-    registry.add(com.google.api.AnnotationsProto.http);
-    com.google.protobuf.Descriptors.FileDescriptor
-        .internalUpdateFileDescriptor(descriptor, registry);
   }
 
   // @@protoc_insertion_point(outer_class_scope)

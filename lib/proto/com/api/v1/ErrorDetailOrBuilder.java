@@ -16,7 +16,7 @@ public interface ErrorDetailOrBuilder extends
    * e.g. google.protobuf.StringValue
    * </pre>
    *
-   * <code>string type = 1 [json_name = "type", (.buf.validate.field) = { ... }</code>
+   * <code>string type = 1 [json_name = "type"];</code>
    * @return The type.
    */
   java.lang.String getType();
@@ -26,7 +26,7 @@ public interface ErrorDetailOrBuilder extends
    * e.g. google.protobuf.StringValue
    * </pre>
    *
-   * <code>string type = 1 [json_name = "type", (.buf.validate.field) = { ... }</code>
+   * <code>string type = 1 [json_name = "type"];</code>
    * @return The bytes for type.
    */
   com.google.protobuf.ByteString
@@ -37,7 +37,7 @@ public interface ErrorDetailOrBuilder extends
    * Base64 encoded value of the message.
    * </pre>
    *
-   * <code>string value = 2 [json_name = "value", (.buf.validate.field) = { ... }</code>
+   * <code>string value = 2 [json_name = "value"];</code>
    * @return The value.
    */
   java.lang.String getValue();
@@ -46,7 +46,7 @@ public interface ErrorDetailOrBuilder extends
    * Base64 encoded value of the message.
    * </pre>
    *
-   * <code>string value = 2 [json_name = "value", (.buf.validate.field) = { ... }</code>
+   * <code>string value = 2 [json_name = "value"];</code>
    * @return The bytes for value.
    */
   com.google.protobuf.ByteString

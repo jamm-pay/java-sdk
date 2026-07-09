@@ -17,7 +17,7 @@ public interface CreateContractWithChargeResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Contract contract = 1 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Contract contract = 1 [json_name = "contract"];</code>
    * @return Whether the contract field is set.
    */
   boolean hasContract();
@@ -28,7 +28,7 @@ public interface CreateContractWithChargeResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Contract contract = 1 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Contract contract = 1 [json_name = "contract"];</code>
    * @return The contract.
    */
   com.api.v1.Contract getContract();
@@ -39,7 +39,7 @@ public interface CreateContractWithChargeResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Contract contract = 1 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Contract contract = 1 [json_name = "contract"];</code>
    */
   com.api.v1.ContractOrBuilder getContractOrBuilder();
 
@@ -51,7 +51,7 @@ public interface CreateContractWithChargeResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Charge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Charge charge = 2 [json_name = "charge"];</code>
    * @return Whether the charge field is set.
    */
   boolean hasCharge();
@@ -63,7 +63,7 @@ public interface CreateContractWithChargeResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Charge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Charge charge = 2 [json_name = "charge"];</code>
    * @return The charge.
    */
   com.api.v1.Charge getCharge();
@@ -75,7 +75,7 @@ public interface CreateContractWithChargeResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Charge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Charge charge = 2 [json_name = "charge"];</code>
    */
   com.api.v1.ChargeOrBuilder getChargeOrBuilder();
 
@@ -87,7 +87,7 @@ public interface CreateContractWithChargeResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Customer customer = 3 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 3 [json_name = "customer"];</code>
    * @return Whether the customer field is set.
    */
   boolean hasCustomer();
@@ -99,7 +99,7 @@ public interface CreateContractWithChargeResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Customer customer = 3 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 3 [json_name = "customer"];</code>
    * @return The customer.
    */
   com.api.v1.Customer getCustomer();
@@ -111,7 +111,7 @@ public interface CreateContractWithChargeResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Customer customer = 3 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 3 [json_name = "customer"];</code>
    */
   com.api.v1.CustomerOrBuilder getCustomerOrBuilder();
 
@@ -123,7 +123,7 @@ public interface CreateContractWithChargeResponseOrBuilder extends
    * &#64;gotags: validate:"required,http_url"
    * </pre>
    *
-   * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink"];</code>
    * @return Whether the paymentLink field is set.
    */
   boolean hasPaymentLink();
@@ -135,7 +135,7 @@ public interface CreateContractWithChargeResponseOrBuilder extends
    * &#64;gotags: validate:"required,http_url"
    * </pre>
    *
-   * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink"];</code>
    * @return The paymentLink.
    */
   com.api.v1.PaymentLink getPaymentLink();
@@ -147,7 +147,7 @@ public interface CreateContractWithChargeResponseOrBuilder extends
    * &#64;gotags: validate:"required,http_url"
    * </pre>
    *
-   * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink"];</code>
    */
   com.api.v1.PaymentLinkOrBuilder getPaymentLinkOrBuilder();
 }

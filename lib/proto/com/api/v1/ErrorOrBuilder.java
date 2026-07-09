@@ -15,7 +15,7 @@ public interface ErrorOrBuilder extends
    * Jamm defined error code.
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+   * <code>string code = 1 [json_name = "code"];</code>
    * @return The code.
    */
   java.lang.String getCode();
@@ -24,7 +24,7 @@ public interface ErrorOrBuilder extends
    * Jamm defined error code.
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+   * <code>string code = 1 [json_name = "code"];</code>
    * @return The bytes for code.
    */
   com.google.protobuf.ByteString
@@ -35,7 +35,7 @@ public interface ErrorOrBuilder extends
    * Human readable error message.
    * </pre>
    *
-   * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>string message = 2 [json_name = "message"];</code>
    * @return The message.
    */
   java.lang.String getMessage();
@@ -44,7 +44,7 @@ public interface ErrorOrBuilder extends
    * Human readable error message.
    * </pre>
    *
-   * <code>string message = 2 [json_name = "message", (.buf.validate.field) = { ... }</code>
+   * <code>string message = 2 [json_name = "message"];</code>
    * @return The bytes for message.
    */
   com.google.protobuf.ByteString
@@ -55,7 +55,7 @@ public interface ErrorOrBuilder extends
    * ConnectRPC error details.
    * </pre>
    *
-   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
    */
   java.util.List<com.api.v1.ErrorDetail> 
       getDetailsList();
@@ -64,7 +64,7 @@ public interface ErrorOrBuilder extends
    * ConnectRPC error details.
    * </pre>
    *
-   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
    */
   com.api.v1.ErrorDetail getDetails(int index);
   /**
@@ -72,7 +72,7 @@ public interface ErrorOrBuilder extends
    * ConnectRPC error details.
    * </pre>
    *
-   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
    */
   int getDetailsCount();
   /**
@@ -80,7 +80,7 @@ public interface ErrorOrBuilder extends
    * ConnectRPC error details.
    * </pre>
    *
-   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
    */
   java.util.List<? extends com.api.v1.ErrorDetailOrBuilder> 
       getDetailsOrBuilderList();
@@ -89,7 +89,7 @@ public interface ErrorOrBuilder extends
    * ConnectRPC error details.
    * </pre>
    *
-   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details", (.buf.validate.field) = { ... }</code>
+   * <code>repeated .api.v1.ErrorDetail details = 3 [json_name = "details"];</code>
    */
   com.api.v1.ErrorDetailOrBuilder getDetailsOrBuilder(
       int index);

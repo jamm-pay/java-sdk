@@ -52,14 +52,14 @@ private static final long serialVersionUID = 0L;
   public static final int ERROR_TYPE_FIELD_NUMBER = 1;
   private int errorType_ = 0;
   /**
-   * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType", (.buf.validate.field) = { ... }</code>
+   * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType"];</code>
    * @return The enum numeric value on the wire for errorType.
    */
   @java.lang.Override public int getErrorTypeValue() {
     return errorType_;
   }
   /**
-   * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType", (.buf.validate.field) = { ... }</code>
+   * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType"];</code>
    * @return The errorType.
    */
   @java.lang.Override public com.error.v1.ErrorType getErrorType() {
@@ -361,14 +361,14 @@ private static final long serialVersionUID = 0L;
 
     private int errorType_ = 0;
     /**
-     * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType", (.buf.validate.field) = { ... }</code>
+     * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType"];</code>
      * @return The enum numeric value on the wire for errorType.
      */
     @java.lang.Override public int getErrorTypeValue() {
       return errorType_;
     }
     /**
-     * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType", (.buf.validate.field) = { ... }</code>
+     * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType"];</code>
      * @param value The enum numeric value on the wire for errorType to set.
      * @throws IllegalArgumentException if UNRECOGNIZED is provided.
      * @return This builder for chaining.
@@ -380,7 +380,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType", (.buf.validate.field) = { ... }</code>
+     * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType"];</code>
      * @return The errorType.
      */
     @java.lang.Override
@@ -389,7 +389,7 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.error.v1.ErrorType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType", (.buf.validate.field) = { ... }</code>
+     * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType"];</code>
      * @param value The errorType to set.
      * @return This builder for chaining.
      */
@@ -401,7 +401,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType", (.buf.validate.field) = { ... }</code>
+     * <code>.error.v1.ErrorType error_type = 1 [json_name = "errorType"];</code>
      * @return This builder for chaining.
      */
     public Builder clearErrorType() {

@@ -18,7 +18,7 @@ public interface CreateContractWithoutChargeRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
    * @return Whether the buyer field is set.
    */
   boolean hasBuyer();
@@ -30,7 +30,7 @@ public interface CreateContractWithoutChargeRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
    * @return The buyer.
    */
   com.api.v1.Buyer getBuyer();
@@ -42,7 +42,7 @@ public interface CreateContractWithoutChargeRequestOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
    */
   com.api.v1.BuyerOrBuilder getBuyerOrBuilder();
 

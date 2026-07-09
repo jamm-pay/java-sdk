@@ -15,7 +15,7 @@ public interface SearchBanksRequestOrBuilder extends
    * Arbitrary query keyword to search banks.
    * </pre>
    *
-   * <code>string query = 1 [json_name = "query", (.buf.validate.field) = { ... }</code>
+   * <code>string query = 1 [json_name = "query"];</code>
    * @return The query.
    */
   java.lang.String getQuery();
@@ -24,7 +24,7 @@ public interface SearchBanksRequestOrBuilder extends
    * Arbitrary query keyword to search banks.
    * </pre>
    *
-   * <code>string query = 1 [json_name = "query", (.buf.validate.field) = { ... }</code>
+   * <code>string query = 1 [json_name = "query"];</code>
    * @return The bytes for query.
    */
   com.google.protobuf.ByteString

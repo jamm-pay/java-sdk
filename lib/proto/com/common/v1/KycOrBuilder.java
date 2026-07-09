@@ -23,12 +23,12 @@ public interface KycOrBuilder extends
       getPublicIdBytes();
 
   /**
-   * <code>.common.v1.KycState state = 2 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.KycState state = 2 [json_name = "state"];</code>
    * @return The enum numeric value on the wire for state.
    */
   int getStateValue();
   /**
-   * <code>.common.v1.KycState state = 2 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>.common.v1.KycState state = 2 [json_name = "state"];</code>
    * @return The state.
    */
   com.common.v1.KycState getState();

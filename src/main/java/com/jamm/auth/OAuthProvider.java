@@ -1,22 +1,24 @@
 package com.jamm.auth;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonParser;
 import com.jamm.errors.OAuthException;
-import okhttp3.FormBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.Base64;
-import java.util.concurrent.TimeUnit;
 
 /**
  * OAuth2 provider for fetching and caching access tokens.
@@ -25,13 +27,13 @@ import java.util.concurrent.TimeUnit;
 public class OAuthProvider implements AutoCloseable {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OAuthProvider.class);
-    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
     private static final String TOKEN_ENDPOINT = "/oauth2/token";
 
     private final String clientId;
     private final String clientSecret;
     private final String oauthBaseUrl;
-    private final OkHttpClient httpClient;
+    private final int connectTimeout;
+    private final int readTimeout;
 
     // Token caching
     private String cachedToken;
@@ -83,12 +85,8 @@ public class OAuthProvider implements AutoCloseable {
         this.clientId = clientId;
         this.clientSecret = clientSecret;
         this.oauthBaseUrl = oauthBaseUrl;
-
-        this.httpClient = new OkHttpClient.Builder()
-                .connectTimeout(connectTimeout, TimeUnit.MILLISECONDS)
-                .readTimeout(readTimeout, TimeUnit.MILLISECONDS)
-                .writeTimeout(readTimeout, TimeUnit.MILLISECONDS)
-                .build();
+        this.connectTimeout = (int) Math.min(connectTimeout, Integer.MAX_VALUE);
+        this.readTimeout = (int) Math.min(readTimeout, Integer.MAX_VALUE);
     }
 
     /**
@@ -124,30 +122,31 @@ public class OAuthProvider implements AutoCloseable {
                     (clientId + ":" + clientSecret).getBytes(StandardCharsets.UTF_8)
             );
 
-            // Use FormBody.Builder for proper URL encoding of form parameters
-            RequestBody body = new FormBody.Builder()
-                    .add("grant_type", "client_credentials")
-                    .add("client_id", clientId)
-                    .build();
+            byte[] formBody = ("grant_type=client_credentials&client_id=" + urlEncode(clientId))
+                    .getBytes(StandardCharsets.UTF_8);
 
-            Request request = new Request.Builder()
-                    .url(tokenUrl)
-                    .post(body)
-                    .header("Authorization", "Basic " + encodedCredentials)
-                    .build();
-
-            try (Response response = httpClient.newCall(request).execute()) {
-                String responseBody = response.body() != null ? response.body().string() : "";
-
-                if (!response.isSuccessful()) {
-                    throw new OAuthException(
-                            "OAuth token request failed",
-                            response.code(),
-                            responseBody
-                    );
+            try {
+                HttpURLConnection conn = (HttpURLConnection) new URL(tokenUrl).openConnection();
+                conn.setRequestMethod("POST");
+                conn.setConnectTimeout(connectTimeout);
+                conn.setReadTimeout(readTimeout);
+                conn.setInstanceFollowRedirects(false);
+                conn.setRequestProperty("Authorization", "Basic " + encodedCredentials);
+                conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                conn.setDoOutput(true);
+                conn.setFixedLengthStreamingMode(formBody.length);
+                try (OutputStream out = conn.getOutputStream()) {
+                    out.write(formBody);
                 }
 
-                return parseTokenResponse(responseBody, response.code());
+                int code = conn.getResponseCode();
+                String responseBody = readBody(conn, code);
+
+                if (code < 200 || code >= 300) {
+                    throw new OAuthException("OAuth token request failed", code, responseBody);
+                }
+
+                return parseTokenResponse(responseBody, code);
 
             } catch (SocketTimeoutException e) {
                 throw new OAuthException("OAuth request timed out", e);
@@ -157,6 +156,31 @@ public class OAuthProvider implements AutoCloseable {
                         e
                 );
             }
+        }
+    }
+
+    private static String urlEncode(String value) {
+        try {
+            return URLEncoder.encode(value, StandardCharsets.UTF_8.name());
+        } catch (IOException e) {
+            // UTF-8 is always supported.
+            throw new IllegalStateException(e);
+        }
+    }
+
+    private static String readBody(HttpURLConnection conn, int code) throws IOException {
+        InputStream stream = code >= 400 ? conn.getErrorStream() : conn.getInputStream();
+        if (stream == null) {
+            return "";
+        }
+        try (InputStream in = stream) {
+            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+            byte[] chunk = new byte[8192];
+            int read;
+            while ((read = in.read(chunk)) != -1) {
+                buffer.write(chunk, 0, read);
+            }
+            return new String(buffer.toByteArray(), StandardCharsets.UTF_8);
         }
     }
 
@@ -179,50 +203,46 @@ public class OAuthProvider implements AutoCloseable {
     }
 
     private String parseTokenResponse(String responseBody, int statusCode) {
+        JsonObject root;
         try {
-            JsonNode root = OBJECT_MAPPER.readTree(responseBody);
-
-            if (!root.has("access_token")) {
-                throw new OAuthException(
-                        "Access token not found in OAuth response",
-                        statusCode,
-                        responseBody
-                );
-            }
-
-            cachedToken = root.get("access_token").asText();
-
-            // Parse expiry if available
-            if (root.has("expires_in")) {
-                long expiresIn = root.get("expires_in").asLong();
-                tokenExpiry = Instant.now().plusSeconds(expiresIn);
-                LOGGER.debug("Token will expire at {}", tokenExpiry);
-            } else {
-                // Default to 1 hour if not specified
-                tokenExpiry = Instant.now().plusSeconds(3600);
-            }
-
-            return cachedToken;
-
-        } catch (IOException e) {
+            root = JsonParser.parseString(responseBody).getAsJsonObject();
+        } catch (JsonParseException | IllegalStateException e) {
             throw new OAuthException(
                     "Failed to parse OAuth response",
                     statusCode,
                     responseBody
             );
         }
+
+        JsonElement accessToken = root.get("access_token");
+        if (accessToken == null || !accessToken.isJsonPrimitive()) {
+            throw new OAuthException(
+                    "Access token not found in OAuth response",
+                    statusCode,
+                    responseBody
+            );
+        }
+
+        cachedToken = accessToken.getAsString();
+
+        // Parse expiry if it is present and numeric; otherwise default to 1 hour.
+        JsonElement expiresIn = root.get("expires_in");
+        if (expiresIn != null && expiresIn.isJsonPrimitive() && expiresIn.getAsJsonPrimitive().isNumber()) {
+            tokenExpiry = Instant.now().plusSeconds(expiresIn.getAsLong());
+            LOGGER.debug("Token will expire at {}", tokenExpiry);
+        } else {
+            tokenExpiry = Instant.now().plusSeconds(3600);
+        }
+
+        return cachedToken;
     }
 
     /**
-     * Releases resources held by the underlying OkHttpClient.
-     * <p>
-     * OkHttpClient manages its own connection pool and executor service.
-     * This method allows callers (typically {@link com.jamm.JammClient})
-     * to explicitly clean up those resources when the provider is no longer needed.
+     * No-op. Uses {@link HttpURLConnection}, which holds no pool or executor to release; retained
+     * for API compatibility and the {@link AutoCloseable} contract.
      */
     @Override
     public void close() {
-        httpClient.dispatcher().executorService().shutdown();
-        httpClient.connectionPool().evictAll();
+        // Nothing to release.
     }
 }

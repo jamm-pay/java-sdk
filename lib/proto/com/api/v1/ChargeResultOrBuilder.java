@@ -11,12 +11,12 @@ public interface ChargeResultOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+   * <code>string charge_id = 1 [json_name = "chargeId"];</code>
    * @return The chargeId.
    */
   java.lang.String getChargeId();
   /**
-   * <code>string charge_id = 1 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+   * <code>string charge_id = 1 [json_name = "chargeId"];</code>
    * @return The bytes for chargeId.
    */
   com.google.protobuf.ByteString
@@ -39,7 +39,7 @@ public interface ChargeResultOrBuilder extends
    * reason, because Jamm may update the reason at any time.
    * </pre>
    *
-   * <code>string reason = 3 [json_name = "reason", (.buf.validate.field) = { ... }</code>
+   * <code>string reason = 3 [json_name = "reason"];</code>
    * @return The reason.
    */
   java.lang.String getReason();
@@ -50,50 +50,50 @@ public interface ChargeResultOrBuilder extends
    * reason, because Jamm may update the reason at any time.
    * </pre>
    *
-   * <code>string reason = 3 [json_name = "reason", (.buf.validate.field) = { ... }</code>
+   * <code>string reason = 3 [json_name = "reason"];</code>
    * @return The bytes for reason.
    */
   com.google.protobuf.ByteString
       getReasonBytes();
 
   /**
-   * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+   * <code>string description = 4 [json_name = "description"];</code>
    * @return The description.
    */
   java.lang.String getDescription();
   /**
-   * <code>string description = 4 [json_name = "description", (.buf.validate.field) = { ... }</code>
+   * <code>string description = 4 [json_name = "description"];</code>
    * @return The bytes for description.
    */
   com.google.protobuf.ByteString
       getDescriptionBytes();
 
   /**
-   * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+   * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
    * @return The merchantName.
    */
   java.lang.String getMerchantName();
   /**
-   * <code>string merchant_name = 5 [json_name = "merchantName", (.buf.validate.field) = { ... }</code>
+   * <code>string merchant_name = 5 [json_name = "merchantName"];</code>
    * @return The bytes for merchantName.
    */
   com.google.protobuf.ByteString
       getMerchantNameBytes();
 
   /**
-   * <code>int32 initial_amount = 6 [json_name = "initialAmount", (.buf.validate.field) = { ... }</code>
+   * <code>int32 initial_amount = 6 [json_name = "initialAmount"];</code>
    * @return The initialAmount.
    */
   int getInitialAmount();
 
   /**
-   * <code>int32 discount = 7 [json_name = "discount", (.buf.validate.field) = { ... }</code>
+   * <code>int32 discount = 7 [json_name = "discount"];</code>
    * @return The discount.
    */
   int getDiscount();
 
   /**
-   * <code>int32 final_amount = 8 [json_name = "finalAmount", (.buf.validate.field) = { ... }</code>
+   * <code>int32 final_amount = 8 [json_name = "finalAmount"];</code>
    * @return The finalAmount.
    */
   int getFinalAmount();
@@ -110,24 +110,24 @@ public interface ChargeResultOrBuilder extends
   int getAmountRefunded();
 
   /**
-   * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+   * <code>string currency = 10 [json_name = "currency"];</code>
    * @return The currency.
    */
   java.lang.String getCurrency();
   /**
-   * <code>string currency = 10 [json_name = "currency", (.buf.validate.field) = { ... }</code>
+   * <code>string currency = 10 [json_name = "currency"];</code>
    * @return The bytes for currency.
    */
   com.google.protobuf.ByteString
       getCurrencyBytes();
 
   /**
-   * <code>string token_id = 11 [json_name = "tokenId", (.buf.validate.field) = { ... }</code>
+   * <code>string token_id = 11 [json_name = "tokenId"];</code>
    * @return The tokenId.
    */
   java.lang.String getTokenId();
   /**
-   * <code>string token_id = 11 [json_name = "tokenId", (.buf.validate.field) = { ... }</code>
+   * <code>string token_id = 11 [json_name = "tokenId"];</code>
    * @return The bytes for tokenId.
    */
   com.google.protobuf.ByteString
@@ -168,32 +168,32 @@ java.lang.String defaultValue);
       java.lang.String key);
 
   /**
-   * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt"];</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
   /**
-   * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
   /**
-   * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 13 [json_name = "createdAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt"];</code>
    * @return Whether the updatedAt field is set.
    */
   boolean hasUpdatedAt();
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt"];</code>
    * @return The updatedAt.
    */
   com.google.protobuf.Timestamp getUpdatedAt();
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 14 [json_name = "updatedAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
 
@@ -217,7 +217,7 @@ java.lang.String defaultValue);
    * Charge status for polling and state handling.
    * </pre>
    *
-   * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus"];</code>
    * @return The enum numeric value on the wire for chargeStatus.
    */
   int getChargeStatusValue();
@@ -226,7 +226,7 @@ java.lang.String defaultValue);
    * Charge status for polling and state handling.
    * </pre>
    *
-   * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeStatus charge_status = 16 [json_name = "chargeStatus"];</code>
    * @return The chargeStatus.
    */
   com.api.v1.ChargeStatus getChargeStatus();

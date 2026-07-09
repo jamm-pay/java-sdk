@@ -1,8 +1,10 @@
 package com.jamm.errors;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.Collections;
 import java.util.Map;
@@ -13,7 +15,9 @@ import java.util.Map;
  */
 public class ApiException extends JammException {
 
-    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+    private static final Gson GSON = new Gson();
+    private static final java.lang.reflect.Type MAP_TYPE =
+            new TypeToken<Map<String, Object>>() {}.getType();
 
     private final ErrorCode errorCode;
     private final String errorType;
@@ -97,36 +101,38 @@ public class ApiException extends JammException {
 
         if (httpBody != null && !httpBody.isEmpty()) {
             try {
-                JsonNode root = OBJECT_MAPPER.readTree(httpBody);
+                JsonObject root = JsonParser.parseString(httpBody).getAsJsonObject();
 
                 // Extract error code
                 if (root.has("code")) {
-                    JsonNode codeNode = root.get("code");
-                    if (codeNode.isInt()) {
-                        errorCode = ErrorCode.fromCode(codeNode.asInt());
-                    } else if (codeNode.isTextual()) {
-                        errorCode = ErrorCode.fromName(codeNode.asText());
+                    JsonElement codeNode = root.get("code");
+                    if (codeNode.isJsonPrimitive() && codeNode.getAsJsonPrimitive().isNumber()) {
+                        errorCode = ErrorCode.fromCode(codeNode.getAsInt());
+                    } else if (codeNode.isJsonPrimitive() && codeNode.getAsJsonPrimitive().isString()) {
+                        errorCode = ErrorCode.fromName(codeNode.getAsString());
                     }
                 }
 
                 // Extract message
-                if (root.has("message")) {
-                    message = root.get("message").asText();
+                if (root.has("message") && !root.get("message").isJsonNull()) {
+                    message = root.get("message").getAsString();
                 }
 
                 // Extract error type from details
-                if (root.has("details") && root.get("details").isArray()) {
-                    for (JsonNode detail : root.get("details")) {
-                        if (detail.has("debug")) {
-                            errorType = detail.get("debug").asText();
-                            break;
+                if (root.has("details") && root.get("details").isJsonArray()) {
+                    for (JsonElement detail : root.getAsJsonArray("details")) {
+                        if (detail.isJsonObject()) {
+                            JsonElement debug = detail.getAsJsonObject().get("debug");
+                            if (debug != null && debug.isJsonPrimitive()) {
+                                errorType = debug.getAsString();
+                                break;
+                            }
                         }
                     }
                 }
 
                 // Parse full body
-                bodyMap = OBJECT_MAPPER.convertValue(root,
-                        new TypeReference<Map<String, Object>>() {});
+                bodyMap = GSON.fromJson(root, MAP_TYPE);
             } catch (Exception e) {
                 // If parsing fails, use defaults
                 message = httpBody;

@@ -66,7 +66,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Contract contract = 1 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Contract contract = 1 [json_name = "contract"];</code>
    * @return Whether the contract field is set.
    */
   @java.lang.Override
@@ -80,7 +80,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Contract contract = 1 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Contract contract = 1 [json_name = "contract"];</code>
    * @return The contract.
    */
   @java.lang.Override
@@ -94,7 +94,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Contract contract = 1 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Contract contract = 1 [json_name = "contract"];</code>
    */
   @java.lang.Override
   public com.api.v1.ContractOrBuilder getContractOrBuilder() {
@@ -111,7 +111,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Charge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Charge charge = 2 [json_name = "charge"];</code>
    * @return Whether the charge field is set.
    */
   @java.lang.Override
@@ -126,7 +126,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Charge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Charge charge = 2 [json_name = "charge"];</code>
    * @return The charge.
    */
   @java.lang.Override
@@ -141,7 +141,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Charge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Charge charge = 2 [json_name = "charge"];</code>
    */
   @java.lang.Override
   public com.api.v1.ChargeOrBuilder getChargeOrBuilder() {
@@ -158,7 +158,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Customer customer = 3 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 3 [json_name = "customer"];</code>
    * @return Whether the customer field is set.
    */
   @java.lang.Override
@@ -173,7 +173,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Customer customer = 3 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 3 [json_name = "customer"];</code>
    * @return The customer.
    */
   @java.lang.Override
@@ -188,7 +188,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Customer customer = 3 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 3 [json_name = "customer"];</code>
    */
   @java.lang.Override
   public com.api.v1.CustomerOrBuilder getCustomerOrBuilder() {
@@ -205,7 +205,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required,http_url"
    * </pre>
    *
-   * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink"];</code>
    * @return Whether the paymentLink field is set.
    */
   @java.lang.Override
@@ -220,7 +220,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required,http_url"
    * </pre>
    *
-   * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink"];</code>
    * @return The paymentLink.
    */
   @java.lang.Override
@@ -235,7 +235,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required,http_url"
    * </pre>
    *
-   * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink"];</code>
    */
   @java.lang.Override
   public com.api.v1.PaymentLinkOrBuilder getPaymentLinkOrBuilder() {
@@ -689,7 +689,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Contract contract = 1 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Contract contract = 1 [json_name = "contract"];</code>
      * @return Whether the contract field is set.
      */
     public boolean hasContract() {
@@ -702,7 +702,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Contract contract = 1 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Contract contract = 1 [json_name = "contract"];</code>
      * @return The contract.
      */
     public com.api.v1.Contract getContract() {
@@ -719,7 +719,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Contract contract = 1 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Contract contract = 1 [json_name = "contract"];</code>
      */
     public Builder setContract(com.api.v1.Contract value) {
       if (contractBuilder_ == null) {
@@ -741,7 +741,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Contract contract = 1 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Contract contract = 1 [json_name = "contract"];</code>
      */
     public Builder setContract(
         com.api.v1.Contract.Builder builderForValue) {
@@ -761,7 +761,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Contract contract = 1 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Contract contract = 1 [json_name = "contract"];</code>
      */
     public Builder mergeContract(com.api.v1.Contract value) {
       if (contractBuilder_ == null) {
@@ -788,7 +788,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Contract contract = 1 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Contract contract = 1 [json_name = "contract"];</code>
      */
     public Builder clearContract() {
       bitField0_ = (bitField0_ & ~0x00000001);
@@ -807,7 +807,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Contract contract = 1 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Contract contract = 1 [json_name = "contract"];</code>
      */
     public com.api.v1.Contract.Builder getContractBuilder() {
       bitField0_ |= 0x00000001;
@@ -821,7 +821,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Contract contract = 1 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Contract contract = 1 [json_name = "contract"];</code>
      */
     public com.api.v1.ContractOrBuilder getContractOrBuilder() {
       if (contractBuilder_ != null) {
@@ -838,7 +838,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Contract contract = 1 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Contract contract = 1 [json_name = "contract"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.Contract, com.api.v1.Contract.Builder, com.api.v1.ContractOrBuilder> 
@@ -865,7 +865,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Charge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Charge charge = 2 [json_name = "charge"];</code>
      * @return Whether the charge field is set.
      */
     public boolean hasCharge() {
@@ -879,7 +879,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Charge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Charge charge = 2 [json_name = "charge"];</code>
      * @return The charge.
      */
     public com.api.v1.Charge getCharge() {
@@ -897,7 +897,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Charge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Charge charge = 2 [json_name = "charge"];</code>
      */
     public Builder setCharge(com.api.v1.Charge value) {
       if (chargeBuilder_ == null) {
@@ -920,7 +920,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Charge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Charge charge = 2 [json_name = "charge"];</code>
      */
     public Builder setCharge(
         com.api.v1.Charge.Builder builderForValue) {
@@ -941,7 +941,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Charge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Charge charge = 2 [json_name = "charge"];</code>
      */
     public Builder mergeCharge(com.api.v1.Charge value) {
       if (chargeBuilder_ == null) {
@@ -969,7 +969,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Charge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Charge charge = 2 [json_name = "charge"];</code>
      */
     public Builder clearCharge() {
       bitField0_ = (bitField0_ & ~0x00000002);
@@ -989,7 +989,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Charge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Charge charge = 2 [json_name = "charge"];</code>
      */
     public com.api.v1.Charge.Builder getChargeBuilder() {
       bitField0_ |= 0x00000002;
@@ -1004,7 +1004,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Charge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Charge charge = 2 [json_name = "charge"];</code>
      */
     public com.api.v1.ChargeOrBuilder getChargeOrBuilder() {
       if (chargeBuilder_ != null) {
@@ -1022,7 +1022,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Charge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Charge charge = 2 [json_name = "charge"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.Charge, com.api.v1.Charge.Builder, com.api.v1.ChargeOrBuilder> 
@@ -1049,7 +1049,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Customer customer = 3 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 3 [json_name = "customer"];</code>
      * @return Whether the customer field is set.
      */
     public boolean hasCustomer() {
@@ -1063,7 +1063,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Customer customer = 3 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 3 [json_name = "customer"];</code>
      * @return The customer.
      */
     public com.api.v1.Customer getCustomer() {
@@ -1081,7 +1081,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Customer customer = 3 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 3 [json_name = "customer"];</code>
      */
     public Builder setCustomer(com.api.v1.Customer value) {
       if (customerBuilder_ == null) {
@@ -1104,7 +1104,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Customer customer = 3 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 3 [json_name = "customer"];</code>
      */
     public Builder setCustomer(
         com.api.v1.Customer.Builder builderForValue) {
@@ -1125,7 +1125,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Customer customer = 3 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 3 [json_name = "customer"];</code>
      */
     public Builder mergeCustomer(com.api.v1.Customer value) {
       if (customerBuilder_ == null) {
@@ -1153,7 +1153,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Customer customer = 3 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 3 [json_name = "customer"];</code>
      */
     public Builder clearCustomer() {
       bitField0_ = (bitField0_ & ~0x00000004);
@@ -1173,7 +1173,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Customer customer = 3 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 3 [json_name = "customer"];</code>
      */
     public com.api.v1.Customer.Builder getCustomerBuilder() {
       bitField0_ |= 0x00000004;
@@ -1188,7 +1188,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Customer customer = 3 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 3 [json_name = "customer"];</code>
      */
     public com.api.v1.CustomerOrBuilder getCustomerOrBuilder() {
       if (customerBuilder_ != null) {
@@ -1206,7 +1206,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.Customer customer = 3 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Customer customer = 3 [json_name = "customer"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.Customer, com.api.v1.Customer.Builder, com.api.v1.CustomerOrBuilder> 
@@ -1233,7 +1233,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required,http_url"
      * </pre>
      *
-     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink"];</code>
      * @return Whether the paymentLink field is set.
      */
     public boolean hasPaymentLink() {
@@ -1247,7 +1247,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required,http_url"
      * </pre>
      *
-     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink"];</code>
      * @return The paymentLink.
      */
     public com.api.v1.PaymentLink getPaymentLink() {
@@ -1265,7 +1265,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required,http_url"
      * </pre>
      *
-     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink"];</code>
      */
     public Builder setPaymentLink(com.api.v1.PaymentLink value) {
       if (paymentLinkBuilder_ == null) {
@@ -1288,7 +1288,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required,http_url"
      * </pre>
      *
-     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink"];</code>
      */
     public Builder setPaymentLink(
         com.api.v1.PaymentLink.Builder builderForValue) {
@@ -1309,7 +1309,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required,http_url"
      * </pre>
      *
-     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink"];</code>
      */
     public Builder mergePaymentLink(com.api.v1.PaymentLink value) {
       if (paymentLinkBuilder_ == null) {
@@ -1337,7 +1337,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required,http_url"
      * </pre>
      *
-     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink"];</code>
      */
     public Builder clearPaymentLink() {
       bitField0_ = (bitField0_ & ~0x00000008);
@@ -1357,7 +1357,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required,http_url"
      * </pre>
      *
-     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink"];</code>
      */
     public com.api.v1.PaymentLink.Builder getPaymentLinkBuilder() {
       bitField0_ |= 0x00000008;
@@ -1372,7 +1372,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required,http_url"
      * </pre>
      *
-     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink"];</code>
      */
     public com.api.v1.PaymentLinkOrBuilder getPaymentLinkOrBuilder() {
       if (paymentLinkBuilder_ != null) {
@@ -1390,7 +1390,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required,http_url"
      * </pre>
      *
-     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.PaymentLink payment_link = 4 [json_name = "paymentLink"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.PaymentLink, com.api.v1.PaymentLink.Builder, com.api.v1.PaymentLinkOrBuilder> 

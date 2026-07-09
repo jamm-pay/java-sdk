@@ -15,7 +15,7 @@ public interface InitiateSmsVerificationResponseOrBuilder extends
    * OTP expiry time in seconds (typically 300 = 5 minutes)
    * </pre>
    *
-   * <code>int32 expires_in_seconds = 1 [json_name = "expiresInSeconds", (.buf.validate.field) = { ... }</code>
+   * <code>int32 expires_in_seconds = 1 [json_name = "expiresInSeconds"];</code>
    * @return The expiresInSeconds.
    */
   int getExpiresInSeconds();
@@ -25,7 +25,7 @@ public interface InitiateSmsVerificationResponseOrBuilder extends
    * Minimum wait time before resend is allowed
    * </pre>
    *
-   * <code>int32 resend_delay_seconds = 2 [json_name = "resendDelaySeconds", (.buf.validate.field) = { ... }</code>
+   * <code>int32 resend_delay_seconds = 2 [json_name = "resendDelaySeconds"];</code>
    * @return The resendDelaySeconds.
    */
   int getResendDelaySeconds();
@@ -59,17 +59,17 @@ public interface InitiateSmsVerificationResponseOrBuilder extends
   com.common.v1.InitiateErrorType getErrorType();
 
   /**
-   * <code>optional string error_message = 4 [json_name = "errorMessage", (.buf.validate.field) = { ... }</code>
+   * <code>optional string error_message = 4 [json_name = "errorMessage"];</code>
    * @return Whether the errorMessage field is set.
    */
   boolean hasErrorMessage();
   /**
-   * <code>optional string error_message = 4 [json_name = "errorMessage", (.buf.validate.field) = { ... }</code>
+   * <code>optional string error_message = 4 [json_name = "errorMessage"];</code>
    * @return The errorMessage.
    */
   java.lang.String getErrorMessage();
   /**
-   * <code>optional string error_message = 4 [json_name = "errorMessage", (.buf.validate.field) = { ... }</code>
+   * <code>optional string error_message = 4 [json_name = "errorMessage"];</code>
    * @return The bytes for errorMessage.
    */
   com.google.protobuf.ByteString

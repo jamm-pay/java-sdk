@@ -15,7 +15,7 @@ public interface CustomerOrBuilder extends
    * Customer ID
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   java.lang.String getId();
@@ -24,7 +24,7 @@ public interface CustomerOrBuilder extends
    * Customer ID
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
@@ -35,7 +35,7 @@ public interface CustomerOrBuilder extends
    * Customer's email address
    * </pre>
    *
-   * <code>string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+   * <code>string email = 2 [json_name = "email"];</code>
    * @return The email.
    */
   java.lang.String getEmail();
@@ -44,7 +44,7 @@ public interface CustomerOrBuilder extends
    * Customer's email address
    * </pre>
    *
-   * <code>string email = 2 [json_name = "email", (.buf.validate.field) = { ... }</code>
+   * <code>string email = 2 [json_name = "email"];</code>
    * @return The bytes for email.
    */
   com.google.protobuf.ByteString
@@ -75,7 +75,7 @@ public interface CustomerOrBuilder extends
    * Customer status information
    * </pre>
    *
-   * <code>.api.v1.Status status = 5 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Status status = 5 [json_name = "status"];</code>
    * @return Whether the status field is set.
    */
   boolean hasStatus();
@@ -84,7 +84,7 @@ public interface CustomerOrBuilder extends
    * Customer status information
    * </pre>
    *
-   * <code>.api.v1.Status status = 5 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Status status = 5 [json_name = "status"];</code>
    * @return The status.
    */
   com.api.v1.Status getStatus();
@@ -93,7 +93,7 @@ public interface CustomerOrBuilder extends
    * Customer status information
    * </pre>
    *
-   * <code>.api.v1.Status status = 5 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Status status = 5 [json_name = "status"];</code>
    */
   com.api.v1.StatusOrBuilder getStatusOrBuilder();
 
@@ -125,32 +125,32 @@ public interface CustomerOrBuilder extends
   com.api.v1.BankInformationOrBuilder getBankInformationOrBuilder();
 
   /**
-   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
   /**
-   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
   /**
-   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 10 [json_name = "createdAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
    * @return Whether the updatedAt field is set.
    */
   boolean hasUpdatedAt();
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
    * @return The updatedAt.
    */
   com.google.protobuf.Timestamp getUpdatedAt();
   /**
-   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp updated_at = 11 [json_name = "updatedAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getUpdatedAtOrBuilder();
 }

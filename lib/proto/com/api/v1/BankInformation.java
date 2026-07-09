@@ -64,7 +64,7 @@ private static final long serialVersionUID = 0L;
    * Masked account number
    * </pre>
    *
-   * <code>string account_number = 1 [json_name = "accountNumber", (.buf.validate.field) = { ... }</code>
+   * <code>string account_number = 1 [json_name = "accountNumber"];</code>
    * @return The accountNumber.
    */
   @java.lang.Override
@@ -85,7 +85,7 @@ private static final long serialVersionUID = 0L;
    * Masked account number
    * </pre>
    *
-   * <code>string account_number = 1 [json_name = "accountNumber", (.buf.validate.field) = { ... }</code>
+   * <code>string account_number = 1 [json_name = "accountNumber"];</code>
    * @return The bytes for accountNumber.
    */
   @java.lang.Override
@@ -111,7 +111,7 @@ private static final long serialVersionUID = 0L;
    * Bank name
    * </pre>
    *
-   * <code>string bank_name = 2 [json_name = "bankName", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_name = 2 [json_name = "bankName"];</code>
    * @return The bankName.
    */
   @java.lang.Override
@@ -132,7 +132,7 @@ private static final long serialVersionUID = 0L;
    * Bank name
    * </pre>
    *
-   * <code>string bank_name = 2 [json_name = "bankName", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_name = 2 [json_name = "bankName"];</code>
    * @return The bytes for bankName.
    */
   @java.lang.Override
@@ -158,7 +158,7 @@ private static final long serialVersionUID = 0L;
    * Branch name
    * </pre>
    *
-   * <code>string branch_name = 3 [json_name = "branchName", (.buf.validate.field) = { ... }</code>
+   * <code>string branch_name = 3 [json_name = "branchName"];</code>
    * @return The branchName.
    */
   @java.lang.Override
@@ -179,7 +179,7 @@ private static final long serialVersionUID = 0L;
    * Branch name
    * </pre>
    *
-   * <code>string branch_name = 3 [json_name = "branchName", (.buf.validate.field) = { ... }</code>
+   * <code>string branch_name = 3 [json_name = "branchName"];</code>
    * @return The bytes for branchName.
    */
   @java.lang.Override
@@ -205,7 +205,7 @@ private static final long serialVersionUID = 0L;
    * 口座種別（普通または当座）
    * </pre>
    *
-   * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType"];</code>
    * @return The enum numeric value on the wire for depositType.
    */
   @java.lang.Override public int getDepositTypeValue() {
@@ -217,7 +217,7 @@ private static final long serialVersionUID = 0L;
    * 口座種別（普通または当座）
    * </pre>
    *
-   * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType"];</code>
    * @return The depositType.
    */
   @java.lang.Override public com.api.v1.DepositType getDepositType() {
@@ -599,7 +599,7 @@ private static final long serialVersionUID = 0L;
      * Masked account number
      * </pre>
      *
-     * <code>string account_number = 1 [json_name = "accountNumber", (.buf.validate.field) = { ... }</code>
+     * <code>string account_number = 1 [json_name = "accountNumber"];</code>
      * @return The accountNumber.
      */
     public java.lang.String getAccountNumber() {
@@ -619,7 +619,7 @@ private static final long serialVersionUID = 0L;
      * Masked account number
      * </pre>
      *
-     * <code>string account_number = 1 [json_name = "accountNumber", (.buf.validate.field) = { ... }</code>
+     * <code>string account_number = 1 [json_name = "accountNumber"];</code>
      * @return The bytes for accountNumber.
      */
     public com.google.protobuf.ByteString
@@ -640,7 +640,7 @@ private static final long serialVersionUID = 0L;
      * Masked account number
      * </pre>
      *
-     * <code>string account_number = 1 [json_name = "accountNumber", (.buf.validate.field) = { ... }</code>
+     * <code>string account_number = 1 [json_name = "accountNumber"];</code>
      * @param value The accountNumber to set.
      * @return This builder for chaining.
      */
@@ -657,7 +657,7 @@ private static final long serialVersionUID = 0L;
      * Masked account number
      * </pre>
      *
-     * <code>string account_number = 1 [json_name = "accountNumber", (.buf.validate.field) = { ... }</code>
+     * <code>string account_number = 1 [json_name = "accountNumber"];</code>
      * @return This builder for chaining.
      */
     public Builder clearAccountNumber() {
@@ -671,7 +671,7 @@ private static final long serialVersionUID = 0L;
      * Masked account number
      * </pre>
      *
-     * <code>string account_number = 1 [json_name = "accountNumber", (.buf.validate.field) = { ... }</code>
+     * <code>string account_number = 1 [json_name = "accountNumber"];</code>
      * @param value The bytes for accountNumber to set.
      * @return This builder for chaining.
      */
@@ -691,7 +691,7 @@ private static final long serialVersionUID = 0L;
      * Bank name
      * </pre>
      *
-     * <code>string bank_name = 2 [json_name = "bankName", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_name = 2 [json_name = "bankName"];</code>
      * @return The bankName.
      */
     public java.lang.String getBankName() {
@@ -711,7 +711,7 @@ private static final long serialVersionUID = 0L;
      * Bank name
      * </pre>
      *
-     * <code>string bank_name = 2 [json_name = "bankName", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_name = 2 [json_name = "bankName"];</code>
      * @return The bytes for bankName.
      */
     public com.google.protobuf.ByteString
@@ -732,7 +732,7 @@ private static final long serialVersionUID = 0L;
      * Bank name
      * </pre>
      *
-     * <code>string bank_name = 2 [json_name = "bankName", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_name = 2 [json_name = "bankName"];</code>
      * @param value The bankName to set.
      * @return This builder for chaining.
      */
@@ -749,7 +749,7 @@ private static final long serialVersionUID = 0L;
      * Bank name
      * </pre>
      *
-     * <code>string bank_name = 2 [json_name = "bankName", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_name = 2 [json_name = "bankName"];</code>
      * @return This builder for chaining.
      */
     public Builder clearBankName() {
@@ -763,7 +763,7 @@ private static final long serialVersionUID = 0L;
      * Bank name
      * </pre>
      *
-     * <code>string bank_name = 2 [json_name = "bankName", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_name = 2 [json_name = "bankName"];</code>
      * @param value The bytes for bankName to set.
      * @return This builder for chaining.
      */
@@ -783,7 +783,7 @@ private static final long serialVersionUID = 0L;
      * Branch name
      * </pre>
      *
-     * <code>string branch_name = 3 [json_name = "branchName", (.buf.validate.field) = { ... }</code>
+     * <code>string branch_name = 3 [json_name = "branchName"];</code>
      * @return The branchName.
      */
     public java.lang.String getBranchName() {
@@ -803,7 +803,7 @@ private static final long serialVersionUID = 0L;
      * Branch name
      * </pre>
      *
-     * <code>string branch_name = 3 [json_name = "branchName", (.buf.validate.field) = { ... }</code>
+     * <code>string branch_name = 3 [json_name = "branchName"];</code>
      * @return The bytes for branchName.
      */
     public com.google.protobuf.ByteString
@@ -824,7 +824,7 @@ private static final long serialVersionUID = 0L;
      * Branch name
      * </pre>
      *
-     * <code>string branch_name = 3 [json_name = "branchName", (.buf.validate.field) = { ... }</code>
+     * <code>string branch_name = 3 [json_name = "branchName"];</code>
      * @param value The branchName to set.
      * @return This builder for chaining.
      */
@@ -841,7 +841,7 @@ private static final long serialVersionUID = 0L;
      * Branch name
      * </pre>
      *
-     * <code>string branch_name = 3 [json_name = "branchName", (.buf.validate.field) = { ... }</code>
+     * <code>string branch_name = 3 [json_name = "branchName"];</code>
      * @return This builder for chaining.
      */
     public Builder clearBranchName() {
@@ -855,7 +855,7 @@ private static final long serialVersionUID = 0L;
      * Branch name
      * </pre>
      *
-     * <code>string branch_name = 3 [json_name = "branchName", (.buf.validate.field) = { ... }</code>
+     * <code>string branch_name = 3 [json_name = "branchName"];</code>
      * @param value The bytes for branchName to set.
      * @return This builder for chaining.
      */
@@ -876,7 +876,7 @@ private static final long serialVersionUID = 0L;
      * 口座種別（普通または当座）
      * </pre>
      *
-     * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType"];</code>
      * @return The enum numeric value on the wire for depositType.
      */
     @java.lang.Override public int getDepositTypeValue() {
@@ -888,7 +888,7 @@ private static final long serialVersionUID = 0L;
      * 口座種別（普通または当座）
      * </pre>
      *
-     * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType"];</code>
      * @param value The enum numeric value on the wire for depositType to set.
      * @throws IllegalArgumentException if UNRECOGNIZED is provided.
      * @return This builder for chaining.
@@ -905,7 +905,7 @@ private static final long serialVersionUID = 0L;
      * 口座種別（普通または当座）
      * </pre>
      *
-     * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType"];</code>
      * @return The depositType.
      */
     @java.lang.Override
@@ -919,7 +919,7 @@ private static final long serialVersionUID = 0L;
      * 口座種別（普通または当座）
      * </pre>
      *
-     * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType"];</code>
      * @param value The depositType to set.
      * @return This builder for chaining.
      */
@@ -936,7 +936,7 @@ private static final long serialVersionUID = 0L;
      * 口座種別（普通または当座）
      * </pre>
      *
-     * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.DepositType deposit_type = 4 [json_name = "depositType"];</code>
      * @return This builder for chaining.
      */
     public Builder clearDepositType() {

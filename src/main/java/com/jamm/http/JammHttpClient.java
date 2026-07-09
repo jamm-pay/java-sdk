@@ -1,8 +1,8 @@
 package com.jamm.http;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonParseException;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
 import com.google.protobuf.MessageOrBuilder;
@@ -11,19 +11,22 @@ import com.jamm.Jamm;
 import com.jamm.auth.OAuthProvider;
 import com.jamm.errors.ApiException;
 import com.jamm.errors.JammException;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.lang.reflect.Field;
+import java.net.HttpURLConnection;
+import java.net.ProtocolException;
 import java.net.SocketTimeoutException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 /**
@@ -33,14 +36,14 @@ import java.util.regex.Pattern;
 public class JammHttpClient implements AutoCloseable {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JammHttpClient.class);
-    private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private static final String MERCHANT_HEADER = "Jamm-Merchant";
     private static final Pattern MERCHANT_ID_PATTERN = Pattern.compile("^mer-[0-9A-Za-z_-]+$");
 
-    private final OkHttpClient httpClient;
     private final OAuthProvider oauthProvider;
     private final String apiBaseUrl;
-    private final ObjectMapper objectMapper;
+    private final int connectTimeoutMs;
+    private final int readTimeoutMs;
+    private final Gson gson;
     private final int maxRetries;
     private final long retryInitialDelayMs;
     private final long retryMaxDelayMs;
@@ -87,19 +90,16 @@ public class JammHttpClient implements AutoCloseable {
 
         this.oauthProvider = oauthProvider;
         this.apiBaseUrl = apiBaseUrl;
+        this.connectTimeoutMs = (int) Math.min(connectTimeoutMs, Integer.MAX_VALUE);
+        this.readTimeoutMs = (int) Math.min(readTimeoutMs, Integer.MAX_VALUE);
         this.maxRetries = maxRetries;
         this.retryInitialDelayMs = retryInitialDelayMs;
         this.retryMaxDelayMs = retryMaxDelayMs;
         this.platformMode = platformMode;
 
-        this.httpClient = new OkHttpClient.Builder()
-                .connectTimeout(connectTimeoutMs, TimeUnit.MILLISECONDS)
-                .readTimeout(readTimeoutMs, TimeUnit.MILLISECONDS)
-                .writeTimeout(readTimeoutMs, TimeUnit.MILLISECONDS)
-                .build();
-
-        this.objectMapper = new ObjectMapper()
-                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        // Non-proto bodies/responses only (proto uses JsonFormat). gson ignores unknown
+        // response fields by default; disableHtmlEscaping keeps &, <, > literal in request JSON.
+        this.gson = new GsonBuilder().disableHtmlEscaping().create();
     }
 
     /**
@@ -128,10 +128,8 @@ public class JammHttpClient implements AutoCloseable {
     public <T> T get(String path, Class<T> responseType, RequestOptions options) {
         RequestOptions opts = safeOptions(options);
         validateMerchant(opts.getMerchant());
-        return executeWithRetry(true, () -> {
-            Request request = buildRequest(path, "GET", null, opts.getMerchant());
-            return execute(request, responseType);
-        });
+        return executeWithRetry(true,
+                () -> execute(path, "GET", null, opts.getMerchant(), responseType));
     }
 
     /**
@@ -162,10 +160,8 @@ public class JammHttpClient implements AutoCloseable {
     public <T> T post(String path, Object body, Class<T> responseType, RequestOptions options) {
         RequestOptions opts = safeOptions(options);
         validateMerchant(opts.getMerchant());
-        return executeWithRetry(false, () -> {
-            Request request = buildRequest(path, "POST", body, opts.getMerchant());
-            return execute(request, responseType);
-        });
+        return executeWithRetry(false,
+                () -> execute(path, "POST", body, opts.getMerchant(), responseType));
     }
 
     /**
@@ -196,10 +192,8 @@ public class JammHttpClient implements AutoCloseable {
     public <T> T put(String path, Object body, Class<T> responseType, RequestOptions options) {
         RequestOptions opts = safeOptions(options);
         validateMerchant(opts.getMerchant());
-        return executeWithRetry(true, () -> {
-            Request request = buildRequest(path, "PUT", body, opts.getMerchant());
-            return execute(request, responseType);
-        });
+        return executeWithRetry(true,
+                () -> execute(path, "PUT", body, opts.getMerchant(), responseType));
     }
 
     /**
@@ -228,10 +222,8 @@ public class JammHttpClient implements AutoCloseable {
     public <T> T delete(String path, Class<T> responseType, RequestOptions options) {
         RequestOptions opts = safeOptions(options);
         validateMerchant(opts.getMerchant());
-        return executeWithRetry(true, () -> {
-            Request request = buildRequest(path, "DELETE", null, opts.getMerchant());
-            return execute(request, responseType);
-        });
+        return executeWithRetry(true,
+                () -> execute(path, "DELETE", null, opts.getMerchant(), responseType));
     }
 
     /**
@@ -262,10 +254,8 @@ public class JammHttpClient implements AutoCloseable {
     public <T> T patch(String path, Object body, Class<T> responseType, RequestOptions options) {
         RequestOptions opts = safeOptions(options);
         validateMerchant(opts.getMerchant());
-        return executeWithRetry(false, () -> {
-            Request request = buildRequest(path, "PATCH", body, opts.getMerchant());
-            return execute(request, responseType);
-        });
+        return executeWithRetry(false,
+                () -> execute(path, "PATCH", body, opts.getMerchant(), responseType));
     }
 
     private static RequestOptions safeOptions(RequestOptions options) {
@@ -284,87 +274,49 @@ public class JammHttpClient implements AutoCloseable {
         }
     }
 
-    private Request buildRequest(String path, String method, Object body, String merchant) {
+    private <T> T execute(String path, String method, Object body, String merchant, Class<T> responseType) {
         String url = buildUrl(apiBaseUrl, path);
-        String token = oauthProvider.getToken();
+        byte[] payload = serializeBody(body);
 
-        Request.Builder builder = new Request.Builder()
-                .url(url)
-                .header("Authorization", "Bearer " + token)
-                .header("Content-Type", "application/json")
-                .header("Accept", "application/json")
-                .header("X-SDK-Version", "java:" + Jamm.VERSION);
+        LOGGER.debug("Executing {} {}", method, url);
 
-        if (merchant != null) {
-            builder.header(MERCHANT_HEADER, merchant);
-        }
+        HttpURLConnection conn = null;
+        try {
+            conn = (HttpURLConnection) new URL(url).openConnection();
+            forceRequestMethod(conn, method.toUpperCase());
+            conn.setConnectTimeout(connectTimeoutMs);
+            conn.setReadTimeout(readTimeoutMs);
+            conn.setInstanceFollowRedirects(false);
 
-        RequestBody requestBody = null;
-        if (body != null) {
-            try {
-                String json;
-                if (body instanceof MessageOrBuilder) {
-                    json = JsonFormat.printer().print((MessageOrBuilder) body);
-                } else {
-                    json = objectMapper.writeValueAsString(body);
-                }
-                requestBody = RequestBody.create(json, JSON);
-            } catch (JsonProcessingException | InvalidProtocolBufferException e) {
-                throw new JammException("Failed to serialize request body", e);
-            }
-        }
-
-        switch (method.toUpperCase()) {
-            case "GET":
-                builder.get();
-                break;
-            case "POST":
-                builder.post(requestBody != null ? requestBody : RequestBody.create("", JSON));
-                break;
-            case "PUT":
-                builder.put(requestBody != null ? requestBody : RequestBody.create("", JSON));
-                break;
-            case "DELETE":
-                if (requestBody != null) {
-                    builder.delete(requestBody);
-                } else {
-                    builder.delete();
-                }
-                break;
-            case "PATCH":
-                builder.patch(requestBody != null ? requestBody : RequestBody.create("", JSON));
-                break;
-            default:
-                throw new IllegalArgumentException("Unsupported HTTP method: " + method);
-        }
-
-        return builder.build();
-    }
-
-    private <T> T execute(Request request, Class<T> responseType) {
-        LOGGER.debug("Executing {} {}", request.method(), request.url());
-
-        try (Response response = httpClient.newCall(request).execute()) {
-            // NOTE: response.body() may be null for responses with no body (e.g. 204).
-            // In that case we intentionally treat it as an empty string.
-            // Downstream logic explicitly checks for empty response bodies and returns null,
-            // so this is safe and avoids unnecessary null handling.
-            String responseBody = response.body() != null ? response.body().string() : "";
-
-            if (!response.isSuccessful()) {
-                Map<String, String> headers = new HashMap<>();
-                for (String name : response.headers().names()) {
-                    headers.put(name, response.header(name));
-                }
-                String requestPath = request.url().encodedPath();
-                throw ApiException.fromResponse(response.code(), headers, responseBody, request.method(), requestPath);
+            conn.setRequestProperty("Authorization", "Bearer " + oauthProvider.getToken());
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setRequestProperty("Accept", "application/json");
+            conn.setRequestProperty("X-SDK-Version", "java:" + Jamm.VERSION);
+            if (merchant != null) {
+                conn.setRequestProperty(MERCHANT_HEADER, merchant);
             }
 
-            if (responseType == Void.class || responseType == void.class) {
-                return null;
+            // POST/PUT/PATCH always send a body (empty if none); DELETE only when one is provided.
+            boolean sendBody = payload != null
+                    && !"GET".equalsIgnoreCase(method)
+                    && !("DELETE".equalsIgnoreCase(method) && payload.length == 0);
+            if (sendBody) {
+                conn.setDoOutput(true);
+                conn.setFixedLengthStreamingMode(payload.length);
+                try (OutputStream out = conn.getOutputStream()) {
+                    out.write(payload);
+                }
             }
 
-            if (responseBody.isEmpty()) {
+            int code = conn.getResponseCode();
+            String responseBody = readResponseBody(conn, code);
+
+            if (code < 200 || code >= 300) {
+                throw ApiException.fromResponse(
+                        code, collectHeaders(conn), responseBody, method, conn.getURL().getPath());
+            }
+
+            if (responseType == Void.class || responseType == void.class || responseBody.isEmpty()) {
                 return null;
             }
 
@@ -376,16 +328,111 @@ public class JammHttpClient implements AutoCloseable {
                     T parsed = (T) builder.build();
                     return parsed;
                 }
-                return objectMapper.readValue(responseBody, responseType);
-            } catch (JsonProcessingException | InvalidProtocolBufferException e) {
+                return gson.fromJson(responseBody, responseType);
+            } catch (JsonParseException | InvalidProtocolBufferException e) {
                 throw new JammException("Failed to parse response body: " + e.getMessage(), e);
             }
 
         } catch (SocketTimeoutException e) {
+            if (conn != null) {
+                conn.disconnect();
+            }
             throw new JammException("Request timed out", e);
         } catch (IOException e) {
+            if (conn != null) {
+                conn.disconnect();
+            }
             throw new JammException("Network error: " + e.getMessage(), e);
         }
+    }
+
+    private byte[] serializeBody(Object body) {
+        if (body == null) {
+            return new byte[0];
+        }
+        try {
+            String json = body instanceof MessageOrBuilder
+                    ? JsonFormat.printer().print((MessageOrBuilder) body)
+                    : gson.toJson(body);
+            return json.getBytes(StandardCharsets.UTF_8);
+        } catch (InvalidProtocolBufferException e) {
+            throw new JammException("Failed to serialize request body", e);
+        }
+    }
+
+    /**
+     * Reads the response (2xx) or error (>=400) stream fully as a UTF-8 string, draining it so the
+     * underlying connection can be reused. Returns "" when there is no body (e.g. 204).
+     */
+    private static String readResponseBody(HttpURLConnection conn, int code) throws IOException {
+        InputStream stream = code >= 400 ? conn.getErrorStream() : conn.getInputStream();
+        if (stream == null) {
+            return "";
+        }
+        try (InputStream in = stream) {
+            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+            byte[] chunk = new byte[8192];
+            int read;
+            while ((read = in.read(chunk)) != -1) {
+                buffer.write(chunk, 0, read);
+            }
+            return new String(buffer.toByteArray(), StandardCharsets.UTF_8);
+        }
+    }
+
+    private static Map<String, String> collectHeaders(HttpURLConnection conn) {
+        Map<String, String> headers = new HashMap<>();
+        for (Map.Entry<String, List<String>> entry : conn.getHeaderFields().entrySet()) {
+            // The status line is keyed under null; skip it. Keep the last value for a repeated
+            // header, matching the previous OkHttp behaviour (Headers.get returns the last).
+            if (entry.getKey() != null && entry.getValue() != null && !entry.getValue().isEmpty()) {
+                headers.put(entry.getKey(), entry.getValue().get(entry.getValue().size() - 1));
+            }
+        }
+        return headers;
+    }
+
+    /**
+     * Sets the request method. {@link HttpURLConnection#setRequestMethod} rejects {@code PATCH};
+     * fall back to overriding the private {@code method} field (the Jamm API only issues GET/POST,
+     * so this path is exercised only by the generic {@code patch()} helper).
+     */
+    private static void forceRequestMethod(HttpURLConnection conn, String method) {
+        try {
+            conn.setRequestMethod(method);
+        } catch (ProtocolException e) {
+            try {
+                Object target = conn;
+                Field delegate = findField(conn.getClass(), "delegate");
+                if (delegate != null) {
+                    delegate.setAccessible(true);
+                    Object delegateConn = delegate.get(conn);
+                    if (delegateConn instanceof HttpURLConnection) {
+                        target = delegateConn;
+                    }
+                }
+                Field methodField = findField(target.getClass(), "method");
+                if (methodField == null) {
+                    throw new NoSuchFieldException("method");
+                }
+                methodField.setAccessible(true);
+                methodField.set(target, method);
+            } catch (ReflectiveOperationException | RuntimeException re) {
+                // RuntimeException covers InaccessibleObjectException on JDK 9+ (java.net not open).
+                throw new JammException("Unsupported HTTP method: " + method, re);
+            }
+        }
+    }
+
+    private static Field findField(Class<?> type, String name) {
+        for (Class<?> c = type; c != null; c = c.getSuperclass()) {
+            try {
+                return c.getDeclaredField(name);
+            } catch (NoSuchFieldException ignored) {
+                // walk up the hierarchy
+            }
+        }
+        return null;
     }
 
     /**
@@ -453,14 +500,6 @@ public class JammHttpClient implements AutoCloseable {
         }
     }
 
-    /**
-     * Gets the ObjectMapper used for JSON serialization.
-     *
-     * @return the ObjectMapper instance
-     */
-    ObjectMapper getObjectMapper() {
-        return objectMapper;
-    }
 
     private <T> Message.Builder createProtoBuilder(Class<T> responseType) {
         try {
@@ -504,18 +543,11 @@ public class JammHttpClient implements AutoCloseable {
     }
 
     /**
-     * Releases resources held by the underlying OkHttpClient.
-     * <p>
-     * OkHttpClient manages its own connection pool and executor service.
-     * This method allows callers to explicitly clean up those resources
-     * when the client is no longer needed.
+     * No-op. The client uses {@link HttpURLConnection}, which holds no pool or executor to release;
+     * retained for API compatibility and the {@link AutoCloseable} contract.
      */
     @Override
     public void close() {
-        // Shut down the executor service used by the dispatcher
-        httpClient.dispatcher().executorService().shutdown();
-
-        // Evict all connections from the pool
-        httpClient.connectionPool().evictAll();
+        // Nothing to release.
     }
 }

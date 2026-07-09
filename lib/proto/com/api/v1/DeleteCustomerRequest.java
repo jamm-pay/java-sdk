@@ -53,7 +53,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object customer_ = "";
   /**
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The customer.
    */
   @java.lang.Override
@@ -70,7 +70,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The bytes for customer.
    */
   @java.lang.Override
@@ -384,7 +384,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object customer_ = "";
     /**
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @return The customer.
      */
     public java.lang.String getCustomer() {
@@ -400,7 +400,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @return The bytes for customer.
      */
     public com.google.protobuf.ByteString
@@ -417,7 +417,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @param value The customer to set.
      * @return This builder for chaining.
      */
@@ -430,7 +430,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCustomer() {
@@ -440,7 +440,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @param value The bytes for customer to set.
      * @return This builder for chaining.
      */

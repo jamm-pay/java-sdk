@@ -54,7 +54,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object bankCode_ = "";
   /**
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bankCode.
    */
   @java.lang.Override
@@ -71,7 +71,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bytes for bankCode.
    */
   @java.lang.Override
@@ -93,7 +93,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object query_ = "";
   /**
-   * <code>string query = 2 [json_name = "query", (.buf.validate.field) = { ... }</code>
+   * <code>string query = 2 [json_name = "query"];</code>
    * @return The query.
    */
   @java.lang.Override
@@ -110,7 +110,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string query = 2 [json_name = "query", (.buf.validate.field) = { ... }</code>
+   * <code>string query = 2 [json_name = "query"];</code>
    * @return The bytes for query.
    */
   @java.lang.Override
@@ -448,7 +448,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object bankCode_ = "";
     /**
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @return The bankCode.
      */
     public java.lang.String getBankCode() {
@@ -464,7 +464,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @return The bytes for bankCode.
      */
     public com.google.protobuf.ByteString
@@ -481,7 +481,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @param value The bankCode to set.
      * @return This builder for chaining.
      */
@@ -494,7 +494,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @return This builder for chaining.
      */
     public Builder clearBankCode() {
@@ -504,7 +504,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @param value The bytes for bankCode to set.
      * @return This builder for chaining.
      */
@@ -520,7 +520,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object query_ = "";
     /**
-     * <code>string query = 2 [json_name = "query", (.buf.validate.field) = { ... }</code>
+     * <code>string query = 2 [json_name = "query"];</code>
      * @return The query.
      */
     public java.lang.String getQuery() {
@@ -536,7 +536,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string query = 2 [json_name = "query", (.buf.validate.field) = { ... }</code>
+     * <code>string query = 2 [json_name = "query"];</code>
      * @return The bytes for query.
      */
     public com.google.protobuf.ByteString
@@ -553,7 +553,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string query = 2 [json_name = "query", (.buf.validate.field) = { ... }</code>
+     * <code>string query = 2 [json_name = "query"];</code>
      * @param value The query to set.
      * @return This builder for chaining.
      */
@@ -566,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string query = 2 [json_name = "query", (.buf.validate.field) = { ... }</code>
+     * <code>string query = 2 [json_name = "query"];</code>
      * @return This builder for chaining.
      */
     public Builder clearQuery() {
@@ -576,7 +576,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string query = 2 [json_name = "query", (.buf.validate.field) = { ... }</code>
+     * <code>string query = 2 [json_name = "query"];</code>
      * @param value The bytes for query to set.
      * @return This builder for chaining.
      */

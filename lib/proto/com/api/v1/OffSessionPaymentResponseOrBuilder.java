@@ -18,7 +18,7 @@ public interface OffSessionPaymentResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
    * @return Whether the customer field is set.
    */
   boolean hasCustomer();
@@ -30,7 +30,7 @@ public interface OffSessionPaymentResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
    * @return The customer.
    */
   com.api.v1.Customer getCustomer();
@@ -42,7 +42,7 @@ public interface OffSessionPaymentResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.Customer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Customer customer = 1 [json_name = "customer"];</code>
    */
   com.api.v1.CustomerOrBuilder getCustomerOrBuilder();
 
@@ -53,7 +53,7 @@ public interface OffSessionPaymentResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.ChargeResult charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeResult charge = 2 [json_name = "charge"];</code>
    * @return Whether the charge field is set.
    */
   boolean hasCharge();
@@ -64,7 +64,7 @@ public interface OffSessionPaymentResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.ChargeResult charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeResult charge = 2 [json_name = "charge"];</code>
    * @return The charge.
    */
   com.api.v1.ChargeResult getCharge();
@@ -75,7 +75,7 @@ public interface OffSessionPaymentResponseOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.ChargeResult charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.ChargeResult charge = 2 [json_name = "charge"];</code>
    */
   com.api.v1.ChargeResultOrBuilder getChargeOrBuilder();
 }

@@ -53,7 +53,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object bankCode_ = "";
   /**
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bankCode.
    */
   @java.lang.Override
@@ -70,7 +70,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bytes for bankCode.
    */
   @java.lang.Override
@@ -384,7 +384,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object bankCode_ = "";
     /**
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @return The bankCode.
      */
     public java.lang.String getBankCode() {
@@ -400,7 +400,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @return The bytes for bankCode.
      */
     public com.google.protobuf.ByteString
@@ -417,7 +417,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @param value The bankCode to set.
      * @return This builder for chaining.
      */
@@ -430,7 +430,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @return This builder for chaining.
      */
     public Builder clearBankCode() {
@@ -440,7 +440,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @param value The bytes for bankCode to set.
      * @return This builder for chaining.
      */

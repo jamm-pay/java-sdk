@@ -19,7 +19,7 @@ public interface URLOrBuilder extends
    * &#64;gotags: validate:"omitempty,http_url"
    * </pre>
    *
-   * <code>optional string success_url = 1 [json_name = "successUrl", (.buf.validate.field) = { ... }</code>
+   * <code>optional string success_url = 1 [json_name = "successUrl"];</code>
    * @return Whether the successUrl field is set.
    */
   boolean hasSuccessUrl();
@@ -32,7 +32,7 @@ public interface URLOrBuilder extends
    * &#64;gotags: validate:"omitempty,http_url"
    * </pre>
    *
-   * <code>optional string success_url = 1 [json_name = "successUrl", (.buf.validate.field) = { ... }</code>
+   * <code>optional string success_url = 1 [json_name = "successUrl"];</code>
    * @return The successUrl.
    */
   java.lang.String getSuccessUrl();
@@ -45,7 +45,7 @@ public interface URLOrBuilder extends
    * &#64;gotags: validate:"omitempty,http_url"
    * </pre>
    *
-   * <code>optional string success_url = 1 [json_name = "successUrl", (.buf.validate.field) = { ... }</code>
+   * <code>optional string success_url = 1 [json_name = "successUrl"];</code>
    * @return The bytes for successUrl.
    */
   com.google.protobuf.ByteString
@@ -60,7 +60,7 @@ public interface URLOrBuilder extends
    * &#64;gotags: validate:"omitempty,http_url"
    * </pre>
    *
-   * <code>optional string failure_url = 2 [json_name = "failureUrl", (.buf.validate.field) = { ... }</code>
+   * <code>optional string failure_url = 2 [json_name = "failureUrl"];</code>
    * @return Whether the failureUrl field is set.
    */
   boolean hasFailureUrl();
@@ -73,7 +73,7 @@ public interface URLOrBuilder extends
    * &#64;gotags: validate:"omitempty,http_url"
    * </pre>
    *
-   * <code>optional string failure_url = 2 [json_name = "failureUrl", (.buf.validate.field) = { ... }</code>
+   * <code>optional string failure_url = 2 [json_name = "failureUrl"];</code>
    * @return The failureUrl.
    */
   java.lang.String getFailureUrl();
@@ -86,7 +86,7 @@ public interface URLOrBuilder extends
    * &#64;gotags: validate:"omitempty,http_url"
    * </pre>
    *
-   * <code>optional string failure_url = 2 [json_name = "failureUrl", (.buf.validate.field) = { ... }</code>
+   * <code>optional string failure_url = 2 [json_name = "failureUrl"];</code>
    * @return The bytes for failureUrl.
    */
   com.google.protobuf.ByteString

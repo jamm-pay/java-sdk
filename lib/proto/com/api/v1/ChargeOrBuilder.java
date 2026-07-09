@@ -19,7 +19,7 @@ public interface ChargeOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   java.lang.String getId();
@@ -32,7 +32,7 @@ public interface ChargeOrBuilder extends
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
@@ -49,7 +49,7 @@ public interface ChargeOrBuilder extends
    * &#64;gotags: validate:"gte=1,lte=500000"
    * </pre>
    *
-   * <code>int32 price = 2 [json_name = "price", (.buf.validate.field) = { ... }</code>
+   * <code>int32 price = 2 [json_name = "price"];</code>
    * @return The price.
    */
   int getPrice();
@@ -64,7 +64,7 @@ public interface ChargeOrBuilder extends
    * &#64;gotags: validate:"required,max=1024"
    * </pre>
    *
-   * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
+   * <code>string description = 3 [json_name = "description"];</code>
    * @return The description.
    */
   java.lang.String getDescription();
@@ -78,7 +78,7 @@ public interface ChargeOrBuilder extends
    * &#64;gotags: validate:"required,max=1024"
    * </pre>
    *
-   * <code>string description = 3 [json_name = "description", (.buf.validate.field) = { ... }</code>
+   * <code>string description = 3 [json_name = "description"];</code>
    * @return The bytes for description.
    */
   com.google.protobuf.ByteString
@@ -166,7 +166,7 @@ java.lang.String defaultValue);
    * 決済の有効期限。未指定の場合は90分後に自動失効します。
    * </pre>
    *
-   * <code>optional .google.protobuf.Timestamp expires_at = 20 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+   * <code>optional .google.protobuf.Timestamp expires_at = 20 [json_name = "expiresAt"];</code>
    * @return Whether the expiresAt field is set.
    */
   boolean hasExpiresAt();
@@ -178,7 +178,7 @@ java.lang.String defaultValue);
    * 決済の有効期限。未指定の場合は90分後に自動失効します。
    * </pre>
    *
-   * <code>optional .google.protobuf.Timestamp expires_at = 20 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+   * <code>optional .google.protobuf.Timestamp expires_at = 20 [json_name = "expiresAt"];</code>
    * @return The expiresAt.
    */
   com.google.protobuf.Timestamp getExpiresAt();
@@ -190,7 +190,7 @@ java.lang.String defaultValue);
    * 決済の有効期限。未指定の場合は90分後に自動失効します。
    * </pre>
    *
-   * <code>optional .google.protobuf.Timestamp expires_at = 20 [json_name = "expiresAt", (.buf.validate.field) = { ... }</code>
+   * <code>optional .google.protobuf.Timestamp expires_at = 20 [json_name = "expiresAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getExpiresAtOrBuilder();
 }

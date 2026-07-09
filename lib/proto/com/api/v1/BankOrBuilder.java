@@ -15,7 +15,7 @@ public interface BankOrBuilder extends
    * Bank code, e.g. "0001"
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+   * <code>string code = 1 [json_name = "code"];</code>
    * @return The code.
    */
   java.lang.String getCode();
@@ -24,7 +24,7 @@ public interface BankOrBuilder extends
    * Bank code, e.g. "0001"
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code", (.buf.validate.field) = { ... }</code>
+   * <code>string code = 1 [json_name = "code"];</code>
    * @return The bytes for code.
    */
   com.google.protobuf.ByteString
@@ -35,7 +35,7 @@ public interface BankOrBuilder extends
    * Official name of the bank, e.g. "みずほ銀行"
    * </pre>
    *
-   * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>string name = 2 [json_name = "name"];</code>
    * @return The name.
    */
   java.lang.String getName();
@@ -44,7 +44,7 @@ public interface BankOrBuilder extends
    * Official name of the bank, e.g. "みずほ銀行"
    * </pre>
    *
-   * <code>string name = 2 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>string name = 2 [json_name = "name"];</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
@@ -55,7 +55,7 @@ public interface BankOrBuilder extends
    * Katakana name of the bank, e.g. "ミズホギンコウ"
    * </pre>
    *
-   * <code>string name_katakana = 3 [json_name = "nameKatakana", (.buf.validate.field) = { ... }</code>
+   * <code>string name_katakana = 3 [json_name = "nameKatakana"];</code>
    * @return The nameKatakana.
    */
   java.lang.String getNameKatakana();
@@ -64,7 +64,7 @@ public interface BankOrBuilder extends
    * Katakana name of the bank, e.g. "ミズホギンコウ"
    * </pre>
    *
-   * <code>string name_katakana = 3 [json_name = "nameKatakana", (.buf.validate.field) = { ... }</code>
+   * <code>string name_katakana = 3 [json_name = "nameKatakana"];</code>
    * @return The bytes for nameKatakana.
    */
   com.google.protobuf.ByteString
@@ -75,7 +75,7 @@ public interface BankOrBuilder extends
    * Hiragana name of the bank, e.g. "みずほぎんこう"
    * </pre>
    *
-   * <code>string name_hiragana = 4 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+   * <code>string name_hiragana = 4 [json_name = "nameHiragana"];</code>
    * @return The nameHiragana.
    */
   java.lang.String getNameHiragana();
@@ -84,7 +84,7 @@ public interface BankOrBuilder extends
    * Hiragana name of the bank, e.g. "みずほぎんこう"
    * </pre>
    *
-   * <code>string name_hiragana = 4 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+   * <code>string name_hiragana = 4 [json_name = "nameHiragana"];</code>
    * @return The bytes for nameHiragana.
    */
   com.google.protobuf.ByteString
@@ -95,7 +95,7 @@ public interface BankOrBuilder extends
    * Alphabet name of the bank, e.g. "Mizuho Bank"
    * </pre>
    *
-   * <code>string name_alphabet = 5 [json_name = "nameAlphabet", (.buf.validate.field) = { ... }</code>
+   * <code>string name_alphabet = 5 [json_name = "nameAlphabet"];</code>
    * @return The nameAlphabet.
    */
   java.lang.String getNameAlphabet();
@@ -104,7 +104,7 @@ public interface BankOrBuilder extends
    * Alphabet name of the bank, e.g. "Mizuho Bank"
    * </pre>
    *
-   * <code>string name_alphabet = 5 [json_name = "nameAlphabet", (.buf.validate.field) = { ... }</code>
+   * <code>string name_alphabet = 5 [json_name = "nameAlphabet"];</code>
    * @return The bytes for nameAlphabet.
    */
   com.google.protobuf.ByteString
@@ -115,7 +115,7 @@ public interface BankOrBuilder extends
    * Contains bank brand assets and metadata (e.g. Terms URL and Logo)
    * </pre>
    *
-   * <code>.api.v1.BankAssets assets = 11 [json_name = "assets", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.BankAssets assets = 11 [json_name = "assets"];</code>
    * @return Whether the assets field is set.
    */
   boolean hasAssets();
@@ -124,7 +124,7 @@ public interface BankOrBuilder extends
    * Contains bank brand assets and metadata (e.g. Terms URL and Logo)
    * </pre>
    *
-   * <code>.api.v1.BankAssets assets = 11 [json_name = "assets", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.BankAssets assets = 11 [json_name = "assets"];</code>
    * @return The assets.
    */
   com.api.v1.BankAssets getAssets();
@@ -133,7 +133,7 @@ public interface BankOrBuilder extends
    * Contains bank brand assets and metadata (e.g. Terms URL and Logo)
    * </pre>
    *
-   * <code>.api.v1.BankAssets assets = 11 [json_name = "assets", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.BankAssets assets = 11 [json_name = "assets"];</code>
    */
   com.api.v1.BankAssetsOrBuilder getAssetsOrBuilder();
 
@@ -142,7 +142,7 @@ public interface BankOrBuilder extends
    * Quota of the bank.
    * </pre>
    *
-   * <code>.api.v1.BankQuota quota = 20 [json_name = "quota", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.BankQuota quota = 20 [json_name = "quota"];</code>
    * @return Whether the quota field is set.
    */
   boolean hasQuota();
@@ -151,7 +151,7 @@ public interface BankOrBuilder extends
    * Quota of the bank.
    * </pre>
    *
-   * <code>.api.v1.BankQuota quota = 20 [json_name = "quota", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.BankQuota quota = 20 [json_name = "quota"];</code>
    * @return The quota.
    */
   com.api.v1.BankQuota getQuota();
@@ -160,17 +160,17 @@ public interface BankOrBuilder extends
    * Quota of the bank.
    * </pre>
    *
-   * <code>.api.v1.BankQuota quota = 20 [json_name = "quota", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.BankQuota quota = 20 [json_name = "quota"];</code>
    */
   com.api.v1.BankQuotaOrBuilder getQuotaOrBuilder();
 
   /**
-   * <code>string opening_hours = 30 [json_name = "openingHours", (.buf.validate.field) = { ... }</code>
+   * <code>string opening_hours = 30 [json_name = "openingHours"];</code>
    * @return The openingHours.
    */
   java.lang.String getOpeningHours();
   /**
-   * <code>string opening_hours = 30 [json_name = "openingHours", (.buf.validate.field) = { ... }</code>
+   * <code>string opening_hours = 30 [json_name = "openingHours"];</code>
    * @return The bytes for openingHours.
    */
   com.google.protobuf.ByteString

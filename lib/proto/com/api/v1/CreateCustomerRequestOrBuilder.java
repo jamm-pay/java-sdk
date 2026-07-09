@@ -11,17 +11,17 @@ public interface CreateCustomerRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
    * @return Whether the buyer field is set.
    */
   boolean hasBuyer();
   /**
-   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
    * @return The buyer.
    */
   com.api.v1.Buyer getBuyer();
   /**
-   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
    */
   com.api.v1.BuyerOrBuilder getBuyerOrBuilder();
 }

@@ -11,32 +11,32 @@ public interface GetContractResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.api.v1.MerchantCustomer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.MerchantCustomer customer = 1 [json_name = "customer"];</code>
    * @return Whether the customer field is set.
    */
   boolean hasCustomer();
   /**
-   * <code>.api.v1.MerchantCustomer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.MerchantCustomer customer = 1 [json_name = "customer"];</code>
    * @return The customer.
    */
   com.api.v1.MerchantCustomer getCustomer();
   /**
-   * <code>.api.v1.MerchantCustomer customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.MerchantCustomer customer = 1 [json_name = "customer"];</code>
    */
   com.api.v1.MerchantCustomerOrBuilder getCustomerOrBuilder();
 
   /**
-   * <code>.api.v1.Contract contract = 2 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Contract contract = 2 [json_name = "contract"];</code>
    * @return Whether the contract field is set.
    */
   boolean hasContract();
   /**
-   * <code>.api.v1.Contract contract = 2 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Contract contract = 2 [json_name = "contract"];</code>
    * @return The contract.
    */
   com.api.v1.Contract getContract();
   /**
-   * <code>.api.v1.Contract contract = 2 [json_name = "contract", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Contract contract = 2 [json_name = "contract"];</code>
    */
   com.api.v1.ContractOrBuilder getContractOrBuilder();
 }

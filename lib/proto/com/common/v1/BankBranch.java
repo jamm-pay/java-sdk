@@ -62,7 +62,7 @@ private static final long serialVersionUID = 0L;
    * Bank code, e.g. "0001"
    * </pre>
    *
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bankCode.
    */
   @java.lang.Override
@@ -83,7 +83,7 @@ private static final long serialVersionUID = 0L;
    * Bank code, e.g. "0001"
    * </pre>
    *
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bytes for bankCode.
    */
   @java.lang.Override
@@ -109,7 +109,7 @@ private static final long serialVersionUID = 0L;
    * Branch code, e.g. "001"
    * </pre>
    *
-   * <code>string branch_code = 2 [json_name = "branchCode", (.buf.validate.field) = { ... }</code>
+   * <code>string branch_code = 2 [json_name = "branchCode"];</code>
    * @return The branchCode.
    */
   @java.lang.Override
@@ -130,7 +130,7 @@ private static final long serialVersionUID = 0L;
    * Branch code, e.g. "001"
    * </pre>
    *
-   * <code>string branch_code = 2 [json_name = "branchCode", (.buf.validate.field) = { ... }</code>
+   * <code>string branch_code = 2 [json_name = "branchCode"];</code>
    * @return The bytes for branchCode.
    */
   @java.lang.Override
@@ -156,7 +156,7 @@ private static final long serialVersionUID = 0L;
    * Official name of the branch, e.g. "東京支店"
    * </pre>
    *
-   * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>string name = 3 [json_name = "name"];</code>
    * @return The name.
    */
   @java.lang.Override
@@ -177,7 +177,7 @@ private static final long serialVersionUID = 0L;
    * Official name of the branch, e.g. "東京支店"
    * </pre>
    *
-   * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
+   * <code>string name = 3 [json_name = "name"];</code>
    * @return The bytes for name.
    */
   @java.lang.Override
@@ -250,7 +250,7 @@ private static final long serialVersionUID = 0L;
    * Hiragana name of the branch, e.g. "とうきょうしてん"
    * </pre>
    *
-   * <code>string name_hiragana = 5 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+   * <code>string name_hiragana = 5 [json_name = "nameHiragana"];</code>
    * @return The nameHiragana.
    */
   @java.lang.Override
@@ -271,7 +271,7 @@ private static final long serialVersionUID = 0L;
    * Hiragana name of the branch, e.g. "とうきょうしてん"
    * </pre>
    *
-   * <code>string name_hiragana = 5 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+   * <code>string name_hiragana = 5 [json_name = "nameHiragana"];</code>
    * @return The bytes for nameHiragana.
    */
   @java.lang.Override
@@ -756,7 +756,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @return The bankCode.
      */
     public java.lang.String getBankCode() {
@@ -776,7 +776,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @return The bytes for bankCode.
      */
     public com.google.protobuf.ByteString
@@ -797,7 +797,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @param value The bankCode to set.
      * @return This builder for chaining.
      */
@@ -814,7 +814,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @return This builder for chaining.
      */
     public Builder clearBankCode() {
@@ -828,7 +828,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @param value The bytes for bankCode to set.
      * @return This builder for chaining.
      */
@@ -848,7 +848,7 @@ private static final long serialVersionUID = 0L;
      * Branch code, e.g. "001"
      * </pre>
      *
-     * <code>string branch_code = 2 [json_name = "branchCode", (.buf.validate.field) = { ... }</code>
+     * <code>string branch_code = 2 [json_name = "branchCode"];</code>
      * @return The branchCode.
      */
     public java.lang.String getBranchCode() {
@@ -868,7 +868,7 @@ private static final long serialVersionUID = 0L;
      * Branch code, e.g. "001"
      * </pre>
      *
-     * <code>string branch_code = 2 [json_name = "branchCode", (.buf.validate.field) = { ... }</code>
+     * <code>string branch_code = 2 [json_name = "branchCode"];</code>
      * @return The bytes for branchCode.
      */
     public com.google.protobuf.ByteString
@@ -889,7 +889,7 @@ private static final long serialVersionUID = 0L;
      * Branch code, e.g. "001"
      * </pre>
      *
-     * <code>string branch_code = 2 [json_name = "branchCode", (.buf.validate.field) = { ... }</code>
+     * <code>string branch_code = 2 [json_name = "branchCode"];</code>
      * @param value The branchCode to set.
      * @return This builder for chaining.
      */
@@ -906,7 +906,7 @@ private static final long serialVersionUID = 0L;
      * Branch code, e.g. "001"
      * </pre>
      *
-     * <code>string branch_code = 2 [json_name = "branchCode", (.buf.validate.field) = { ... }</code>
+     * <code>string branch_code = 2 [json_name = "branchCode"];</code>
      * @return This builder for chaining.
      */
     public Builder clearBranchCode() {
@@ -920,7 +920,7 @@ private static final long serialVersionUID = 0L;
      * Branch code, e.g. "001"
      * </pre>
      *
-     * <code>string branch_code = 2 [json_name = "branchCode", (.buf.validate.field) = { ... }</code>
+     * <code>string branch_code = 2 [json_name = "branchCode"];</code>
      * @param value The bytes for branchCode to set.
      * @return This builder for chaining.
      */
@@ -940,7 +940,7 @@ private static final long serialVersionUID = 0L;
      * Official name of the branch, e.g. "東京支店"
      * </pre>
      *
-     * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * <code>string name = 3 [json_name = "name"];</code>
      * @return The name.
      */
     public java.lang.String getName() {
@@ -960,7 +960,7 @@ private static final long serialVersionUID = 0L;
      * Official name of the branch, e.g. "東京支店"
      * </pre>
      *
-     * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * <code>string name = 3 [json_name = "name"];</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
@@ -981,7 +981,7 @@ private static final long serialVersionUID = 0L;
      * Official name of the branch, e.g. "東京支店"
      * </pre>
      *
-     * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * <code>string name = 3 [json_name = "name"];</code>
      * @param value The name to set.
      * @return This builder for chaining.
      */
@@ -998,7 +998,7 @@ private static final long serialVersionUID = 0L;
      * Official name of the branch, e.g. "東京支店"
      * </pre>
      *
-     * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * <code>string name = 3 [json_name = "name"];</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
@@ -1012,7 +1012,7 @@ private static final long serialVersionUID = 0L;
      * Official name of the branch, e.g. "東京支店"
      * </pre>
      *
-     * <code>string name = 3 [json_name = "name", (.buf.validate.field) = { ... }</code>
+     * <code>string name = 3 [json_name = "name"];</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
@@ -1124,7 +1124,7 @@ private static final long serialVersionUID = 0L;
      * Hiragana name of the branch, e.g. "とうきょうしてん"
      * </pre>
      *
-     * <code>string name_hiragana = 5 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+     * <code>string name_hiragana = 5 [json_name = "nameHiragana"];</code>
      * @return The nameHiragana.
      */
     public java.lang.String getNameHiragana() {
@@ -1144,7 +1144,7 @@ private static final long serialVersionUID = 0L;
      * Hiragana name of the branch, e.g. "とうきょうしてん"
      * </pre>
      *
-     * <code>string name_hiragana = 5 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+     * <code>string name_hiragana = 5 [json_name = "nameHiragana"];</code>
      * @return The bytes for nameHiragana.
      */
     public com.google.protobuf.ByteString
@@ -1165,7 +1165,7 @@ private static final long serialVersionUID = 0L;
      * Hiragana name of the branch, e.g. "とうきょうしてん"
      * </pre>
      *
-     * <code>string name_hiragana = 5 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+     * <code>string name_hiragana = 5 [json_name = "nameHiragana"];</code>
      * @param value The nameHiragana to set.
      * @return This builder for chaining.
      */
@@ -1182,7 +1182,7 @@ private static final long serialVersionUID = 0L;
      * Hiragana name of the branch, e.g. "とうきょうしてん"
      * </pre>
      *
-     * <code>string name_hiragana = 5 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+     * <code>string name_hiragana = 5 [json_name = "nameHiragana"];</code>
      * @return This builder for chaining.
      */
     public Builder clearNameHiragana() {
@@ -1196,7 +1196,7 @@ private static final long serialVersionUID = 0L;
      * Hiragana name of the branch, e.g. "とうきょうしてん"
      * </pre>
      *
-     * <code>string name_hiragana = 5 [json_name = "nameHiragana", (.buf.validate.field) = { ... }</code>
+     * <code>string name_hiragana = 5 [json_name = "nameHiragana"];</code>
      * @param value The bytes for nameHiragana to set.
      * @return This builder for chaining.
      */

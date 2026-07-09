@@ -17,7 +17,7 @@ public interface MerchantWebhookMessageOrBuilder extends
    * Use this value to avoid processing the same message multiple times.
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   java.lang.String getId();
@@ -28,7 +28,7 @@ public interface MerchantWebhookMessageOrBuilder extends
    * Use this value to avoid processing the same message multiple times.
    * </pre>
    *
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   com.google.protobuf.ByteString
@@ -39,7 +39,7 @@ public interface MerchantWebhookMessageOrBuilder extends
    * Signature of the message.
    * </pre>
    *
-   * <code>string signature = 2 [json_name = "signature", (.buf.validate.field) = { ... }</code>
+   * <code>string signature = 2 [json_name = "signature"];</code>
    * @return The signature.
    */
   java.lang.String getSignature();
@@ -48,7 +48,7 @@ public interface MerchantWebhookMessageOrBuilder extends
    * Signature of the message.
    * </pre>
    *
-   * <code>string signature = 2 [json_name = "signature", (.buf.validate.field) = { ... }</code>
+   * <code>string signature = 2 [json_name = "signature"];</code>
    * @return The bytes for signature.
    */
   com.google.protobuf.ByteString
@@ -60,7 +60,7 @@ public interface MerchantWebhookMessageOrBuilder extends
    * Refer to this type when receiver decode (unmarshal) the message.
    * </pre>
    *
-   * <code>.api.v1.EventType event_type = 4 [json_name = "eventType", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.EventType event_type = 4 [json_name = "eventType"];</code>
    * @return The enum numeric value on the wire for eventType.
    */
   int getEventTypeValue();
@@ -70,7 +70,7 @@ public interface MerchantWebhookMessageOrBuilder extends
    * Refer to this type when receiver decode (unmarshal) the message.
    * </pre>
    *
-   * <code>.api.v1.EventType event_type = 4 [json_name = "eventType", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.EventType event_type = 4 [json_name = "eventType"];</code>
    * @return The eventType.
    */
   com.api.v1.EventType getEventType();
@@ -80,7 +80,7 @@ public interface MerchantWebhookMessageOrBuilder extends
    * Content includes message data.
    * </pre>
    *
-   * <code>.google.protobuf.Any content = 5 [json_name = "content", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Any content = 5 [json_name = "content"];</code>
    * @return Whether the content field is set.
    */
   boolean hasContent();
@@ -89,7 +89,7 @@ public interface MerchantWebhookMessageOrBuilder extends
    * Content includes message data.
    * </pre>
    *
-   * <code>.google.protobuf.Any content = 5 [json_name = "content", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Any content = 5 [json_name = "content"];</code>
    * @return The content.
    */
   com.google.protobuf.Any getContent();
@@ -98,22 +98,22 @@ public interface MerchantWebhookMessageOrBuilder extends
    * Content includes message data.
    * </pre>
    *
-   * <code>.google.protobuf.Any content = 5 [json_name = "content", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Any content = 5 [json_name = "content"];</code>
    */
   com.google.protobuf.AnyOrBuilder getContentOrBuilder();
 
   /**
-   * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt"];</code>
    * @return Whether the createdAt field is set.
    */
   boolean hasCreatedAt();
   /**
-   * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt"];</code>
    * @return The createdAt.
    */
   com.google.protobuf.Timestamp getCreatedAt();
   /**
-   * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp created_at = 999 [json_name = "createdAt"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getCreatedAtOrBuilder();
 }

@@ -58,7 +58,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object id_ = "";
   /**
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   @java.lang.Override
@@ -75,7 +75,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+   * <code>string id = 1 [json_name = "id"];</code>
    * @return The bytes for id.
    */
   @java.lang.Override
@@ -97,7 +97,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object publicId_ = "";
   /**
-   * <code>string public_id = 2 [json_name = "publicId", (.buf.validate.field) = { ... }</code>
+   * <code>string public_id = 2 [json_name = "publicId"];</code>
    * @return The publicId.
    */
   @java.lang.Override
@@ -114,7 +114,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string public_id = 2 [json_name = "publicId", (.buf.validate.field) = { ... }</code>
+   * <code>string public_id = 2 [json_name = "publicId"];</code>
    * @return The bytes for publicId.
    */
   @java.lang.Override
@@ -136,7 +136,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object state_ = "";
   /**
-   * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>string state = 3 [json_name = "state"];</code>
    * @return The state.
    */
   @java.lang.Override
@@ -153,7 +153,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+   * <code>string state = 3 [json_name = "state"];</code>
    * @return The bytes for state.
    */
   @java.lang.Override
@@ -213,7 +213,7 @@ private static final long serialVersionUID = 0L;
   public static final int ACCEPTED_AT_FIELD_NUMBER = 5;
   private com.google.protobuf.Timestamp acceptedAt_;
   /**
-   * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt"];</code>
    * @return Whether the acceptedAt field is set.
    */
   @java.lang.Override
@@ -221,7 +221,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt"];</code>
    * @return The acceptedAt.
    */
   @java.lang.Override
@@ -229,7 +229,7 @@ private static final long serialVersionUID = 0L;
     return acceptedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : acceptedAt_;
   }
   /**
-   * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt", (.buf.validate.field) = { ... }</code>
+   * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getAcceptedAtOrBuilder() {
@@ -1024,7 +1024,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object id_ = "";
     /**
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return The id.
      */
     public java.lang.String getId() {
@@ -1040,7 +1040,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
@@ -1057,7 +1057,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -1070,7 +1070,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
@@ -1080,7 +1080,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string id = 1 [json_name = "id", (.buf.validate.field) = { ... }</code>
+     * <code>string id = 1 [json_name = "id"];</code>
      * @param value The bytes for id to set.
      * @return This builder for chaining.
      */
@@ -1096,7 +1096,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object publicId_ = "";
     /**
-     * <code>string public_id = 2 [json_name = "publicId", (.buf.validate.field) = { ... }</code>
+     * <code>string public_id = 2 [json_name = "publicId"];</code>
      * @return The publicId.
      */
     public java.lang.String getPublicId() {
@@ -1112,7 +1112,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string public_id = 2 [json_name = "publicId", (.buf.validate.field) = { ... }</code>
+     * <code>string public_id = 2 [json_name = "publicId"];</code>
      * @return The bytes for publicId.
      */
     public com.google.protobuf.ByteString
@@ -1129,7 +1129,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string public_id = 2 [json_name = "publicId", (.buf.validate.field) = { ... }</code>
+     * <code>string public_id = 2 [json_name = "publicId"];</code>
      * @param value The publicId to set.
      * @return This builder for chaining.
      */
@@ -1142,7 +1142,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string public_id = 2 [json_name = "publicId", (.buf.validate.field) = { ... }</code>
+     * <code>string public_id = 2 [json_name = "publicId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearPublicId() {
@@ -1152,7 +1152,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string public_id = 2 [json_name = "publicId", (.buf.validate.field) = { ... }</code>
+     * <code>string public_id = 2 [json_name = "publicId"];</code>
      * @param value The bytes for publicId to set.
      * @return This builder for chaining.
      */
@@ -1168,7 +1168,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object state_ = "";
     /**
-     * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>string state = 3 [json_name = "state"];</code>
      * @return The state.
      */
     public java.lang.String getState() {
@@ -1184,7 +1184,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>string state = 3 [json_name = "state"];</code>
      * @return The bytes for state.
      */
     public com.google.protobuf.ByteString
@@ -1201,7 +1201,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>string state = 3 [json_name = "state"];</code>
      * @param value The state to set.
      * @return This builder for chaining.
      */
@@ -1214,7 +1214,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>string state = 3 [json_name = "state"];</code>
      * @return This builder for chaining.
      */
     public Builder clearState() {
@@ -1224,7 +1224,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string state = 3 [json_name = "state", (.buf.validate.field) = { ... }</code>
+     * <code>string state = 3 [json_name = "state"];</code>
      * @param value The bytes for state to set.
      * @return This builder for chaining.
      */
@@ -1314,14 +1314,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> acceptedAtBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt"];</code>
      * @return Whether the acceptedAt field is set.
      */
     public boolean hasAcceptedAt() {
       return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt"];</code>
      * @return The acceptedAt.
      */
     public com.google.protobuf.Timestamp getAcceptedAt() {
@@ -1332,7 +1332,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt"];</code>
      */
     public Builder setAcceptedAt(com.google.protobuf.Timestamp value) {
       if (acceptedAtBuilder_ == null) {
@@ -1348,7 +1348,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt"];</code>
      */
     public Builder setAcceptedAt(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -1362,7 +1362,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt"];</code>
      */
     public Builder mergeAcceptedAt(com.google.protobuf.Timestamp value) {
       if (acceptedAtBuilder_ == null) {
@@ -1383,7 +1383,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt"];</code>
      */
     public Builder clearAcceptedAt() {
       bitField0_ = (bitField0_ & ~0x00000010);
@@ -1396,7 +1396,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getAcceptedAtBuilder() {
       bitField0_ |= 0x00000010;
@@ -1404,7 +1404,7 @@ private static final long serialVersionUID = 0L;
       return internalGetAcceptedAtFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getAcceptedAtOrBuilder() {
       if (acceptedAtBuilder_ != null) {
@@ -1415,7 +1415,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt", (.buf.validate.field) = { ... }</code>
+     * <code>.google.protobuf.Timestamp accepted_at = 5 [json_name = "acceptedAt"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 

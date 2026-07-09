@@ -69,7 +69,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The customer.
    */
   @java.lang.Override
@@ -93,7 +93,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+   * <code>string customer = 1 [json_name = "customer"];</code>
    * @return The bytes for customer.
    */
   @java.lang.Override
@@ -119,7 +119,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
    * @return Whether the charge field is set.
    */
   @java.lang.Override
@@ -132,7 +132,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
    * @return The charge.
    */
   @java.lang.Override
@@ -145,7 +145,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
    */
   @java.lang.Override
   public com.api.v1.InitialChargeOrBuilder getChargeOrBuilder() {
@@ -508,7 +508,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @return The customer.
      */
     public java.lang.String getCustomer() {
@@ -531,7 +531,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @return The bytes for customer.
      */
     public com.google.protobuf.ByteString
@@ -555,7 +555,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @param value The customer to set.
      * @return This builder for chaining.
      */
@@ -575,7 +575,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCustomer() {
@@ -592,7 +592,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string customer = 1 [json_name = "customer", (.buf.validate.field) = { ... }</code>
+     * <code>string customer = 1 [json_name = "customer"];</code>
      * @param value The bytes for customer to set.
      * @return This builder for chaining.
      */
@@ -615,7 +615,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
      * @return Whether the charge field is set.
      */
     public boolean hasCharge() {
@@ -627,7 +627,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
      * @return The charge.
      */
     public com.api.v1.InitialCharge getCharge() {
@@ -643,7 +643,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
      */
     public Builder setCharge(com.api.v1.InitialCharge value) {
       if (chargeBuilder_ == null) {
@@ -664,7 +664,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
      */
     public Builder setCharge(
         com.api.v1.InitialCharge.Builder builderForValue) {
@@ -683,7 +683,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
      */
     public Builder mergeCharge(com.api.v1.InitialCharge value) {
       if (chargeBuilder_ == null) {
@@ -709,7 +709,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
      */
     public Builder clearCharge() {
       bitField0_ = (bitField0_ & ~0x00000002);
@@ -727,7 +727,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
      */
     public com.api.v1.InitialCharge.Builder getChargeBuilder() {
       bitField0_ |= 0x00000002;
@@ -740,7 +740,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
      */
     public com.api.v1.InitialChargeOrBuilder getChargeOrBuilder() {
       if (chargeBuilder_ != null) {
@@ -756,7 +756,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.InitialCharge, com.api.v1.InitialCharge.Builder, com.api.v1.InitialChargeOrBuilder> 

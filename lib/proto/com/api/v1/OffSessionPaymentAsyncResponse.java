@@ -66,7 +66,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+   * <code>string request_id = 1 [json_name = "requestId"];</code>
    * @return The requestId.
    */
   @java.lang.Override
@@ -88,7 +88,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+   * <code>string request_id = 1 [json_name = "requestId"];</code>
    * @return The bytes for requestId.
    */
   @java.lang.Override
@@ -114,7 +114,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.AsyncStatus status = 2 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.AsyncStatus status = 2 [json_name = "status"];</code>
    * @return The enum numeric value on the wire for status.
    */
   @java.lang.Override public int getStatusValue() {
@@ -126,7 +126,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>.api.v1.AsyncStatus status = 2 [json_name = "status", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.AsyncStatus status = 2 [json_name = "status"];</code>
    * @return The status.
    */
   @java.lang.Override public com.api.v1.AsyncStatus getStatus() {
@@ -143,7 +143,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string charge_id = 3 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+   * <code>string charge_id = 3 [json_name = "chargeId"];</code>
    * @return The chargeId.
    */
   @java.lang.Override
@@ -165,7 +165,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string charge_id = 3 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+   * <code>string charge_id = 3 [json_name = "chargeId"];</code>
    * @return The bytes for chargeId.
    */
   @java.lang.Override
@@ -536,7 +536,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+     * <code>string request_id = 1 [json_name = "requestId"];</code>
      * @return The requestId.
      */
     public java.lang.String getRequestId() {
@@ -557,7 +557,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+     * <code>string request_id = 1 [json_name = "requestId"];</code>
      * @return The bytes for requestId.
      */
     public com.google.protobuf.ByteString
@@ -579,7 +579,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+     * <code>string request_id = 1 [json_name = "requestId"];</code>
      * @param value The requestId to set.
      * @return This builder for chaining.
      */
@@ -597,7 +597,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+     * <code>string request_id = 1 [json_name = "requestId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearRequestId() {
@@ -612,7 +612,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string request_id = 1 [json_name = "requestId", (.buf.validate.field) = { ... }</code>
+     * <code>string request_id = 1 [json_name = "requestId"];</code>
      * @param value The bytes for requestId to set.
      * @return This builder for chaining.
      */
@@ -633,7 +633,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.AsyncStatus status = 2 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.AsyncStatus status = 2 [json_name = "status"];</code>
      * @return The enum numeric value on the wire for status.
      */
     @java.lang.Override public int getStatusValue() {
@@ -645,7 +645,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.AsyncStatus status = 2 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.AsyncStatus status = 2 [json_name = "status"];</code>
      * @param value The enum numeric value on the wire for status to set.
      * @throws IllegalArgumentException if UNRECOGNIZED is provided.
      * @return This builder for chaining.
@@ -662,7 +662,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.AsyncStatus status = 2 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.AsyncStatus status = 2 [json_name = "status"];</code>
      * @return The status.
      */
     @java.lang.Override
@@ -676,7 +676,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.AsyncStatus status = 2 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.AsyncStatus status = 2 [json_name = "status"];</code>
      * @param value The status to set.
      * @return This builder for chaining.
      */
@@ -693,7 +693,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>.api.v1.AsyncStatus status = 2 [json_name = "status", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.AsyncStatus status = 2 [json_name = "status"];</code>
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
@@ -710,7 +710,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string charge_id = 3 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+     * <code>string charge_id = 3 [json_name = "chargeId"];</code>
      * @return The chargeId.
      */
     public java.lang.String getChargeId() {
@@ -731,7 +731,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string charge_id = 3 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+     * <code>string charge_id = 3 [json_name = "chargeId"];</code>
      * @return The bytes for chargeId.
      */
     public com.google.protobuf.ByteString
@@ -753,7 +753,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string charge_id = 3 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+     * <code>string charge_id = 3 [json_name = "chargeId"];</code>
      * @param value The chargeId to set.
      * @return This builder for chaining.
      */
@@ -771,7 +771,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string charge_id = 3 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+     * <code>string charge_id = 3 [json_name = "chargeId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearChargeId() {
@@ -786,7 +786,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string charge_id = 3 [json_name = "chargeId", (.buf.validate.field) = { ... }</code>
+     * <code>string charge_id = 3 [json_name = "chargeId"];</code>
      * @param value The bytes for chargeId to set.
      * @return This builder for chaining.
      */

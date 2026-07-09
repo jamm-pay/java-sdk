@@ -15,7 +15,7 @@ public interface VerifySmsOtpRequestOrBuilder extends
    * 6 digit validation for now
    * </pre>
    *
-   * <code>string otp = 1 [json_name = "otp", (.buf.validate.field) = { ... }</code>
+   * <code>string otp = 1 [json_name = "otp"];</code>
    * @return The otp.
    */
   java.lang.String getOtp();
@@ -24,7 +24,7 @@ public interface VerifySmsOtpRequestOrBuilder extends
    * 6 digit validation for now
    * </pre>
    *
-   * <code>string otp = 1 [json_name = "otp", (.buf.validate.field) = { ... }</code>
+   * <code>string otp = 1 [json_name = "otp"];</code>
    * @return The bytes for otp.
    */
   com.google.protobuf.ByteString

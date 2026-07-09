@@ -6,17 +6,16 @@ import com.api.v1.EventType;
 import com.api.v1.RefundInfo;
 import com.api.v1.UserAccountMessage;
 import com.jamm.errors.InvalidSignatureException;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonParser;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
 import com.google.protobuf.util.JsonFormat;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -40,13 +39,10 @@ import java.security.NoSuchAlgorithmException;
  * // In your webhook endpoint handler
  * String jsonBody = request.getBody();
  *
- * // The signature is in the webhook payload's "signature" field and is
- * // computed over the "content" JSON. Extract and verify it:
- * ObjectMapper mapper = new ObjectMapper();
- * JsonNode payload = mapper.readTree(jsonBody);
- * String signature = payload.get("signature").asText();
- * String contentJson = payload.get("content").toString();
- * Webhook.verify(contentJson, signature, clientSecret);
+ * // Prefer verifyAndParse / verifyAndParseEvent below — they verify over the exact
+ * // received bytes. If you verify manually, do it over the raw content bytes from the
+ * // request body, not a re-serialized copy (re-serialization un-escapes &, <, > and
+ * // breaks the signature).
  *
  * // Parse the webhook message
  * Object content = Webhook.parse(jsonBody);
@@ -63,7 +59,6 @@ import java.security.NoSuchAlgorithmException;
 public final class Webhook {
 
     private static final String HMAC_SHA256 = "HmacSHA256";
-    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     private Webhook() {
         // Utility class, prevent instantiation
@@ -102,12 +97,7 @@ public final class Webhook {
             throw new IllegalArgumentException("json cannot be null or empty");
         }
 
-        JsonNode rootNode;
-        try {
-            rootNode = OBJECT_MAPPER.readTree(json);
-        } catch (IOException e) {
-            throw new IllegalArgumentException("Invalid JSON format: " + e.getMessage(), e);
-        }
+        JsonObject rootNode = parseObject(json);
 
         // Extract event type using proper JSON parsing
         String eventTypeString = extractEventType(rootNode);
@@ -153,7 +143,7 @@ public final class Webhook {
      * <p>The Jamm backend computes the HMAC over the raw {@code content} bytes it transmits.
      * Those bytes are produced by Go's JSON encoder, which escapes {@code &}, {@code <} and
      * {@code >} as {@code &amp;}, {@code &lt;}, {@code &gt;}. Re-serializing the parsed
-     * {@code content} (e.g. {@code JsonNode.toString()}) un-escapes those characters, so the
+     * {@code content} (parsing it and serializing again) un-escapes those characters, so the
      * recomputed digest no longer matches. This method avoids that by slicing the raw
      * {@code content} substring out of {@code rawBody} verbatim for verification.
      *
@@ -201,47 +191,145 @@ public final class Webhook {
             throw new IllegalArgumentException("clientSecret cannot be null or empty");
         }
 
-        JsonNode rootNode;
-        try {
-            rootNode = OBJECT_MAPPER.readTree(rawBody);
-        } catch (IOException e) {
-            throw new IllegalArgumentException("Invalid JSON format: " + e.getMessage(), e);
-        }
+        JsonObject rootNode = parseObject(rawBody);
 
-        JsonNode signatureNode = rootNode.get("signature");
-        if (signatureNode == null || signatureNode.isNull()) {
+        JsonElement signatureNode = rootNode.get("signature");
+        if (signatureNode == null || !signatureNode.isJsonPrimitive()) {
             throw new IllegalArgumentException("Webhook message does not contain 'signature' field");
         }
 
         String rawContent = extractRawContent(rawBody);
-        verify(rawContent, signatureNode.asText(), clientSecret);
+        verify(rawContent, signatureNode.getAsString(), clientSecret);
     }
 
     /**
      * Extracts the raw {@code content} substring from the webhook body verbatim, without
      * decoding or re-serializing it, so the exact signed bytes are recovered for HMAC
-     * verification. Uses a streaming parser to locate the top-level {@code content} value.
+     * verification. Scans the top-level object for the {@code content} field and returns its
+     * value's exact span from {@code rawBody} — including any {@code \\u0026}-style escapes the
+     * backend emitted, which a JSON-tree round-trip would collapse.
      */
     private static String extractRawContent(String rawBody) {
-        try (JsonParser parser = OBJECT_MAPPER.getFactory().createParser(rawBody)) {
-            if (parser.nextToken() != JsonToken.START_OBJECT) {
-                throw new IllegalArgumentException("Webhook body must be a JSON object");
-            }
-            while (parser.nextToken() == JsonToken.FIELD_NAME) {
-                String field = parser.currentName();
-                parser.nextToken(); // advance to the field's value
-                if ("content".equals(field)) {
-                    int start = (int) parser.currentTokenLocation().getCharOffset();
-                    parser.skipChildren();
-                    int end = (int) parser.currentLocation().getCharOffset();
-                    return rawBody.substring(start, end);
-                }
-                parser.skipChildren();
-            }
-        } catch (IOException e) {
-            throw new IllegalArgumentException("Invalid JSON format: " + e.getMessage(), e);
+        int n = rawBody.length();
+        int i = skipWhitespace(rawBody, 0);
+        if (i >= n || rawBody.charAt(i) != '{') {
+            throw new IllegalArgumentException("Webhook body must be a JSON object");
         }
-        throw new IllegalArgumentException("Webhook message does not contain 'content' field");
+        i++; // past '{'
+        String content = null;
+        while (true) {
+            i = skipWhitespace(rawBody, i);
+            if (i >= n || rawBody.charAt(i) == '}') {
+                break;
+            }
+            if (rawBody.charAt(i) != '"') {
+                throw new IllegalArgumentException("Invalid JSON format: expected field name");
+            }
+            int keyEnd = skipString(rawBody, i); // index just past the key's closing quote
+            String key = rawBody.substring(i + 1, keyEnd - 1);
+            i = skipWhitespace(rawBody, keyEnd);
+            if (i >= n || rawBody.charAt(i) != ':') {
+                throw new IllegalArgumentException("Invalid JSON format: expected ':'");
+            }
+            i = skipWhitespace(rawBody, i + 1);
+            int valueStart = i;
+            int valueEnd = skipValue(rawBody, i);
+            if ("content".equals(key)) {
+                // Reject a duplicate top-level "content". We sign the first occurrence, but the
+                // JSON parser keeps the last on duplicate keys — a mismatch an attacker could use
+                // to have one value verified and a different one deserialized.
+                if (content != null) {
+                    throw new IllegalArgumentException("Webhook body contains multiple 'content' fields");
+                }
+                content = rawBody.substring(valueStart, valueEnd);
+            }
+            i = skipWhitespace(rawBody, valueEnd);
+            if (i < n && rawBody.charAt(i) == ',') {
+                i++;
+            }
+        }
+        if (content == null) {
+            throw new IllegalArgumentException("Webhook message does not contain 'content' field");
+        }
+        return content;
+    }
+
+    private static int skipWhitespace(String s, int i) {
+        while (i < s.length()) {
+            char c = s.charAt(i);
+            if (c != ' ' && c != '\t' && c != '\n' && c != '\r') {
+                break;
+            }
+            i++;
+        }
+        return i;
+    }
+
+    /**
+     * Given {@code s.charAt(i) == '"'}, returns the index just past the string's closing quote,
+     * honoring backslash escapes.
+     */
+    private static int skipString(String s, int i) {
+        int n = s.length();
+        i++; // past opening quote
+        while (i < n) {
+            char c = s.charAt(i);
+            if (c == '\\') {
+                i += 2;
+                continue;
+            }
+            if (c == '"') {
+                return i + 1;
+            }
+            i++;
+        }
+        throw new IllegalArgumentException("Invalid JSON format: unterminated string");
+    }
+
+    /**
+     * Returns the index just past the complete JSON value starting at {@code i}: a string, a
+     * balanced object/array (respecting nested strings), or a bare primitive.
+     */
+    private static int skipValue(String s, int i) {
+        int n = s.length();
+        char c = s.charAt(i);
+        if (c == '"') {
+            return skipString(s, i);
+        }
+        if (c == '{' || c == '[') {
+            int depth = 0;
+            boolean inString = false;
+            for (; i < n; i++) {
+                char ch = s.charAt(i);
+                if (inString) {
+                    if (ch == '\\') {
+                        i++;
+                    } else if (ch == '"') {
+                        inString = false;
+                    }
+                } else if (ch == '"') {
+                    inString = true;
+                } else if (ch == '{' || ch == '[') {
+                    depth++;
+                } else if (ch == '}' || ch == ']') {
+                    depth--;
+                    if (depth == 0) {
+                        return i + 1;
+                    }
+                }
+            }
+            throw new IllegalArgumentException("Invalid JSON format: unbalanced value");
+        }
+        // primitive: number, true, false, null — runs until a structural delimiter
+        while (i < n) {
+            char ch = s.charAt(i);
+            if (ch == ',' || ch == '}' || ch == ']'
+                    || ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r') {
+                break;
+            }
+            i++;
+        }
+        return i;
     }
 
     /**
@@ -264,19 +352,19 @@ public final class Webhook {
      */
     private static ChargeMessage parseRefundContent(String contentJson)
             throws InvalidProtocolBufferException {
-        JsonNode contentNode;
+        JsonObject contentNode;
         try {
-            contentNode = OBJECT_MAPPER.readTree(contentJson);
-        } catch (IOException e) {
+            contentNode = JsonParser.parseString(contentJson).getAsJsonObject();
+        } catch (JsonParseException | IllegalStateException e) {
             throw new IllegalArgumentException("Invalid refund content JSON: " + e.getMessage(), e);
         }
 
         ChargeMessage.Builder charge = ChargeMessage.newBuilder();
-        JsonNode transactionNode = contentNode.get("transaction");
-        if (transactionNode != null && !transactionNode.isNull()) {
+        JsonElement transactionNode = contentNode.get("transaction");
+        if (transactionNode != null && !transactionNode.isJsonNull()) {
             JsonFormat.parser().ignoringUnknownFields().merge(transactionNode.toString(), charge);
-            JsonNode refundNode = contentNode.get("refund");
-            if (refundNode != null && !refundNode.isNull()) {
+            JsonElement refundNode = contentNode.get("refund");
+            if (refundNode != null && !refundNode.isJsonNull()) {
                 RefundInfo.Builder refund = RefundInfo.newBuilder();
                 JsonFormat.parser().ignoringUnknownFields().merge(refundNode.toString(), refund);
                 charge.setRefund(refund.build());
@@ -328,26 +416,38 @@ public final class Webhook {
      * Extracts the event_type value from the parsed JSON node.
      * Supports both snake_case ("event_type") and camelCase ("eventType") field names.
      */
-    private static String extractEventType(JsonNode rootNode) {
-        JsonNode eventTypeNode = rootNode.get("event_type");
-        if (eventTypeNode == null || eventTypeNode.isNull()) {
+    private static String extractEventType(JsonObject rootNode) {
+        JsonElement eventTypeNode = rootNode.get("event_type");
+        if (eventTypeNode == null || eventTypeNode.isJsonNull()) {
             eventTypeNode = rootNode.get("eventType");
         }
-        if (eventTypeNode == null || eventTypeNode.isNull()) {
+        if (eventTypeNode == null || !eventTypeNode.isJsonPrimitive()) {
             throw new IllegalArgumentException("Webhook message does not contain 'event_type' field");
         }
-        return eventTypeNode.asText();
+        return eventTypeNode.getAsString();
     }
 
     /**
      * Extracts the content field as a JSON string from the parsed JSON node.
      */
-    private static String extractContentJson(JsonNode rootNode) {
-        JsonNode contentNode = rootNode.get("content");
-        if (contentNode == null || contentNode.isNull()) {
+    private static String extractContentJson(JsonObject rootNode) {
+        JsonElement contentNode = rootNode.get("content");
+        if (contentNode == null || contentNode.isJsonNull()) {
             throw new IllegalArgumentException("Webhook message does not contain 'content' field");
         }
         return contentNode.toString();
+    }
+
+    /**
+     * Parses {@code json} into a JSON object, or throws {@link IllegalArgumentException} if it is
+     * not valid JSON or not an object.
+     */
+    private static JsonObject parseObject(String json) {
+        try {
+            return JsonParser.parseString(json).getAsJsonObject();
+        } catch (JsonParseException | IllegalStateException e) {
+            throw new IllegalArgumentException("Invalid JSON format: " + e.getMessage(), e);
+        }
     }
 
     /**

@@ -61,7 +61,7 @@ private static final long serialVersionUID = 0L;
    * Bank code, e.g. "0001"
    * </pre>
    *
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bankCode.
    */
   @java.lang.Override
@@ -82,7 +82,7 @@ private static final long serialVersionUID = 0L;
    * Bank code, e.g. "0001"
    * </pre>
    *
-   * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+   * <code>string bank_code = 1 [json_name = "bankCode"];</code>
    * @return The bytes for bankCode.
    */
   @java.lang.Override
@@ -108,7 +108,7 @@ private static final long serialVersionUID = 0L;
    * Scheduled maintenance start time in JST, e.g. "2021-01-01T00:00:00"
    * </pre>
    *
-   * <code>string start_at_jst = 2 [json_name = "startAtJst", (.buf.validate.field) = { ... }</code>
+   * <code>string start_at_jst = 2 [json_name = "startAtJst"];</code>
    * @return The startAtJst.
    */
   @java.lang.Override
@@ -129,7 +129,7 @@ private static final long serialVersionUID = 0L;
    * Scheduled maintenance start time in JST, e.g. "2021-01-01T00:00:00"
    * </pre>
    *
-   * <code>string start_at_jst = 2 [json_name = "startAtJst", (.buf.validate.field) = { ... }</code>
+   * <code>string start_at_jst = 2 [json_name = "startAtJst"];</code>
    * @return The bytes for startAtJst.
    */
   @java.lang.Override
@@ -155,7 +155,7 @@ private static final long serialVersionUID = 0L;
    * Scheduled maintenance end time in JST, e.g. "2021-01-01T00:00:00"
    * </pre>
    *
-   * <code>string end_at_jst = 3 [json_name = "endAtJst", (.buf.validate.field) = { ... }</code>
+   * <code>string end_at_jst = 3 [json_name = "endAtJst"];</code>
    * @return The endAtJst.
    */
   @java.lang.Override
@@ -176,7 +176,7 @@ private static final long serialVersionUID = 0L;
    * Scheduled maintenance end time in JST, e.g. "2021-01-01T00:00:00"
    * </pre>
    *
-   * <code>string end_at_jst = 3 [json_name = "endAtJst", (.buf.validate.field) = { ... }</code>
+   * <code>string end_at_jst = 3 [json_name = "endAtJst"];</code>
    * @return The bytes for endAtJst.
    */
   @java.lang.Override
@@ -202,7 +202,7 @@ private static final long serialVersionUID = 0L;
    * Scheduled maintenance start time in UTC, e.g. "2021-01-01T00:00:00Z"
    * </pre>
    *
-   * <code>string start_at_utc = 4 [json_name = "startAtUtc", (.buf.validate.field) = { ... }</code>
+   * <code>string start_at_utc = 4 [json_name = "startAtUtc"];</code>
    * @return The startAtUtc.
    */
   @java.lang.Override
@@ -223,7 +223,7 @@ private static final long serialVersionUID = 0L;
    * Scheduled maintenance start time in UTC, e.g. "2021-01-01T00:00:00Z"
    * </pre>
    *
-   * <code>string start_at_utc = 4 [json_name = "startAtUtc", (.buf.validate.field) = { ... }</code>
+   * <code>string start_at_utc = 4 [json_name = "startAtUtc"];</code>
    * @return The bytes for startAtUtc.
    */
   @java.lang.Override
@@ -249,7 +249,7 @@ private static final long serialVersionUID = 0L;
    * Scheduled maintenance end time in UTC, e.g. "2021-01-01T00:00:00Z"
    * </pre>
    *
-   * <code>string end_at_utc = 5 [json_name = "endAtUtc", (.buf.validate.field) = { ... }</code>
+   * <code>string end_at_utc = 5 [json_name = "endAtUtc"];</code>
    * @return The endAtUtc.
    */
   @java.lang.Override
@@ -270,7 +270,7 @@ private static final long serialVersionUID = 0L;
    * Scheduled maintenance end time in UTC, e.g. "2021-01-01T00:00:00Z"
    * </pre>
    *
-   * <code>string end_at_utc = 5 [json_name = "endAtUtc", (.buf.validate.field) = { ... }</code>
+   * <code>string end_at_utc = 5 [json_name = "endAtUtc"];</code>
    * @return The bytes for endAtUtc.
    */
   @java.lang.Override
@@ -684,7 +684,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @return The bankCode.
      */
     public java.lang.String getBankCode() {
@@ -704,7 +704,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @return The bytes for bankCode.
      */
     public com.google.protobuf.ByteString
@@ -725,7 +725,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @param value The bankCode to set.
      * @return This builder for chaining.
      */
@@ -742,7 +742,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @return This builder for chaining.
      */
     public Builder clearBankCode() {
@@ -756,7 +756,7 @@ private static final long serialVersionUID = 0L;
      * Bank code, e.g. "0001"
      * </pre>
      *
-     * <code>string bank_code = 1 [json_name = "bankCode", (.buf.validate.field) = { ... }</code>
+     * <code>string bank_code = 1 [json_name = "bankCode"];</code>
      * @param value The bytes for bankCode to set.
      * @return This builder for chaining.
      */
@@ -776,7 +776,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance start time in JST, e.g. "2021-01-01T00:00:00"
      * </pre>
      *
-     * <code>string start_at_jst = 2 [json_name = "startAtJst", (.buf.validate.field) = { ... }</code>
+     * <code>string start_at_jst = 2 [json_name = "startAtJst"];</code>
      * @return The startAtJst.
      */
     public java.lang.String getStartAtJst() {
@@ -796,7 +796,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance start time in JST, e.g. "2021-01-01T00:00:00"
      * </pre>
      *
-     * <code>string start_at_jst = 2 [json_name = "startAtJst", (.buf.validate.field) = { ... }</code>
+     * <code>string start_at_jst = 2 [json_name = "startAtJst"];</code>
      * @return The bytes for startAtJst.
      */
     public com.google.protobuf.ByteString
@@ -817,7 +817,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance start time in JST, e.g. "2021-01-01T00:00:00"
      * </pre>
      *
-     * <code>string start_at_jst = 2 [json_name = "startAtJst", (.buf.validate.field) = { ... }</code>
+     * <code>string start_at_jst = 2 [json_name = "startAtJst"];</code>
      * @param value The startAtJst to set.
      * @return This builder for chaining.
      */
@@ -834,7 +834,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance start time in JST, e.g. "2021-01-01T00:00:00"
      * </pre>
      *
-     * <code>string start_at_jst = 2 [json_name = "startAtJst", (.buf.validate.field) = { ... }</code>
+     * <code>string start_at_jst = 2 [json_name = "startAtJst"];</code>
      * @return This builder for chaining.
      */
     public Builder clearStartAtJst() {
@@ -848,7 +848,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance start time in JST, e.g. "2021-01-01T00:00:00"
      * </pre>
      *
-     * <code>string start_at_jst = 2 [json_name = "startAtJst", (.buf.validate.field) = { ... }</code>
+     * <code>string start_at_jst = 2 [json_name = "startAtJst"];</code>
      * @param value The bytes for startAtJst to set.
      * @return This builder for chaining.
      */
@@ -868,7 +868,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance end time in JST, e.g. "2021-01-01T00:00:00"
      * </pre>
      *
-     * <code>string end_at_jst = 3 [json_name = "endAtJst", (.buf.validate.field) = { ... }</code>
+     * <code>string end_at_jst = 3 [json_name = "endAtJst"];</code>
      * @return The endAtJst.
      */
     public java.lang.String getEndAtJst() {
@@ -888,7 +888,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance end time in JST, e.g. "2021-01-01T00:00:00"
      * </pre>
      *
-     * <code>string end_at_jst = 3 [json_name = "endAtJst", (.buf.validate.field) = { ... }</code>
+     * <code>string end_at_jst = 3 [json_name = "endAtJst"];</code>
      * @return The bytes for endAtJst.
      */
     public com.google.protobuf.ByteString
@@ -909,7 +909,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance end time in JST, e.g. "2021-01-01T00:00:00"
      * </pre>
      *
-     * <code>string end_at_jst = 3 [json_name = "endAtJst", (.buf.validate.field) = { ... }</code>
+     * <code>string end_at_jst = 3 [json_name = "endAtJst"];</code>
      * @param value The endAtJst to set.
      * @return This builder for chaining.
      */
@@ -926,7 +926,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance end time in JST, e.g. "2021-01-01T00:00:00"
      * </pre>
      *
-     * <code>string end_at_jst = 3 [json_name = "endAtJst", (.buf.validate.field) = { ... }</code>
+     * <code>string end_at_jst = 3 [json_name = "endAtJst"];</code>
      * @return This builder for chaining.
      */
     public Builder clearEndAtJst() {
@@ -940,7 +940,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance end time in JST, e.g. "2021-01-01T00:00:00"
      * </pre>
      *
-     * <code>string end_at_jst = 3 [json_name = "endAtJst", (.buf.validate.field) = { ... }</code>
+     * <code>string end_at_jst = 3 [json_name = "endAtJst"];</code>
      * @param value The bytes for endAtJst to set.
      * @return This builder for chaining.
      */
@@ -960,7 +960,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance start time in UTC, e.g. "2021-01-01T00:00:00Z"
      * </pre>
      *
-     * <code>string start_at_utc = 4 [json_name = "startAtUtc", (.buf.validate.field) = { ... }</code>
+     * <code>string start_at_utc = 4 [json_name = "startAtUtc"];</code>
      * @return The startAtUtc.
      */
     public java.lang.String getStartAtUtc() {
@@ -980,7 +980,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance start time in UTC, e.g. "2021-01-01T00:00:00Z"
      * </pre>
      *
-     * <code>string start_at_utc = 4 [json_name = "startAtUtc", (.buf.validate.field) = { ... }</code>
+     * <code>string start_at_utc = 4 [json_name = "startAtUtc"];</code>
      * @return The bytes for startAtUtc.
      */
     public com.google.protobuf.ByteString
@@ -1001,7 +1001,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance start time in UTC, e.g. "2021-01-01T00:00:00Z"
      * </pre>
      *
-     * <code>string start_at_utc = 4 [json_name = "startAtUtc", (.buf.validate.field) = { ... }</code>
+     * <code>string start_at_utc = 4 [json_name = "startAtUtc"];</code>
      * @param value The startAtUtc to set.
      * @return This builder for chaining.
      */
@@ -1018,7 +1018,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance start time in UTC, e.g. "2021-01-01T00:00:00Z"
      * </pre>
      *
-     * <code>string start_at_utc = 4 [json_name = "startAtUtc", (.buf.validate.field) = { ... }</code>
+     * <code>string start_at_utc = 4 [json_name = "startAtUtc"];</code>
      * @return This builder for chaining.
      */
     public Builder clearStartAtUtc() {
@@ -1032,7 +1032,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance start time in UTC, e.g. "2021-01-01T00:00:00Z"
      * </pre>
      *
-     * <code>string start_at_utc = 4 [json_name = "startAtUtc", (.buf.validate.field) = { ... }</code>
+     * <code>string start_at_utc = 4 [json_name = "startAtUtc"];</code>
      * @param value The bytes for startAtUtc to set.
      * @return This builder for chaining.
      */
@@ -1052,7 +1052,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance end time in UTC, e.g. "2021-01-01T00:00:00Z"
      * </pre>
      *
-     * <code>string end_at_utc = 5 [json_name = "endAtUtc", (.buf.validate.field) = { ... }</code>
+     * <code>string end_at_utc = 5 [json_name = "endAtUtc"];</code>
      * @return The endAtUtc.
      */
     public java.lang.String getEndAtUtc() {
@@ -1072,7 +1072,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance end time in UTC, e.g. "2021-01-01T00:00:00Z"
      * </pre>
      *
-     * <code>string end_at_utc = 5 [json_name = "endAtUtc", (.buf.validate.field) = { ... }</code>
+     * <code>string end_at_utc = 5 [json_name = "endAtUtc"];</code>
      * @return The bytes for endAtUtc.
      */
     public com.google.protobuf.ByteString
@@ -1093,7 +1093,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance end time in UTC, e.g. "2021-01-01T00:00:00Z"
      * </pre>
      *
-     * <code>string end_at_utc = 5 [json_name = "endAtUtc", (.buf.validate.field) = { ... }</code>
+     * <code>string end_at_utc = 5 [json_name = "endAtUtc"];</code>
      * @param value The endAtUtc to set.
      * @return This builder for chaining.
      */
@@ -1110,7 +1110,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance end time in UTC, e.g. "2021-01-01T00:00:00Z"
      * </pre>
      *
-     * <code>string end_at_utc = 5 [json_name = "endAtUtc", (.buf.validate.field) = { ... }</code>
+     * <code>string end_at_utc = 5 [json_name = "endAtUtc"];</code>
      * @return This builder for chaining.
      */
     public Builder clearEndAtUtc() {
@@ -1124,7 +1124,7 @@ private static final long serialVersionUID = 0L;
      * Scheduled maintenance end time in UTC, e.g. "2021-01-01T00:00:00Z"
      * </pre>
      *
-     * <code>string end_at_utc = 5 [json_name = "endAtUtc", (.buf.validate.field) = { ... }</code>
+     * <code>string end_at_utc = 5 [json_name = "endAtUtc"];</code>
      * @param value The bytes for endAtUtc to set.
      * @return This builder for chaining.
      */

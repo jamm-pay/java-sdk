@@ -52,7 +52,7 @@ private static final long serialVersionUID = 0L;
   public static final int BUYER_FIELD_NUMBER = 1;
   private com.api.v1.Buyer buyer_;
   /**
-   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
    * @return Whether the buyer field is set.
    */
   @java.lang.Override
@@ -60,7 +60,7 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
-   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
    * @return The buyer.
    */
   @java.lang.Override
@@ -68,7 +68,7 @@ private static final long serialVersionUID = 0L;
     return buyer_ == null ? com.api.v1.Buyer.getDefaultInstance() : buyer_;
   }
   /**
-   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+   * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
    */
   @java.lang.Override
   public com.api.v1.BuyerOrBuilder getBuyerOrBuilder() {
@@ -394,14 +394,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.Buyer, com.api.v1.Buyer.Builder, com.api.v1.BuyerOrBuilder> buyerBuilder_;
     /**
-     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
      * @return Whether the buyer field is set.
      */
     public boolean hasBuyer() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
      * @return The buyer.
      */
     public com.api.v1.Buyer getBuyer() {
@@ -412,7 +412,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
      */
     public Builder setBuyer(com.api.v1.Buyer value) {
       if (buyerBuilder_ == null) {
@@ -428,7 +428,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
      */
     public Builder setBuyer(
         com.api.v1.Buyer.Builder builderForValue) {
@@ -442,7 +442,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
      */
     public Builder mergeBuyer(com.api.v1.Buyer value) {
       if (buyerBuilder_ == null) {
@@ -463,7 +463,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
      */
     public Builder clearBuyer() {
       bitField0_ = (bitField0_ & ~0x00000001);
@@ -476,7 +476,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
      */
     public com.api.v1.Buyer.Builder getBuyerBuilder() {
       bitField0_ |= 0x00000001;
@@ -484,7 +484,7 @@ private static final long serialVersionUID = 0L;
       return internalGetBuyerFieldBuilder().getBuilder();
     }
     /**
-     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
      */
     public com.api.v1.BuyerOrBuilder getBuyerOrBuilder() {
       if (buyerBuilder_ != null) {
@@ -495,7 +495,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer", (.buf.validate.field) = { ... }</code>
+     * <code>.api.v1.Buyer buyer = 1 [json_name = "buyer"];</code>
      */
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.Buyer, com.api.v1.Buyer.Builder, com.api.v1.BuyerOrBuilder> 

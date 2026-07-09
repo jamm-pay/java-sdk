@@ -57,7 +57,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>string charge = 2 [json_name = "charge"];</code>
    * @return The charge.
    */
   @java.lang.Override
@@ -78,7 +78,7 @@ private static final long serialVersionUID = 0L;
    * &#64;gotags: validate:"required"
    * </pre>
    *
-   * <code>string charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+   * <code>string charge = 2 [json_name = "charge"];</code>
    * @return The bytes for charge.
    */
   @java.lang.Override
@@ -396,7 +396,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>string charge = 2 [json_name = "charge"];</code>
      * @return The charge.
      */
     public java.lang.String getCharge() {
@@ -416,7 +416,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>string charge = 2 [json_name = "charge"];</code>
      * @return The bytes for charge.
      */
     public com.google.protobuf.ByteString
@@ -437,7 +437,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>string charge = 2 [json_name = "charge"];</code>
      * @param value The charge to set.
      * @return This builder for chaining.
      */
@@ -454,7 +454,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>string charge = 2 [json_name = "charge"];</code>
      * @return This builder for chaining.
      */
     public Builder clearCharge() {
@@ -468,7 +468,7 @@ private static final long serialVersionUID = 0L;
      * &#64;gotags: validate:"required"
      * </pre>
      *
-     * <code>string charge = 2 [json_name = "charge", (.buf.validate.field) = { ... }</code>
+     * <code>string charge = 2 [json_name = "charge"];</code>
      * @param value The bytes for charge to set.
      * @return This builder for chaining.
      */

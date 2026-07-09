@@ -52,7 +52,7 @@ private static final long serialVersionUID = 0L;
   public static final int PAGE_SIZE_FIELD_NUMBER = 1;
   private int pageSize_ = 0;
   /**
-   * <code>int32 page_size = 1 [json_name = "pageSize", (.buf.validate.field) = { ... }</code>
+   * <code>int32 page_size = 1 [json_name = "pageSize"];</code>
    * @return The pageSize.
    */
   @java.lang.Override
@@ -418,7 +418,7 @@ private static final long serialVersionUID = 0L;
 
     private int pageSize_ ;
     /**
-     * <code>int32 page_size = 1 [json_name = "pageSize", (.buf.validate.field) = { ... }</code>
+     * <code>int32 page_size = 1 [json_name = "pageSize"];</code>
      * @return The pageSize.
      */
     @java.lang.Override
@@ -426,7 +426,7 @@ private static final long serialVersionUID = 0L;
       return pageSize_;
     }
     /**
-     * <code>int32 page_size = 1 [json_name = "pageSize", (.buf.validate.field) = { ... }</code>
+     * <code>int32 page_size = 1 [json_name = "pageSize"];</code>
      * @param value The pageSize to set.
      * @return This builder for chaining.
      */
@@ -438,7 +438,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 page_size = 1 [json_name = "pageSize", (.buf.validate.field) = { ... }</code>
+     * <code>int32 page_size = 1 [json_name = "pageSize"];</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
