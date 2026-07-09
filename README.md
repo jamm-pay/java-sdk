@@ -353,12 +353,11 @@ This SDK is published from the `jamm-pay/java-sdk` repository.
 
 These are for **building the SDK from source**. Consuming the published SDK only requires Java 8+ (see [Installation](#installation)).
 
-- Java 11 or above (to build from source and run the tests)
-- Docker (for running Maven builds and tests)
+- Docker — all Maven builds and tests run in containers, so no host JDK is required. Building/linting use JDK 25; tests run on JDK 8 to exercise the SDK in the actual merchant runtime.
 
 ### Available Commands
 
-All commands run via Docker using `maven:3.9-eclipse-temurin-25`:
+Commands run via Docker: `make build`/`lint`/`package`/`publish`/`javadoc` use `maven:3.9-eclipse-temurin-25`; `make test`/`e2e` use `maven:3.9-eclipse-temurin-8` (the Java 8 merchant runtime).
 
 ```sh
 make install       # Download dependencies
