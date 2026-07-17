@@ -274,7 +274,11 @@
             <configuration>
               <publishingServerId>central</publishingServerId>
               <autoPublish>true</autoPublish>
-              <waitUntil>published</waitUntil>
+              <!-- Wait only for validation, then let autoPublish release asynchronously. Waiting for
+                   'published' can exceed the plugin's poll timeout when Central's publish queue is
+                   slow, failing the deploy step (and skipping tag creation) even though the release
+                   succeeds. -->
+              <waitUntil>validated</waitUntil>
             </configuration>
           </plugin>
 
