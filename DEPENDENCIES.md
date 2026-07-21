@@ -40,4 +40,4 @@ To reproduce the list above for a given build (e.g. to fetch the jars):
 mvn -DincludeScope=runtime -Dmdep.outputFile=classpath.txt dependency:build-classpath
 ```
 
-Versions are pinned in [`pom.xml`](pom.xml); this document reflects SDK **1.6.0**.
+Versions are pinned in [`pom.xml`](pom.xml); this document reflects SDK **1.6.1**.
