@@ -96,7 +96,7 @@ whatever `make report` reports):
 | -------------- | ---------------------------- | ------------------------------------------------------------- |
 | 1.1.3          | ✅ parses (unknown fields ignored) | ❌ `EVENT_TYPE_REFUND_SUCCEEDED` unknown (renamed in 1.2.0)   |
 | 1.2.0 – 1.4.1  | ✅ parses                     | ❌ wrapper not flattened → core fields empty (flatten landed in 1.5.0) |
-| 1.5.0 – 1.5.2  | ✅ parses                     | ✅ flattens `transaction`/`refund` onto the `ChargeMessage`   |
+| 1.5.0 – 1.6.1  | ✅ parses                     | ✅ flattens `transaction`/`refund` onto the `ChargeMessage`   |
 
 The actionable finding: **no published version before `1.5.0` handles the nested
 refund webhook wrapper.** Flat charges — even carrying `api_source` — parse on
@@ -127,8 +127,9 @@ make test \
 
 ## Pinned versions
 
-The latest 10 versions published to Maven Central (the installable source of
-truth): `1.1.3, 1.2.0, 1.2.1, 1.2.2, 1.3.0, 1.4.0, 1.4.1, 1.5.0, 1.5.1, 1.5.2`.
+The latest 12 versions published to Maven Central (the installable source of
+truth): `1.1.3, 1.2.0, 1.2.1, 1.2.2, 1.3.0, 1.4.0, 1.4.1, 1.5.0, 1.5.1, 1.5.2,
+1.6.0, 1.6.1`.
 
 To add a newly released version:
 
