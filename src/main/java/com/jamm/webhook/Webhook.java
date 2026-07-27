@@ -346,7 +346,7 @@ public final class Webhook {
      *
      * <p>The current backend format nests the charge under {@code transaction} and the refund
      * details under {@code refund}:
-     * <pre>{@code { "transaction": { ...ChargeMessage... }, "refund": { "refund_id": "rfd-...", ... } } }</pre>
+     * <pre>{@code { "transaction": { ...ChargeMessage... }, "refund": { "id": "rfd-...", ... } } }</pre>
      * Older payloads sent the transaction fields flat. Both are flattened into a single
      * {@code ChargeMessage} (with its {@code RefundInfo} populated) so consumers read one shape.
      */

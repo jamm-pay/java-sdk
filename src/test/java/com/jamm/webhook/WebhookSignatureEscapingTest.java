@@ -74,7 +74,7 @@ class WebhookSignatureEscapingTest {
         String nestedContent =
                 "{\"transaction\":{\"id\":\"trx-2\",\"customer\":\"cus-2\",\"status\":\"STATUS_REFUNDED\","
               + "\"description\":\"A \\u0026 B\",\"final_amount\":300,\"currency\":\"JPY\"},"
-              + "\"refund\":{\"refund_id\":\"rfd-1\",\"amount_refunded\":100}}";
+              + "\"refund\":{\"id\":\"rfd-1\",\"amount_refunded\":100}}";
         String body = "{\"id\":\"mwh-2\",\"signature\":\"sha256=" + hmac(nestedContent, SECRET) + "\","
                 + "\"event_type\":\"EVENT_TYPE_REFUND_SUCCEEDED\","
                 + "\"content\":" + nestedContent + ",\"created_at\":\"2024-11-29T02:17:05Z\"}";
@@ -84,7 +84,7 @@ class WebhookSignatureEscapingTest {
         assertInstanceOf(ChargeMessage.class, content);
         ChargeMessage charge = (ChargeMessage) content;
         assertEquals("A & B", charge.getDescription());
-        assertEquals("rfd-1", charge.getRefund().getRefundId());
+        assertEquals("rfd-1", charge.getRefund().getId());
     }
 
     @Test

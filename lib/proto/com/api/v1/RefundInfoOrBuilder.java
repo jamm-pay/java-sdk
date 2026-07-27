@@ -15,29 +15,29 @@ public interface RefundInfoOrBuilder extends
    * External refund identifier (rfd-*).
    * </pre>
    *
-   * <code>optional string refund_id = 1 [json_name = "refundId"];</code>
-   * @return Whether the refundId field is set.
+   * <code>optional string id = 1 [json_name = "id"];</code>
+   * @return Whether the id field is set.
    */
-  boolean hasRefundId();
+  boolean hasId();
   /**
    * <pre>
    * External refund identifier (rfd-*).
    * </pre>
    *
-   * <code>optional string refund_id = 1 [json_name = "refundId"];</code>
-   * @return The refundId.
+   * <code>optional string id = 1 [json_name = "id"];</code>
+   * @return The id.
    */
-  java.lang.String getRefundId();
+  java.lang.String getId();
   /**
    * <pre>
    * External refund identifier (rfd-*).
    * </pre>
    *
-   * <code>optional string refund_id = 1 [json_name = "refundId"];</code>
-   * @return The bytes for refundId.
+   * <code>optional string id = 1 [json_name = "id"];</code>
+   * @return The bytes for id.
    */
   com.google.protobuf.ByteString
-      getRefundIdBytes();
+      getIdBytes();
 
   /**
    * <pre>
