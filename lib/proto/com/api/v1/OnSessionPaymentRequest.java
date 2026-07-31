@@ -38,6 +38,7 @@ private static final long serialVersionUID = 0L;
   }
   private OnSessionPaymentRequest() {
     customer_ = "";
+    idempotencyKey_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -235,6 +236,71 @@ private static final long serialVersionUID = 0L;
     return oneTime_;
   }
 
+  public static final int IDEMPOTENCY_KEY_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object idempotencyKey_ = "";
+  /**
+   * <pre>
+   * Optional. Same (merchant, key) returns the original payment link; same key
+   * with different params is rejected. Absent: new session each call.
+   * ASCII 1-255 matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+   * </pre>
+   *
+   * <code>optional string idempotency_key = 5 [json_name = "idempotencyKey"];</code>
+   * @return Whether the idempotencyKey field is set.
+   */
+  @java.lang.Override
+  public boolean hasIdempotencyKey() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <pre>
+   * Optional. Same (merchant, key) returns the original payment link; same key
+   * with different params is rejected. Absent: new session each call.
+   * ASCII 1-255 matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+   * </pre>
+   *
+   * <code>optional string idempotency_key = 5 [json_name = "idempotencyKey"];</code>
+   * @return The idempotencyKey.
+   */
+  @java.lang.Override
+  public java.lang.String getIdempotencyKey() {
+    java.lang.Object ref = idempotencyKey_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      idempotencyKey_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Optional. Same (merchant, key) returns the original payment link; same key
+   * with different params is rejected. Absent: new session each call.
+   * ASCII 1-255 matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+   * </pre>
+   *
+   * <code>optional string idempotency_key = 5 [json_name = "idempotencyKey"];</code>
+   * @return The bytes for idempotencyKey.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getIdempotencyKeyBytes() {
+    java.lang.Object ref = idempotencyKey_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      idempotencyKey_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int REDIRECT_FIELD_NUMBER = 10;
   private com.api.v1.URL redirect_;
   /**
@@ -249,7 +315,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasRedirect() {
-    return ((bitField0_ & 0x00000008) != 0);
+    return ((bitField0_ & 0x00000010) != 0);
   }
   /**
    * <pre>
@@ -306,6 +372,9 @@ private static final long serialVersionUID = 0L;
       output.writeBool(4, oneTime_);
     }
     if (((bitField0_ & 0x00000008) != 0)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 5, idempotencyKey_);
+    }
+    if (((bitField0_ & 0x00000010) != 0)) {
       output.writeMessage(10, getRedirect());
     }
     getUnknownFields().writeTo(output);
@@ -333,6 +402,9 @@ private static final long serialVersionUID = 0L;
         .computeBoolSize(4, oneTime_);
     }
     if (((bitField0_ & 0x00000008) != 0)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(5, idempotencyKey_);
+    }
+    if (((bitField0_ & 0x00000010) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, getRedirect());
     }
@@ -368,6 +440,11 @@ private static final long serialVersionUID = 0L;
     }
     if (getOneTime()
         != other.getOneTime()) return false;
+    if (hasIdempotencyKey() != other.hasIdempotencyKey()) return false;
+    if (hasIdempotencyKey()) {
+      if (!getIdempotencyKey()
+          .equals(other.getIdempotencyKey())) return false;
+    }
     if (hasRedirect() != other.hasRedirect()) return false;
     if (hasRedirect()) {
       if (!getRedirect()
@@ -399,6 +476,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ONE_TIME_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getOneTime());
+    if (hasIdempotencyKey()) {
+      hash = (37 * hash) + IDEMPOTENCY_KEY_FIELD_NUMBER;
+      hash = (53 * hash) + getIdempotencyKey().hashCode();
+    }
     if (hasRedirect()) {
       hash = (37 * hash) + REDIRECT_FIELD_NUMBER;
       hash = (53 * hash) + getRedirect().hashCode();
@@ -563,6 +644,7 @@ private static final long serialVersionUID = 0L;
         chargeBuilder_ = null;
       }
       oneTime_ = false;
+      idempotencyKey_ = "";
       redirect_ = null;
       if (redirectBuilder_ != null) {
         redirectBuilder_.dispose();
@@ -622,10 +704,14 @@ private static final long serialVersionUID = 0L;
         result.oneTime_ = oneTime_;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.idempotencyKey_ = idempotencyKey_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
         result.redirect_ = redirectBuilder_ == null
             ? redirect_
             : redirectBuilder_.build();
-        to_bitField0_ |= 0x00000008;
+        to_bitField0_ |= 0x00000010;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -655,6 +741,11 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getOneTime() != false) {
         setOneTime(other.getOneTime());
+      }
+      if (other.hasIdempotencyKey()) {
+        idempotencyKey_ = other.idempotencyKey_;
+        bitField0_ |= 0x00000010;
+        onChanged();
       }
       if (other.hasRedirect()) {
         mergeRedirect(other.getRedirect());
@@ -709,11 +800,16 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000008;
               break;
             } // case 32
+            case 42: {
+              idempotencyKey_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
             case 82: {
               input.readMessage(
                   internalGetRedirectFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000010;
+              bitField0_ |= 0x00000020;
               break;
             } // case 82
             default: {
@@ -1266,6 +1362,121 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object idempotencyKey_ = "";
+    /**
+     * <pre>
+     * Optional. Same (merchant, key) returns the original payment link; same key
+     * with different params is rejected. Absent: new session each call.
+     * ASCII 1-255 matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+     * </pre>
+     *
+     * <code>optional string idempotency_key = 5 [json_name = "idempotencyKey"];</code>
+     * @return Whether the idempotencyKey field is set.
+     */
+    public boolean hasIdempotencyKey() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <pre>
+     * Optional. Same (merchant, key) returns the original payment link; same key
+     * with different params is rejected. Absent: new session each call.
+     * ASCII 1-255 matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+     * </pre>
+     *
+     * <code>optional string idempotency_key = 5 [json_name = "idempotencyKey"];</code>
+     * @return The idempotencyKey.
+     */
+    public java.lang.String getIdempotencyKey() {
+      java.lang.Object ref = idempotencyKey_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        idempotencyKey_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Same (merchant, key) returns the original payment link; same key
+     * with different params is rejected. Absent: new session each call.
+     * ASCII 1-255 matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+     * </pre>
+     *
+     * <code>optional string idempotency_key = 5 [json_name = "idempotencyKey"];</code>
+     * @return The bytes for idempotencyKey.
+     */
+    public com.google.protobuf.ByteString
+        getIdempotencyKeyBytes() {
+      java.lang.Object ref = idempotencyKey_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        idempotencyKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Same (merchant, key) returns the original payment link; same key
+     * with different params is rejected. Absent: new session each call.
+     * ASCII 1-255 matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+     * </pre>
+     *
+     * <code>optional string idempotency_key = 5 [json_name = "idempotencyKey"];</code>
+     * @param value The idempotencyKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIdempotencyKey(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      idempotencyKey_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Same (merchant, key) returns the original payment link; same key
+     * with different params is rejected. Absent: new session each call.
+     * ASCII 1-255 matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+     * </pre>
+     *
+     * <code>optional string idempotency_key = 5 [json_name = "idempotencyKey"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIdempotencyKey() {
+      idempotencyKey_ = getDefaultInstance().getIdempotencyKey();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Same (merchant, key) returns the original payment link; same key
+     * with different params is rejected. Absent: new session each call.
+     * ASCII 1-255 matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+     * </pre>
+     *
+     * <code>optional string idempotency_key = 5 [json_name = "idempotencyKey"];</code>
+     * @param value The bytes for idempotencyKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIdempotencyKeyBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      idempotencyKey_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+
     private com.api.v1.URL redirect_;
     private com.google.protobuf.SingleFieldBuilder<
         com.api.v1.URL, com.api.v1.URL.Builder, com.api.v1.URLOrBuilder> redirectBuilder_;
@@ -1280,7 +1491,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the redirect field is set.
      */
     public boolean hasRedirect() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1317,7 +1528,7 @@ private static final long serialVersionUID = 0L;
       } else {
         redirectBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1337,7 +1548,7 @@ private static final long serialVersionUID = 0L;
       } else {
         redirectBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1352,7 +1563,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRedirect(com.api.v1.URL value) {
       if (redirectBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0) &&
+        if (((bitField0_ & 0x00000020) != 0) &&
           redirect_ != null &&
           redirect_ != com.api.v1.URL.getDefaultInstance()) {
           getRedirectBuilder().mergeFrom(value);
@@ -1363,7 +1574,7 @@ private static final long serialVersionUID = 0L;
         redirectBuilder_.mergeFrom(value);
       }
       if (redirect_ != null) {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       return this;
@@ -1378,7 +1589,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .api.v1.URL redirect = 10 [json_name = "redirect"];</code>
      */
     public Builder clearRedirect() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000020);
       redirect_ = null;
       if (redirectBuilder_ != null) {
         redirectBuilder_.dispose();
@@ -1397,7 +1608,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .api.v1.URL redirect = 10 [json_name = "redirect"];</code>
      */
     public com.api.v1.URL.Builder getRedirectBuilder() {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       onChanged();
       return internalGetRedirectFieldBuilder().getBuilder();
     }

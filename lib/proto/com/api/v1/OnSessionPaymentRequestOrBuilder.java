@@ -131,6 +131,41 @@ public interface OnSessionPaymentRequestOrBuilder extends
 
   /**
    * <pre>
+   * Optional. Same (merchant, key) returns the original payment link; same key
+   * with different params is rejected. Absent: new session each call.
+   * ASCII 1-255 matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+   * </pre>
+   *
+   * <code>optional string idempotency_key = 5 [json_name = "idempotencyKey"];</code>
+   * @return Whether the idempotencyKey field is set.
+   */
+  boolean hasIdempotencyKey();
+  /**
+   * <pre>
+   * Optional. Same (merchant, key) returns the original payment link; same key
+   * with different params is rejected. Absent: new session each call.
+   * ASCII 1-255 matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+   * </pre>
+   *
+   * <code>optional string idempotency_key = 5 [json_name = "idempotencyKey"];</code>
+   * @return The idempotencyKey.
+   */
+  java.lang.String getIdempotencyKey();
+  /**
+   * <pre>
+   * Optional. Same (merchant, key) returns the original payment link; same key
+   * with different params is rejected. Absent: new session each call.
+   * ASCII 1-255 matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+   * </pre>
+   *
+   * <code>optional string idempotency_key = 5 [json_name = "idempotencyKey"];</code>
+   * @return The bytes for idempotencyKey.
+   */
+  com.google.protobuf.ByteString
+      getIdempotencyKeyBytes();
+
+  /**
+   * <pre>
    * Optional redirect URLs for payment completion
    * If not provided, the user won't redirect to the merchant's page upon completing the payment
    * Used in payment flows to direct the customer after payment processing
