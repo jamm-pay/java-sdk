@@ -124,7 +124,8 @@ class CompatSuite {
     // failure is the signal it is out of sync with the API, not an accepted outcome (mirrors the
     // Node/Ruby harnesses). Each charge/refund shape is covered both with and without api_source so
     // the post-revert backend (no api_source emitted) is exercised alongside the re-landed shape.
-    // The api_source axis (flat charge and nested refund wrapper, each ± api_source) plus the
+    // The newer-field axis (flat charge and nested refund wrapper, each ± api_source, plus one
+    // carrying metadata) and the
     // event-type breadth records that also decode to a ChargeMessage: the charge lifecycle events
     // and the Error-bearing charge_fail / refund_failed records (the only ones exercising the proto
     // Error decode path). All of these flatten to ChargeMessage, so one assertion covers them.
@@ -134,6 +135,7 @@ class CompatSuite {
             "charge_success_without_api_source.json",
             "refund_succeeded_nested_api_source.json",
             "refund_succeeded_nested_no_api_source.json",
+            "charge_success_metadata.json",
             "charge_created.json",
             "charge_updated.json",
             "charge_fail_error.json",

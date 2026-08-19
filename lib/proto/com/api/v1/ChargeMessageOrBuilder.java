@@ -351,4 +351,63 @@ public interface ChargeMessageOrBuilder extends
    * @return The apiSource.
    */
   com.api.v1.ChargeMessage.ApiSource getApiSource();
+
+  /**
+   * <pre>
+   * Merchant-supplied metadata attached to the charge at creation, echoed back
+   * verbatim. Omitted when the charge carries no metadata.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; metadata = 24 [json_name = "metadata"];</code>
+   */
+  int getMetadataCount();
+  /**
+   * <pre>
+   * Merchant-supplied metadata attached to the charge at creation, echoed back
+   * verbatim. Omitted when the charge carries no metadata.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; metadata = 24 [json_name = "metadata"];</code>
+   */
+  boolean containsMetadata(
+      java.lang.String key);
+  /**
+   * Use {@link #getMetadataMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, java.lang.String>
+  getMetadata();
+  /**
+   * <pre>
+   * Merchant-supplied metadata attached to the charge at creation, echoed back
+   * verbatim. Omitted when the charge carries no metadata.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; metadata = 24 [json_name = "metadata"];</code>
+   */
+  java.util.Map<java.lang.String, java.lang.String>
+  getMetadataMap();
+  /**
+   * <pre>
+   * Merchant-supplied metadata attached to the charge at creation, echoed back
+   * verbatim. Omitted when the charge carries no metadata.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; metadata = 24 [json_name = "metadata"];</code>
+   */
+  /* nullable */
+java.lang.String getMetadataOrDefault(
+      java.lang.String key,
+      /* nullable */
+java.lang.String defaultValue);
+  /**
+   * <pre>
+   * Merchant-supplied metadata attached to the charge at creation, echoed back
+   * verbatim. Omitted when the charge carries no metadata.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; metadata = 24 [json_name = "metadata"];</code>
+   */
+  java.lang.String getMetadataOrThrow(
+      java.lang.String key);
 }
