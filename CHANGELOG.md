@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.0] - 2026-08-19
+
+### Added
+
+- Charge webhooks now expose the merchant `metadata` map attached to the charge at creation, echoed back verbatim, via `getMetadataMap()` / `getMetadataOrDefault(...)`. This lets you correlate a webhook against your own order without a `GetCharge` round-trip. Available on all six charge events, including `REFUND_SUCCEEDED` and `REFUND_FAILED`, which deliver the charge nested under `transaction`. A charge created without metadata decodes to an empty map.
+
 ## [1.6.1] - 2026-07-17
 
 ### Changed

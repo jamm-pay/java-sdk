@@ -224,6 +224,55 @@ class WebhookTest {
                 assertTrue(charge.hasOriginalTransactionJammFee());
                 assertEquals("not_waived", charge.getOriginalTransactionJammFee());
             }
+
+            private static final String METADATA_JSON =
+                "\"metadata\": {\"order_id\": \"ord-1\", \"tier\": \"gold\"},";
+
+            // metadata is the merchant's own key-value map, echoed back verbatim so they
+            // can correlate the event against their order without a GetCharge round-trip.
+            @Test
+            void parseChargeMetadata() throws Exception {
+                String[] eventTypes = {
+                    "EVENT_TYPE_CHARGE_CREATED",
+                    "EVENT_TYPE_CHARGE_UPDATED",
+                    "EVENT_TYPE_CHARGE_SUCCESS",
+                    "EVENT_TYPE_CHARGE_FAIL",
+                };
+
+                for (String eventType : eventTypes) {
+                    Object result = Webhook.parse(buildChargeMessage(eventType, METADATA_JSON));
+                    assertInstanceOf(ChargeMessage.class, result);
+                    ChargeMessage charge = (ChargeMessage) result;
+                    assertEquals(2, charge.getMetadataCount(), eventType);
+                    assertEquals("ord-1", charge.getMetadataOrThrow("order_id"), eventType);
+                    assertEquals("gold", charge.getMetadataOrThrow("tier"), eventType);
+                }
+            }
+
+            // The refund events arrive as {transaction, refund}; metadata rides on the
+            // transaction, so it has to survive the flattening.
+            @Test
+            void parseRefundMetadata() throws Exception {
+                for (String eventType : new String[] {"EVENT_TYPE_REFUND_SUCCEEDED", "EVENT_TYPE_REFUND_FAILED"}) {
+                    String json = buildRefundMessage(eventType)
+                        .replace("\"transaction\": {", "\"transaction\": {" + METADATA_JSON);
+
+                    Object result = Webhook.parse(json);
+                    assertInstanceOf(ChargeMessage.class, result);
+                    ChargeMessage charge = (ChargeMessage) result;
+                    assertEquals(2, charge.getMetadataCount(), eventType);
+                    assertEquals("ord-1", charge.getMetadataOrThrow("order_id"), eventType);
+                    assertEquals("gold", charge.getMetadataOrThrow("tier"), eventType);
+                }
+            }
+
+            // Go's json.Marshal omits an empty map, so absence is the ordinary wire case.
+            @Test
+            void parseChargeWithoutMetadata() throws Exception {
+                Object result = Webhook.parse(buildChargeMessage("EVENT_TYPE_CHARGE_SUCCESS"));
+                assertInstanceOf(ChargeMessage.class, result);
+                assertTrue(((ChargeMessage) result).getMetadataMap().isEmpty());
+            }
         }
 
         @Nested
