@@ -792,6 +792,9 @@ private static final long serialVersionUID = 0L;
    *
    * Customerに関する任意のキーと値の追加情報。
    * 加盟店ダッシュボードで確認できます。
+   * At most 50 entries; keys up to 64 and values up to 512 characters.
+   *
+   * 最大50件、キーは64文字、値は512文字までです。
    * </pre>
    *
    * <code>map&lt;string, string&gt; metadata = 30 [json_name = "metadata"];</code>
@@ -817,6 +820,9 @@ private static final long serialVersionUID = 0L;
    *
    * Customerに関する任意のキーと値の追加情報。
    * 加盟店ダッシュボードで確認できます。
+   * At most 50 entries; keys up to 64 and values up to 512 characters.
+   *
+   * 最大50件、キーは64文字、値は512文字までです。
    * </pre>
    *
    * <code>map&lt;string, string&gt; metadata = 30 [json_name = "metadata"];</code>
@@ -832,6 +838,9 @@ private static final long serialVersionUID = 0L;
    *
    * Customerに関する任意のキーと値の追加情報。
    * 加盟店ダッシュボードで確認できます。
+   * At most 50 entries; keys up to 64 and values up to 512 characters.
+   *
+   * 最大50件、キーは64文字、値は512文字までです。
    * </pre>
    *
    * <code>map&lt;string, string&gt; metadata = 30 [json_name = "metadata"];</code>
@@ -854,6 +863,9 @@ java.lang.String defaultValue) {
    *
    * Customerに関する任意のキーと値の追加情報。
    * 加盟店ダッシュボードで確認できます。
+   * At most 50 entries; keys up to 64 and values up to 512 characters.
+   *
+   * 最大50件、キーは64文字、値は512文字までです。
    * </pre>
    *
    * <code>map&lt;string, string&gt; metadata = 30 [json_name = "metadata"];</code>
@@ -2912,6 +2924,9 @@ java.lang.String defaultValue) {
      *
      * Customerに関する任意のキーと値の追加情報。
      * 加盟店ダッシュボードで確認できます。
+     * At most 50 entries; keys up to 64 and values up to 512 characters.
+     *
+     * 最大50件、キーは64文字、値は512文字までです。
      * </pre>
      *
      * <code>map&lt;string, string&gt; metadata = 30 [json_name = "metadata"];</code>
@@ -2937,6 +2952,9 @@ java.lang.String defaultValue) {
      *
      * Customerに関する任意のキーと値の追加情報。
      * 加盟店ダッシュボードで確認できます。
+     * At most 50 entries; keys up to 64 and values up to 512 characters.
+     *
+     * 最大50件、キーは64文字、値は512文字までです。
      * </pre>
      *
      * <code>map&lt;string, string&gt; metadata = 30 [json_name = "metadata"];</code>
@@ -2952,6 +2970,9 @@ java.lang.String defaultValue) {
      *
      * Customerに関する任意のキーと値の追加情報。
      * 加盟店ダッシュボードで確認できます。
+     * At most 50 entries; keys up to 64 and values up to 512 characters.
+     *
+     * 最大50件、キーは64文字、値は512文字までです。
      * </pre>
      *
      * <code>map&lt;string, string&gt; metadata = 30 [json_name = "metadata"];</code>
@@ -2974,6 +2995,9 @@ java.lang.String defaultValue) {
      *
      * Customerに関する任意のキーと値の追加情報。
      * 加盟店ダッシュボードで確認できます。
+     * At most 50 entries; keys up to 64 and values up to 512 characters.
+     *
+     * 最大50件、キーは64文字、値は512文字までです。
      * </pre>
      *
      * <code>map&lt;string, string&gt; metadata = 30 [json_name = "metadata"];</code>
@@ -3002,6 +3026,9 @@ java.lang.String defaultValue) {
      *
      * Customerに関する任意のキーと値の追加情報。
      * 加盟店ダッシュボードで確認できます。
+     * At most 50 entries; keys up to 64 and values up to 512 characters.
+     *
+     * 最大50件、キーは64文字、値は512文字までです。
      * </pre>
      *
      * <code>map&lt;string, string&gt; metadata = 30 [json_name = "metadata"];</code>
@@ -3029,6 +3056,9 @@ java.lang.String defaultValue) {
      *
      * Customerに関する任意のキーと値の追加情報。
      * 加盟店ダッシュボードで確認できます。
+     * At most 50 entries; keys up to 64 and values up to 512 characters.
+     *
+     * 最大50件、キーは64文字、値は512文字までです。
      * </pre>
      *
      * <code>map&lt;string, string&gt; metadata = 30 [json_name = "metadata"];</code>
@@ -3050,6 +3080,9 @@ java.lang.String defaultValue) {
      *
      * Customerに関する任意のキーと値の追加情報。
      * 加盟店ダッシュボードで確認できます。
+     * At most 50 entries; keys up to 64 and values up to 512 characters.
+     *
+     * 最大50件、キーは64文字、値は512文字までです。
      * </pre>
      *
      * <code>map&lt;string, string&gt; metadata = 30 [json_name = "metadata"];</code>

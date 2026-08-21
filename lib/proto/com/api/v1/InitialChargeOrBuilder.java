@@ -112,6 +112,9 @@ public interface InitialChargeOrBuilder extends
    * テスト環境では、"triggerError" キーに ERROR_TYPE_* の列挙名を設定すると
    * 決済エラーをシミュレートできます。動作はフローによって異なります。
    * 詳細は上記の英語コメントを参照してください。
+   * At most 50 entries; keys up to 64 and values up to 512 characters.
+   *
+   * 最大50件、キーは64文字、値は512文字までです。
    * </pre>
    *
    * <code>map&lt;string, string&gt; metadata = 4 [json_name = "metadata"];</code>
@@ -173,6 +176,9 @@ public interface InitialChargeOrBuilder extends
    * テスト環境では、"triggerError" キーに ERROR_TYPE_* の列挙名を設定すると
    * 決済エラーをシミュレートできます。動作はフローによって異なります。
    * 詳細は上記の英語コメントを参照してください。
+   * At most 50 entries; keys up to 64 and values up to 512 characters.
+   *
+   * 最大50件、キーは64文字、値は512文字までです。
    * </pre>
    *
    * <code>map&lt;string, string&gt; metadata = 4 [json_name = "metadata"];</code>
@@ -241,6 +247,9 @@ public interface InitialChargeOrBuilder extends
    * テスト環境では、"triggerError" キーに ERROR_TYPE_* の列挙名を設定すると
    * 決済エラーをシミュレートできます。動作はフローによって異なります。
    * 詳細は上記の英語コメントを参照してください。
+   * At most 50 entries; keys up to 64 and values up to 512 characters.
+   *
+   * 最大50件、キーは64文字、値は512文字までです。
    * </pre>
    *
    * <code>map&lt;string, string&gt; metadata = 4 [json_name = "metadata"];</code>
@@ -303,6 +312,9 @@ public interface InitialChargeOrBuilder extends
    * テスト環境では、"triggerError" キーに ERROR_TYPE_* の列挙名を設定すると
    * 決済エラーをシミュレートできます。動作はフローによって異なります。
    * 詳細は上記の英語コメントを参照してください。
+   * At most 50 entries; keys up to 64 and values up to 512 characters.
+   *
+   * 最大50件、キーは64文字、値は512文字までです。
    * </pre>
    *
    * <code>map&lt;string, string&gt; metadata = 4 [json_name = "metadata"];</code>
@@ -368,6 +380,9 @@ java.lang.String defaultValue);
    * テスト環境では、"triggerError" キーに ERROR_TYPE_* の列挙名を設定すると
    * 決済エラーをシミュレートできます。動作はフローによって異なります。
    * 詳細は上記の英語コメントを参照してください。
+   * At most 50 entries; keys up to 64 and values up to 512 characters.
+   *
+   * 最大50件、キーは64文字、値は512文字までです。
    * </pre>
    *
    * <code>map&lt;string, string&gt; metadata = 4 [json_name = "metadata"];</code>

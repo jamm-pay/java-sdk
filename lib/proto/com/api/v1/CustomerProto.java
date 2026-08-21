@@ -98,7 +98,7 @@ public final class CustomerProto extends com.google.protobuf.GeneratedFile {
       "\n\022GetCustomerRequest\022\034\n\010customer\030\001 \001(\tB\000" +
       "R\010customer\"E\n\023GetCustomerResponse\022.\n\010cus" +
       "tomer\030\001 \001(\0132\020.api.v1.CustomerB\000R\010custome" +
-      "r\"\204\005\n\025UpdateCustomerRequest\022\034\n\010customer\030" +
+      "r\"\206\005\n\025UpdateCustomerRequest\022\034\n\010customer\030" +
       "\001 \001(\tB\000R\010customer\022\033\n\005email\030\002 \001(\tB\000H\000R\005em" +
       "ail\210\001\001\022 \n\tforce_kyc\030\003 \001(\010H\001R\010forceKyc\210\001\001" +
       "\022\031\n\004name\030\004 \001(\tB\000H\002R\004name\210\001\001\022\033\n\005phone\030\005 \001" +
@@ -107,36 +107,36 @@ public final class CustomerProto extends com.google.protobuf.GeneratedFile {
       "a_first_name\030\014 \001(\tB\000H\005R\021katakanaFirstNam" +
       "e\210\001\001\022\037\n\007address\030\r \001(\tB\000H\006R\007address\210\001\001\022$\n" +
       "\nbirth_date\030\024 \001(\tB\000H\007R\tbirthDate\210\001\001\022\035\n\006g" +
-      "ender\030\025 \001(\tB\000H\010R\006gender\210\001\001\022G\n\010metadata\030\036" +
+      "ender\030\025 \001(\tB\000H\010R\006gender\210\001\001\022I\n\010metadata\030\036" +
       " \003(\0132+.api.v1.UpdateCustomerRequest.Meta" +
-      "dataEntryR\010metadata\032;\n\rMetadataEntry\022\020\n\003" +
-      "key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001" +
-      "B\010\n\006_emailB\014\n\n_force_kycB\007\n\005_nameB\010\n\006_ph" +
-      "oneB\025\n\023_katakana_last_nameB\026\n\024_katakana_" +
-      "first_nameB\n\n\010_addressB\r\n\013_birth_dateB\t\n" +
-      "\007_gender\"P\n\026UpdateCustomerResponse\0226\n\010cu" +
-      "stomer\030\001 \001(\0132\030.api.v1.MerchantCustomerB\000" +
-      "R\010customer\"5\n\025DeleteCustomerRequest\022\034\n\010c" +
-      "ustomer\030\001 \001(\tB\000R\010customer\"4\n\026DeleteCusto" +
-      "merResponse\022\032\n\010accepted\030\001 \001(\010R\010accepted\"" +
-      "2\n\022GetContractRequest\022\034\n\010customer\030\001 \001(\tB" +
-      "\000R\010customer\"}\n\023GetContractResponse\0226\n\010cu" +
-      "stomer\030\001 \001(\0132\030.api.v1.MerchantCustomerB\000" +
-      "R\010customer\022.\n\010contract\030\002 \001(\0132\020.api.v1.Co" +
-      "ntractB\000R\010contract2\236\003\n\017CustomerService\022Q" +
-      "\n\016CreateCustomer\022\035.api.v1.CreateCustomer" +
-      "Request\032\036.api.v1.CreateCustomerResponse\"" +
-      "\000\022H\n\013GetCustomer\022\032.api.v1.GetCustomerReq" +
-      "uest\032\033.api.v1.GetCustomerResponse\"\000\022Q\n\016U" +
-      "pdateCustomer\022\035.api.v1.UpdateCustomerReq" +
-      "uest\032\036.api.v1.UpdateCustomerResponse\"\000\022Q" +
-      "\n\016DeleteCustomer\022\035.api.v1.DeleteCustomer" +
-      "Request\032\036.api.v1.DeleteCustomerResponse\"" +
-      "\000\022H\n\013GetContract\022\032.api.v1.GetContractReq" +
-      "uest\032\033.api.v1.GetContractResponse\"\000Bq\n\nc" +
-      "om.api.v1B\rCustomerProtoP\001Z\033api/proto/ge" +
-      "n/api/v1;api_v1\242\002\003AXX\252\002\006Api.V1\312\002\006Api\\V1\342" +
-      "\002\022Api\\V1\\GPBMetadata\352\002\007Api::V1b\006proto3"
+      "dataEntryB\000R\010metadata\032;\n\rMetadataEntry\022\020" +
+      "\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\002" +
+      "8\001B\010\n\006_emailB\014\n\n_force_kycB\007\n\005_nameB\010\n\006_" +
+      "phoneB\025\n\023_katakana_last_nameB\026\n\024_katakan" +
+      "a_first_nameB\n\n\010_addressB\r\n\013_birth_dateB" +
+      "\t\n\007_gender\"P\n\026UpdateCustomerResponse\0226\n\010" +
+      "customer\030\001 \001(\0132\030.api.v1.MerchantCustomer" +
+      "B\000R\010customer\"5\n\025DeleteCustomerRequest\022\034\n" +
+      "\010customer\030\001 \001(\tB\000R\010customer\"4\n\026DeleteCus" +
+      "tomerResponse\022\032\n\010accepted\030\001 \001(\010R\010accepte" +
+      "d\"2\n\022GetContractRequest\022\034\n\010customer\030\001 \001(" +
+      "\tB\000R\010customer\"}\n\023GetContractResponse\0226\n\010" +
+      "customer\030\001 \001(\0132\030.api.v1.MerchantCustomer" +
+      "B\000R\010customer\022.\n\010contract\030\002 \001(\0132\020.api.v1." +
+      "ContractB\000R\010contract2\236\003\n\017CustomerService" +
+      "\022Q\n\016CreateCustomer\022\035.api.v1.CreateCustom" +
+      "erRequest\032\036.api.v1.CreateCustomerRespons" +
+      "e\"\000\022H\n\013GetCustomer\022\032.api.v1.GetCustomerR" +
+      "equest\032\033.api.v1.GetCustomerResponse\"\000\022Q\n" +
+      "\016UpdateCustomer\022\035.api.v1.UpdateCustomerR" +
+      "equest\032\036.api.v1.UpdateCustomerResponse\"\000" +
+      "\022Q\n\016DeleteCustomer\022\035.api.v1.DeleteCustom" +
+      "erRequest\032\036.api.v1.DeleteCustomerRespons" +
+      "e\"\000\022H\n\013GetContract\022\032.api.v1.GetContractR" +
+      "equest\032\033.api.v1.GetContractResponse\"\000Bq\n" +
+      "\ncom.api.v1B\rCustomerProtoP\001Z\033api/proto/" +
+      "gen/api/v1;api_v1\242\002\003AXX\252\002\006Api.V1\312\002\006Api\\V" +
+      "1\342\002\022Api\\V1\\GPBMetadata\352\002\007Api::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
