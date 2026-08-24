@@ -12,9 +12,10 @@ public interface OnSessionPaymentRequestOrBuilder extends
 
   /**
    * <pre>
-   * Optional customer ID for existing customers
-   * If provided, the system will use the AddCharge flow and ignore buyer information
-   * Must start with "cus-" prefix followed by additional characters
+   * Optional customer ID for an existing merchant customer (cus- prefix).
+   * Identifies the subject. With a charge, an active contract is charged;
+   * without one, the buyer re-approves a new contract for this same customer.
+   * Buyer fields other than email overlay the stored customer.
    * </pre>
    *
    * <code>optional string customer = 1 [json_name = "customer"];</code>
@@ -23,9 +24,10 @@ public interface OnSessionPaymentRequestOrBuilder extends
   boolean hasCustomer();
   /**
    * <pre>
-   * Optional customer ID for existing customers
-   * If provided, the system will use the AddCharge flow and ignore buyer information
-   * Must start with "cus-" prefix followed by additional characters
+   * Optional customer ID for an existing merchant customer (cus- prefix).
+   * Identifies the subject. With a charge, an active contract is charged;
+   * without one, the buyer re-approves a new contract for this same customer.
+   * Buyer fields other than email overlay the stored customer.
    * </pre>
    *
    * <code>optional string customer = 1 [json_name = "customer"];</code>
@@ -34,9 +36,10 @@ public interface OnSessionPaymentRequestOrBuilder extends
   java.lang.String getCustomer();
   /**
    * <pre>
-   * Optional customer ID for existing customers
-   * If provided, the system will use the AddCharge flow and ignore buyer information
-   * Must start with "cus-" prefix followed by additional characters
+   * Optional customer ID for an existing merchant customer (cus- prefix).
+   * Identifies the subject. With a charge, an active contract is charged;
+   * without one, the buyer re-approves a new contract for this same customer.
+   * Buyer fields other than email overlay the stored customer.
    * </pre>
    *
    * <code>optional string customer = 1 [json_name = "customer"];</code>
@@ -78,9 +81,9 @@ public interface OnSessionPaymentRequestOrBuilder extends
   /**
    * <pre>
    * Optional charge information
-   * If provided with customer ID: adds charge to existing customer
-   * If provided with buyer info: creates contract with charge for new customer
-   * If not provided with buyer info: creates contract without charge
+   * If provided with a customer ID: added to an active contract, or attached to a newly created one
+   * If provided with buyer info: creates a contract with charge for a new customer
+   * If not provided with buyer info: creates a contract without charge
    * </pre>
    *
    * <code>optional .api.v1.InitialCharge charge = 3 [json_name = "charge"];</code>
@@ -90,9 +93,9 @@ public interface OnSessionPaymentRequestOrBuilder extends
   /**
    * <pre>
    * Optional charge information
-   * If provided with customer ID: adds charge to existing customer
-   * If provided with buyer info: creates contract with charge for new customer
-   * If not provided with buyer info: creates contract without charge
+   * If provided with a customer ID: added to an active contract, or attached to a newly created one
+   * If provided with buyer info: creates a contract with charge for a new customer
+   * If not provided with buyer info: creates a contract without charge
    * </pre>
    *
    * <code>optional .api.v1.InitialCharge charge = 3 [json_name = "charge"];</code>
@@ -102,9 +105,9 @@ public interface OnSessionPaymentRequestOrBuilder extends
   /**
    * <pre>
    * Optional charge information
-   * If provided with customer ID: adds charge to existing customer
-   * If provided with buyer info: creates contract with charge for new customer
-   * If not provided with buyer info: creates contract without charge
+   * If provided with a customer ID: added to an active contract, or attached to a newly created one
+   * If provided with buyer info: creates a contract with charge for a new customer
+   * If not provided with buyer info: creates a contract without charge
    * </pre>
    *
    * <code>optional .api.v1.InitialCharge charge = 3 [json_name = "charge"];</code>
