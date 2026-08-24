@@ -51,7 +51,7 @@ try (JammClient client = JammClient.builder()
                 .setGender("male")
                 .setAddress("東京都渋谷区１−１−１")
                 .setEmail("test@jamm-pay.jp")
-                .setPhone("010-1234-5678")
+                .setPhone("09012345678")
                 .setBirthDate("2000-01-01")
                 .build())
             .build());
