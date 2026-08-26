@@ -8,7 +8,7 @@
 
   <groupId>jp.jamm-pay</groupId>
   <artifactId>jamm-sdk</artifactId>
-  <version>1.7.0</version>
+  <version>2.0.0</version>
   <packaging>jar</packaging>
 
   <name>Jamm Java SDK</name>
@@ -204,6 +204,30 @@
 </build>
 
   <profiles>
+    <!-- Recorded webhook payloads live next to the API definition, outside the released artifact.
+         When that directory is present the recorded-payload tests run against it; otherwise they skip. -->
+    <profile>
+      <id>webhook-records</id>
+      <activation>
+        <file>
+          <exists>${basedir}/../compatibility/webhooks</exists>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <systemPropertyVariables>
+                <webhook.records.dir>${basedir}/../compatibility</webhook.records.dir>
+              </systemPropertyVariables>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
     <profile>
       <id>release</id>
       <build>

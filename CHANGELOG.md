@@ -5,11 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.7.0] - 2026-08-19
+## [2.0.0] - 2026-08-26
+
+Major version because the refund identifier accessors changed shape — see **Changed** below.
+Everything else in this release is additive.
 
 ### Added
 
 - Charge webhooks now expose the merchant `metadata` map attached to the charge at creation, echoed back verbatim, via `getMetadataMap()` / `getMetadataOrDefault(...)`. This lets you correlate a webhook against your own order without a `GetCharge` round-trip. Available on all six charge events, including `REFUND_SUCCEEDED` and `REFUND_FAILED`, which deliver the charge nested under `transaction`. A charge created without metadata decodes to an empty map.
+
+- **`api_source` is back on charge webhooks** — `charge.getApiSource()` / `hasApiSource()` return a `ChargeMessage.ApiSource` (`API_SOURCE_OFF_SESSION_SYNC` / `API_SOURCE_OFF_SESSION_ASYNC` / `API_SOURCE_ON_SESSION`) telling you which API triggered the charge. The field shipped in 1.5.0, was removed in 1.6.0 by a pre-release rollback, and is restored here — so `1.6.0` and `1.6.1` have no `ApiSource` type at all and `getApiSource()` does not compile against them. Note the enum is nested inside `ChargeMessage`, not a top-level `com.api.v1` type. Charges predating the field omit it; guard with `hasApiSource()`.
+
+- **Refund webhooks now also populate the flat `charge.getRefundId()`** (`ChargeMessage` field 21) with the same `rfd-` value as `charge.getRefund().getId()`, matching the Go, Node and Ruby SDKs. Previously the Java SDK left field 21 unset on every refund event, so `getRefundId()` compiled and silently returned an empty string. Failure events that carry no refund id leave it unset; guard with `hasRefundId()`.
+
+### Changed
+
+- **Breaking: `RefundInfo.getRefundId()` / `hasRefundId()` are again `getId()` / `hasId()`** — matching the `content.refund.id` the backend actually delivers. This completes the rename first made in 1.5.1 and reverted in 1.6.0 by the same rollback as `api_source`. **Upgrading from 1.6.0/1.6.1 is a compile break** at every `getRefund().getRefundId()` call site; replace with `getRefund().getId()`. Merchants on 1.6.0/1.6.1 should upgrade regardless: those versions discard the delivered `refund.id` as an unknown field, leaving `refund_id` unset, so `getRefundId()` silently returns an empty string for every refund webhook.
 
 ## [1.6.1] - 2026-07-17
 

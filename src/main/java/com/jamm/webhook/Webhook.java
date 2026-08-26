@@ -368,6 +368,12 @@ public final class Webhook {
                 RefundInfo.Builder refund = RefundInfo.newBuilder();
                 JsonFormat.parser().ignoringUnknownFields().merge(refundNode.toString(), refund);
                 charge.setRefund(refund.build());
+                // Lift the refund id onto the flat refund_id attribute too, so callers reading the
+                // charge directly see it without descending into the wrapper. Matches the Go, Node
+                // and Ruby SDKs. Failure events may omit the id, hence the guard.
+                if (refund.hasId()) {
+                    charge.setRefundId(refund.getId());
+                }
             }
         } else {
             JsonFormat.parser().ignoringUnknownFields().merge(contentJson, charge);

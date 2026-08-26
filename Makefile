@@ -9,7 +9,16 @@ WORKDIR := /app
 EXAMPLE ?= QuickstartExample
 
 # Run Maven via Docker (image is the argument). Mount cwd + Maven cache for faster builds.
-docker_mvn = docker run --rm -v "$(shell pwd)":/app -v "$(HOME)/.m2":/root/.m2 -w $(WORKDIR) $(1) mvn
+# The recorded webhook payloads live in a sibling directory of this module. Mounting them at
+# /compatibility keeps the tests' ../compatibility path working inside the container too. The
+# directory is absent in a standalone checkout, so the mount is added only when it exists —
+# otherwise docker would create a stray empty directory next to the clone.
+RECORDS_DIR := $(wildcard $(shell pwd)/../compatibility)
+ifneq ($(RECORDS_DIR),)
+  RECORDS_MOUNT := -v "$(RECORDS_DIR)":/compatibility:ro
+endif
+
+docker_mvn = docker run --rm -v "$(shell pwd)":/app $(RECORDS_MOUNT) -v "$(HOME)/.m2":/root/.m2 -w $(WORKDIR) $(1) mvn
 
 # JDK 25 for build/lint/javadoc/deploy; JDK 8 for tests (the merchant runtime).
 MVN := $(call docker_mvn,$(DOCKER_IMAGE))

@@ -210,7 +210,8 @@ class WebhookTest {
                 // Older payloads sent refund fields flat on the content; the fallback still parses them.
                 String json = buildChargeMessage(
                     "EVENT_TYPE_REFUND_SUCCEEDED",
-                    "\"amount_refunded\": 300," +
+                    "\"refund_id\": \"rfd-legacy\"," +
+                        "\"amount_refunded\": 300," +
                         "\"jamm_fee\": 200," +
                         "\"original_transaction_jamm_fee\": \"not_waived\""
                 );
@@ -223,6 +224,9 @@ class WebhookTest {
                 assertEquals(200, charge.getJammFee());
                 assertTrue(charge.hasOriginalTransactionJammFee());
                 assertEquals("not_waived", charge.getOriginalTransactionJammFee());
+                // The legacy shape carries refund_id on the wire, so the flat attribute is
+                // populated directly — no lifting from a nested refund object is involved.
+                assertEquals("rfd-legacy", charge.getRefundId());
             }
 
             private static final String METADATA_JSON =

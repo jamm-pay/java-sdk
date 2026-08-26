@@ -153,6 +153,7 @@ GetChargeResponse charge = client.payments().getCharge("trx-xxxxxxxx");
 import com.jamm.webhook.Webhook;
 import com.jamm.webhook.WebhookEvent;
 import com.api.v1.ChargeMessage;
+import com.api.v1.EventType;
 
 // Parse and verify an incoming webhook
 String jsonBody = request.getBody(); // from your HTTP handler
@@ -164,10 +165,20 @@ WebhookEvent event = Webhook.verifyAndParseEvent(jsonBody, clientSecret);
 
 // event_type is the reliable way to tell charge success from fail, and charge from refund events
 // (both deserialize to a ChargeMessage).
-switch (event.getEventType()) {
+EventType eventType = event.getEventType();
+switch (eventType) {
     case EVENT_TYPE_CHARGE_SUCCESS: {
         ChargeMessage charge = (ChargeMessage) event.getContent();
-        // charge.getApiSource() tells you which API triggered it (OFF_SESSION_SYNC/ASYNC, ON_SESSION).
+        // Which API triggered the charge. Charges created before this field was introduced omit
+        // it, so guard with hasApiSource() rather than treating UNSPECIFIED as a real value.
+        if (charge.hasApiSource()) {
+            switch (charge.getApiSource()) {
+                case API_SOURCE_OFF_SESSION_SYNC:  break; // OffSessionPayment
+                case API_SOURCE_OFF_SESSION_ASYNC: break; // OffSessionPaymentAsync
+                case API_SOURCE_ON_SESSION:        break; // OnSessionPayment
+                default: break;                           // API_SOURCE_UNSPECIFIED
+            }
+        }
         break;
     }
     case EVENT_TYPE_CHARGE_FAIL: {
@@ -178,18 +189,64 @@ switch (event.getEventType()) {
         }
         break;
     }
-    case EVENT_TYPE_REFUND_SUCCEEDED:
-    case EVENT_TYPE_REFUND_FAILED: {
+    case EVENT_TYPE_REFUND_SUCCEEDED: {
         // Transaction fields are flattened onto the charge; refund details live on getRefund().
         ChargeMessage charge = (ChargeMessage) event.getContent();
-        System.out.println("Refund ID: " + charge.getRefund().getRefundId()); // rfd-...
+        if (charge.hasRefundId()) {
+            System.out.println("Refund ID: " + charge.getRefundId()); // rfd-...
+        }
         System.out.println("Amount refunded: " + charge.getRefund().getAmountRefunded());
+        break;
+    }
+    case EVENT_TYPE_REFUND_FAILED: {
+        ChargeMessage charge = (ChargeMessage) event.getContent();
+        // A refund that fails at the cancellation step carries no id, and no amount was moved —
+        // report the error rather than an amount of 0.
+        if (charge.hasRefundId()) {
+            System.out.println("Refund ID: " + charge.getRefundId());
+        }
+        if (charge.getRefund().hasError()) {
+            System.out.println("Refund error: " + charge.getRefund().getError().getMessage());
+        }
         break;
     }
     default:
         break;
 }
 ```
+
+The refund identifier on a webhook is `RefundInfo.getId()`, reached via `charge.getRefund()`. On the
+nested `{ transaction, refund }` payloads the API sends today, the same value is also lifted onto the
+flat `charge.getRefundId()` attribute, so either accessor works. **`charge.getRefundId()` is the one
+to read if you want a single accessor**: legacy flat payloads set only that field and never build a
+`RefundInfo`, so `getRefund().getId()` is empty on them.
+
+Both are distinct from the `RefundResponse.getRefundId()` returned by `payments().refund(...)` shown
+earlier: that is the API's response object, not the webhook's. To tie a refund webhook back to your
+own records, match on the charge/transaction id rather than on the refund id.
+
+The refund id is **not always present on `EVENT_TYPE_REFUND_FAILED`**: a refund request that was
+declined carries it alongside the error, while a refund that fails at the cancellation step carries
+only the error. Every `EVENT_TYPE_REFUND_SUCCEEDED` payload observed in testing carries the id, but
+the field is optional on the wire in both cases, so the example guards it either way. Call
+`hasRefundId()` — or `hasId()` on the nested `RefundInfo` — before treating it as an identifier.
+
+The two enums used above are generated protobuf types:
+
+| accessor | type | notes |
+| --- | --- | --- |
+| `event.getEventType()` | `com.api.v1.EventType` | top-level enum; import it to reference the constants outside a `switch` |
+| `charge.getApiSource()` | `com.api.v1.ChargeMessage.ApiSource` | **nested** inside `ChargeMessage` — there is no top-level `ApiSource` class |
+
+`ApiSource` values: `API_SOURCE_UNSPECIFIED`, `API_SOURCE_OFF_SESSION_SYNC`,
+`API_SOURCE_OFF_SESSION_ASYNC`, `API_SOURCE_ON_SESSION`. Availability is not continuous: the field
+shipped in 1.5.0, is **absent from 1.6.0 and 1.6.1**, and returns in 2.0.0 — so use **2.0.0 or
+newer**.
+
+Java enum `case` labels are unqualified, so the `case` constants themselves need no import.
+Referring to either enum by name does — as the example does above with `EventType eventType = …`,
+and as any `==` comparison would: `EventType.EVENT_TYPE_CHARGE_SUCCESS`, or
+`ChargeMessage.ApiSource.API_SOURCE_ON_SESSION`.
 
 > `Webhook.verifyAndParse(...)` (returning only the content `Object`) is still available for
 > backward compatibility.
@@ -268,14 +325,14 @@ JammClient client = Jamm.getClient();
 <dependency>
   <groupId>jp.jamm-pay</groupId>
   <artifactId>jamm-sdk</artifactId>
-  <version>1.7.0</version>
+  <version>2.0.0</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'jp.jamm-pay:jamm-sdk:1.7.0'
+implementation 'jp.jamm-pay:jamm-sdk:2.0.0'
 ```
 
 The SDK is compiled to Java 8 bytecode, so it runs on Java 8 and any newer runtime (Java 11, 17, 21, …).
