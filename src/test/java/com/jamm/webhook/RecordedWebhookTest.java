@@ -122,7 +122,7 @@ class RecordedWebhookTest {
 
         @Test
         void flatAttributeStaysEmptyWhenTheEventHasNoRefundId() throws Exception {
-            ChargeMessage charge = charge("refund_failed_cancel_no_refund_id.json");
+            ChargeMessage charge = charge("refund_failed_no_refund_id.json");
             assertFalse(charge.hasRefundId());
             assertTrue(charge.getRefundId().isEmpty());
         }
@@ -134,19 +134,35 @@ class RecordedWebhookTest {
         }
 
         /**
-         * REFUND_FAILED has two shapes. A denied refund request carries {@code refund.id} plus the
-         * error; a failure on the cancel-first path (which a full refund takes) carries the error
-         * <em>only</em>. Consumers must not assume an id is present on every refund event.
+         * A failure on the cancel-first path (which a full refund takes) carries {@code refund.id}
+         * alongside the error, so the id matches the one the Refund call returned. It did not
+         * before JAMM-4407: the backend fed that external id through an internal-id lookup, which
+         * never matched, and the field was omitted.
          */
         @Test
-        void cancelPathFailureHasNoRefundId() throws Exception {
-            ChargeMessage charge = charge("refund_failed_cancel_no_refund_id.json");
+        void cancelPathFailureCarriesTheRefundId() throws Exception {
+            ChargeMessage charge = charge("refund_failed_cancel.json");
             assertTrue(charge.hasRefund());
-            assertFalse(charge.getRefund().hasId(),
-                    "the cancel-first failure path omits refund.id");
-            assertTrue(charge.getRefund().getId().isEmpty());
+            assertTrue(charge.getRefund().hasId(),
+                    "the cancel-first failure path carries the rfd- the caller was handed");
+            assertEquals(REFUND_ID, charge.getRefund().getId());
+            assertEquals(REFUND_ID, charge.getRefundId(),
+                    "the flat attribute must mirror it, as on the denied-request path");
             assertTrue(charge.getRefund().hasError());
             assertEquals("refund_failed", charge.getRefund().getError().getCode());
+        }
+
+        /**
+         * {@code refund.id} is optional on the wire, so a record without one must still decode.
+         * Guard before reading it rather than assuming presence.
+         */
+        @Test
+        void aRefundEventWithoutAnIdStillDecodes() throws Exception {
+            ChargeMessage charge = charge("refund_failed_no_refund_id.json");
+            assertTrue(charge.hasRefund());
+            assertFalse(charge.getRefund().hasId());
+            assertTrue(charge.getRefund().getId().isEmpty());
+            assertTrue(charge.getRefund().hasError());
         }
     }
 
@@ -225,6 +241,7 @@ class RecordedWebhookTest {
                 "refund_succeeded_nested_api_source.json",
                 "refund_succeeded_nested_no_api_source.json",
                 "refund_failed_nested_error.json",
+                "refund_failed_cancel.json",
                 "delivered_refund_succeeded_nested.json");
     }
 
