@@ -10,8 +10,6 @@ import com.api.v1.GetChargesResponse;
 import com.api.v1.InitialCharge;
 import com.api.v1.OffSessionPaymentAsyncRequest;
 import com.api.v1.OffSessionPaymentAsyncResponse;
-import com.api.v1.OffSessionPaymentRequest;
-import com.api.v1.OffSessionPaymentResponse;
 import com.api.v1.OnSessionPaymentRequest;
 import com.api.v1.OnSessionPaymentResponse;
 import com.api.v1.Pagination;
@@ -158,39 +156,6 @@ class PaymentServiceTest {
         OnSessionPaymentResponse result = service.onSessionPayment(req);
 
         assertTrue(result.getSuccess());
-    }
-
-    @Test
-    void offSessionPayment_callsCorrectEndpoint() {
-        JammHttpClient http = mock(JammHttpClient.class);
-        JammClient client = mock(JammClient.class);
-        when(client.getHttpClient()).thenReturn(http);
-
-        OffSessionPaymentRequest req = OffSessionPaymentRequest.newBuilder()
-            .setCustomer("cus-123")
-            .setCharge(InitialCharge.newBuilder()
-                .setPrice(100)
-                .setDescription("test charge")
-                .build())
-            .build();
-
-        OffSessionPaymentResponse resp = OffSessionPaymentResponse.newBuilder()
-            .setCustomer(Customer.newBuilder().setId("cus-123").build())
-            .setCharge(ChargeResult.newBuilder()
-                .setChargeId("chg-123")
-                .setPaid(true)
-                .build())
-            .build();
-
-        when(http.post("/v1/payments/off-session", req, OffSessionPaymentResponse.class))
-            .thenReturn(resp);
-
-        PaymentService service = new PaymentService(client);
-        OffSessionPaymentResponse result = service.offSessionPayment(req);
-
-        assertEquals("cus-123", result.getCustomer().getId());
-        assertEquals("chg-123", result.getCharge().getChargeId());
-        assertTrue(result.getCharge().getPaid());
     }
 
     @Test
@@ -560,32 +525,6 @@ class PaymentServiceTest {
 
         assertTrue(result.getSuccess());
         verify(http).post(eq("/v1/payments/on-session"), eq(req), eq(OnSessionPaymentResponse.class), any(RequestOptions.class));
-    }
-
-    @Test
-    void offSessionPayment_withMerchant_callsWithRequestOptions() {
-        JammHttpClient http = mock(JammHttpClient.class);
-        JammClient client = mock(JammClient.class);
-        when(client.getHttpClient()).thenReturn(http);
-
-        OffSessionPaymentRequest req = OffSessionPaymentRequest.newBuilder()
-            .setCustomer("cus-123")
-            .setCharge(InitialCharge.newBuilder().setPrice(500).setDescription("platform off-session").build())
-            .build();
-
-        OffSessionPaymentResponse resp = OffSessionPaymentResponse.newBuilder()
-            .setCustomer(Customer.newBuilder().setId("cus-123").build())
-            .setCharge(ChargeResult.newBuilder().setChargeId("chg-p1").setPaid(true).build())
-            .build();
-
-        when(http.post(eq("/v1/payments/off-session"), eq(req), eq(OffSessionPaymentResponse.class), any(RequestOptions.class)))
-            .thenReturn(resp);
-
-        PaymentService service = new PaymentService(client);
-        OffSessionPaymentResponse result = service.offSessionPayment(req, "mer-test");
-
-        assertEquals("chg-p1", result.getCharge().getChargeId());
-        verify(http).post(eq("/v1/payments/off-session"), eq(req), eq(OffSessionPaymentResponse.class), any(RequestOptions.class));
     }
 
     @Test

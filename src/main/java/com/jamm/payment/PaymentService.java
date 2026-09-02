@@ -5,8 +5,6 @@ import com.api.v1.GetChargesRequest;
 import com.api.v1.GetChargesResponse;
 import com.api.v1.OffSessionPaymentAsyncRequest;
 import com.api.v1.OffSessionPaymentAsyncResponse;
-import com.api.v1.OffSessionPaymentRequest;
-import com.api.v1.OffSessionPaymentResponse;
 import com.api.v1.OnSessionPaymentRequest;
 import com.api.v1.OnSessionPaymentResponse;
 import com.api.v1.RefundRequest;
@@ -39,16 +37,6 @@ class PaymentService {
     OnSessionPaymentResponse onSessionPayment(OnSessionPaymentRequest request, String merchant) {
         return http.post(PAYMENTS_BASE_PATH + "/on-session", request,
                 OnSessionPaymentResponse.class, RequestOptions.withMerchant(merchant));
-    }
-
-    OffSessionPaymentResponse offSessionPayment(OffSessionPaymentRequest request) {
-        return http.post(PAYMENTS_BASE_PATH + "/off-session", request,
-                OffSessionPaymentResponse.class);
-    }
-
-    OffSessionPaymentResponse offSessionPayment(OffSessionPaymentRequest request, String merchant) {
-        return http.post(PAYMENTS_BASE_PATH + "/off-session", request,
-                OffSessionPaymentResponse.class, RequestOptions.withMerchant(merchant));
     }
 
     OffSessionPaymentAsyncResponse offSessionPaymentAsync(OffSessionPaymentAsyncRequest request) {

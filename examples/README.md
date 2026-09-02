@@ -37,7 +37,6 @@ export AMOUNT=50
 - `PaymentOnSessionContractWithoutChargeExample.java`
 - `PaymentOnSessionAddChargeExample.java`
 - `PaymentOnSessionOneTimePaymentExample.java`
-- `PaymentOffSessionExample.java` - direct off-session charge for an existing customer
 - `PaymentOffSessionAsyncExample.java` - asynchronous off-session charge plus follow-up `getCharge`
 - `ChargeGetExample.java`
 - `ChargeListExample.java`

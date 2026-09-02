@@ -3,8 +3,6 @@ package com.jamm.e2e;
 import com.api.v1.AsyncStatus;
 import com.api.v1.Buyer;
 import com.api.v1.InitialCharge;
-import com.api.v1.OffSessionPaymentRequest;
-import com.api.v1.OffSessionPaymentResponse;
 import com.api.v1.OffSessionPaymentAsyncRequest;
 import com.api.v1.OffSessionPaymentAsyncResponse;
 import com.api.v1.OnSessionPaymentRequest;
@@ -157,31 +155,6 @@ class PaymentE2ETest {
             assertTrue(response.getData().hasCustomer());
             assertTrue(response.getData().hasPaymentLink());
             assertTrue(response.getData().getOneTime());
-        }
-    }
-
-    @Test
-    void offSessionPayment_chargesExistingCustomer() {
-        String customerId = System.getenv("CUSTOMER");
-        Assumptions.assumeTrue(
-                customerId != null && !customerId.trim().isEmpty(),
-                "Skipping: set CUSTOMER env var (e.g. cus-xxxxxxxx)");
-
-        try (JammClient client = E2ETestHelper.createClient()) {
-            OffSessionPaymentRequest request = OffSessionPaymentRequest.newBuilder()
-                    .setCustomer(customerId)
-                    .setCharge(InitialCharge.newBuilder()
-                            .setPrice(100)
-                            .setDescription("Java SDK offSessionPayment E2E")
-                            .putMetadata("case", "off-session")
-                            .build())
-                    .build();
-
-            OffSessionPaymentResponse response = client.payments().offSessionPayment(request);
-
-            assertEquals(customerId, response.getCustomer().getId());
-            assertFalse(response.getCharge().getChargeId().isEmpty());
-            assertTrue(response.getCharge().getPaid());
         }
     }
 

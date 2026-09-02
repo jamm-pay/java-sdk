@@ -5,8 +5,6 @@ import com.api.v1.GetChargesRequest;
 import com.api.v1.GetChargesResponse;
 import com.api.v1.OffSessionPaymentAsyncRequest;
 import com.api.v1.OffSessionPaymentAsyncResponse;
-import com.api.v1.OffSessionPaymentRequest;
-import com.api.v1.OffSessionPaymentResponse;
 import com.api.v1.OnSessionPaymentRequest;
 import com.api.v1.OnSessionPaymentResponse;
 import com.api.v1.RefundRequest;
@@ -50,31 +48,11 @@ public final class PaymentClient {
     }
 
     /**
-     * Off Session Payment - Charge customer in synchronous request.
+     * Off Session Payment - Start an off-session charge asynchronously.
      * The customer must already be created, and must have completed Jamm onboarding
      * including terms of service acceptance, KYC, and payment method setup.
-     *
-     * @param request the off-session payment request
-     * @return response containing customer and charge information
-     */
-    public OffSessionPaymentResponse offSessionPayment(OffSessionPaymentRequest request) {
-        return service.offSessionPayment(request);
-    }
-
-    /**
-     * Off Session Payment on behalf of a merchant (platform mode).
-     *
-     * @param request  the off-session payment request
-     * @param merchant the merchant ID (format: "mer-*")
-     * @return response containing customer and charge information
-     */
-    public OffSessionPaymentResponse offSessionPayment(OffSessionPaymentRequest request, String merchant) {
-        return service.offSessionPayment(request, merchant);
-    }
-
-    /**
-     * Off Session Payment Async - Start an off-session charge asynchronously.
-     * Returns request tracking information and charge ID for polling with GetCharge.
+     * Returns request tracking information and charge ID for polling with GetCharge;
+     * the charge is still pending when this returns.
      *
      * <p>If {@code idempotency_key} is not set on the request, the SDK auto-fills it with
      * a UUID so each charge is retry-safe by default. To make an explicit retry return

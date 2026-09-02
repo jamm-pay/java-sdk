@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2026-09-02
+
+Major version because the synchronous off-session charge method was removed — see **Removed** below.
+
+### Removed
+
+- **Breaking: `PaymentClient.offSessionPayment(...)` (both overloads) is gone.** Off-session charges are now supported through `offSessionPaymentAsync(...)` only. Replace each call with `offSessionPaymentAsync` and read the charge result from `getCharge(response.getChargeId())` or from the `EVENT_TYPE_CHARGE_SUCCESS` / `EVENT_TYPE_CHARGE_FAIL` webhook — the async response carries `request_id`, `charge_id` and `status`, not the settled charge. Platform mode migrates identically (`offSessionPayment(request, merchant)` → `offSessionPaymentAsync(request, merchant)`). See [Migrating from 2.x](README.md#migrating-from-2x). The `OffSessionPaymentRequest` / `OffSessionPaymentResponse` protobuf types still exist in `com.api.v1`, but no client method accepts or returns them.
+
+- `PaymentOffSessionExample.java` — the synchronous example. `PlatformPaymentOffSessionExample.java` is replaced by `PlatformPaymentOffSessionAsyncExample.java`.
+
 ## [2.0.0] - 2026-08-26
 
 Major version because the refund identifier accessors changed shape — see **Changed** below.

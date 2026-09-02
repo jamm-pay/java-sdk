@@ -60,27 +60,7 @@ try (JammClient client = JammClient.builder()
 
 ### Off-Session Payment
 
-Once a customer has approved the payment and completed onboarding (KYC, terms of service, payment method setup), you can charge them directly:
-
-```java
-// Charge an existing customer
-OffSessionPaymentResponse response = client.payments().offSessionPayment(
-    OffSessionPaymentRequest.newBuilder()
-        .setCustomer("cus-xxxxxxxx")
-        .setCharge(InitialCharge.newBuilder()
-            .setPrice(5000)
-            .setDescription("Monthly subscription")
-            .putMetadata("orderId", "order-123")
-            .build())
-        .build());
-
-// Access the charge result
-ChargeResult charge = response.getCharge();
-```
-
-### Off-Session Payment (Async)
-
-You can also start an asynchronous off-session payment and use the returned `charge_id` to poll charge status:
+Once a customer has approved the payment and completed onboarding (KYC, terms of service, payment method setup), you can charge them off-session. The charge is always started asynchronously: the call returns immediately with a `charge_id` while the charge is still `CHARGE_STATUS_PENDING`, and you poll `getCharge` (or wait for the charge webhook) for the result.
 
 ```java
 OffSessionPaymentAsyncResponse asyncResponse = client.payments().offSessionPaymentAsync(
@@ -88,7 +68,8 @@ OffSessionPaymentAsyncResponse asyncResponse = client.payments().offSessionPayme
         .setCustomer("cus-xxxxxxxx")
         .setCharge(InitialCharge.newBuilder()
             .setPrice(5000)
-            .setDescription("Monthly subscription async")
+            .setDescription("Monthly subscription")
+            .putMetadata("orderId", "order-123")
             .build())
         .setIdempotencyKey("order-2024-001")
         .build());
@@ -96,8 +77,45 @@ OffSessionPaymentAsyncResponse asyncResponse = client.payments().offSessionPayme
 String requestId = asyncResponse.getRequestId();
 String chargeId = asyncResponse.getChargeId();
 
-GetChargeResponse charge = client.payments().getCharge(chargeId);
+ChargeResult charge = awaitCharge(client, chargeId);
+if (charge == null) {
+    // Still pending — leave the order open and let the webhook resolve it (see below).
+} else if (charge.getPaid()) {
+    // Settled and paid; fulfil the order.
+}
 ```
+
+#### Waiting for the result
+
+A single `getCharge` straight after the async call reads a charge that has not settled yet, so
+`getPaid()` would be `false` for a charge that succeeds a moment later. Poll until the charge leaves
+`CHARGE_STATUS_PENDING`, and treat "still pending when the poll gives up" as *unresolved*, never as
+failed:
+
+```java
+// Returns the settled charge, or null if it is still pending when the budget runs out.
+static ChargeResult awaitCharge(JammClient client, String chargeId) throws InterruptedException {
+    for (int attempt = 0; attempt < 30; attempt++) {
+        ChargeResult charge = client.payments().getCharge(chargeId).getCharge();
+        if (charge.getChargeStatus() != ChargeStatus.CHARGE_STATUS_PENDING) {
+            return charge;
+        }
+        Thread.sleep(2000);
+    }
+    return null;
+}
+```
+
+A `null` here means "no answer yet" — the charge may still settle. Keep the order awaiting the
+`EVENT_TYPE_CHARGE_SUCCESS` / `EVENT_TYPE_CHARGE_FAIL` webhook rather than marking it unpaid, and if
+you retry, reuse the same `idempotency_key` so you read the same charge instead of creating a second
+one.
+
+Handling the webhook instead of polling frees the calling thread entirely and is the better
+integration for anything but a straight port of a synchronous call site — see
+[Webhook Verification](#webhook-verification).
+
+> The synchronous `offSessionPayment` method was removed in 3.0.0. Replace each call with `offSessionPaymentAsync` plus a `getCharge` poll or an `EVENT_TYPE_CHARGE_SUCCESS` / `EVENT_TYPE_CHARGE_FAIL` webhook handler — see [Migrating from 2.x](#migrating-from-2x).
 
 #### Retry safety
 
@@ -173,7 +191,7 @@ switch (eventType) {
         // it, so guard with hasApiSource() rather than treating UNSPECIFIED as a real value.
         if (charge.hasApiSource()) {
             switch (charge.getApiSource()) {
-                case API_SOURCE_OFF_SESSION_SYNC:  break; // OffSessionPayment
+                case API_SOURCE_OFF_SESSION_SYNC:  break; // synchronous off-session API (not this SDK)
                 case API_SOURCE_OFF_SESSION_ASYNC: break; // OffSessionPaymentAsync
                 case API_SOURCE_ON_SESSION:        break; // OnSessionPayment
                 default: break;                           // API_SOURCE_UNSPECIFIED
@@ -317,6 +335,62 @@ Jamm.configure("client-id", "client-secret", Environment.PRODUCTION, true);
 JammClient client = Jamm.getClient();
 ```
 
+## Migrating from 2.x
+
+`offSessionPayment` (the synchronous off-session charge) was removed in 3.0.0. The SDK now supports
+off-session charges through `offSessionPaymentAsync` only.
+
+The async call returns as soon as the charge is accepted, so the charge result is no longer available
+on the response. Read it from `getCharge`, or handle the charge webhook.
+
+2.x — the charge was settled by the time the call returned:
+
+```java
+OffSessionPaymentResponse response = client.payments().offSessionPayment(
+    OffSessionPaymentRequest.newBuilder()
+        .setCustomer("cus-xxxxxxxx")
+        .setCharge(InitialCharge.newBuilder().setPrice(5000).setDescription("Monthly subscription").build())
+        .build());
+
+boolean paid = response.getCharge().getPaid();
+```
+
+3.0.0 — the call returns while the charge is still pending, so the result has to be waited for.
+**Do not read `getPaid()` from a single immediate `getCharge`** — it will be `false` for a charge that
+settles a moment later. Use the `awaitCharge` poll from
+[Waiting for the result](#waiting-for-the-result), and note the third outcome the 2.x code did not
+have: *unresolved*.
+
+```java
+OffSessionPaymentAsyncResponse response = client.payments().offSessionPaymentAsync(
+    OffSessionPaymentAsyncRequest.newBuilder()
+        .setCustomer("cus-xxxxxxxx")
+        .setCharge(InitialCharge.newBuilder().setPrice(5000).setDescription("Monthly subscription").build())
+        .setIdempotencyKey("order-2024-001")
+        .build());
+
+ChargeResult charge = awaitCharge(client, response.getChargeId());
+if (charge == null) {
+    // Unresolved, NOT unpaid: still pending when the poll gave up. Leave the order open for the
+    // charge webhook; retrying with the same idempotency_key reads this charge, not a new one.
+    throw new IllegalStateException("charge " + response.getChargeId() + " unresolved");
+}
+
+boolean paid = charge.getPaid();
+```
+
+The synchronous call had two outcomes, paid or not. The async call has three, and collapsing
+*unresolved* into *unpaid* is the one migration mistake that costs real money — it double-charges on
+the retry, or refuses a customer whose charge succeeded. Handling
+`EVENT_TYPE_CHARGE_SUCCESS` / `EVENT_TYPE_CHARGE_FAIL` avoids the question entirely and is the better
+long-term integration — see [Webhook Verification](#webhook-verification).
+
+Platform mode migrates the same way: `offSessionPayment(request, merchant)` becomes
+`offSessionPaymentAsync(request, merchant)`.
+
+`OffSessionPaymentRequest` and `OffSessionPaymentResponse` remain in the generated `com.api.v1`
+package, but no client method accepts or returns them.
+
 ## Installation
 
 ### Maven
@@ -325,14 +399,14 @@ JammClient client = Jamm.getClient();
 <dependency>
   <groupId>jp.jamm-pay</groupId>
   <artifactId>jamm-sdk</artifactId>
-  <version>2.0.0</version>
+  <version>3.0.0</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'jp.jamm-pay:jamm-sdk:2.0.0'
+implementation 'jp.jamm-pay:jamm-sdk:3.0.0'
 ```
 
 The SDK is compiled to Java 8 bytecode, so it runs on Java 8 and any newer runtime (Java 11, 17, 21, …).
