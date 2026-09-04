@@ -399,14 +399,14 @@ package, but no client method accepts or returns them.
 <dependency>
   <groupId>jp.jamm-pay</groupId>
   <artifactId>jamm-sdk</artifactId>
-  <version>3.0.0</version>
+  <version>3.1.0</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'jp.jamm-pay:jamm-sdk:3.0.0'
+implementation 'jp.jamm-pay:jamm-sdk:3.1.0'
 ```
 
 The SDK is compiled to Java 8 bytecode, so it runs on Java 8 and any newer runtime (Java 11, 17, 21, …).
@@ -419,6 +419,17 @@ make build
 
 Vendoring dependencies by hand (no Maven/Gradle)? See [DEPENDENCIES.md](DEPENDENCIES.md) for the
 complete 7-jar runtime set and versions.
+
+## API version
+
+Every request to the Jamm API carries a `Jamm-API-Version` header pinning it to the
+dated API version this SDK was built against, exposed as `ApiVersion.VALUE`. It is not
+configurable: upgrading the SDK is how you opt into a newer API version, and
+until you do, Jamm keeps answering in the shape this build expects.
+
+OAuth2 token requests are excluded: they go to the identity service, which is
+not versioned.
+
 
 ## Configuration
 

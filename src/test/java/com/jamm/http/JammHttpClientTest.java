@@ -1,5 +1,7 @@
 package com.jamm.http;
 
+import com.jamm.ApiVersion;
+
 import com.api.v1.Buyer;
 import com.api.v1.Customer;
 import com.jamm.auth.OAuthProvider;
@@ -79,6 +81,8 @@ class JammHttpClientTest {
         String sdkVersion = request.getHeader("X-SDK-Version");
         assertNotNull(sdkVersion, "X-SDK-Version header should be present");
         assertTrue(sdkVersion.matches("java:.+"), "X-SDK-Version should follow java:<version> format");
+
+        assertEquals(ApiVersion.VALUE, request.getHeader("Jamm-API-Version"), "Jamm-API-Version should be the baked API version");
     }
 
     // POST tests

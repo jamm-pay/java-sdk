@@ -7,6 +7,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
 import com.google.protobuf.MessageOrBuilder;
 import com.google.protobuf.util.JsonFormat;
+import com.jamm.ApiVersion;
 import com.jamm.Jamm;
 import com.jamm.auth.OAuthProvider;
 import com.jamm.errors.ApiException;
@@ -292,6 +293,7 @@ public class JammHttpClient implements AutoCloseable {
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setRequestProperty("Accept", "application/json");
             conn.setRequestProperty("X-SDK-Version", "java:" + Jamm.VERSION);
+            conn.setRequestProperty("Jamm-API-Version", ApiVersion.VALUE);
             if (merchant != null) {
                 conn.setRequestProperty(MERCHANT_HEADER, merchant);
             }

@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] - 2026-09-03
+
+### Added
+
+- Every request to the Jamm API now carries a `Jamm-API-Version` header pinning it to the dated API version this SDK was built against, exposed as `ApiVersion.VALUE`. It is not configurable: upgrading the SDK is how you opt into a newer API version, and until you do, Jamm keeps answering in the shape this build expects. OAuth2 token requests are excluded: they go to the identity service, which is not versioned.
+
 ## [3.0.0] - 2026-09-02
 
 Major version because the synchronous off-session charge method was removed — see **Removed** below.
