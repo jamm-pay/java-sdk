@@ -78,9 +78,9 @@ class JammHttpClientTest {
         assertEquals("/api/test", request.getPath());
         assertEquals("Bearer test-bearer-token", request.getHeader("Authorization"));
         assertEquals("application/json", request.getHeader("Content-Type"));
-        String sdkVersion = request.getHeader("X-SDK-Version");
-        assertNotNull(sdkVersion, "X-SDK-Version header should be present");
-        assertTrue(sdkVersion.matches("java:.+"), "X-SDK-Version should follow java:<version> format");
+        String sdkVersion = request.getHeader("Jamm-SDK-Version");
+        assertNotNull(sdkVersion, "Jamm-SDK-Version header should be present");
+        assertTrue(sdkVersion.matches("java:.+"), "Jamm-SDK-Version should follow java:<version> format");
 
         assertEquals(ApiVersion.VALUE, request.getHeader("Jamm-API-Version"), "Jamm-API-Version should be the baked API version");
     }

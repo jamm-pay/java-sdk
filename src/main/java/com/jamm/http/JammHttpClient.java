@@ -292,7 +292,7 @@ public class JammHttpClient implements AutoCloseable {
             conn.setRequestProperty("Authorization", "Bearer " + oauthProvider.getToken());
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setRequestProperty("Accept", "application/json");
-            conn.setRequestProperty("X-SDK-Version", "java:" + Jamm.VERSION);
+            conn.setRequestProperty("Jamm-SDK-Version", "java:" + Jamm.VERSION);
             conn.setRequestProperty("Jamm-API-Version", ApiVersion.VALUE);
             if (merchant != null) {
                 conn.setRequestProperty(MERCHANT_HEADER, merchant);

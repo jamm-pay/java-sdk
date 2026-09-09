@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Every request to the Jamm API now carries a `Jamm-API-Version` header pinning it to the dated API version this SDK was built against, exposed as `ApiVersion.VALUE`. It is not configurable: upgrading the SDK is how you opt into a newer API version, and until you do, Jamm keeps answering in the shape this build expects. OAuth2 token requests are excluded: they go to the identity service, which is not versioned.
 
+### Changed
+
+- The SDK version request header is now `Jamm-SDK-Version` (`java:<version>`), renamed from `X-SDK-Version`. It is telemetry the backend uses to track SDK version usage per merchant, so this changes nothing about how your requests are handled and needs no code change on your side. The API still accepts the old name, so earlier releases keep reporting. If a proxy, WAF or API gateway sits between your application and Jamm and allowlists outgoing request headers, add `Jamm-SDK-Version` to it.
+
 ## [3.0.0] - 2026-09-02
 
 Major version because the synchronous off-session charge method was removed — see **Removed** below.
