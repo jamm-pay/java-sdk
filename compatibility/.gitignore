@@ -3,3 +3,7 @@ compat-report.tsv
 
 # Maven build output for each pinned version -- rebuilt fresh per run.
 */target
+
+# Why each failing version failed, and the suite output it came from.
+compat-reasons.tsv
+*.log

@@ -43,20 +43,37 @@ test:
 	done; exit $$rc'
 
 # CI variant of `test`: runs every version, writes per-version status to compat-report.tsv
-# ("<version>\t<PASS|FAIL>"), and always exits 0. The workflow turns the file into a PR comment,
-# so the merge is not blocked when an older published version is out of sync with the current API.
+# ("<version>\t<PASS|FAIL|ERROR (build)>"), and always exits 0. The workflow turns the file into a
+# PR comment, so the merge is not blocked when an older published version is out of sync with the
+# current API.
+#
+# A drifted surface reads as ERROR (build), not FAIL -- see README.md. One `mvn test` covers both,
+# because it runs test-compile itself, so the status comes out of that one log rather than a second
+# JVM start per version. The marker is surefire reporting, not javac complaining: an unresolvable
+# dependency never reaches the compiler either, and a registry 429 is not a compatibility break.
 report:
-	@$(DOCKER_RUN) bash -c 'rm -f compat-report.tsv; for d in $(VERSIONS); do \
+	@$(DOCKER_RUN) bash -c 'rm -f compat-report.tsv compat-reasons.tsv; for d in $(VERSIONS); do \
 		v=$${d%/}; \
 		echo "== test $$v =="; \
-		if ( cd $$d && mvn -q -B test ); then status=PASS; else status=FAIL; fi; \
+		if ( cd $$d && mvn -q -B test ) > $$v.log 2>&1; then \
+			status=PASS; \
+		elif ! grep -qE "Tests run:|maven-surefire-plugin:[^ ]*:test" $$v.log; then \
+			status="ERROR (build)"; \
+			mv $$v.log $$v.build.log; \
+			echo "-- build output --"; tail -40 $$v.build.log; \
+			printf "%s\t%s\n" "$$v" "$$(../../compatibility/reason.sh $$v.build.log)" >> compat-reasons.tsv; \
+		else \
+			status=FAIL; \
+			cat $$v.log; \
+			printf "%s\t%s\n" "$$v" "$$(../../compatibility/reason.sh $$v.log)" >> compat-reasons.tsv; \
+		fi; \
 		printf "%s\t%s\n" "$$v" "$$status" >> compat-report.tsv; \
 	done; echo "== summary =="; cat compat-report.tsv'
 
 # Remove per-version Maven build output.
 clean:
 	@for d in $(VERSIONS); do rm -rf $$d/target; done
-	@rm -f compat-report.tsv
+	@rm -f compat-report.tsv compat-reasons.tsv *.log *.build.log
 
 # Scaffold a new version directory from the template: make add VER=1.6.0
 add:

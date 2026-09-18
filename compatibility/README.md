@@ -41,6 +41,15 @@ it at runtime. Across the pinned range the surface the suite touches
 signature-stable, so the suite compiles directly against each jar; the only
 runtime gate is the live healthcheck, skipped unless `MERCHANT_CLIENT_*` are set.
 
+That stability is a property of the pinned range, not a guarantee. A version whose
+surface has drifted cannot compile, and then nothing runs at all — not one check. So
+`make report` records that case as `ERROR (build)` rather than `FAIL`, deciding from
+whether surefire reported in the `mvn test` log: anything that stops the run before the
+suite starts — a drifted surface, an unresolvable dependency, a registry 429 — is
+`ERROR (build)`. Both are findings; only `FAIL` means "this
+version compiles and behaves differently". Reporting a missing method as `FAIL` would
+read as a compatibility break when the truth is the suite never ran.
+
 ## What is tested
 
 | Check                          | Touches API | Notes                                                          |
@@ -122,7 +131,7 @@ make test \
   MERCHANT_CLIENT_SECRET=...
 ```
 
-`make report` is the CI variant: it writes per-version `PASS`/`FAIL` to
+`make report` is the CI variant: it writes per-version `PASS`/`FAIL`/`ERROR (build)` to
 `compat-report.tsv` and always exits 0.
 
 ## Pinned versions
