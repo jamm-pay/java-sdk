@@ -99,4 +99,19 @@ public interface MessageResponseOrBuilder extends
    * <code>.api.v1.RefundInfo refund_info = 5 [json_name = "refundInfo"];</code>
    */
   com.api.v1.RefundInfoOrBuilder getRefundInfoOrBuilder();
+
+  /**
+   * <code>.api.v1.RefundWebhookContent refund_webhook_content = 6 [json_name = "refundWebhookContent"];</code>
+   * @return Whether the refundWebhookContent field is set.
+   */
+  boolean hasRefundWebhookContent();
+  /**
+   * <code>.api.v1.RefundWebhookContent refund_webhook_content = 6 [json_name = "refundWebhookContent"];</code>
+   * @return The refundWebhookContent.
+   */
+  com.api.v1.RefundWebhookContent getRefundWebhookContent();
+  /**
+   * <code>.api.v1.RefundWebhookContent refund_webhook_content = 6 [json_name = "refundWebhookContent"];</code>
+   */
+  com.api.v1.RefundWebhookContentOrBuilder getRefundWebhookContentOrBuilder();
 }

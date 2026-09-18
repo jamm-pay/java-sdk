@@ -194,6 +194,32 @@ private static final long serialVersionUID = 0L;
     return refundInfo_ == null ? com.api.v1.RefundInfo.getDefaultInstance() : refundInfo_;
   }
 
+  public static final int REFUND_WEBHOOK_CONTENT_FIELD_NUMBER = 6;
+  private com.api.v1.RefundWebhookContent refundWebhookContent_;
+  /**
+   * <code>.api.v1.RefundWebhookContent refund_webhook_content = 6 [json_name = "refundWebhookContent"];</code>
+   * @return Whether the refundWebhookContent field is set.
+   */
+  @java.lang.Override
+  public boolean hasRefundWebhookContent() {
+    return ((bitField0_ & 0x00000020) != 0);
+  }
+  /**
+   * <code>.api.v1.RefundWebhookContent refund_webhook_content = 6 [json_name = "refundWebhookContent"];</code>
+   * @return The refundWebhookContent.
+   */
+  @java.lang.Override
+  public com.api.v1.RefundWebhookContent getRefundWebhookContent() {
+    return refundWebhookContent_ == null ? com.api.v1.RefundWebhookContent.getDefaultInstance() : refundWebhookContent_;
+  }
+  /**
+   * <code>.api.v1.RefundWebhookContent refund_webhook_content = 6 [json_name = "refundWebhookContent"];</code>
+   */
+  @java.lang.Override
+  public com.api.v1.RefundWebhookContentOrBuilder getRefundWebhookContentOrBuilder() {
+    return refundWebhookContent_ == null ? com.api.v1.RefundWebhookContent.getDefaultInstance() : refundWebhookContent_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -223,6 +249,9 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000010) != 0)) {
       output.writeMessage(5, getRefundInfo());
     }
+    if (((bitField0_ & 0x00000020) != 0)) {
+      output.writeMessage(6, getRefundWebhookContent());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -251,6 +280,10 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000010) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getRefundInfo());
+    }
+    if (((bitField0_ & 0x00000020) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getRefundWebhookContent());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -292,6 +325,11 @@ private static final long serialVersionUID = 0L;
       if (!getRefundInfo()
           .equals(other.getRefundInfo())) return false;
     }
+    if (hasRefundWebhookContent() != other.hasRefundWebhookContent()) return false;
+    if (hasRefundWebhookContent()) {
+      if (!getRefundWebhookContent()
+          .equals(other.getRefundWebhookContent())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -322,6 +360,10 @@ private static final long serialVersionUID = 0L;
     if (hasRefundInfo()) {
       hash = (37 * hash) + REFUND_INFO_FIELD_NUMBER;
       hash = (53 * hash) + getRefundInfo().hashCode();
+    }
+    if (hasRefundWebhookContent()) {
+      hash = (37 * hash) + REFUND_WEBHOOK_CONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getRefundWebhookContent().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -458,6 +500,7 @@ private static final long serialVersionUID = 0L;
         internalGetContractMessageFieldBuilder();
         internalGetUserAccountMessageFieldBuilder();
         internalGetRefundInfoFieldBuilder();
+        internalGetRefundWebhookContentFieldBuilder();
       }
     }
     @java.lang.Override
@@ -488,6 +531,11 @@ private static final long serialVersionUID = 0L;
       if (refundInfoBuilder_ != null) {
         refundInfoBuilder_.dispose();
         refundInfoBuilder_ = null;
+      }
+      refundWebhookContent_ = null;
+      if (refundWebhookContentBuilder_ != null) {
+        refundWebhookContentBuilder_.dispose();
+        refundWebhookContentBuilder_ = null;
       }
       return this;
     }
@@ -553,6 +601,12 @@ private static final long serialVersionUID = 0L;
             : refundInfoBuilder_.build();
         to_bitField0_ |= 0x00000010;
       }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.refundWebhookContent_ = refundWebhookContentBuilder_ == null
+            ? refundWebhookContent_
+            : refundWebhookContentBuilder_.build();
+        to_bitField0_ |= 0x00000020;
+      }
       result.bitField0_ |= to_bitField0_;
     }
 
@@ -582,6 +636,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasRefundInfo()) {
         mergeRefundInfo(other.getRefundInfo());
+      }
+      if (other.hasRefundWebhookContent()) {
+        mergeRefundWebhookContent(other.getRefundWebhookContent());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -644,6 +701,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000010;
               break;
             } // case 42
+            case 50: {
+              input.readMessage(
+                  internalGetRefundWebhookContentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1309,6 +1373,127 @@ private static final long serialVersionUID = 0L;
         refundInfo_ = null;
       }
       return refundInfoBuilder_;
+    }
+
+    private com.api.v1.RefundWebhookContent refundWebhookContent_;
+    private com.google.protobuf.SingleFieldBuilder<
+        com.api.v1.RefundWebhookContent, com.api.v1.RefundWebhookContent.Builder, com.api.v1.RefundWebhookContentOrBuilder> refundWebhookContentBuilder_;
+    /**
+     * <code>.api.v1.RefundWebhookContent refund_webhook_content = 6 [json_name = "refundWebhookContent"];</code>
+     * @return Whether the refundWebhookContent field is set.
+     */
+    public boolean hasRefundWebhookContent() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>.api.v1.RefundWebhookContent refund_webhook_content = 6 [json_name = "refundWebhookContent"];</code>
+     * @return The refundWebhookContent.
+     */
+    public com.api.v1.RefundWebhookContent getRefundWebhookContent() {
+      if (refundWebhookContentBuilder_ == null) {
+        return refundWebhookContent_ == null ? com.api.v1.RefundWebhookContent.getDefaultInstance() : refundWebhookContent_;
+      } else {
+        return refundWebhookContentBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.api.v1.RefundWebhookContent refund_webhook_content = 6 [json_name = "refundWebhookContent"];</code>
+     */
+    public Builder setRefundWebhookContent(com.api.v1.RefundWebhookContent value) {
+      if (refundWebhookContentBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        refundWebhookContent_ = value;
+      } else {
+        refundWebhookContentBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.api.v1.RefundWebhookContent refund_webhook_content = 6 [json_name = "refundWebhookContent"];</code>
+     */
+    public Builder setRefundWebhookContent(
+        com.api.v1.RefundWebhookContent.Builder builderForValue) {
+      if (refundWebhookContentBuilder_ == null) {
+        refundWebhookContent_ = builderForValue.build();
+      } else {
+        refundWebhookContentBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.api.v1.RefundWebhookContent refund_webhook_content = 6 [json_name = "refundWebhookContent"];</code>
+     */
+    public Builder mergeRefundWebhookContent(com.api.v1.RefundWebhookContent value) {
+      if (refundWebhookContentBuilder_ == null) {
+        if (((bitField0_ & 0x00000020) != 0) &&
+          refundWebhookContent_ != null &&
+          refundWebhookContent_ != com.api.v1.RefundWebhookContent.getDefaultInstance()) {
+          getRefundWebhookContentBuilder().mergeFrom(value);
+        } else {
+          refundWebhookContent_ = value;
+        }
+      } else {
+        refundWebhookContentBuilder_.mergeFrom(value);
+      }
+      if (refundWebhookContent_ != null) {
+        bitField0_ |= 0x00000020;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <code>.api.v1.RefundWebhookContent refund_webhook_content = 6 [json_name = "refundWebhookContent"];</code>
+     */
+    public Builder clearRefundWebhookContent() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      refundWebhookContent_ = null;
+      if (refundWebhookContentBuilder_ != null) {
+        refundWebhookContentBuilder_.dispose();
+        refundWebhookContentBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.api.v1.RefundWebhookContent refund_webhook_content = 6 [json_name = "refundWebhookContent"];</code>
+     */
+    public com.api.v1.RefundWebhookContent.Builder getRefundWebhookContentBuilder() {
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return internalGetRefundWebhookContentFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.api.v1.RefundWebhookContent refund_webhook_content = 6 [json_name = "refundWebhookContent"];</code>
+     */
+    public com.api.v1.RefundWebhookContentOrBuilder getRefundWebhookContentOrBuilder() {
+      if (refundWebhookContentBuilder_ != null) {
+        return refundWebhookContentBuilder_.getMessageOrBuilder();
+      } else {
+        return refundWebhookContent_ == null ?
+            com.api.v1.RefundWebhookContent.getDefaultInstance() : refundWebhookContent_;
+      }
+    }
+    /**
+     * <code>.api.v1.RefundWebhookContent refund_webhook_content = 6 [json_name = "refundWebhookContent"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilder<
+        com.api.v1.RefundWebhookContent, com.api.v1.RefundWebhookContent.Builder, com.api.v1.RefundWebhookContentOrBuilder> 
+        internalGetRefundWebhookContentFieldBuilder() {
+      if (refundWebhookContentBuilder_ == null) {
+        refundWebhookContentBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.api.v1.RefundWebhookContent, com.api.v1.RefundWebhookContent.Builder, com.api.v1.RefundWebhookContentOrBuilder>(
+                getRefundWebhookContent(),
+                getParentForChildren(),
+                isClean());
+        refundWebhookContent_ = null;
+      }
+      return refundWebhookContentBuilder_;
     }
 
     // @@protoc_insertion_point(builder_scope:api.v1.MessageResponse)
