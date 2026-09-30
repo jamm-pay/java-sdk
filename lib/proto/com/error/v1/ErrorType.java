@@ -250,6 +250,15 @@ public enum ErrorType
   ERROR_TYPE_PAYMENT_BANK_UNAVAILABLE(1012),
   /**
    * <pre>
+   * Over Daily Limit: the charge would take the buyer past the daily cap for the
+   * bank account it debits. Clears at JST midnight.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_PAYMENT_CHARGE_OVER_DAILY_LIMIT = 1013;</code>
+   */
+  ERROR_TYPE_PAYMENT_CHARGE_OVER_DAILY_LIMIT(1013),
+  /**
+   * <pre>
    * CSV Payment-related errors (1100-1199)
    * CSV Validation Failed: The CSV data validation failed, e.g., invalid format, missing fields.
    * </pre>
@@ -583,6 +592,15 @@ public enum ErrorType
   public static final int ERROR_TYPE_PAYMENT_BANK_UNAVAILABLE_VALUE = 1012;
   /**
    * <pre>
+   * Over Daily Limit: the charge would take the buyer past the daily cap for the
+   * bank account it debits. Clears at JST midnight.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_PAYMENT_CHARGE_OVER_DAILY_LIMIT = 1013;</code>
+   */
+  public static final int ERROR_TYPE_PAYMENT_CHARGE_OVER_DAILY_LIMIT_VALUE = 1013;
+  /**
+   * <pre>
    * CSV Payment-related errors (1100-1199)
    * CSV Validation Failed: The CSV data validation failed, e.g., invalid format, missing fields.
    * </pre>
@@ -753,6 +771,7 @@ public enum ErrorType
       case 1010: return ERROR_TYPE_PAYMENT_CUSTOMER_INACTIVE;
       case 1011: return ERROR_TYPE_PAYMENT_SERVICE_DISABLED;
       case 1012: return ERROR_TYPE_PAYMENT_BANK_UNAVAILABLE;
+      case 1013: return ERROR_TYPE_PAYMENT_CHARGE_OVER_DAILY_LIMIT;
       case 1100: return ERROR_TYPE_CSV_VALIDATION_FAILED;
       case 1101: return ERROR_TYPE_CSV_TOTP_REQUIRED;
       case 1102: return ERROR_TYPE_CSV_TOTP_INVALID;
