@@ -332,11 +332,12 @@ public enum ErrorType
   ERROR_TYPE_CSV_CHALLENGE_NOT_FOUND(1108),
   /**
    * <pre>
-   * CSV Duplicate User: Multiple merchant customers in the CSV are associated with the same user.
+   * CSV Duplicate User: deprecated, no longer returned. A CSV may include several rows for the same buyer.
    * </pre>
    *
-   * <code>ERROR_TYPE_CSV_DUPLICATE_USER = 1109;</code>
+   * <code>ERROR_TYPE_CSV_DUPLICATE_USER = 1109 [deprecated = true];</code>
    */
+  @java.lang.Deprecated
   ERROR_TYPE_CSV_DUPLICATE_USER(1109),
   /**
    * <pre>
@@ -674,12 +675,12 @@ public enum ErrorType
   public static final int ERROR_TYPE_CSV_CHALLENGE_NOT_FOUND_VALUE = 1108;
   /**
    * <pre>
-   * CSV Duplicate User: Multiple merchant customers in the CSV are associated with the same user.
+   * CSV Duplicate User: deprecated, no longer returned. A CSV may include several rows for the same buyer.
    * </pre>
    *
-   * <code>ERROR_TYPE_CSV_DUPLICATE_USER = 1109;</code>
+   * <code>ERROR_TYPE_CSV_DUPLICATE_USER = 1109 [deprecated = true];</code>
    */
-  public static final int ERROR_TYPE_CSV_DUPLICATE_USER_VALUE = 1109;
+  @java.lang.Deprecated public static final int ERROR_TYPE_CSV_DUPLICATE_USER_VALUE = 1109;
   /**
    * <pre>
    * TOTP-related errors (1200-1299)

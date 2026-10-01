@@ -35,7 +35,7 @@ public final class ErrorProto extends com.google.protobuf.GeneratedFile {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024error/v1/error.proto\022\010error.v1*\266\014\n\tErr" +
+      "\n\024error/v1/error.proto\022\010error.v1*\272\014\n\tErr" +
       "orType\022\032\n\026ERROR_TYPE_UNSPECIFIED\020\000\022\032\n\026ER" +
       "ROR_TYPE_AUTH_FAILED\020\001\022\034\n\030ERROR_TYPE_AUT" +
       "H_REJECTED\020\002\022&\n\"ERROR_TYPE_ACCOUNT_CREAT" +
@@ -70,16 +70,16 @@ public final class ErrorProto extends com.google.protobuf.GeneratedFile {
       "_LARGE\020\321\010\022&\n!ERROR_TYPE_CSV_CUSTOMER_NOT" +
       "_FOUND\020\322\010\022%\n ERROR_TYPE_CSV_PROCESSING_F" +
       "AILED\020\323\010\022\'\n\"ERROR_TYPE_CSV_CHALLENGE_NOT" +
-      "_FOUND\020\324\010\022\"\n\035ERROR_TYPE_CSV_DUPLICATE_US" +
-      "ER\020\325\010\022!\n\034ERROR_TYPE_TOTP_SETUP_FAILED\020\260\t" +
-      "\022$\n\037ERROR_TYPE_TOTP_ALREADY_ENABLED\020\261\t\022 " +
-      "\n\033ERROR_TYPE_TOTP_NOT_ENABLED\020\262\t\022\"\n\035ERRO" +
-      "R_TYPE_TOTP_SETUP_INVALID\020\263\t\022#\n\036ERROR_TY" +
-      "PE_TOTP_DISABLE_FAILED\020\264\tB~\n\014com.error.v" +
-      "1B\nErrorProtoP\001Z\037api/proto/gen/error/v1;" +
-      "error_v1\242\002\003EXX\252\002\010Error.V1\312\002\tError_\\V1\342\002\025" +
-      "Error_\\V1\\GPBMetadata\352\002\tError::V1b\006proto" +
-      "3"
+      "_FOUND\020\324\010\022&\n\035ERROR_TYPE_CSV_DUPLICATE_US" +
+      "ER\020\325\010\032\002\010\001\022!\n\034ERROR_TYPE_TOTP_SETUP_FAILE" +
+      "D\020\260\t\022$\n\037ERROR_TYPE_TOTP_ALREADY_ENABLED\020" +
+      "\261\t\022 \n\033ERROR_TYPE_TOTP_NOT_ENABLED\020\262\t\022\"\n\035" +
+      "ERROR_TYPE_TOTP_SETUP_INVALID\020\263\t\022#\n\036ERRO" +
+      "R_TYPE_TOTP_DISABLE_FAILED\020\264\tB~\n\014com.err" +
+      "or.v1B\nErrorProtoP\001Z\037api/proto/gen/error" +
+      "/v1;error_v1\242\002\003EXX\252\002\010Error.V1\312\002\tError_\\V" +
+      "1\342\002\025Error_\\V1\\GPBMetadata\352\002\tError::V1b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
