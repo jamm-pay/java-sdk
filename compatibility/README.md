@@ -61,13 +61,14 @@ read as a compatibility break when the truth is the suite never ran.
 
 ### Forward-compatibility: `Webhook.parse` against current-day records
 
-`../../compatibility/webhooks/*.json` are webhook payloads shaped as the backend
+`../../compatibility/webhooks/{head,<YYYY-MM-DD>}/*.json` are webhook payloads, one directory per supported API version, shaped as the backend
 sends them, covering both shapes the harness cares about:
 
 - `charge_success_api_source.json` — a flat charge carrying `api_source`
   (`ChargeMessage` field 23). The backend marshals webhook content with Go's
-  `json.Marshal` (not `protojson`), so the enum goes out as its numeric value
-  (`"api_source": 3`); there is no enum-string form on the wire.
+  `json.Marshal` (not `protojson`) for dated directories, so there the enum goes out
+  as its numeric value (`"api_source": 3`). `head/` is protojson and carries the
+  string name (`"apiSource": "API_SOURCE_ON_SESSION"`).
 - `charge_success_without_api_source.json` — the same flat charge **without**
   `api_source` (the reverted backend; see the note below).
 - `refund_succeeded_nested_api_source.json` — the nested refund wrapper

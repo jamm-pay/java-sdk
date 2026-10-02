@@ -52,6 +52,16 @@ public final class MerchantWebhookEndpointsProto extends com.google.protobuf.Gen
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_api_v1_PromoteWebhookEndpointResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_api_v1_TriggerWebhookEventRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_api_v1_TriggerWebhookEventRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_api_v1_TriggerWebhookEventResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_api_v1_TriggerWebhookEventResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_api_v1_RollbackWebhookEndpointRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -71,25 +81,30 @@ public final class MerchantWebhookEndpointsProto extends com.google.protobuf.Gen
   static {
     java.lang.String[] descriptorData = {
       "\n\'api/v1/merchant_webhook_endpoints.prot" +
-      "o\022\006api.v1\032\037google/protobuf/timestamp.pro" +
-      "to\"\302\003\n\017WebhookEndpoint\022\020\n\002id\030\001 \001(\tB\000R\002id" +
-      "\022\022\n\003url\030\002 \001(\tB\000R\003url\0227\n\006status\030\003 \001(\0162\035.a" +
-      "pi.v1.WebhookEndpointStatusB\000R\006status\022$\n" +
-      "\013api_version\030\004 \001(\tH\000R\napiVersion\210\001\001\0225\n\024p" +
-      "revious_api_version\030\005 \001(\tH\001R\022previousApi" +
-      "Version\210\001\001\022@\n\013promoted_at\030\006 \001(\0132\032.google" +
-      ".protobuf.TimestampH\002R\npromotedAt\210\001\001\022;\n\n" +
-      "created_at\030\007 \001(\0132\032.google.protobuf.Times" +
-      "tampB\000R\tcreatedAt\022;\n\nupdated_at\030\010 \001(\0132\032." +
-      "google.protobuf.TimestampB\000R\tupdatedAtB\016" +
-      "\n\014_api_versionB\027\n\025_previous_api_versionB" +
-      "\016\n\014_promoted_at\"U\n\034CreateWebhookEndpoint" +
-      "Request\022\022\n\003url\030\001 \001(\tB\000R\003url\022!\n\013api_versi" +
-      "on\030\002 \001(\tB\000R\napiVersion\"V\n\035CreateWebhookE" +
-      "ndpointResponse\0225\n\010endpoint\030\001 \001(\0132\027.api." +
-      "v1.WebhookEndpointB\000R\010endpoint\"\037\n\035Promot" +
-      "eWebhookEndpointRequest\"W\n\036PromoteWebhoo" +
-      "kEndpointResponse\0225\n\010endpoint\030\001 \001(\0132\027.ap" +
+      "o\022\006api.v1\032\036api/v1/merchant_webhooks.prot" +
+      "o\032\037google/protobuf/timestamp.proto\"\302\003\n\017W" +
+      "ebhookEndpoint\022\020\n\002id\030\001 \001(\tB\000R\002id\022\022\n\003url\030" +
+      "\002 \001(\tB\000R\003url\0227\n\006status\030\003 \001(\0162\035.api.v1.We" +
+      "bhookEndpointStatusB\000R\006status\022$\n\013api_ver" +
+      "sion\030\004 \001(\tH\000R\napiVersion\210\001\001\0225\n\024previous_" +
+      "api_version\030\005 \001(\tH\001R\022previousApiVersion\210" +
+      "\001\001\022@\n\013promoted_at\030\006 \001(\0132\032.google.protobu" +
+      "f.TimestampH\002R\npromotedAt\210\001\001\022;\n\ncreated_" +
+      "at\030\007 \001(\0132\032.google.protobuf.TimestampB\000R\t" +
+      "createdAt\022;\n\nupdated_at\030\010 \001(\0132\032.google.p" +
+      "rotobuf.TimestampB\000R\tupdatedAtB\016\n\014_api_v" +
+      "ersionB\027\n\025_previous_api_versionB\016\n\014_prom" +
+      "oted_at\"U\n\034CreateWebhookEndpointRequest\022" +
+      "\022\n\003url\030\001 \001(\tB\000R\003url\022!\n\013api_version\030\002 \001(\t" +
+      "B\000R\napiVersion\"V\n\035CreateWebhookEndpointR" +
+      "esponse\0225\n\010endpoint\030\001 \001(\0132\027.api.v1.Webho" +
+      "okEndpointB\000R\010endpoint\"\037\n\035PromoteWebhook" +
+      "EndpointRequest\"W\n\036PromoteWebhookEndpoin" +
+      "tResponse\0225\n\010endpoint\030\001 \001(\0132\027.api.v1.Web" +
+      "hookEndpointB\000R\010endpoint\"P\n\032TriggerWebho" +
+      "okEventRequest\0222\n\nevent_type\030\001 \001(\0162\021.api" +
+      ".v1.EventTypeB\000R\teventType\"T\n\033TriggerWeb" +
+      "hookEventResponse\0225\n\010endpoint\030\001 \001(\0132\027.ap" +
       "i.v1.WebhookEndpointB\000R\010endpoint\" \n\036Roll" +
       "backWebhookEndpointRequest\"X\n\037RollbackWe" +
       "bhookEndpointResponse\0225\n\010endpoint\030\001 \001(\0132" +
@@ -98,7 +113,7 @@ public final class MerchantWebhookEndpointsProto extends com.google.protobuf.Gen
       "NT_STATUS_UNSPECIFIED\020\000\022 \n\034WEBHOOK_ENDPO" +
       "INT_STATUS_LIVE\020\001\022 \n\034WEBHOOK_ENDPOINT_ST" +
       "ATUS_TEST\020\002\022$\n WEBHOOK_ENDPOINT_STATUS_D" +
-      "ISABLED\020\0032\331\002\n\026WebhookEndpointService\022f\n\025" +
+      "ISABLED\020\0032\273\003\n\026WebhookEndpointService\022f\n\025" +
       "CreateWebhookEndpoint\022$.api.v1.CreateWeb" +
       "hookEndpointRequest\032%.api.v1.CreateWebho" +
       "okEndpointResponse\"\000\022i\n\026PromoteWebhookEn" +
@@ -106,15 +121,18 @@ public final class MerchantWebhookEndpointsProto extends com.google.protobuf.Gen
       "quest\032&.api.v1.PromoteWebhookEndpointRes" +
       "ponse\"\000\022l\n\027RollbackWebhookEndpoint\022&.api" +
       ".v1.RollbackWebhookEndpointRequest\032\'.api" +
-      ".v1.RollbackWebhookEndpointResponse\"\000B\201\001" +
-      "\n\ncom.api.v1B\035MerchantWebhookEndpointsPr" +
-      "otoP\001Z\033api/proto/gen/api/v1;api_v1\242\002\003AXX" +
-      "\252\002\006Api.V1\312\002\006Api\\V1\342\002\022Api\\V1\\GPBMetadata\352" +
-      "\002\007Api::V1b\006proto3"
+      ".v1.RollbackWebhookEndpointResponse\"\000\022`\n" +
+      "\023TriggerWebhookEvent\022\".api.v1.TriggerWeb" +
+      "hookEventRequest\032#.api.v1.TriggerWebhook" +
+      "EventResponse\"\000B\201\001\n\ncom.api.v1B\035Merchant" +
+      "WebhookEndpointsProtoP\001Z\033api/proto/gen/a" +
+      "pi/v1;api_v1\242\002\003AXX\252\002\006Api.V1\312\002\006Api\\V1\342\002\022A" +
+      "pi\\V1\\GPBMetadata\352\002\007Api::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.api.v1.MerchantWebhooksProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_api_v1_WebhookEndpoint_descriptor =
@@ -147,19 +165,32 @@ public final class MerchantWebhookEndpointsProto extends com.google.protobuf.Gen
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_api_v1_PromoteWebhookEndpointResponse_descriptor,
         new java.lang.String[] { "Endpoint", });
-    internal_static_api_v1_RollbackWebhookEndpointRequest_descriptor =
+    internal_static_api_v1_TriggerWebhookEventRequest_descriptor =
       getDescriptor().getMessageType(5);
+    internal_static_api_v1_TriggerWebhookEventRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_api_v1_TriggerWebhookEventRequest_descriptor,
+        new java.lang.String[] { "EventType", });
+    internal_static_api_v1_TriggerWebhookEventResponse_descriptor =
+      getDescriptor().getMessageType(6);
+    internal_static_api_v1_TriggerWebhookEventResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_api_v1_TriggerWebhookEventResponse_descriptor,
+        new java.lang.String[] { "Endpoint", });
+    internal_static_api_v1_RollbackWebhookEndpointRequest_descriptor =
+      getDescriptor().getMessageType(7);
     internal_static_api_v1_RollbackWebhookEndpointRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_api_v1_RollbackWebhookEndpointRequest_descriptor,
         new java.lang.String[] { });
     internal_static_api_v1_RollbackWebhookEndpointResponse_descriptor =
-      getDescriptor().getMessageType(6);
+      getDescriptor().getMessageType(8);
     internal_static_api_v1_RollbackWebhookEndpointResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_api_v1_RollbackWebhookEndpointResponse_descriptor,
         new java.lang.String[] { "Endpoint", });
     descriptor.resolveAllFeaturesImmutable();
+    com.api.v1.MerchantWebhooksProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

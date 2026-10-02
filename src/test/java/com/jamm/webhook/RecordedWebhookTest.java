@@ -90,7 +90,7 @@ class RecordedWebhookTest {
 
         @Test
         void decodesFromADeliveredCapture() throws Exception {
-            ChargeMessage charge = charge("delivered_charge_success.json");
+            ChargeMessage charge = charge("captures/delivered_charge_success.json");
             assertEquals(ChargeMessage.ApiSource.API_SOURCE_OFF_SESSION_SYNC, charge.getApiSource());
         }
     }
@@ -242,7 +242,7 @@ class RecordedWebhookTest {
                 "refund_succeeded_nested_no_api_source.json",
                 "refund_failed_nested_error.json",
                 "refund_failed_cancel.json",
-                "delivered_refund_succeeded_nested.json");
+                "captures/delivered_refund_succeeded_nested.json");
     }
 
     /** Rebuilds each delivered body verbatim: envelope fields, raw content bytes, signature. */
@@ -285,8 +285,11 @@ class RecordedWebhookTest {
                 name + " must decode to a ChargeMessage");
     }
 
+    // Records live under head/; the delivered captures beside it are named with their captures/
+    // prefix. The dated directories hold what pinned endpoints receive and belong to the
+    // compatibility harness.
     private static String read(String name) throws IOException {
-        Path file = webhooksDir().resolve(name);
+        Path file = name.startsWith("captures/") ? webhooksDir().resolve(name) : headDir().resolve(name);
         assertTrue(Files.isRegularFile(file), "missing fixture " + file.toAbsolutePath());
         return readPath(file);
     }
@@ -297,12 +300,12 @@ class RecordedWebhookTest {
 
     private static List<Path> listRecords() throws IOException {
         List<Path> files = new ArrayList<>();
-        try (DirectoryStream<Path> stream = Files.newDirectoryStream(webhooksDir(), "*.json")) {
+        try (DirectoryStream<Path> stream = Files.newDirectoryStream(headDir(), "*.json")) {
             for (Path p : stream) {
                 files.add(p);
             }
         }
-        assertFalse(files.isEmpty(), "no fixtures found in " + webhooksDir().toAbsolutePath());
+        assertFalse(files.isEmpty(), "no fixtures found in " + headDir().toAbsolutePath());
         files.sort(null);
         return files;
     }
@@ -310,6 +313,12 @@ class RecordedWebhookTest {
     private static Path webhooksDir() {
         Path dir = compatDir().resolve("webhooks");
         assertTrue(Files.isDirectory(dir), "missing payload directory " + dir.toAbsolutePath());
+        return dir;
+    }
+
+    private static Path headDir() {
+        Path dir = webhooksDir().resolve("head");
+        assertTrue(Files.isDirectory(dir), "missing generated records " + dir.toAbsolutePath());
         return dir;
     }
 

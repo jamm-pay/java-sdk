@@ -10,13 +10,19 @@ import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
@@ -129,8 +135,7 @@ class CompatSuite {
     // event-type breadth records that also decode to a ChargeMessage: the charge lifecycle events
     // and the Error-bearing charge_fail / refund_failed records (the only ones exercising the proto
     // Error decode path). All of these flatten to ChargeMessage, so one assertion covers them.
-    @ParameterizedTest(name = "webhook.parse tolerates {0}")
-    @ValueSource(strings = {
+    private static final String[] CHARGE_RECORDS = {
             "charge_success_api_source.json",
             "charge_success_without_api_source.json",
             "refund_succeeded_nested_api_source.json",
@@ -140,17 +145,30 @@ class CompatSuite {
             "charge_updated.json",
             "charge_fail_error.json",
             "refund_failed_nested_error.json",
-    })
-    @DisplayName("webhook.parse: tolerates a current-day backend record")
-    void webhookParseToleratesBackendRecord(String file) throws Exception {
-        String json = Files.readString(webhooksPath(file));
+    };
+
+    static Stream<Arguments> chargeRecordsAtEveryVersion() throws IOException {
+        List<Arguments> out = new ArrayList<>();
+        for (String version : fixtureVersions()) {
+            for (String file : CHARGE_RECORDS) {
+                out.add(Arguments.of(version, file));
+            }
+        }
+        return out.stream();
+    }
+
+    @ParameterizedTest(name = "webhook.parse tolerates {1} at {0}")
+    @MethodSource("chargeRecordsAtEveryVersion")
+    @DisplayName("webhook.parse: tolerates a backend record at every supported version")
+    void webhookParseToleratesBackendRecord(String version, String file) throws Exception {
+        String json = Files.readString(webhooksPath(version, file));
 
         Object result = Webhook.parse(json);
         assertInstanceOf(ChargeMessage.class, result, file);
 
         ChargeMessage charge = (ChargeMessage) result;
-        assertEquals(EXPECTED_ID, charge.getId(), file);
-        assertEquals(EXPECTED_CUSTOMER, charge.getCustomer(), file);
+        assertEquals(EXPECTED_ID, charge.getId(), file + " at " + version);
+        assertEquals(EXPECTED_CUSTOMER, charge.getCustomer(), file + " at " + version);
     }
 
     // Event-type breadth beyond ChargeMessage. CONTRACT_ACTIVATED decodes to a ContractMessage
@@ -159,13 +177,14 @@ class CompatSuite {
     // reference to a class absent from an older jar would break that version's whole compilation —
     // this suite binds at compile time and starts at 1.1.3. It stays covered by the Node harness,
     // whose runtime binding tolerates it (Ruby and Python omit it too).
-    @Test
-    @DisplayName("webhook.parse: decodes a CONTRACT_ACTIVATED record")
-    void webhookParseDecodesContractActivated() throws Exception {
-        String json = Files.readString(webhooksPath("contract_activated.json"));
+    @ParameterizedTest(name = "webhook.parse decodes contract_activated.json at {0}")
+    @MethodSource("fixtureVersions")
+    @DisplayName("webhook.parse: decodes a CONTRACT_ACTIVATED record at every supported version")
+    void webhookParseDecodesContractActivated(String version) throws Exception {
+        String json = Files.readString(webhooksPath(version, "contract_activated.json"));
 
         Object result = Webhook.parse(json);
-        assertInstanceOf(ContractMessage.class, result, "contract_activated.json");
+        assertInstanceOf(ContractMessage.class, result, "contract_activated.json at " + version);
         assertEquals(EXPECTED_CUSTOMER, ((ContractMessage) result).getCustomer());
     }
 
@@ -176,7 +195,13 @@ class CompatSuite {
     @ValueSource(ints = {0, 1, 2, 3, 4, 5, 6})
     @DisplayName("webhook.parse: decodes every ChargeMessage.Status value")
     void webhookParseDecodesStatusEnum(int status) throws Exception {
-        String json = injectStatus(Files.readString(webhooksPath("charge_updated.json")), status);
+        for (String version : fixtureVersions()) {
+            webhookParseDecodesStatusEnumAt(version, status);
+        }
+    }
+
+    private void webhookParseDecodesStatusEnumAt(String version, int status) throws Exception {
+        String json = injectStatus(Files.readString(webhooksPath(version, "charge_updated.json")), status);
 
         Object result = Webhook.parse(json);
         assertInstanceOf(ChargeMessage.class, result);
@@ -199,15 +224,35 @@ class CompatSuite {
                 + stripped.substring(open + 1);
     }
 
-    // Fixtures live in the language-neutral packages/sdk/compatibility/webhooks/ directory so every
-    // SDK harness consumes the same backend records. The version pom passes the directory via the
-    // compat.webhooks.dir system property; the fallback resolves it relative to the module dir.
-    private static Path webhooksPath(String file) {
+    // Fixtures live in the language-neutral packages/sdk/compatibility/webhooks/ tree so every SDK
+    // harness consumes the same backend records: head/ holds the current shape and each
+    // <YYYY-MM-DD>/ directory the shape an endpoint pinned to that API version receives. The version
+    // pom passes the tree root via the compat.webhooks.dir system property; the fallback resolves it
+    // relative to the module dir.
+    private static Path webhooksDir() {
         String dir = System.getProperty("compat.webhooks.dir");
         if (dir == null || dir.isEmpty()) {
             dir = Path.of("..", "..", "..", "compatibility", "webhooks").toString();
         }
-        return Path.of(dir, file);
+        return Path.of(dir);
+    }
+
+    private static Path webhooksPath(String version, String file) {
+        return webhooksDir().resolve(version).resolve(file);
+    }
+
+    // The version directories are listed from disk rather than read from manifest.json so this
+    // suite, like injectStatus above, needs no JSON dependency on the pinned SDK's classpath.
+    static List<String> fixtureVersions() throws IOException {
+        List<String> versions = new ArrayList<>();
+        versions.add("head");
+        try (Stream<Path> entries = Files.list(webhooksDir())) {
+            entries.map(p -> p.getFileName().toString())
+                    .filter(name -> name.matches("\\d{4}-\\d{2}-\\d{2}"))
+                    .sorted()
+                    .forEach(versions::add);
+        }
+        return versions;
     }
 
     private static String hmacSha256Hex(String secret, String data) throws Exception {
