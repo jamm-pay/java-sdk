@@ -399,14 +399,14 @@ package, but no client method accepts or returns them.
 <dependency>
   <groupId>jp.jamm-pay</groupId>
   <artifactId>jamm-sdk</artifactId>
-  <version>3.1.0</version>
+  <version>3.0.0</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'jp.jamm-pay:jamm-sdk:3.1.0'
+implementation 'jp.jamm-pay:jamm-sdk:3.0.0'
 ```
 
 The SDK is compiled to Java 8 bytecode, so it runs on Java 8 and any newer runtime (Java 11, 17, 21, …).
