@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Every request to the Jamm API now carries a `Jamm-API-Version` header pinning it to the dated API version this SDK was built against, exposed as `ApiVersion.VALUE`. It is not configurable: upgrading the SDK is how you opt into a newer API version, and until you do, Jamm keeps answering in the shape this build expects. OAuth2 token requests are excluded: they go to the identity service, which is not versioned.
+- Every request to the Jamm API now carries a `Jamm-API-Version` header pinning it to the dated API version this SDK was built against, exposed as `ApiVersion.VALUE`. It defaults to that version; set `.apiVersion(...)` on the builder, or pass it as the last argument of `Jamm.configure`, to pin an older one. A newer one throws `IllegalArgumentException`: upgrade the SDK to use it. OAuth2 token requests are excluded: they go to the identity service, which is not versioned.
 
 ### Changed
 

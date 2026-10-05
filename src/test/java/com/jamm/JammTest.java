@@ -35,6 +35,37 @@ class JammTest {
     }
 
     @Test
+    void testConfigurePinsTheApiVersion() {
+        Jamm.configure("test-id", "test-secret", Environment.PRODUCTION, false, "2026-01-01");
+
+        assertEquals("2026-01-01", Jamm.getClient().getApiVersion());
+    }
+
+    @Test
+    void testConfigureWithEnvironmentStringPinsTheApiVersion() {
+        Jamm.configure("test-id", "test-secret", "staging", false, "2026-01-01");
+
+        assertEquals("2026-01-01", Jamm.getClient().getApiVersion());
+        assertEquals(Environment.STAGING.getApiBaseUrl(), Jamm.getClient().getEnvironment().getApiBaseUrl());
+    }
+
+    @Test
+    void testConfigureDefaultsTheApiVersion() {
+        Jamm.configure("test-id", "test-secret", Environment.PRODUCTION);
+
+        assertEquals(ApiVersion.VALUE, Jamm.getClient().getApiVersion());
+    }
+
+    @Test
+    void testConfigureRejectsANewerApiVersion() {
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () ->
+                Jamm.configure("test-id", "test-secret", Environment.PRODUCTION, false, "2099-01-01"));
+
+        assertTrue(ex.getMessage().contains("is newer than this SDK supports"));
+        assertFalse(Jamm.isConfigured());
+    }
+
+    @Test
     void testConfigureWithEnvironmentString() {
         Jamm.configure("test-id", "test-secret", "staging");
 

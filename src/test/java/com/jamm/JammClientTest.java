@@ -2,6 +2,9 @@ package com.jamm;
 
 import com.jamm.config.Environment;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -172,5 +175,56 @@ class JammClientTest {
                 .build();
 
         assertNotNull(client.getHttpClient());
+    }
+
+    private static JammClient.Builder builderWithApiVersion(String apiVersion) {
+        return JammClient.builder()
+                .clientId("test-client-id")
+                .clientSecret("test-client-secret")
+                .environment(Environment.PRODUCTION)
+                .apiVersion(apiVersion);
+    }
+
+    @Test
+    void testApiVersionDefaultsToBaked() {
+        JammClient client = JammClient.builder()
+                .clientId("test-client-id")
+                .clientSecret("test-client-secret")
+                .environment(Environment.PRODUCTION)
+                .build();
+
+        assertEquals(ApiVersion.VALUE, client.getApiVersion());
+    }
+
+    @ParameterizedTest
+    @NullAndEmptySource
+    void testApiVersionNullOrEmptyFallsBackToBaked(String apiVersion) {
+        assertEquals(ApiVersion.VALUE, builderWithApiVersion(apiVersion).build().getApiVersion());
+    }
+
+    @Test
+    void testApiVersionOlderIsAllowed() {
+        assertEquals("2026-01-01", builderWithApiVersion("2026-01-01").build().getApiVersion());
+    }
+
+    @Test
+    void testApiVersionSameAsBakedIsAllowed() {
+        assertEquals(ApiVersion.VALUE, builderWithApiVersion(ApiVersion.VALUE).build().getApiVersion());
+    }
+
+    @Test
+    void testApiVersionNewerIsRejected() {
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () ->
+                builderWithApiVersion("2099-01-01").build());
+        assertEquals("apiVersion 2099-01-01 is newer than this SDK supports (" + ApiVersion.VALUE
+                + "); upgrade the SDK to use it", ex.getMessage());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"2026-8-26", "latest", "2026-02-30", "+2026-01-01", "20260-01-01", "2026-01-01 "})
+    void testApiVersionMalformedIsRejected(String apiVersion) {
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () ->
+                builderWithApiVersion(apiVersion).build());
+        assertEquals("invalid apiVersion \"" + apiVersion + "\": expected YYYY-MM-DD", ex.getMessage());
     }
 }

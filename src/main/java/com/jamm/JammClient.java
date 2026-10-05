@@ -34,6 +34,7 @@ public class JammClient implements AutoCloseable {
     private final long connectTimeoutMs;
     private final long readTimeoutMs;
     private final int maxRetries;
+    private final String apiVersion;
 
     private JammClient(Builder builder) {
         this.clientId = builder.clientId;
@@ -42,6 +43,7 @@ public class JammClient implements AutoCloseable {
         this.connectTimeoutMs = builder.connectTimeoutMs;
         this.readTimeoutMs = builder.readTimeoutMs;
         this.maxRetries = builder.maxRetries;
+        this.apiVersion = ApiVersionResolver.resolve(builder.apiVersion);
 
         // Select OAuth URL based on mode
         String oauthUrl = platformMode
@@ -66,7 +68,8 @@ public class JammClient implements AutoCloseable {
                 maxRetries,
                 builder.retryInitialDelayMs,
                 builder.retryMaxDelayMs,
-                platformMode
+                platformMode,
+                apiVersion
         );
 
 
@@ -157,6 +160,15 @@ public class JammClient implements AutoCloseable {
     }
 
     /**
+     * Gets the API version sent in the {@code Jamm-API-Version} header.
+     *
+     * @return the API version
+     */
+    public String getApiVersion() {
+        return apiVersion;
+    }
+
+    /**
      * Closes underlying resources used by this client.
      * <p>
      * This will release HTTP connection pools and executor services held
@@ -207,6 +219,7 @@ public class JammClient implements AutoCloseable {
         private int maxRetries = 0;
         private long retryInitialDelayMs = 1000;  // 1 second
         private long retryMaxDelayMs = 30_000;    // 30 seconds
+        private String apiVersion;
 
         /**
          * Sets the OAuth client ID.
@@ -320,10 +333,23 @@ public class JammClient implements AutoCloseable {
         }
 
         /**
+         * Sets the API version (YYYY-MM-DD) sent in the {@code Jamm-API-Version} header.
+         * Defaults to {@link ApiVersion#VALUE}; older versions are allowed, newer ones
+         * require upgrading the SDK.
+         *
+         * @param apiVersion the API version, or null/empty for the SDK default
+         * @return this builder
+         */
+        public Builder apiVersion(String apiVersion) {
+            this.apiVersion = apiVersion;
+            return this;
+        }
+
+        /**
          * Builds the JammClient instance.
          *
          * @return a new JammClient
-         * @throws IllegalArgumentException if required parameters are missing
+         * @throws IllegalArgumentException if required parameters are missing or apiVersion is invalid
          */
         public JammClient build() {
             if (clientId == null || clientId.isEmpty()) {

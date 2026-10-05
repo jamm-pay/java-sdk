@@ -8,6 +8,7 @@ import com.google.protobuf.Message;
 import com.google.protobuf.MessageOrBuilder;
 import com.google.protobuf.util.JsonFormat;
 import com.jamm.ApiVersion;
+import com.jamm.ApiVersionResolver;
 import com.jamm.Jamm;
 import com.jamm.auth.OAuthProvider;
 import com.jamm.errors.ApiException;
@@ -49,6 +50,7 @@ public class JammHttpClient implements AutoCloseable {
     private final long retryInitialDelayMs;
     private final long retryMaxDelayMs;
     private final boolean platformMode;
+    private final String apiVersion;
 
     /**
      * Creates a new JammHttpClient.
@@ -65,6 +67,27 @@ public class JammHttpClient implements AutoCloseable {
                           long connectTimeoutMs, long readTimeoutMs,
                           int maxRetries, long retryInitialDelayMs, long retryMaxDelayMs,
                           boolean platformMode) {
+        this(oauthProvider, apiBaseUrl, connectTimeoutMs, readTimeoutMs, maxRetries,
+                retryInitialDelayMs, retryMaxDelayMs, platformMode, ApiVersion.VALUE);
+    }
+
+    /**
+     * Creates a new JammHttpClient that sends the given {@code Jamm-API-Version}.
+     *
+     * @param oauthProvider      the OAuth provider for authentication
+     * @param apiBaseUrl         the API base URL
+     * @param connectTimeoutMs   connection timeout in milliseconds
+     * @param readTimeoutMs      read timeout in milliseconds
+     * @param maxRetries         maximum number of retry attempts
+     * @param retryInitialDelayMs initial delay between retries in milliseconds
+     * @param retryMaxDelayMs    maximum delay between retries in milliseconds
+     * @param platformMode       whether platform mode is enabled
+     * @param apiVersion         the API version sent on every request
+     */
+    public JammHttpClient(OAuthProvider oauthProvider, String apiBaseUrl,
+                          long connectTimeoutMs, long readTimeoutMs,
+                          int maxRetries, long retryInitialDelayMs, long retryMaxDelayMs,
+                          boolean platformMode, String apiVersion) {
         if (oauthProvider == null) {
             throw new IllegalArgumentException("oauthProvider must not be null");
         }
@@ -97,6 +120,8 @@ public class JammHttpClient implements AutoCloseable {
         this.retryInitialDelayMs = retryInitialDelayMs;
         this.retryMaxDelayMs = retryMaxDelayMs;
         this.platformMode = platformMode;
+        // Validated here too: this constructor is public, so the builder is not the only way in.
+        this.apiVersion = ApiVersionResolver.resolve(apiVersion);
 
         // Non-proto bodies/responses only (proto uses JsonFormat). gson ignores unknown
         // response fields by default; disableHtmlEscaping keeps &, <, > literal in request JSON.
@@ -293,7 +318,7 @@ public class JammHttpClient implements AutoCloseable {
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setRequestProperty("Accept", "application/json");
             conn.setRequestProperty("Jamm-SDK-Version", "java:" + Jamm.VERSION);
-            conn.setRequestProperty("Jamm-API-Version", ApiVersion.VALUE);
+            conn.setRequestProperty("Jamm-API-Version", apiVersion);
             if (merchant != null) {
                 conn.setRequestProperty(MERCHANT_HEADER, merchant);
             }

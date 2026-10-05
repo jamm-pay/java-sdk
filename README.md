@@ -422,10 +422,22 @@ complete 7-jar runtime set and versions.
 
 ## API version
 
-Every request to the Jamm API carries a `Jamm-API-Version` header pinning it to the
-dated API version this SDK was built against, exposed as `ApiVersion.VALUE`. It is not
-configurable: upgrading the SDK is how you opt into a newer API version, and
-until you do, Jamm keeps answering in the shape this build expects.
+Every request to the Jamm API carries a `Jamm-API-Version` header. It defaults to the
+dated API version this SDK was built against, exposed as `ApiVersion.VALUE`. You can pin
+an older version with `.apiVersion(...)` on the builder; a newer one requires upgrading
+the SDK, and `build()` throws `IllegalArgumentException` for it or for a malformed date. Null or empty means `ApiVersion.VALUE`.
+
+```java
+JammClient client = JammClient.builder()
+        .clientId("your-client-id")
+        .clientSecret("your-client-secret")
+        .apiVersion("2026-08-26")
+        .build();
+```
+
+With the global configuration, pass it as the last argument:
+`Jamm.configure("your-client-id", "your-client-secret", Environment.PRODUCTION, false, "2026-08-26")`.
+The API rejects a version it no longer serves; the error lists the versions it does. Responses to a pinned older version follow that version's shape, so fields added since come back empty in this SDK's types.
 
 OAuth2 token requests are excluded: they go to the identity service, which is
 not versioned.

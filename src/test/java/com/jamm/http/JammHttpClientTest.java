@@ -85,6 +85,48 @@ class JammHttpClientTest {
         assertEquals(ApiVersion.VALUE, request.getHeader("Jamm-API-Version"), "Jamm-API-Version should be the baked API version");
     }
 
+    @Test
+    void testConfiguredApiVersionHeader() throws InterruptedException {
+        String baseUrl = mockServer.url("").toString();
+        JammHttpClient client = new JammHttpClient(
+                mockOAuthProvider, baseUrl, 5000, 5000, 0, 1000, 30000, false, "2026-01-01");
+        mockServer.enqueue(new MockResponse()
+                .setResponseCode(200)
+                .setHeader("Content-Type", "application/json")
+                .setBody("{\"id\":\"123\"}"));
+
+        client.get("/api/test", TestResponse.class);
+
+        RecordedRequest request = mockServer.takeRequest(1, TimeUnit.SECONDS);
+        assertNotNull(request);
+        assertEquals("2026-01-01", request.getHeader("Jamm-API-Version"));
+    }
+
+    @Test
+    void testConstructorRejectsNewerApiVersion() {
+        String baseUrl = mockServer.url("").toString();
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () ->
+                new JammHttpClient(mockOAuthProvider, baseUrl, 5000, 5000, 0, 1000, 30000, false, "2099-01-01"));
+        assertTrue(ex.getMessage().contains("is newer than this SDK supports"));
+    }
+
+    @Test
+    void testConstructorDefaultsEmptyApiVersion() throws InterruptedException {
+        String baseUrl = mockServer.url("").toString();
+        JammHttpClient client = new JammHttpClient(
+                mockOAuthProvider, baseUrl, 5000, 5000, 0, 1000, 30000, false, "");
+        mockServer.enqueue(new MockResponse()
+                .setResponseCode(200)
+                .setHeader("Content-Type", "application/json")
+                .setBody("{\"id\":\"123\"}"));
+
+        client.get("/api/test", TestResponse.class);
+
+        RecordedRequest request = mockServer.takeRequest(1, TimeUnit.SECONDS);
+        assertNotNull(request);
+        assertEquals(ApiVersion.VALUE, request.getHeader("Jamm-API-Version"));
+    }
+
     // POST tests
     @Test
     void testPostRequest() throws InterruptedException {

@@ -80,12 +80,28 @@ public final class Jamm {
      */
     public static void configure(String clientId, String clientSecret,
                                  Environment environment, boolean platform) {
+        configure(clientId, clientSecret, environment, platform, null);
+    }
+
+    /**
+     * Configures the global default client with a pinned API version.
+     *
+     * @param clientId     the OAuth client ID
+     * @param clientSecret the OAuth client secret
+     * @param environment  the API environment
+     * @param platform     true to enable platform mode
+     * @param apiVersion   the API version (YYYY-MM-DD), no newer than {@link ApiVersion#VALUE}; null for the default
+     * @throws IllegalArgumentException if apiVersion is malformed or newer than {@link ApiVersion#VALUE}
+     */
+    public static void configure(String clientId, String clientSecret,
+                                 Environment environment, boolean platform, String apiVersion) {
         synchronized (LOCK) {
             defaultClient = JammClient.builder()
                     .clientId(clientId)
                     .clientSecret(clientSecret)
                     .environment(environment)
                     .platform(platform)
+                    .apiVersion(apiVersion)
                     .build();
         }
     }
@@ -112,6 +128,21 @@ public final class Jamm {
     public static void configure(String clientId, String clientSecret,
                                  String envName, boolean platform) {
         configure(clientId, clientSecret, Environment.fromString(envName), platform);
+    }
+
+    /**
+     * Configures the global default client with environment string and a pinned API version.
+     *
+     * @param clientId     the OAuth client ID
+     * @param clientSecret the OAuth client secret
+     * @param envName      the environment name (e.g., "production", "staging", "local")
+     * @param platform     true to enable platform mode
+     * @param apiVersion   the API version (YYYY-MM-DD), no newer than {@link ApiVersion#VALUE}; null for the default
+     * @throws IllegalArgumentException if apiVersion is malformed or newer than {@link ApiVersion#VALUE}
+     */
+    public static void configure(String clientId, String clientSecret,
+                                 String envName, boolean platform, String apiVersion) {
+        configure(clientId, clientSecret, Environment.fromString(envName), platform, apiVersion);
     }
 
     /**
