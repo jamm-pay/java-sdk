@@ -439,6 +439,14 @@ With the global configuration, pass it as the last argument:
 `Jamm.configure("your-client-id", "your-client-secret", Environment.PRODUCTION, false, "2026-08-26")`.
 The API rejects a version it no longer serves; the error lists the versions it does. Responses to a pinned older version follow that version's shape, so fields added since come back empty in this SDK's types.
 
+Every versioned response echoes what served it in two headers:
+`Jamm-API-Version` is the version, and `Jamm-API-Version-Source` is how it was
+chosen: `header` (the version this SDK sent), `pin` (your account's pinned
+version), `default` (no header, and no pin we could read), or `forced` (Jamm
+temporarily served its newest shape, which no dated version describes, so
+`Jamm-API-Version` is omitted). A request rejected before a version is chosen
+carries neither.
+
 OAuth2 token requests are excluded: they go to the identity service, which is
 not versioned.
 
