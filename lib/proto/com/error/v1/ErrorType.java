@@ -259,6 +259,26 @@ public enum ErrorType
   ERROR_TYPE_PAYMENT_CHARGE_OVER_DAILY_LIMIT(1013),
   /**
    * <pre>
+   * Bridged Settlement Open: the contract or bank account still backs a bridged
+   * charge that is being collected, so bridging cannot be turned off and the
+   * bank account cannot be deleted yet. Clients read open_count from GetContract.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_PAYMENT_BRIDGED_SETTLEMENT_OPEN = 1014;</code>
+   */
+  ERROR_TYPE_PAYMENT_BRIDGED_SETTLEMENT_OPEN(1014),
+  /**
+   * <pre>
+   * Bridging Not Available: the bridging setting is not offered for this
+   * contract (bridging is paused, or the merchant or customer is not rolled
+   * out). Clients hide the setting.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_PAYMENT_BRIDGING_NOT_AVAILABLE = 1015;</code>
+   */
+  ERROR_TYPE_PAYMENT_BRIDGING_NOT_AVAILABLE(1015),
+  /**
+   * <pre>
    * CSV Payment-related errors (1100-1199)
    * CSV Validation Failed: The CSV data validation failed, e.g., invalid format, missing fields.
    * </pre>
@@ -380,6 +400,31 @@ public enum ErrorType
    * <code>ERROR_TYPE_TOTP_DISABLE_FAILED = 1204;</code>
    */
   ERROR_TYPE_TOTP_DISABLE_FAILED(1204),
+  /**
+   * <pre>
+   * Bridged charge errors (1300-1399)
+   * Refund Bridged Receivable Open: a partial refund was requested on a bridged charge whose collection is still open. Only a full refund is possible until it settles.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_REFUND_BRIDGED_RECEIVABLE_OPEN = 1300;</code>
+   */
+  ERROR_TYPE_REFUND_BRIDGED_RECEIVABLE_OPEN(1300),
+  /**
+   * <pre>
+   * Bridged Collection In Flight: the bridged charge is being collected, reconciled or finalised. Retry once it has settled.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_BRIDGED_COLLECTION_IN_FLIGHT = 1301;</code>
+   */
+  ERROR_TYPE_BRIDGED_COLLECTION_IN_FLIGHT(1301),
+  /**
+   * <pre>
+   * Bridged Settlement Defaulted: the bridged charge was never collected and has been written off. Jamm operations handle any cancel or refund.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_BRIDGED_SETTLEMENT_DEFAULTED = 1302;</code>
+   */
+  ERROR_TYPE_BRIDGED_SETTLEMENT_DEFAULTED(1302),
   UNRECOGNIZED(-1),
   ;
 
@@ -602,6 +647,26 @@ public enum ErrorType
   public static final int ERROR_TYPE_PAYMENT_CHARGE_OVER_DAILY_LIMIT_VALUE = 1013;
   /**
    * <pre>
+   * Bridged Settlement Open: the contract or bank account still backs a bridged
+   * charge that is being collected, so bridging cannot be turned off and the
+   * bank account cannot be deleted yet. Clients read open_count from GetContract.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_PAYMENT_BRIDGED_SETTLEMENT_OPEN = 1014;</code>
+   */
+  public static final int ERROR_TYPE_PAYMENT_BRIDGED_SETTLEMENT_OPEN_VALUE = 1014;
+  /**
+   * <pre>
+   * Bridging Not Available: the bridging setting is not offered for this
+   * contract (bridging is paused, or the merchant or customer is not rolled
+   * out). Clients hide the setting.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_PAYMENT_BRIDGING_NOT_AVAILABLE = 1015;</code>
+   */
+  public static final int ERROR_TYPE_PAYMENT_BRIDGING_NOT_AVAILABLE_VALUE = 1015;
+  /**
+   * <pre>
    * CSV Payment-related errors (1100-1199)
    * CSV Validation Failed: The CSV data validation failed, e.g., invalid format, missing fields.
    * </pre>
@@ -722,6 +787,31 @@ public enum ErrorType
    * <code>ERROR_TYPE_TOTP_DISABLE_FAILED = 1204;</code>
    */
   public static final int ERROR_TYPE_TOTP_DISABLE_FAILED_VALUE = 1204;
+  /**
+   * <pre>
+   * Bridged charge errors (1300-1399)
+   * Refund Bridged Receivable Open: a partial refund was requested on a bridged charge whose collection is still open. Only a full refund is possible until it settles.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_REFUND_BRIDGED_RECEIVABLE_OPEN = 1300;</code>
+   */
+  public static final int ERROR_TYPE_REFUND_BRIDGED_RECEIVABLE_OPEN_VALUE = 1300;
+  /**
+   * <pre>
+   * Bridged Collection In Flight: the bridged charge is being collected, reconciled or finalised. Retry once it has settled.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_BRIDGED_COLLECTION_IN_FLIGHT = 1301;</code>
+   */
+  public static final int ERROR_TYPE_BRIDGED_COLLECTION_IN_FLIGHT_VALUE = 1301;
+  /**
+   * <pre>
+   * Bridged Settlement Defaulted: the bridged charge was never collected and has been written off. Jamm operations handle any cancel or refund.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_BRIDGED_SETTLEMENT_DEFAULTED = 1302;</code>
+   */
+  public static final int ERROR_TYPE_BRIDGED_SETTLEMENT_DEFAULTED_VALUE = 1302;
 
 
   public final int getNumber() {
@@ -773,6 +863,8 @@ public enum ErrorType
       case 1011: return ERROR_TYPE_PAYMENT_SERVICE_DISABLED;
       case 1012: return ERROR_TYPE_PAYMENT_BANK_UNAVAILABLE;
       case 1013: return ERROR_TYPE_PAYMENT_CHARGE_OVER_DAILY_LIMIT;
+      case 1014: return ERROR_TYPE_PAYMENT_BRIDGED_SETTLEMENT_OPEN;
+      case 1015: return ERROR_TYPE_PAYMENT_BRIDGING_NOT_AVAILABLE;
       case 1100: return ERROR_TYPE_CSV_VALIDATION_FAILED;
       case 1101: return ERROR_TYPE_CSV_TOTP_REQUIRED;
       case 1102: return ERROR_TYPE_CSV_TOTP_INVALID;
@@ -788,6 +880,9 @@ public enum ErrorType
       case 1202: return ERROR_TYPE_TOTP_NOT_ENABLED;
       case 1203: return ERROR_TYPE_TOTP_SETUP_INVALID;
       case 1204: return ERROR_TYPE_TOTP_DISABLE_FAILED;
+      case 1300: return ERROR_TYPE_REFUND_BRIDGED_RECEIVABLE_OPEN;
+      case 1301: return ERROR_TYPE_BRIDGED_COLLECTION_IN_FLIGHT;
+      case 1302: return ERROR_TYPE_BRIDGED_SETTLEMENT_DEFAULTED;
       default: return null;
     }
   }
