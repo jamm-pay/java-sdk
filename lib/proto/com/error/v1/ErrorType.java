@@ -79,6 +79,7 @@ public enum ErrorType
    * <pre>
    * Account-related errors (101 - 300)
    * Triggered during account lifecycle events (creation, modification, deletion, bank registration).
+   * Errors about the bank account itself (holder name, review state) are in the Bank account block (1400 - 1499).
    * Failed: The account creation, modification, deletion, or bank registration failed.
    * </pre>
    *
@@ -97,6 +98,14 @@ public enum ErrorType
    * <code>ERROR_TYPE_ACCOUNT_BANK_REGISTRATION_FAILED = 104;</code>
    */
   ERROR_TYPE_ACCOUNT_BANK_REGISTRATION_FAILED(104),
+  /**
+   * <pre>
+   * Kana Identity Locked: the user's kana name is locked and the request tried to change it.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_ACCOUNT_KANA_IDENTITY_LOCKED = 105;</code>
+   */
+  ERROR_TYPE_ACCOUNT_KANA_IDENTITY_LOCKED(105),
   /**
    * <pre>
    * KYC-related errors (301 - 400)
@@ -435,6 +444,23 @@ public enum ErrorType
    * <code>ERROR_TYPE_BRIDGED_SETTLEMENT_DEFAULTED = 1302;</code>
    */
   ERROR_TYPE_BRIDGED_SETTLEMENT_DEFAULTED(1302),
+  /**
+   * <pre>
+   * Bank account errors (1400-1499)
+   * Bank Account Name Mismatch: the bank account holder name does not match the user's kana identity.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_BANK_ACCOUNT_NAME_MISMATCH = 1400;</code>
+   */
+  ERROR_TYPE_BANK_ACCOUNT_NAME_MISMATCH(1400),
+  /**
+   * <pre>
+   * Bank Account In Review: the user has a bank account under review, so no new bank can be added.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_BANK_ACCOUNT_IN_REVIEW = 1401;</code>
+   */
+  ERROR_TYPE_BANK_ACCOUNT_IN_REVIEW(1401),
   UNRECOGNIZED(-1),
   ;
 
@@ -477,6 +503,7 @@ public enum ErrorType
    * <pre>
    * Account-related errors (101 - 300)
    * Triggered during account lifecycle events (creation, modification, deletion, bank registration).
+   * Errors about the bank account itself (holder name, review state) are in the Bank account block (1400 - 1499).
    * Failed: The account creation, modification, deletion, or bank registration failed.
    * </pre>
    *
@@ -495,6 +522,14 @@ public enum ErrorType
    * <code>ERROR_TYPE_ACCOUNT_BANK_REGISTRATION_FAILED = 104;</code>
    */
   public static final int ERROR_TYPE_ACCOUNT_BANK_REGISTRATION_FAILED_VALUE = 104;
+  /**
+   * <pre>
+   * Kana Identity Locked: the user's kana name is locked and the request tried to change it.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_ACCOUNT_KANA_IDENTITY_LOCKED = 105;</code>
+   */
+  public static final int ERROR_TYPE_ACCOUNT_KANA_IDENTITY_LOCKED_VALUE = 105;
   /**
    * <pre>
    * KYC-related errors (301 - 400)
@@ -832,6 +867,23 @@ public enum ErrorType
    * <code>ERROR_TYPE_BRIDGED_SETTLEMENT_DEFAULTED = 1302;</code>
    */
   public static final int ERROR_TYPE_BRIDGED_SETTLEMENT_DEFAULTED_VALUE = 1302;
+  /**
+   * <pre>
+   * Bank account errors (1400-1499)
+   * Bank Account Name Mismatch: the bank account holder name does not match the user's kana identity.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_BANK_ACCOUNT_NAME_MISMATCH = 1400;</code>
+   */
+  public static final int ERROR_TYPE_BANK_ACCOUNT_NAME_MISMATCH_VALUE = 1400;
+  /**
+   * <pre>
+   * Bank Account In Review: the user has a bank account under review, so no new bank can be added.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_BANK_ACCOUNT_IN_REVIEW = 1401;</code>
+   */
+  public static final int ERROR_TYPE_BANK_ACCOUNT_IN_REVIEW_VALUE = 1401;
 
 
   public final int getNumber() {
@@ -865,6 +917,7 @@ public enum ErrorType
       case 102: return ERROR_TYPE_ACCOUNT_MODIFICATION_FAILED;
       case 103: return ERROR_TYPE_ACCOUNT_DELETION_FAILED;
       case 104: return ERROR_TYPE_ACCOUNT_BANK_REGISTRATION_FAILED;
+      case 105: return ERROR_TYPE_ACCOUNT_KANA_IDENTITY_LOCKED;
       case 301: return ERROR_TYPE_KYC_REJECTED;
       case 500: return ERROR_TYPE_NOTIFICATION_WEBHOOK_FAILED;
       case 501: return ERROR_TYPE_NOTIFICATION_EMAIL_FAILED;
@@ -904,6 +957,8 @@ public enum ErrorType
       case 1300: return ERROR_TYPE_REFUND_BRIDGED_RECEIVABLE_OPEN;
       case 1301: return ERROR_TYPE_BRIDGED_COLLECTION_IN_FLIGHT;
       case 1302: return ERROR_TYPE_BRIDGED_SETTLEMENT_DEFAULTED;
+      case 1400: return ERROR_TYPE_BANK_ACCOUNT_NAME_MISMATCH;
+      case 1401: return ERROR_TYPE_BANK_ACCOUNT_IN_REVIEW;
       default: return null;
     }
   }
