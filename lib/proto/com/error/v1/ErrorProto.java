@@ -35,7 +35,7 @@ public final class ErrorProto extends com.google.protobuf.GeneratedFile {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024error/v1/error.proto\022\010error.v1*\247\016\n\tErr" +
+      "\n\024error/v1/error.proto\022\010error.v1*\317\016\n\tErr" +
       "orType\022\032\n\026ERROR_TYPE_UNSPECIFIED\020\000\022\032\n\026ER" +
       "ROR_TYPE_AUTH_FAILED\020\001\022\034\n\030ERROR_TYPE_AUT" +
       "H_REJECTED\020\002\022&\n\"ERROR_TYPE_ACCOUNT_CREAT" +
@@ -64,7 +64,8 @@ public final class ErrorProto extends com.google.protobuf.GeneratedFile {
       "PE_PAYMENT_CHARGE_OVER_DAILY_LIMIT\020\365\007\022/\n" +
       "*ERROR_TYPE_PAYMENT_BRIDGED_SETTLEMENT_O" +
       "PEN\020\366\007\022.\n)ERROR_TYPE_PAYMENT_BRIDGING_NO" +
-      "T_AVAILABLE\020\367\007\022%\n ERROR_TYPE_CSV_VALIDAT" +
+      "T_AVAILABLE\020\367\007\022&\n!ERROR_TYPE_PAYMENT_CHA" +
+      "RGE_PENDING\020\371\007\022%\n ERROR_TYPE_CSV_VALIDAT" +
       "ION_FAILED\020\314\010\022!\n\034ERROR_TYPE_CSV_TOTP_REQ" +
       "UIRED\020\315\010\022 \n\033ERROR_TYPE_CSV_TOTP_INVALID\020" +
       "\316\010\022 \n\033ERROR_TYPE_CSV_TOTP_EXPIRED\020\317\010\022\037\n\032" +

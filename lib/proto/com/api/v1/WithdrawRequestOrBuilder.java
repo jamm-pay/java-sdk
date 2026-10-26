@@ -65,4 +65,39 @@ public interface WithdrawRequestOrBuilder extends
    * <code>.api.v1.InitialCharge charge = 2 [json_name = "charge"];</code>
    */
   com.api.v1.InitialChargeOrBuilder getChargeOrBuilder();
+
+  /**
+   * <pre>
+   * Merchant-supplied idempotency key for retry safety. Not enabled yet: a request with a key
+   * is rejected with 400.
+   * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+   * </pre>
+   *
+   * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey"];</code>
+   * @return Whether the idempotencyKey field is set.
+   */
+  boolean hasIdempotencyKey();
+  /**
+   * <pre>
+   * Merchant-supplied idempotency key for retry safety. Not enabled yet: a request with a key
+   * is rejected with 400.
+   * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+   * </pre>
+   *
+   * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey"];</code>
+   * @return The idempotencyKey.
+   */
+  java.lang.String getIdempotencyKey();
+  /**
+   * <pre>
+   * Merchant-supplied idempotency key for retry safety. Not enabled yet: a request with a key
+   * is rejected with 400.
+   * ASCII only, 1-255 chars matching ^[a-zA-Z0-9_&#92;-]{1,255}$.
+   * </pre>
+   *
+   * <code>optional string idempotency_key = 3 [json_name = "idempotencyKey"];</code>
+   * @return The bytes for idempotencyKey.
+   */
+  com.google.protobuf.ByteString
+      getIdempotencyKeyBytes();
 }

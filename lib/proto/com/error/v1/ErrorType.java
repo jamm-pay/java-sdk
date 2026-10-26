@@ -279,6 +279,16 @@ public enum ErrorType
   ERROR_TYPE_PAYMENT_BRIDGING_NOT_AVAILABLE(1015),
   /**
    * <pre>
+   * Charge Pending: a sync charge's outcome is not known yet and it was not marked failed.
+   * Retry only with the same idempotency_key, or wait for the charge webhook.
+   * The ChargePendingDetail detail carries the charge ID. Not returned yet. Not a triggerError value.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_PAYMENT_CHARGE_PENDING = 1017;</code>
+   */
+  ERROR_TYPE_PAYMENT_CHARGE_PENDING(1017),
+  /**
+   * <pre>
    * CSV Payment-related errors (1100-1199)
    * CSV Validation Failed: The CSV data validation failed, e.g., invalid format, missing fields.
    * </pre>
@@ -667,6 +677,16 @@ public enum ErrorType
   public static final int ERROR_TYPE_PAYMENT_BRIDGING_NOT_AVAILABLE_VALUE = 1015;
   /**
    * <pre>
+   * Charge Pending: a sync charge's outcome is not known yet and it was not marked failed.
+   * Retry only with the same idempotency_key, or wait for the charge webhook.
+   * The ChargePendingDetail detail carries the charge ID. Not returned yet. Not a triggerError value.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_PAYMENT_CHARGE_PENDING = 1017;</code>
+   */
+  public static final int ERROR_TYPE_PAYMENT_CHARGE_PENDING_VALUE = 1017;
+  /**
+   * <pre>
    * CSV Payment-related errors (1100-1199)
    * CSV Validation Failed: The CSV data validation failed, e.g., invalid format, missing fields.
    * </pre>
@@ -865,6 +885,7 @@ public enum ErrorType
       case 1013: return ERROR_TYPE_PAYMENT_CHARGE_OVER_DAILY_LIMIT;
       case 1014: return ERROR_TYPE_PAYMENT_BRIDGED_SETTLEMENT_OPEN;
       case 1015: return ERROR_TYPE_PAYMENT_BRIDGING_NOT_AVAILABLE;
+      case 1017: return ERROR_TYPE_PAYMENT_CHARGE_PENDING;
       case 1100: return ERROR_TYPE_CSV_VALIDATION_FAILED;
       case 1101: return ERROR_TYPE_CSV_TOTP_REQUIRED;
       case 1102: return ERROR_TYPE_CSV_TOTP_INVALID;

@@ -201,6 +201,11 @@ public final class PaymentProto extends com.google.protobuf.GeneratedFile {
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_api_v1_RefundResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_api_v1_ChargePendingDetail_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_api_v1_ChargePendingDetail_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -212,198 +217,203 @@ public final class PaymentProto extends com.google.protobuf.GeneratedFile {
     java.lang.String[] descriptorData = {
       "\n\024api/v1/payment.proto\022\006api.v1\032\023api/v1/c" +
       "ommon.proto\032\037google/protobuf/timestamp.p" +
-      "roto\"i\n\030OffSessionPaymentRequest\022\034\n\010cust" +
-      "omer\030\001 \001(\tB\000R\010customer\022/\n\006charge\030\002 \001(\0132\025" +
-      ".api.v1.InitialChargeB\000R\006charge\"{\n\031OffSe" +
-      "ssionPaymentResponse\022.\n\010customer\030\001 \001(\0132\020" +
-      ".api.v1.CustomerB\000R\010customer\022.\n\006charge\030\002" +
-      " \001(\0132\024.api.v1.ChargeResultB\000R\006charge\"\234\001\n" +
-      "\020AddChargeRequest\022\034\n\010customer\030\001 \001(\tB\000R\010c" +
-      "ustomer\022/\n\006charge\030\002 \001(\0132\025.api.v1.Initial" +
-      "ChargeB\000R\006charge\022,\n\010redirect\030\n \001(\0132\013.api" +
-      ".v1.URLH\000R\010redirect\210\001\001B\013\n\t_redirect\"\247\001\n\021" +
-      "AddChargeResponse\022(\n\006charge\030\001 \001(\0132\016.api." +
-      "v1.ChargeB\000R\006charge\022.\n\010customer\030\002 \001(\0132\020." +
-      "api.v1.CustomerB\000R\010customer\0228\n\014payment_l" +
-      "ink\030\003 \001(\0132\023.api.v1.PaymentLinkB\000R\013paymen" +
-      "tLink\"y\n\021GetChargesRequest\022\034\n\010customer\030\001" +
-      " \001(\tB\000R\010customer\0227\n\npagination\030\002 \001(\0132\022.a" +
-      "pi.v1.PaginationH\000R\npagination\210\001\001B\r\n\013_pa" +
-      "gination\"\252\001\n\022GetChargesResponse\022.\n\007charg" +
-      "es\030\001 \003(\0132\024.api.v1.ChargeResultR\007charges\022" +
-      ".\n\010customer\030\002 \001(\0132\020.api.v1.CustomerB\000R\010c" +
-      "ustomer\0224\n\npagination\030\003 \001(\0132\022.api.v1.Pag" +
-      "inationB\000R\npagination\",\n\020GetChargeReques" +
-      "t\022\030\n\006charge\030\002 \001(\tB\000R\006charge\"s\n\021GetCharge" +
-      "Response\022.\n\006charge\030\001 \001(\0132\024.api.v1.Charge" +
-      "ResultB\000R\006charge\022.\n\010customer\030\002 \001(\0132\020.api" +
-      ".v1.CustomerB\000R\010customer\"`\n\017WithdrawRequ" +
-      "est\022\034\n\010customer\030\001 \001(\tB\000R\010customer\022/\n\006cha" +
-      "rge\030\002 \001(\0132\025.api.v1.InitialChargeB\000R\006char" +
-      "ge\"r\n\020WithdrawResponse\022.\n\010customer\030\001 \001(\013" +
-      "2\020.api.v1.CustomerB\000R\010customer\022.\n\006charge" +
-      "\030\002 \001(\0132\024.api.v1.ChargeResultB\000R\006charge\"\251" +
-      "\001\n\024WithdrawAsyncRequest\022\034\n\010customer\030\001 \001(" +
-      "\tB\000R\010customer\022/\n\006charge\030\002 \001(\0132\025.api.v1.I" +
-      "nitialChargeB\000R\006charge\022.\n\017idempotency_ke" +
-      "y\030\003 \001(\tB\000H\000R\016idempotencyKey\210\001\001B\022\n\020_idemp" +
-      "otency_key\"\206\001\n\025WithdrawAsyncResponse\022\037\n\n" +
-      "request_id\030\001 \001(\tB\000R\trequestId\022-\n\006status\030" +
-      "\002 \001(\0162\023.api.v1.AsyncStatusB\000R\006status\022\035\n\t" +
-      "charge_id\030\003 \001(\tB\000R\010chargeId\"\262\001\n\035OffSessi" +
-      "onPaymentAsyncRequest\022\034\n\010customer\030\001 \001(\tB" +
-      "\000R\010customer\022/\n\006charge\030\002 \001(\0132\025.api.v1.Ini" +
-      "tialChargeB\000R\006charge\022.\n\017idempotency_key\030" +
-      "\003 \001(\tB\000H\000R\016idempotencyKey\210\001\001B\022\n\020_idempot" +
-      "ency_key\"\217\001\n\036OffSessionPaymentAsyncRespo" +
-      "nse\022\037\n\nrequest_id\030\001 \001(\tB\000R\trequestId\022-\n\006" +
-      "status\030\002 \001(\0162\023.api.v1.AsyncStatusB\000R\006sta" +
-      "tus\022\035\n\tcharge_id\030\003 \001(\tB\000R\010chargeId\"=\n\032Wi" +
-      "thdrawAsyncStatusRequest\022\037\n\nrequest_id\030\001" +
-      " \001(\tB\000R\trequestId\"\272\001\n\033WithdrawAsyncStatu" +
-      "sResponse\022-\n\006status\030\001 \001(\0162\023.api.v1.Async" +
-      "StatusB\000R\006status\022.\n\010customer\030\002 \001(\0132\020.api" +
-      ".v1.CustomerB\000R\010customer\0221\n\006charge\030\003 \001(\013" +
-      "2\024.api.v1.ChargeResultH\000R\006charge\210\001\001B\t\n\007_" +
-      "charge\"\206\001\n\"CreateContractWithoutChargeRe" +
-      "quest\022%\n\005buyer\030\001 \001(\0132\r.api.v1.BuyerB\000R\005b" +
-      "uyer\022,\n\010redirect\030\n \001(\0132\013.api.v1.URLH\000R\010r" +
-      "edirect\210\001\001B\013\n\t_redirect\"\277\001\n#CreateContra" +
-      "ctWithoutChargeResponse\022.\n\010contract\030\001 \001(" +
-      "\0132\020.api.v1.ContractB\000R\010contract\022.\n\010custo" +
-      "mer\030\002 \001(\0132\020.api.v1.CustomerB\000R\010customer\022" +
-      "8\n\014payment_link\030\003 \001(\0132\023.api.v1.PaymentLi" +
-      "nkB\000R\013paymentLink\"\264\001\n\037CreateContractWith" +
-      "ChargeRequest\022%\n\005buyer\030\001 \001(\0132\r.api.v1.Bu" +
-      "yerB\000R\005buyer\022/\n\006charge\030\002 \001(\0132\025.api.v1.In" +
-      "itialChargeB\000R\006charge\022,\n\010redirect\030\n \001(\0132" +
-      "\013.api.v1.URLH\000R\010redirect\210\001\001B\013\n\t_redirect" +
-      "\"\346\001\n CreateContractWithChargeResponse\022.\n" +
-      "\010contract\030\001 \001(\0132\020.api.v1.ContractB\000R\010con" +
-      "tract\022(\n\006charge\030\002 \001(\0132\016.api.v1.ChargeB\000R" +
-      "\006charge\022.\n\010customer\030\003 \001(\0132\020.api.v1.Custo" +
-      "merB\000R\010customer\0228\n\014payment_link\030\004 \001(\0132\023." +
-      "api.v1.PaymentLinkB\000R\013paymentLink\"u\n\003URL" +
-      "\022&\n\013success_url\030\001 \001(\tB\000H\000R\nsuccessUrl\210\001\001" +
-      "\022&\n\013failure_url\030\002 \001(\tB\000H\001R\nfailureUrl\210\001\001" +
-      "B\016\n\014_success_urlB\016\n\014_failure_url\"\327\002\n\rIni" +
-      "tialCharge\022\026\n\005price\030\002 \001(\005B\000R\005price\022\"\n\013de" +
-      "scription\030\003 \001(\tB\000R\013description\022A\n\010metada" +
-      "ta\030\004 \003(\0132#.api.v1.InitialCharge.Metadata" +
-      "EntryB\000R\010metadata\022(\n\014platform_fee\030\005 \001(\005B" +
-      "\000H\000R\013platformFee\210\001\001\022@\n\nexpires_at\030\024 \001(\0132" +
-      "\032.google.protobuf.TimestampB\000H\001R\texpires" +
-      "At\210\001\001\032;\n\rMetadataEntry\022\020\n\003key\030\001 \001(\tR\003key" +
-      "\022\024\n\005value\030\002 \001(\tR\005value:\0028\001B\017\n\r_platform_" +
-      "feeB\r\n\013_expires_at\"\236\002\n\006Charge\022\020\n\002id\030\001 \001(" +
-      "\tB\000R\002id\022\026\n\005price\030\002 \001(\005B\000R\005price\022\"\n\013descr" +
-      "iption\030\003 \001(\tB\000R\013description\0228\n\010metadata\030" +
-      "\004 \003(\0132\034.api.v1.Charge.MetadataEntryR\010met" +
-      "adata\022@\n\nexpires_at\030\024 \001(\0132\032.google.proto" +
-      "buf.TimestampB\000H\000R\texpiresAt\210\001\001\032;\n\rMetad" +
-      "ataEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(" +
-      "\tR\005value:\0028\001B\r\n\013_expires_at\"\322\006\n\014ChargeRe" +
-      "sult\022\035\n\tcharge_id\030\001 \001(\tB\000R\010chargeId\022\022\n\004p" +
-      "aid\030\002 \001(\010R\004paid\022\030\n\006reason\030\003 \001(\tB\000R\006reaso" +
-      "n\022\"\n\013description\030\004 \001(\tB\000R\013description\022%\n" +
-      "\rmerchant_name\030\005 \001(\tB\000R\014merchantName\022\'\n\016" +
-      "initial_amount\030\006 \001(\005B\000R\rinitialAmount\022\034\n" +
-      "\010discount\030\007 \001(\005B\000R\010discount\022#\n\014final_amo" +
-      "unt\030\010 \001(\005B\000R\013finalAmount\022,\n\017amount_refun" +
-      "ded\030\t \001(\005H\000R\016amountRefunded\210\001\001\022\034\n\010curren" +
-      "cy\030\n \001(\tB\000R\010currency\022\033\n\010token_id\030\013 \001(\tB\000" +
-      "R\007tokenId\022>\n\010metadata\030\014 \003(\0132\".api.v1.Cha" +
-      "rgeResult.MetadataEntryR\010metadata\022;\n\ncre" +
-      "ated_at\030\r \001(\0132\032.google.protobuf.Timestam" +
-      "pB\000R\tcreatedAt\022;\n\nupdated_at\030\016 \001(\0132\032.goo" +
-      "gle.protobuf.TimestampB\000R\tupdatedAt\022B\n\014p" +
-      "rocessed_at\030\017 \001(\0132\032.google.protobuf.Time" +
-      "stampH\001R\013processedAt\210\001\001\022;\n\rcharge_status" +
-      "\030\020 \001(\0162\024.api.v1.ChargeStatusB\000R\014chargeSt" +
-      "atus\022.\n\005error\030\021 \001(\0132\023.api.v1.ChargeError" +
-      "H\002R\005error\210\001\001\032;\n\rMetadataEntry\022\020\n\003key\030\001 \001" +
-      "(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001B\022\n\020_am" +
-      "ount_refundedB\017\n\r_processed_atB\010\n\006_error" +
-      "\"?\n\013ChargeError\022\024\n\004code\030\001 \001(\tB\000R\004code\022\032\n" +
-      "\007message\030\002 \001(\tB\000R\007message\"\233\001\n\013PaymentLin" +
-      "k\022\022\n\003url\030\001 \001(\tB\000R\003url\022;\n\ncreated_at\030\n \001(" +
-      "\0132\032.google.protobuf.TimestampB\000R\tcreated" +
-      "At\022;\n\nexpires_at\030\013 \001(\0132\032.google.protobuf" +
-      ".TimestampB\000R\texpiresAt\"\326\002\n\027OnSessionPay" +
-      "mentRequest\022!\n\010customer\030\001 \001(\tB\000H\000R\010custo" +
-      "mer\210\001\001\022(\n\005buyer\030\002 \001(\0132\r.api.v1.BuyerH\001R\005" +
-      "buyer\210\001\001\0222\n\006charge\030\003 \001(\0132\025.api.v1.Initia" +
-      "lChargeH\002R\006charge\210\001\001\022\031\n\010one_time\030\004 \001(\010R\007" +
-      "oneTime\022.\n\017idempotency_key\030\005 \001(\tB\000H\003R\016id" +
-      "empotencyKey\210\001\001\022,\n\010redirect\030\n \001(\0132\013.api." +
-      "v1.URLH\004R\010redirect\210\001\001B\013\n\t_customerB\010\n\006_b" +
-      "uyerB\t\n\007_chargeB\022\n\020_idempotency_keyB\013\n\t_" +
-      "redirect\"l\n\025OnSessionPaymentError\0227\n\004cod" +
-      "e\030\001 \001(\0162!.api.v1.OnSessionPaymentErrorCo" +
-      "deB\000R\004code\022\032\n\007message\030\002 \001(\tB\000R\007message\"\223" +
-      "\002\n\024OnSessionPaymentData\0221\n\010contract\030\001 \001(" +
-      "\0132\020.api.v1.ContractH\000R\010contract\210\001\001\022+\n\006ch" +
-      "arge\030\002 \001(\0132\016.api.v1.ChargeH\001R\006charge\210\001\001\022" +
-      ".\n\010customer\030\003 \001(\0132\020.api.v1.CustomerB\000R\010c" +
-      "ustomer\0228\n\014payment_link\030\004 \001(\0132\023.api.v1.P" +
-      "aymentLinkB\000R\013paymentLink\022\031\n\010one_time\030\005 " +
-      "\001(\010R\007oneTimeB\013\n\t_contractB\t\n\007_charge\"\270\001\n" +
-      "\030OnSessionPaymentResponse\022\030\n\007success\030\001 \001" +
-      "(\010R\007success\0228\n\005error\030\002 \001(\0132\035.api.v1.OnSe" +
-      "ssionPaymentErrorH\000R\005error\210\001\001\0225\n\004data\030\003 " +
-      "\001(\0132\034.api.v1.OnSessionPaymentDataH\001R\004dat" +
-      "a\210\001\001B\010\n\006_errorB\007\n\005_data\"\216\001\n\rRefundReques" +
-      "t\022\035\n\tcharge_id\030\001 \001(\tB\000R\010chargeId\022\035\n\006amou" +
-      "nt\030\002 \001(\005B\000H\000R\006amount\210\001\001\022$\n\013cancel_only\030\003" +
-      " \001(\010H\001R\ncancelOnly\210\001\001B\t\n\007_amountB\016\n\014_can" +
-      "cel_only\"J\n\016RefundResponse\022\033\n\tcharge_id\030" +
-      "\001 \001(\tR\010chargeId\022\033\n\trefund_id\030\002 \001(\tR\010refu" +
-      "ndId*\203\005\n\031OnSessionPaymentErrorCode\022-\n)ON" +
-      "_SESSION_PAYMENT_ERROR_CODE_UNSPECIFIED\020" +
-      "\000\0227\n3ON_SESSION_PAYMENT_ERROR_CODE_MISSI" +
-      "NG_REDIRECT_URLS\020\001\022=\n9ON_SESSION_PAYMENT" +
-      "_ERROR_CODE_MISSING_REQUIRED_PARAMETERS\020" +
-      "\002\0220\n,ON_SESSION_PAYMENT_ERROR_CODE_MISSI" +
-      "NG_CHARGE\020\n\0224\n0ON_SESSION_PAYMENT_ERROR_" +
-      "CODE_CUSTOMER_NOT_FOUND\020\013\0223\n/ON_SESSION_" +
-      "PAYMENT_ERROR_CODE_CUSTOMER_INACTIVE\020\014\022B" +
-      "\n>ON_SESSION_PAYMENT_ERROR_CODE_MERCHANT" +
-      "_CUSTOMER_ALREADY_EXISTS\020\024\0223\n/ON_SESSION" +
-      "_PAYMENT_ERROR_CODE_VALIDATION_FAILED\020\036\022" +
-      ";\n7ON_SESSION_PAYMENT_ERROR_CODE_STRATEG" +
-      "Y_EXECUTION_FAILED\020(\022:\n6ON_SESSION_PAYME" +
-      "NT_ERROR_CODE_INVALID_PAYMENT_STRATEGY\020)" +
-      "\0220\n,ON_SESSION_PAYMENT_ERROR_CODE_INTERN" +
-      "AL_ERROR\02022\230\010\n\016PaymentService\022x\n\033CreateC" +
-      "ontractWithoutCharge\022*.api.v1.CreateCont" +
-      "ractWithoutChargeRequest\032+.api.v1.Create" +
-      "ContractWithoutChargeResponse\"\000\022o\n\030Creat" +
-      "eContractWithCharge\022\'.api.v1.CreateContr" +
-      "actWithChargeRequest\032(.api.v1.CreateCont" +
-      "ractWithChargeResponse\"\000\022B\n\tAddCharge\022\030." +
-      "api.v1.AddChargeRequest\032\031.api.v1.AddChar" +
-      "geResponse\"\000\022B\n\tGetCharge\022\030.api.v1.GetCh" +
-      "argeRequest\032\031.api.v1.GetChargeResponse\"\000" +
-      "\022E\n\nGetCharges\022\031.api.v1.GetChargesReques" +
-      "t\032\032.api.v1.GetChargesResponse\"\000\022?\n\010Withd" +
-      "raw\022\027.api.v1.WithdrawRequest\032\030.api.v1.Wi" +
-      "thdrawResponse\"\000\022N\n\rWithdrawAsync\022\034.api." +
-      "v1.WithdrawAsyncRequest\032\035.api.v1.Withdra" +
-      "wAsyncResponse\"\000\022i\n\026OffSessionPaymentAsy" +
-      "nc\022%.api.v1.OffSessionPaymentAsyncReques" +
-      "t\032&.api.v1.OffSessionPaymentAsyncRespons" +
-      "e\"\000\022`\n\023WithdrawAsyncStatus\022\".api.v1.With" +
-      "drawAsyncStatusRequest\032#.api.v1.Withdraw" +
-      "AsyncStatusResponse\"\000\022Z\n\021OffSessionPayme" +
-      "nt\022 .api.v1.OffSessionPaymentRequest\032!.a" +
-      "pi.v1.OffSessionPaymentResponse\"\000\022W\n\020OnS" +
-      "essionPayment\022\037.api.v1.OnSessionPaymentR" +
-      "equest\032 .api.v1.OnSessionPaymentResponse" +
-      "\"\000\0229\n\006Refund\022\025.api.v1.RefundRequest\032\026.ap" +
-      "i.v1.RefundResponse\"\000Bp\n\ncom.api.v1B\014Pay" +
-      "mentProtoP\001Z\033api/proto/gen/api/v1;api_v1" +
-      "\242\002\003AXX\252\002\006Api.V1\312\002\006Api\\V1\342\002\022Api\\V1\\GPBMet" +
-      "adata\352\002\007Api::V1b\006proto3"
+      "roto\"\255\001\n\030OffSessionPaymentRequest\022\034\n\010cus" +
+      "tomer\030\001 \001(\tB\000R\010customer\022/\n\006charge\030\002 \001(\0132" +
+      "\025.api.v1.InitialChargeB\000R\006charge\022.\n\017idem" +
+      "potency_key\030\003 \001(\tB\000H\000R\016idempotencyKey\210\001\001" +
+      "B\022\n\020_idempotency_key\"{\n\031OffSessionPaymen" +
+      "tResponse\022.\n\010customer\030\001 \001(\0132\020.api.v1.Cus" +
+      "tomerB\000R\010customer\022.\n\006charge\030\002 \001(\0132\024.api." +
+      "v1.ChargeResultB\000R\006charge\"\234\001\n\020AddChargeR" +
+      "equest\022\034\n\010customer\030\001 \001(\tB\000R\010customer\022/\n\006" +
+      "charge\030\002 \001(\0132\025.api.v1.InitialChargeB\000R\006c" +
+      "harge\022,\n\010redirect\030\n \001(\0132\013.api.v1.URLH\000R\010" +
+      "redirect\210\001\001B\013\n\t_redirect\"\247\001\n\021AddChargeRe" +
+      "sponse\022(\n\006charge\030\001 \001(\0132\016.api.v1.ChargeB\000" +
+      "R\006charge\022.\n\010customer\030\002 \001(\0132\020.api.v1.Cust" +
+      "omerB\000R\010customer\0228\n\014payment_link\030\003 \001(\0132\023" +
+      ".api.v1.PaymentLinkB\000R\013paymentLink\"y\n\021Ge" +
+      "tChargesRequest\022\034\n\010customer\030\001 \001(\tB\000R\010cus" +
+      "tomer\0227\n\npagination\030\002 \001(\0132\022.api.v1.Pagin" +
+      "ationH\000R\npagination\210\001\001B\r\n\013_pagination\"\252\001" +
+      "\n\022GetChargesResponse\022.\n\007charges\030\001 \003(\0132\024." +
+      "api.v1.ChargeResultR\007charges\022.\n\010customer" +
+      "\030\002 \001(\0132\020.api.v1.CustomerB\000R\010customer\0224\n\n" +
+      "pagination\030\003 \001(\0132\022.api.v1.PaginationB\000R\n" +
+      "pagination\",\n\020GetChargeRequest\022\030\n\006charge" +
+      "\030\002 \001(\tB\000R\006charge\"s\n\021GetChargeResponse\022.\n" +
+      "\006charge\030\001 \001(\0132\024.api.v1.ChargeResultB\000R\006c" +
+      "harge\022.\n\010customer\030\002 \001(\0132\020.api.v1.Custome" +
+      "rB\000R\010customer\"\244\001\n\017WithdrawRequest\022\034\n\010cus" +
+      "tomer\030\001 \001(\tB\000R\010customer\022/\n\006charge\030\002 \001(\0132" +
+      "\025.api.v1.InitialChargeB\000R\006charge\022.\n\017idem" +
+      "potency_key\030\003 \001(\tB\000H\000R\016idempotencyKey\210\001\001" +
+      "B\022\n\020_idempotency_key\"r\n\020WithdrawResponse" +
+      "\022.\n\010customer\030\001 \001(\0132\020.api.v1.CustomerB\000R\010" +
+      "customer\022.\n\006charge\030\002 \001(\0132\024.api.v1.Charge" +
+      "ResultB\000R\006charge\"\251\001\n\024WithdrawAsyncReques" +
+      "t\022\034\n\010customer\030\001 \001(\tB\000R\010customer\022/\n\006charg" +
+      "e\030\002 \001(\0132\025.api.v1.InitialChargeB\000R\006charge" +
+      "\022.\n\017idempotency_key\030\003 \001(\tB\000H\000R\016idempoten" +
+      "cyKey\210\001\001B\022\n\020_idempotency_key\"\206\001\n\025Withdra" +
+      "wAsyncResponse\022\037\n\nrequest_id\030\001 \001(\tB\000R\tre" +
+      "questId\022-\n\006status\030\002 \001(\0162\023.api.v1.AsyncSt" +
+      "atusB\000R\006status\022\035\n\tcharge_id\030\003 \001(\tB\000R\010cha" +
+      "rgeId\"\262\001\n\035OffSessionPaymentAsyncRequest\022" +
+      "\034\n\010customer\030\001 \001(\tB\000R\010customer\022/\n\006charge\030" +
+      "\002 \001(\0132\025.api.v1.InitialChargeB\000R\006charge\022." +
+      "\n\017idempotency_key\030\003 \001(\tB\000H\000R\016idempotency" +
+      "Key\210\001\001B\022\n\020_idempotency_key\"\217\001\n\036OffSessio" +
+      "nPaymentAsyncResponse\022\037\n\nrequest_id\030\001 \001(" +
+      "\tB\000R\trequestId\022-\n\006status\030\002 \001(\0162\023.api.v1." +
+      "AsyncStatusB\000R\006status\022\035\n\tcharge_id\030\003 \001(\t" +
+      "B\000R\010chargeId\"=\n\032WithdrawAsyncStatusReque" +
+      "st\022\037\n\nrequest_id\030\001 \001(\tB\000R\trequestId\"\272\001\n\033" +
+      "WithdrawAsyncStatusResponse\022-\n\006status\030\001 " +
+      "\001(\0162\023.api.v1.AsyncStatusB\000R\006status\022.\n\010cu" +
+      "stomer\030\002 \001(\0132\020.api.v1.CustomerB\000R\010custom" +
+      "er\0221\n\006charge\030\003 \001(\0132\024.api.v1.ChargeResult" +
+      "H\000R\006charge\210\001\001B\t\n\007_charge\"\206\001\n\"CreateContr" +
+      "actWithoutChargeRequest\022%\n\005buyer\030\001 \001(\0132\r" +
+      ".api.v1.BuyerB\000R\005buyer\022,\n\010redirect\030\n \001(\013" +
+      "2\013.api.v1.URLH\000R\010redirect\210\001\001B\013\n\t_redirec" +
+      "t\"\277\001\n#CreateContractWithoutChargeRespons" +
+      "e\022.\n\010contract\030\001 \001(\0132\020.api.v1.ContractB\000R" +
+      "\010contract\022.\n\010customer\030\002 \001(\0132\020.api.v1.Cus" +
+      "tomerB\000R\010customer\0228\n\014payment_link\030\003 \001(\0132" +
+      "\023.api.v1.PaymentLinkB\000R\013paymentLink\"\264\001\n\037" +
+      "CreateContractWithChargeRequest\022%\n\005buyer" +
+      "\030\001 \001(\0132\r.api.v1.BuyerB\000R\005buyer\022/\n\006charge" +
+      "\030\002 \001(\0132\025.api.v1.InitialChargeB\000R\006charge\022" +
+      ",\n\010redirect\030\n \001(\0132\013.api.v1.URLH\000R\010redire" +
+      "ct\210\001\001B\013\n\t_redirect\"\346\001\n CreateContractWit" +
+      "hChargeResponse\022.\n\010contract\030\001 \001(\0132\020.api." +
+      "v1.ContractB\000R\010contract\022(\n\006charge\030\002 \001(\0132" +
+      "\016.api.v1.ChargeB\000R\006charge\022.\n\010customer\030\003 " +
+      "\001(\0132\020.api.v1.CustomerB\000R\010customer\0228\n\014pay" +
+      "ment_link\030\004 \001(\0132\023.api.v1.PaymentLinkB\000R\013" +
+      "paymentLink\"u\n\003URL\022&\n\013success_url\030\001 \001(\tB" +
+      "\000H\000R\nsuccessUrl\210\001\001\022&\n\013failure_url\030\002 \001(\tB" +
+      "\000H\001R\nfailureUrl\210\001\001B\016\n\014_success_urlB\016\n\014_f" +
+      "ailure_url\"\327\002\n\rInitialCharge\022\026\n\005price\030\002 " +
+      "\001(\005B\000R\005price\022\"\n\013description\030\003 \001(\tB\000R\013des" +
+      "cription\022A\n\010metadata\030\004 \003(\0132#.api.v1.Init" +
+      "ialCharge.MetadataEntryB\000R\010metadata\022(\n\014p" +
+      "latform_fee\030\005 \001(\005B\000H\000R\013platformFee\210\001\001\022@\n" +
+      "\nexpires_at\030\024 \001(\0132\032.google.protobuf.Time" +
+      "stampB\000H\001R\texpiresAt\210\001\001\032;\n\rMetadataEntry" +
+      "\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value" +
+      ":\0028\001B\017\n\r_platform_feeB\r\n\013_expires_at\"\236\002\n" +
+      "\006Charge\022\020\n\002id\030\001 \001(\tB\000R\002id\022\026\n\005price\030\002 \001(\005" +
+      "B\000R\005price\022\"\n\013description\030\003 \001(\tB\000R\013descri" +
+      "ption\0228\n\010metadata\030\004 \003(\0132\034.api.v1.Charge." +
+      "MetadataEntryR\010metadata\022@\n\nexpires_at\030\024 " +
+      "\001(\0132\032.google.protobuf.TimestampB\000H\000R\texp" +
+      "iresAt\210\001\001\032;\n\rMetadataEntry\022\020\n\003key\030\001 \001(\tR" +
+      "\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001B\r\n\013_expir" +
+      "es_at\"\322\006\n\014ChargeResult\022\035\n\tcharge_id\030\001 \001(" +
+      "\tB\000R\010chargeId\022\022\n\004paid\030\002 \001(\010R\004paid\022\030\n\006rea" +
+      "son\030\003 \001(\tB\000R\006reason\022\"\n\013description\030\004 \001(\t" +
+      "B\000R\013description\022%\n\rmerchant_name\030\005 \001(\tB\000" +
+      "R\014merchantName\022\'\n\016initial_amount\030\006 \001(\005B\000" +
+      "R\rinitialAmount\022\034\n\010discount\030\007 \001(\005B\000R\010dis" +
+      "count\022#\n\014final_amount\030\010 \001(\005B\000R\013finalAmou" +
+      "nt\022,\n\017amount_refunded\030\t \001(\005H\000R\016amountRef" +
+      "unded\210\001\001\022\034\n\010currency\030\n \001(\tB\000R\010currency\022\033" +
+      "\n\010token_id\030\013 \001(\tB\000R\007tokenId\022>\n\010metadata\030" +
+      "\014 \003(\0132\".api.v1.ChargeResult.MetadataEntr" +
+      "yR\010metadata\022;\n\ncreated_at\030\r \001(\0132\032.google" +
+      ".protobuf.TimestampB\000R\tcreatedAt\022;\n\nupda" +
+      "ted_at\030\016 \001(\0132\032.google.protobuf.Timestamp" +
+      "B\000R\tupdatedAt\022B\n\014processed_at\030\017 \001(\0132\032.go" +
+      "ogle.protobuf.TimestampH\001R\013processedAt\210\001" +
+      "\001\022;\n\rcharge_status\030\020 \001(\0162\024.api.v1.Charge" +
+      "StatusB\000R\014chargeStatus\022.\n\005error\030\021 \001(\0132\023." +
+      "api.v1.ChargeErrorH\002R\005error\210\001\001\032;\n\rMetada" +
+      "taEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\t" +
+      "R\005value:\0028\001B\022\n\020_amount_refundedB\017\n\r_proc" +
+      "essed_atB\010\n\006_error\"?\n\013ChargeError\022\024\n\004cod" +
+      "e\030\001 \001(\tB\000R\004code\022\032\n\007message\030\002 \001(\tB\000R\007mess" +
+      "age\"\233\001\n\013PaymentLink\022\022\n\003url\030\001 \001(\tB\000R\003url\022" +
+      ";\n\ncreated_at\030\n \001(\0132\032.google.protobuf.Ti" +
+      "mestampB\000R\tcreatedAt\022;\n\nexpires_at\030\013 \001(\013" +
+      "2\032.google.protobuf.TimestampB\000R\texpiresA" +
+      "t\"\326\002\n\027OnSessionPaymentRequest\022!\n\010custome" +
+      "r\030\001 \001(\tB\000H\000R\010customer\210\001\001\022(\n\005buyer\030\002 \001(\0132" +
+      "\r.api.v1.BuyerH\001R\005buyer\210\001\001\0222\n\006charge\030\003 \001" +
+      "(\0132\025.api.v1.InitialChargeH\002R\006charge\210\001\001\022\031" +
+      "\n\010one_time\030\004 \001(\010R\007oneTime\022.\n\017idempotency" +
+      "_key\030\005 \001(\tB\000H\003R\016idempotencyKey\210\001\001\022,\n\010red" +
+      "irect\030\n \001(\0132\013.api.v1.URLH\004R\010redirect\210\001\001B" +
+      "\013\n\t_customerB\010\n\006_buyerB\t\n\007_chargeB\022\n\020_id" +
+      "empotency_keyB\013\n\t_redirect\"l\n\025OnSessionP" +
+      "aymentError\0227\n\004code\030\001 \001(\0162!.api.v1.OnSes" +
+      "sionPaymentErrorCodeB\000R\004code\022\032\n\007message\030" +
+      "\002 \001(\tB\000R\007message\"\223\002\n\024OnSessionPaymentDat" +
+      "a\0221\n\010contract\030\001 \001(\0132\020.api.v1.ContractH\000R" +
+      "\010contract\210\001\001\022+\n\006charge\030\002 \001(\0132\016.api.v1.Ch" +
+      "argeH\001R\006charge\210\001\001\022.\n\010customer\030\003 \001(\0132\020.ap" +
+      "i.v1.CustomerB\000R\010customer\0228\n\014payment_lin" +
+      "k\030\004 \001(\0132\023.api.v1.PaymentLinkB\000R\013paymentL" +
+      "ink\022\031\n\010one_time\030\005 \001(\010R\007oneTimeB\013\n\t_contr" +
+      "actB\t\n\007_charge\"\270\001\n\030OnSessionPaymentRespo" +
+      "nse\022\030\n\007success\030\001 \001(\010R\007success\0228\n\005error\030\002" +
+      " \001(\0132\035.api.v1.OnSessionPaymentErrorH\000R\005e" +
+      "rror\210\001\001\0225\n\004data\030\003 \001(\0132\034.api.v1.OnSession" +
+      "PaymentDataH\001R\004data\210\001\001B\010\n\006_errorB\007\n\005_dat" +
+      "a\"\216\001\n\rRefundRequest\022\035\n\tcharge_id\030\001 \001(\tB\000" +
+      "R\010chargeId\022\035\n\006amount\030\002 \001(\005B\000H\000R\006amount\210\001" +
+      "\001\022$\n\013cancel_only\030\003 \001(\010H\001R\ncancelOnly\210\001\001B" +
+      "\t\n\007_amountB\016\n\014_cancel_only\"J\n\016RefundResp" +
+      "onse\022\033\n\tcharge_id\030\001 \001(\tR\010chargeId\022\033\n\tref" +
+      "und_id\030\002 \001(\tR\010refundId\"2\n\023ChargePendingD" +
+      "etail\022\033\n\tcharge_id\030\001 \001(\tR\010chargeId*\203\005\n\031O" +
+      "nSessionPaymentErrorCode\022-\n)ON_SESSION_P" +
+      "AYMENT_ERROR_CODE_UNSPECIFIED\020\000\0227\n3ON_SE" +
+      "SSION_PAYMENT_ERROR_CODE_MISSING_REDIREC" +
+      "T_URLS\020\001\022=\n9ON_SESSION_PAYMENT_ERROR_COD" +
+      "E_MISSING_REQUIRED_PARAMETERS\020\002\0220\n,ON_SE" +
+      "SSION_PAYMENT_ERROR_CODE_MISSING_CHARGE\020" +
+      "\n\0224\n0ON_SESSION_PAYMENT_ERROR_CODE_CUSTO" +
+      "MER_NOT_FOUND\020\013\0223\n/ON_SESSION_PAYMENT_ER" +
+      "ROR_CODE_CUSTOMER_INACTIVE\020\014\022B\n>ON_SESSI" +
+      "ON_PAYMENT_ERROR_CODE_MERCHANT_CUSTOMER_" +
+      "ALREADY_EXISTS\020\024\0223\n/ON_SESSION_PAYMENT_E" +
+      "RROR_CODE_VALIDATION_FAILED\020\036\022;\n7ON_SESS" +
+      "ION_PAYMENT_ERROR_CODE_STRATEGY_EXECUTIO" +
+      "N_FAILED\020(\022:\n6ON_SESSION_PAYMENT_ERROR_C" +
+      "ODE_INVALID_PAYMENT_STRATEGY\020)\0220\n,ON_SES" +
+      "SION_PAYMENT_ERROR_CODE_INTERNAL_ERROR\0202" +
+      "2\230\010\n\016PaymentService\022x\n\033CreateContractWit" +
+      "houtCharge\022*.api.v1.CreateContractWithou" +
+      "tChargeRequest\032+.api.v1.CreateContractWi" +
+      "thoutChargeResponse\"\000\022o\n\030CreateContractW" +
+      "ithCharge\022\'.api.v1.CreateContractWithCha" +
+      "rgeRequest\032(.api.v1.CreateContractWithCh" +
+      "argeResponse\"\000\022B\n\tAddCharge\022\030.api.v1.Add" +
+      "ChargeRequest\032\031.api.v1.AddChargeResponse" +
+      "\"\000\022B\n\tGetCharge\022\030.api.v1.GetChargeReques" +
+      "t\032\031.api.v1.GetChargeResponse\"\000\022E\n\nGetCha" +
+      "rges\022\031.api.v1.GetChargesRequest\032\032.api.v1" +
+      ".GetChargesResponse\"\000\022?\n\010Withdraw\022\027.api." +
+      "v1.WithdrawRequest\032\030.api.v1.WithdrawResp" +
+      "onse\"\000\022N\n\rWithdrawAsync\022\034.api.v1.Withdra" +
+      "wAsyncRequest\032\035.api.v1.WithdrawAsyncResp" +
+      "onse\"\000\022i\n\026OffSessionPaymentAsync\022%.api.v" +
+      "1.OffSessionPaymentAsyncRequest\032&.api.v1" +
+      ".OffSessionPaymentAsyncResponse\"\000\022`\n\023Wit" +
+      "hdrawAsyncStatus\022\".api.v1.WithdrawAsyncS" +
+      "tatusRequest\032#.api.v1.WithdrawAsyncStatu" +
+      "sResponse\"\000\022Z\n\021OffSessionPayment\022 .api.v" +
+      "1.OffSessionPaymentRequest\032!.api.v1.OffS" +
+      "essionPaymentResponse\"\000\022W\n\020OnSessionPaym" +
+      "ent\022\037.api.v1.OnSessionPaymentRequest\032 .a" +
+      "pi.v1.OnSessionPaymentResponse\"\000\0229\n\006Refu" +
+      "nd\022\025.api.v1.RefundRequest\032\026.api.v1.Refun" +
+      "dResponse\"\000Bp\n\ncom.api.v1B\014PaymentProtoP" +
+      "\001Z\033api/proto/gen/api/v1;api_v1\242\002\003AXX\252\002\006A" +
+      "pi.V1\312\002\006Api\\V1\342\002\022Api\\V1\\GPBMetadata\352\002\007Ap" +
+      "i::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -416,7 +426,7 @@ public final class PaymentProto extends com.google.protobuf.GeneratedFile {
     internal_static_api_v1_OffSessionPaymentRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_api_v1_OffSessionPaymentRequest_descriptor,
-        new java.lang.String[] { "Customer", "Charge", });
+        new java.lang.String[] { "Customer", "Charge", "IdempotencyKey", });
     internal_static_api_v1_OffSessionPaymentResponse_descriptor =
       getDescriptor().getMessageType(1);
     internal_static_api_v1_OffSessionPaymentResponse_fieldAccessorTable = new
@@ -464,7 +474,7 @@ public final class PaymentProto extends com.google.protobuf.GeneratedFile {
     internal_static_api_v1_WithdrawRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_api_v1_WithdrawRequest_descriptor,
-        new java.lang.String[] { "Customer", "Charge", });
+        new java.lang.String[] { "Customer", "Charge", "IdempotencyKey", });
     internal_static_api_v1_WithdrawResponse_descriptor =
       getDescriptor().getMessageType(9);
     internal_static_api_v1_WithdrawResponse_fieldAccessorTable = new
@@ -621,6 +631,12 @@ public final class PaymentProto extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_api_v1_RefundResponse_descriptor,
         new java.lang.String[] { "ChargeId", "RefundId", });
+    internal_static_api_v1_ChargePendingDetail_descriptor =
+      getDescriptor().getMessageType(32);
+    internal_static_api_v1_ChargePendingDetail_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_api_v1_ChargePendingDetail_descriptor,
+        new java.lang.String[] { "ChargeId", });
     descriptor.resolveAllFeaturesImmutable();
     com.api.v1.CommonProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
