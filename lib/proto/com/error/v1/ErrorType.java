@@ -177,7 +177,8 @@ public enum ErrorType
   ERROR_TYPE_PAYMENT_CHARGE_FAILED(1003),
   /**
    * <pre>
-   * Charge Rejected: The payment charge was rejected, e.g., ForceKyc but Kyc is waiting for approval.
+   * Charge Rejected: The payment charge was rejected because KYC is not approved or customer eligibility requirements are not met.
+   * Merchant message for customer eligibility refusals: "Customer can't make this payment. Retrying won't help; the customer can contact Jamm support."
    * triggerError stage: approve
    * </pre>
    *
@@ -601,7 +602,8 @@ public enum ErrorType
   public static final int ERROR_TYPE_PAYMENT_CHARGE_FAILED_VALUE = 1003;
   /**
    * <pre>
-   * Charge Rejected: The payment charge was rejected, e.g., ForceKyc but Kyc is waiting for approval.
+   * Charge Rejected: The payment charge was rejected because KYC is not approved or customer eligibility requirements are not met.
+   * Merchant message for customer eligibility refusals: "Customer can't make this payment. Retrying won't help; the customer can contact Jamm support."
    * triggerError stage: approve
    * </pre>
    *

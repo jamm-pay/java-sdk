@@ -215,7 +215,7 @@ private static final long serialVersionUID = 0L;
    *
    * Approve (pre-charge validation + BankPay charge execution):
    * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
-   * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+   * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved or customer eligibility requirements not met
    * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
    * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
    * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
@@ -292,7 +292,7 @@ private static final long serialVersionUID = 0L;
    *
    * Approve (pre-charge validation + BankPay charge execution):
    * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
-   * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+   * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved or customer eligibility requirements not met
    * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
    * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
    * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
@@ -359,7 +359,7 @@ private static final long serialVersionUID = 0L;
    *
    * Approve (pre-charge validation + BankPay charge execution):
    * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
-   * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+   * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved or customer eligibility requirements not met
    * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
    * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
    * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
@@ -433,7 +433,7 @@ java.lang.String defaultValue) {
    *
    * Approve (pre-charge validation + BankPay charge execution):
    * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
-   * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+   * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved or customer eligibility requirements not met
    * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
    * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
    * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
@@ -1252,7 +1252,7 @@ java.lang.String defaultValue) {
      *
      * Approve (pre-charge validation + BankPay charge execution):
      * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
-     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved or customer eligibility requirements not met
      * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
      * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
      * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
@@ -1329,7 +1329,7 @@ java.lang.String defaultValue) {
      *
      * Approve (pre-charge validation + BankPay charge execution):
      * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
-     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved or customer eligibility requirements not met
      * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
      * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
      * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
@@ -1396,7 +1396,7 @@ java.lang.String defaultValue) {
      *
      * Approve (pre-charge validation + BankPay charge execution):
      * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
-     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved or customer eligibility requirements not met
      * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
      * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
      * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
@@ -1470,7 +1470,7 @@ java.lang.String defaultValue) {
      *
      * Approve (pre-charge validation + BankPay charge execution):
      * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
-     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved or customer eligibility requirements not met
      * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
      * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
      * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
@@ -1550,7 +1550,7 @@ java.lang.String defaultValue) {
      *
      * Approve (pre-charge validation + BankPay charge execution):
      * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
-     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved or customer eligibility requirements not met
      * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
      * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
      * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
@@ -1629,7 +1629,7 @@ java.lang.String defaultValue) {
      *
      * Approve (pre-charge validation + BankPay charge execution):
      * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
-     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved or customer eligibility requirements not met
      * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
      * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
      * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
@@ -1702,7 +1702,7 @@ java.lang.String defaultValue) {
      *
      * Approve (pre-charge validation + BankPay charge execution):
      * - ERROR_TYPE_PAYMENT_VALIDATION_FAILED  — invalid request (e.g. deleted/inactive customer)
-     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved
+     * - ERROR_TYPE_PAYMENT_CHARGE_REJECTED    — KYC not approved or customer eligibility requirements not met
      * - ERROR_TYPE_PAYMENT_CHARGE_OVER_LIMIT  — charge exceeds bank quota
      * - ERROR_TYPE_PAYMENT_LINK_EXPIRED       — payment link expired
      * - ERROR_TYPE_PAYMENT_GATEWAY_UNAVAILABLE — BankPay/bank under maintenance
