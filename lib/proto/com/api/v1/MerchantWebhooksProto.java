@@ -158,49 +158,51 @@ public final class MerchantWebhooksProto extends com.google.protobuf.GeneratedFi
       "unt_refundedB\017\n\r_processed_atB\013\n\t_jamm_f" +
       "eeB \n\036_original_transaction_jamm_feeB\022\n\020" +
       "_consumption_taxB\010\n\006_errorB\014\n\n_refund_id" +
-      "B\t\n\007_refundB\r\n\013_api_source\"\266\003\n\nRefundInf" +
+      "B\t\n\007_refundB\r\n\013_api_source\"\240\004\n\nRefundInf" +
       "o\022\023\n\002id\030\001 \001(\tH\000R\002id\210\001\001\022,\n\017amount_refunde" +
-      "d\030\002 \001(\005H\001R\016amountRefunded\210\001\001\022\036\n\010jamm_fee" +
-      "\030\003 \001(\005H\002R\007jammFee\210\001\001\022,\n\017consumption_tax\030" +
-      "\004 \001(\005H\003R\016consumptionTax\210\001\001\022J\n\037original_t" +
-      "ransaction_fee_waived\030\005 \001(\010H\004R\034originalT" +
-      "ransactionFeeWaived\210\001\001\022(\n\005error\030\006 \001(\0132\r." +
-      "api.v1.ErrorH\005R\005error\210\001\001\022&\n\014processed_at" +
-      "\030\007 \001(\tH\006R\013processedAt\210\001\001B\005\n\003_idB\022\n\020_amou" +
-      "nt_refundedB\013\n\t_jamm_feeB\022\n\020_consumption" +
-      "_taxB\"\n _original_transaction_fee_waived" +
-      "B\010\n\006_errorB\017\n\r_processed_at\"\234\001\n\017Contract" +
-      "Message\022\034\n\010customer\030\001 \001(\tB\000R\010customer\022\037\n" +
-      "\ncreated_at\030\002 \001(\tB\000R\tcreatedAt\022#\n\014activa" +
-      "ted_at\030\003 \001(\tB\000R\013activatedAt\022%\n\rmerchant_" +
-      "name\030\004 \001(\tB\000R\014merchantName\"}\n\024RefundWebh" +
-      "ookContent\0229\n\013transaction\030\001 \001(\0132\025.api.v1" +
-      ".ChargeMessageB\000R\013transaction\022*\n\006refund\030" +
-      "\002 \001(\0132\022.api.v1.RefundInfoR\006refund\"\222\001\n\022Us" +
-      "erAccountMessage\022\034\n\010customer\030\001 \001(\tB\000R\010cu" +
-      "stomer\022\026\n\005email\030\002 \001(\tB\000R\005email\022\037\n\ndelete" +
-      "d_at\030\003 \001(\tB\000R\tdeletedAt\022%\n\rmerchant_name" +
-      "\030\004 \001(\tB\000R\014merchantName\"j\n\005Error\022\024\n\004code\030" +
-      "\001 \001(\tB\000R\004code\022\032\n\007message\030\002 \001(\tB\000R\007messag" +
-      "e\022/\n\007details\030\003 \003(\0132\023.api.v1.ErrorDetailB" +
-      "\000R\007details\"Q\n\013ErrorDetail\022\024\n\004type\030\001 \001(\tB" +
-      "\000R\004type\022\026\n\005value\030\002 \001(\tB\000R\005value\022\024\n\005debug" +
-      "\030\003 \001(\tR\005debug*\277\002\n\tEventType\022\032\n\026EVENT_TYP" +
-      "E_UNSPECIFIED\020\000\022\035\n\031EVENT_TYPE_CHARGE_CRE" +
-      "ATED\020\003\022\035\n\031EVENT_TYPE_CHARGE_UPDATED\020\004\022\035\n" +
-      "\031EVENT_TYPE_CHARGE_SUCCESS\020\005\022\032\n\026EVENT_TY" +
-      "PE_CHARGE_FAIL\020\006\022\037\n\033EVENT_TYPE_REFUND_SU" +
-      "CCEEDED\020\007\022\034\n\030EVENT_TYPE_REFUND_FAILED\020\010\022" +
-      "!\n\035EVENT_TYPE_CONTRACT_ACTIVATED\020\024\022#\n\037EV" +
-      "ENT_TYPE_USER_ACCOUNT_DELETED\020\036\022\026\n\022EVENT" +
-      "_TYPE_TESTING\020c2\206\001\n\016WebhookService\0226\n\005Er" +
-      "ror\022\024.api.v1.ErrorRequest\032\025.api.v1.Error" +
-      "Response\"\000\022<\n\007Message\022\026.api.v1.MessageRe" +
-      "quest\032\027.api.v1.MessageResponse\"\000By\n\ncom." +
-      "api.v1B\025MerchantWebhooksProtoP\001Z\033api/pro" +
-      "to/gen/api/v1;api_v1\242\002\003AXX\252\002\006Api.V1\312\002\006Ap" +
-      "i\\V1\342\002\022Api\\V1\\GPBMetadata\352\002\007Api::V1b\006pro" +
-      "to3"
+      "d\030\002 \001(\005H\001R\016amountRefunded\210\001\001\022F\n\035amount_r" +
+      "efunded_net_discounts\030\010 \001(\005H\002R\032amountRef" +
+      "undedNetDiscounts\210\001\001\022\036\n\010jamm_fee\030\003 \001(\005H\003" +
+      "R\007jammFee\210\001\001\022,\n\017consumption_tax\030\004 \001(\005H\004R" +
+      "\016consumptionTax\210\001\001\022J\n\037original_transacti" +
+      "on_fee_waived\030\005 \001(\010H\005R\034originalTransacti" +
+      "onFeeWaived\210\001\001\022(\n\005error\030\006 \001(\0132\r.api.v1.E" +
+      "rrorH\006R\005error\210\001\001\022&\n\014processed_at\030\007 \001(\tH\007" +
+      "R\013processedAt\210\001\001B\005\n\003_idB\022\n\020_amount_refun" +
+      "dedB \n\036_amount_refunded_net_discountsB\013\n" +
+      "\t_jamm_feeB\022\n\020_consumption_taxB\"\n _origi" +
+      "nal_transaction_fee_waivedB\010\n\006_errorB\017\n\r" +
+      "_processed_at\"\234\001\n\017ContractMessage\022\034\n\010cus" +
+      "tomer\030\001 \001(\tB\000R\010customer\022\037\n\ncreated_at\030\002 " +
+      "\001(\tB\000R\tcreatedAt\022#\n\014activated_at\030\003 \001(\tB\000" +
+      "R\013activatedAt\022%\n\rmerchant_name\030\004 \001(\tB\000R\014" +
+      "merchantName\"}\n\024RefundWebhookContent\0229\n\013" +
+      "transaction\030\001 \001(\0132\025.api.v1.ChargeMessage" +
+      "B\000R\013transaction\022*\n\006refund\030\002 \001(\0132\022.api.v1" +
+      ".RefundInfoR\006refund\"\222\001\n\022UserAccountMessa" +
+      "ge\022\034\n\010customer\030\001 \001(\tB\000R\010customer\022\026\n\005emai" +
+      "l\030\002 \001(\tB\000R\005email\022\037\n\ndeleted_at\030\003 \001(\tB\000R\t" +
+      "deletedAt\022%\n\rmerchant_name\030\004 \001(\tB\000R\014merc" +
+      "hantName\"j\n\005Error\022\024\n\004code\030\001 \001(\tB\000R\004code\022" +
+      "\032\n\007message\030\002 \001(\tB\000R\007message\022/\n\007details\030\003" +
+      " \003(\0132\023.api.v1.ErrorDetailB\000R\007details\"Q\n\013" +
+      "ErrorDetail\022\024\n\004type\030\001 \001(\tB\000R\004type\022\026\n\005val" +
+      "ue\030\002 \001(\tB\000R\005value\022\024\n\005debug\030\003 \001(\tR\005debug*" +
+      "\277\002\n\tEventType\022\032\n\026EVENT_TYPE_UNSPECIFIED\020" +
+      "\000\022\035\n\031EVENT_TYPE_CHARGE_CREATED\020\003\022\035\n\031EVEN" +
+      "T_TYPE_CHARGE_UPDATED\020\004\022\035\n\031EVENT_TYPE_CH" +
+      "ARGE_SUCCESS\020\005\022\032\n\026EVENT_TYPE_CHARGE_FAIL" +
+      "\020\006\022\037\n\033EVENT_TYPE_REFUND_SUCCEEDED\020\007\022\034\n\030E" +
+      "VENT_TYPE_REFUND_FAILED\020\010\022!\n\035EVENT_TYPE_" +
+      "CONTRACT_ACTIVATED\020\024\022#\n\037EVENT_TYPE_USER_" +
+      "ACCOUNT_DELETED\020\036\022\026\n\022EVENT_TYPE_TESTING\020" +
+      "c2\206\001\n\016WebhookService\0226\n\005Error\022\024.api.v1.E" +
+      "rrorRequest\032\025.api.v1.ErrorResponse\"\000\022<\n\007" +
+      "Message\022\026.api.v1.MessageRequest\032\027.api.v1" +
+      ".MessageResponse\"\000By\n\ncom.api.v1B\025Mercha" +
+      "ntWebhooksProtoP\001Z\033api/proto/gen/api/v1;" +
+      "api_v1\242\002\003AXX\252\002\006Api.V1\312\002\006Api\\V1\342\002\022Api\\V1\\" +
+      "GPBMetadata\352\002\007Api::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -256,7 +258,7 @@ public final class MerchantWebhooksProto extends com.google.protobuf.GeneratedFi
     internal_static_api_v1_RefundInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_api_v1_RefundInfo_descriptor,
-        new java.lang.String[] { "Id", "AmountRefunded", "JammFee", "ConsumptionTax", "OriginalTransactionFeeWaived", "Error", "ProcessedAt", });
+        new java.lang.String[] { "Id", "AmountRefunded", "AmountRefundedNetDiscounts", "JammFee", "ConsumptionTax", "OriginalTransactionFeeWaived", "Error", "ProcessedAt", });
     internal_static_api_v1_ContractMessage_descriptor =
       getDescriptor().getMessageType(7);
     internal_static_api_v1_ContractMessage_fieldAccessorTable = new

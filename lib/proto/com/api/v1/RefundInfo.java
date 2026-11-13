@@ -118,7 +118,7 @@ private static final long serialVersionUID = 0L;
   private int amountRefunded_ = 0;
   /**
    * <pre>
-   * Amount refunded for this event.
+   * Amount the merchant requested to refund for this event, before discount.
    * </pre>
    *
    * <code>optional int32 amount_refunded = 2 [json_name = "amountRefunded"];</code>
@@ -130,7 +130,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Amount refunded for this event.
+   * Amount the merchant requested to refund for this event, before discount.
    * </pre>
    *
    * <code>optional int32 amount_refunded = 2 [json_name = "amountRefunded"];</code>
@@ -139,6 +139,35 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public int getAmountRefunded() {
     return amountRefunded_;
+  }
+
+  public static final int AMOUNT_REFUNDED_NET_DISCOUNTS_FIELD_NUMBER = 8;
+  private int amountRefundedNetDiscounts_ = 0;
+  /**
+   * <pre>
+   * Amount returned to the customer for this event: amount_refunded minus the
+   * share of the charge discount it carries (not present on refund_failed events).
+   * </pre>
+   *
+   * <code>optional int32 amount_refunded_net_discounts = 8 [json_name = "amountRefundedNetDiscounts"];</code>
+   * @return Whether the amountRefundedNetDiscounts field is set.
+   */
+  @java.lang.Override
+  public boolean hasAmountRefundedNetDiscounts() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <pre>
+   * Amount returned to the customer for this event: amount_refunded minus the
+   * share of the charge discount it carries (not present on refund_failed events).
+   * </pre>
+   *
+   * <code>optional int32 amount_refunded_net_discounts = 8 [json_name = "amountRefundedNetDiscounts"];</code>
+   * @return The amountRefundedNetDiscounts.
+   */
+  @java.lang.Override
+  public int getAmountRefundedNetDiscounts() {
+    return amountRefundedNetDiscounts_;
   }
 
   public static final int JAMM_FEE_FIELD_NUMBER = 3;
@@ -153,7 +182,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasJammFee() {
-    return ((bitField0_ & 0x00000004) != 0);
+    return ((bitField0_ & 0x00000008) != 0);
   }
   /**
    * <pre>
@@ -180,7 +209,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasConsumptionTax() {
-    return ((bitField0_ & 0x00000008) != 0);
+    return ((bitField0_ & 0x00000010) != 0);
   }
   /**
    * <pre>
@@ -207,7 +236,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasOriginalTransactionFeeWaived() {
-    return ((bitField0_ & 0x00000010) != 0);
+    return ((bitField0_ & 0x00000020) != 0);
   }
   /**
    * <pre>
@@ -234,7 +263,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasError() {
-    return ((bitField0_ & 0x00000020) != 0);
+    return ((bitField0_ & 0x00000040) != 0);
   }
   /**
    * <pre>
@@ -273,7 +302,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasProcessedAt() {
-    return ((bitField0_ & 0x00000040) != 0);
+    return ((bitField0_ & 0x00000080) != 0);
   }
   /**
    * <pre>
@@ -339,20 +368,23 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       output.writeInt32(2, amountRefunded_);
     }
-    if (((bitField0_ & 0x00000004) != 0)) {
+    if (((bitField0_ & 0x00000008) != 0)) {
       output.writeInt32(3, jammFee_);
     }
-    if (((bitField0_ & 0x00000008) != 0)) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       output.writeInt32(4, consumptionTax_);
     }
-    if (((bitField0_ & 0x00000010) != 0)) {
+    if (((bitField0_ & 0x00000020) != 0)) {
       output.writeBool(5, originalTransactionFeeWaived_);
     }
-    if (((bitField0_ & 0x00000020) != 0)) {
+    if (((bitField0_ & 0x00000040) != 0)) {
       output.writeMessage(6, getError());
     }
-    if (((bitField0_ & 0x00000040) != 0)) {
+    if (((bitField0_ & 0x00000080) != 0)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 7, processedAt_);
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      output.writeInt32(8, amountRefundedNetDiscounts_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -370,24 +402,28 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, amountRefunded_);
     }
-    if (((bitField0_ & 0x00000004) != 0)) {
+    if (((bitField0_ & 0x00000008) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, jammFee_);
     }
-    if (((bitField0_ & 0x00000008) != 0)) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(4, consumptionTax_);
     }
-    if (((bitField0_ & 0x00000010) != 0)) {
+    if (((bitField0_ & 0x00000020) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, originalTransactionFeeWaived_);
     }
-    if (((bitField0_ & 0x00000020) != 0)) {
+    if (((bitField0_ & 0x00000040) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getError());
     }
-    if (((bitField0_ & 0x00000040) != 0)) {
+    if (((bitField0_ & 0x00000080) != 0)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(7, processedAt_);
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(8, amountRefundedNetDiscounts_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -413,6 +449,11 @@ private static final long serialVersionUID = 0L;
     if (hasAmountRefunded()) {
       if (getAmountRefunded()
           != other.getAmountRefunded()) return false;
+    }
+    if (hasAmountRefundedNetDiscounts() != other.hasAmountRefundedNetDiscounts()) return false;
+    if (hasAmountRefundedNetDiscounts()) {
+      if (getAmountRefundedNetDiscounts()
+          != other.getAmountRefundedNetDiscounts()) return false;
     }
     if (hasJammFee() != other.hasJammFee()) return false;
     if (hasJammFee()) {
@@ -457,6 +498,10 @@ private static final long serialVersionUID = 0L;
     if (hasAmountRefunded()) {
       hash = (37 * hash) + AMOUNT_REFUNDED_FIELD_NUMBER;
       hash = (53 * hash) + getAmountRefunded();
+    }
+    if (hasAmountRefundedNetDiscounts()) {
+      hash = (37 * hash) + AMOUNT_REFUNDED_NET_DISCOUNTS_FIELD_NUMBER;
+      hash = (53 * hash) + getAmountRefundedNetDiscounts();
     }
     if (hasJammFee()) {
       hash = (37 * hash) + JAMM_FEE_FIELD_NUMBER;
@@ -622,6 +667,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       id_ = "";
       amountRefunded_ = 0;
+      amountRefundedNetDiscounts_ = 0;
       jammFee_ = 0;
       consumptionTax_ = 0;
       originalTransactionFeeWaived_ = false;
@@ -674,26 +720,30 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000002;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.jammFee_ = jammFee_;
+        result.amountRefundedNetDiscounts_ = amountRefundedNetDiscounts_;
         to_bitField0_ |= 0x00000004;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.consumptionTax_ = consumptionTax_;
+        result.jammFee_ = jammFee_;
         to_bitField0_ |= 0x00000008;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.originalTransactionFeeWaived_ = originalTransactionFeeWaived_;
+        result.consumptionTax_ = consumptionTax_;
         to_bitField0_ |= 0x00000010;
       }
       if (((from_bitField0_ & 0x00000020) != 0)) {
-        result.error_ = errorBuilder_ == null
-            ? error_
-            : errorBuilder_.build();
+        result.originalTransactionFeeWaived_ = originalTransactionFeeWaived_;
         to_bitField0_ |= 0x00000020;
       }
       if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.processedAt_ = processedAt_;
+        result.error_ = errorBuilder_ == null
+            ? error_
+            : errorBuilder_.build();
         to_bitField0_ |= 0x00000040;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.processedAt_ = processedAt_;
+        to_bitField0_ |= 0x00000080;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -718,6 +768,9 @@ private static final long serialVersionUID = 0L;
       if (other.hasAmountRefunded()) {
         setAmountRefunded(other.getAmountRefunded());
       }
+      if (other.hasAmountRefundedNetDiscounts()) {
+        setAmountRefundedNetDiscounts(other.getAmountRefundedNetDiscounts());
+      }
       if (other.hasJammFee()) {
         setJammFee(other.getJammFee());
       }
@@ -732,7 +785,7 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasProcessedAt()) {
         processedAt_ = other.processedAt_;
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -773,31 +826,36 @@ private static final long serialVersionUID = 0L;
             } // case 16
             case 24: {
               jammFee_ = input.readInt32();
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000008;
               break;
             } // case 24
             case 32: {
               consumptionTax_ = input.readInt32();
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000010;
               break;
             } // case 32
             case 40: {
               originalTransactionFeeWaived_ = input.readBool();
-              bitField0_ |= 0x00000010;
+              bitField0_ |= 0x00000020;
               break;
             } // case 40
             case 50: {
               input.readMessage(
                   internalGetErrorFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000020;
+              bitField0_ |= 0x00000040;
               break;
             } // case 50
             case 58: {
               processedAt_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000040;
+              bitField0_ |= 0x00000080;
               break;
             } // case 58
+            case 64: {
+              amountRefundedNetDiscounts_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 64
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -921,7 +979,7 @@ private static final long serialVersionUID = 0L;
     private int amountRefunded_ ;
     /**
      * <pre>
-     * Amount refunded for this event.
+     * Amount the merchant requested to refund for this event, before discount.
      * </pre>
      *
      * <code>optional int32 amount_refunded = 2 [json_name = "amountRefunded"];</code>
@@ -933,7 +991,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Amount refunded for this event.
+     * Amount the merchant requested to refund for this event, before discount.
      * </pre>
      *
      * <code>optional int32 amount_refunded = 2 [json_name = "amountRefunded"];</code>
@@ -945,7 +1003,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Amount refunded for this event.
+     * Amount the merchant requested to refund for this event, before discount.
      * </pre>
      *
      * <code>optional int32 amount_refunded = 2 [json_name = "amountRefunded"];</code>
@@ -961,7 +1019,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Amount refunded for this event.
+     * Amount the merchant requested to refund for this event, before discount.
      * </pre>
      *
      * <code>optional int32 amount_refunded = 2 [json_name = "amountRefunded"];</code>
@@ -970,6 +1028,66 @@ private static final long serialVersionUID = 0L;
     public Builder clearAmountRefunded() {
       bitField0_ = (bitField0_ & ~0x00000002);
       amountRefunded_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int amountRefundedNetDiscounts_ ;
+    /**
+     * <pre>
+     * Amount returned to the customer for this event: amount_refunded minus the
+     * share of the charge discount it carries (not present on refund_failed events).
+     * </pre>
+     *
+     * <code>optional int32 amount_refunded_net_discounts = 8 [json_name = "amountRefundedNetDiscounts"];</code>
+     * @return Whether the amountRefundedNetDiscounts field is set.
+     */
+    @java.lang.Override
+    public boolean hasAmountRefundedNetDiscounts() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * Amount returned to the customer for this event: amount_refunded minus the
+     * share of the charge discount it carries (not present on refund_failed events).
+     * </pre>
+     *
+     * <code>optional int32 amount_refunded_net_discounts = 8 [json_name = "amountRefundedNetDiscounts"];</code>
+     * @return The amountRefundedNetDiscounts.
+     */
+    @java.lang.Override
+    public int getAmountRefundedNetDiscounts() {
+      return amountRefundedNetDiscounts_;
+    }
+    /**
+     * <pre>
+     * Amount returned to the customer for this event: amount_refunded minus the
+     * share of the charge discount it carries (not present on refund_failed events).
+     * </pre>
+     *
+     * <code>optional int32 amount_refunded_net_discounts = 8 [json_name = "amountRefundedNetDiscounts"];</code>
+     * @param value The amountRefundedNetDiscounts to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAmountRefundedNetDiscounts(int value) {
+
+      amountRefundedNetDiscounts_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Amount returned to the customer for this event: amount_refunded minus the
+     * share of the charge discount it carries (not present on refund_failed events).
+     * </pre>
+     *
+     * <code>optional int32 amount_refunded_net_discounts = 8 [json_name = "amountRefundedNetDiscounts"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAmountRefundedNetDiscounts() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      amountRefundedNetDiscounts_ = 0;
       onChanged();
       return this;
     }
@@ -985,7 +1103,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasJammFee() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1011,7 +1129,7 @@ private static final long serialVersionUID = 0L;
     public Builder setJammFee(int value) {
 
       jammFee_ = value;
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1024,7 +1142,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearJammFee() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       jammFee_ = 0;
       onChanged();
       return this;
@@ -1041,7 +1159,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasConsumptionTax() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1067,7 +1185,7 @@ private static final long serialVersionUID = 0L;
     public Builder setConsumptionTax(int value) {
 
       consumptionTax_ = value;
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1080,7 +1198,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConsumptionTax() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000010);
       consumptionTax_ = 0;
       onChanged();
       return this;
@@ -1097,7 +1215,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasOriginalTransactionFeeWaived() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1123,7 +1241,7 @@ private static final long serialVersionUID = 0L;
     public Builder setOriginalTransactionFeeWaived(boolean value) {
 
       originalTransactionFeeWaived_ = value;
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1136,7 +1254,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOriginalTransactionFeeWaived() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000020);
       originalTransactionFeeWaived_ = false;
       onChanged();
       return this;
@@ -1154,7 +1272,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the error field is set.
      */
     public boolean hasError() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1187,7 +1305,7 @@ private static final long serialVersionUID = 0L;
       } else {
         errorBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1205,7 +1323,7 @@ private static final long serialVersionUID = 0L;
       } else {
         errorBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1218,7 +1336,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeError(com.api.v1.Error value) {
       if (errorBuilder_ == null) {
-        if (((bitField0_ & 0x00000020) != 0) &&
+        if (((bitField0_ & 0x00000040) != 0) &&
           error_ != null &&
           error_ != com.api.v1.Error.getDefaultInstance()) {
           getErrorBuilder().mergeFrom(value);
@@ -1229,7 +1347,7 @@ private static final long serialVersionUID = 0L;
         errorBuilder_.mergeFrom(value);
       }
       if (error_ != null) {
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       return this;
@@ -1242,7 +1360,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .api.v1.Error error = 6 [json_name = "error"];</code>
      */
     public Builder clearError() {
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000040);
       error_ = null;
       if (errorBuilder_ != null) {
         errorBuilder_.dispose();
@@ -1259,7 +1377,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .api.v1.Error error = 6 [json_name = "error"];</code>
      */
     public com.api.v1.Error.Builder getErrorBuilder() {
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000040;
       onChanged();
       return internalGetErrorFieldBuilder().getBuilder();
     }
@@ -1309,7 +1427,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the processedAt field is set.
      */
     public boolean hasProcessedAt() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -1365,7 +1483,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       processedAt_ = value;
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1379,7 +1497,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearProcessedAt() {
       processedAt_ = getDefaultInstance().getProcessedAt();
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -1397,7 +1515,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       processedAt_ = value;
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }

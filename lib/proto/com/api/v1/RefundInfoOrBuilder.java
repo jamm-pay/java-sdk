@@ -41,7 +41,7 @@ public interface RefundInfoOrBuilder extends
 
   /**
    * <pre>
-   * Amount refunded for this event.
+   * Amount the merchant requested to refund for this event, before discount.
    * </pre>
    *
    * <code>optional int32 amount_refunded = 2 [json_name = "amountRefunded"];</code>
@@ -50,13 +50,34 @@ public interface RefundInfoOrBuilder extends
   boolean hasAmountRefunded();
   /**
    * <pre>
-   * Amount refunded for this event.
+   * Amount the merchant requested to refund for this event, before discount.
    * </pre>
    *
    * <code>optional int32 amount_refunded = 2 [json_name = "amountRefunded"];</code>
    * @return The amountRefunded.
    */
   int getAmountRefunded();
+
+  /**
+   * <pre>
+   * Amount returned to the customer for this event: amount_refunded minus the
+   * share of the charge discount it carries (not present on refund_failed events).
+   * </pre>
+   *
+   * <code>optional int32 amount_refunded_net_discounts = 8 [json_name = "amountRefundedNetDiscounts"];</code>
+   * @return Whether the amountRefundedNetDiscounts field is set.
+   */
+  boolean hasAmountRefundedNetDiscounts();
+  /**
+   * <pre>
+   * Amount returned to the customer for this event: amount_refunded minus the
+   * share of the charge discount it carries (not present on refund_failed events).
+   * </pre>
+   *
+   * <code>optional int32 amount_refunded_net_discounts = 8 [json_name = "amountRefundedNetDiscounts"];</code>
+   * @return The amountRefundedNetDiscounts.
+   */
+  int getAmountRefundedNetDiscounts();
 
   /**
    * <pre>
