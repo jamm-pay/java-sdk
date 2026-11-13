@@ -462,6 +462,15 @@ public enum ErrorType
    * <code>ERROR_TYPE_BANK_ACCOUNT_IN_REVIEW = 1401;</code>
    */
   ERROR_TYPE_BANK_ACCOUNT_IN_REVIEW(1401),
+  /**
+   * <pre>
+   * Merchant dashboard login errors (1500-1599)
+   * Dashboard OTP Expired: the email code is gone (expired, used, or locked after too many attempts), so the user must request a new one.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_OTP_EXPIRED = 1500;</code>
+   */
+  ERROR_TYPE_DASHBOARD_OTP_EXPIRED(1500),
   UNRECOGNIZED(-1),
   ;
 
@@ -886,6 +895,15 @@ public enum ErrorType
    * <code>ERROR_TYPE_BANK_ACCOUNT_IN_REVIEW = 1401;</code>
    */
   public static final int ERROR_TYPE_BANK_ACCOUNT_IN_REVIEW_VALUE = 1401;
+  /**
+   * <pre>
+   * Merchant dashboard login errors (1500-1599)
+   * Dashboard OTP Expired: the email code is gone (expired, used, or locked after too many attempts), so the user must request a new one.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_OTP_EXPIRED = 1500;</code>
+   */
+  public static final int ERROR_TYPE_DASHBOARD_OTP_EXPIRED_VALUE = 1500;
 
 
   public final int getNumber() {
@@ -961,6 +979,7 @@ public enum ErrorType
       case 1302: return ERROR_TYPE_BRIDGED_SETTLEMENT_DEFAULTED;
       case 1400: return ERROR_TYPE_BANK_ACCOUNT_NAME_MISMATCH;
       case 1401: return ERROR_TYPE_BANK_ACCOUNT_IN_REVIEW;
+      case 1500: return ERROR_TYPE_DASHBOARD_OTP_EXPIRED;
       default: return null;
     }
   }

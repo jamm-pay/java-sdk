@@ -35,7 +35,7 @@ public final class ErrorProto extends com.google.protobuf.GeneratedFile {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024error/v1/error.proto\022\010error.v1*\320\017\n\tErr" +
+      "\n\024error/v1/error.proto\022\010error.v1*\367\017\n\tErr" +
       "orType\022\032\n\026ERROR_TYPE_UNSPECIFIED\020\000\022\032\n\026ER" +
       "ROR_TYPE_AUTH_FAILED\020\001\022\034\n\030ERROR_TYPE_AUT" +
       "H_REJECTED\020\002\022&\n\"ERROR_TYPE_ACCOUNT_CREAT" +
@@ -85,11 +85,12 @@ public final class ErrorProto extends com.google.protobuf.GeneratedFile {
       "D_COLLECTION_IN_FLIGHT\020\225\n\022,\n\'ERROR_TYPE_" +
       "BRIDGED_SETTLEMENT_DEFAULTED\020\226\n\022*\n%ERROR" +
       "_TYPE_BANK_ACCOUNT_NAME_MISMATCH\020\370\n\022&\n!E" +
-      "RROR_TYPE_BANK_ACCOUNT_IN_REVIEW\020\371\nB~\n\014c" +
-      "om.error.v1B\nErrorProtoP\001Z\037api/proto/gen" +
-      "/error/v1;error_v1\242\002\003EXX\252\002\010Error.V1\312\002\tEr" +
-      "ror_\\V1\342\002\025Error_\\V1\\GPBMetadata\352\002\tError:" +
-      ":V1b\006proto3"
+      "RROR_TYPE_BANK_ACCOUNT_IN_REVIEW\020\371\n\022%\n E" +
+      "RROR_TYPE_DASHBOARD_OTP_EXPIRED\020\334\013B~\n\014co" +
+      "m.error.v1B\nErrorProtoP\001Z\037api/proto/gen/" +
+      "error/v1;error_v1\242\002\003EXX\252\002\010Error.V1\312\002\tErr" +
+      "or_\\V1\342\002\025Error_\\V1\\GPBMetadata\352\002\tError::" +
+      "V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
