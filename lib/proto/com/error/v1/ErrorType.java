@@ -471,6 +471,62 @@ public enum ErrorType
    * <code>ERROR_TYPE_DASHBOARD_OTP_EXPIRED = 1500;</code>
    */
   ERROR_TYPE_DASHBOARD_OTP_EXPIRED(1500),
+  /**
+   * <pre>
+   * Dashboard Passkey Login State Expired: no OTP was verified on this login session in the last 10 minutes, so the user must start again.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_LOGIN_STATE_EXPIRED = 1501;</code>
+   */
+  ERROR_TYPE_DASHBOARD_PASSKEY_LOGIN_STATE_EXPIRED(1501),
+  /**
+   * <pre>
+   * Dashboard Passkey Not Required: the email no longer needs a passkey; the next OTP login succeeds without one.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_NOT_REQUIRED = 1502;</code>
+   */
+  ERROR_TYPE_DASHBOARD_PASSKEY_NOT_REQUIRED(1502),
+  /**
+   * <pre>
+   * Dashboard Passkey Already Registered: the email already has a passkey, so it must log in with it.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_ALREADY_REGISTERED = 1503;</code>
+   */
+  ERROR_TYPE_DASHBOARD_PASSKEY_ALREADY_REGISTERED(1503),
+  /**
+   * <pre>
+   * Dashboard Passkey Not Registered: the email has no passkey, so it must register one.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_NOT_REGISTERED = 1504;</code>
+   */
+  ERROR_TYPE_DASHBOARD_PASSKEY_NOT_REGISTERED(1504),
+  /**
+   * <pre>
+   * Dashboard Passkey Ceremony Expired: the passkey ceremony is gone (expired or used), so the client must start it again.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_CEREMONY_EXPIRED = 1505;</code>
+   */
+  ERROR_TYPE_DASHBOARD_PASSKEY_CEREMONY_EXPIRED(1505),
+  /**
+   * <pre>
+   * Dashboard Passkey Verification Failed: the passkey response did not verify.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_VERIFICATION_FAILED = 1506;</code>
+   */
+  ERROR_TYPE_DASHBOARD_PASSKEY_VERIFICATION_FAILED(1506),
+  /**
+   * <pre>
+   * Dashboard Passkey State Changed: the email's passkeys changed during the ceremony, so the user must start again.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_STATE_CHANGED = 1508;</code>
+   */
+  ERROR_TYPE_DASHBOARD_PASSKEY_STATE_CHANGED(1508),
   UNRECOGNIZED(-1),
   ;
 
@@ -904,6 +960,62 @@ public enum ErrorType
    * <code>ERROR_TYPE_DASHBOARD_OTP_EXPIRED = 1500;</code>
    */
   public static final int ERROR_TYPE_DASHBOARD_OTP_EXPIRED_VALUE = 1500;
+  /**
+   * <pre>
+   * Dashboard Passkey Login State Expired: no OTP was verified on this login session in the last 10 minutes, so the user must start again.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_LOGIN_STATE_EXPIRED = 1501;</code>
+   */
+  public static final int ERROR_TYPE_DASHBOARD_PASSKEY_LOGIN_STATE_EXPIRED_VALUE = 1501;
+  /**
+   * <pre>
+   * Dashboard Passkey Not Required: the email no longer needs a passkey; the next OTP login succeeds without one.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_NOT_REQUIRED = 1502;</code>
+   */
+  public static final int ERROR_TYPE_DASHBOARD_PASSKEY_NOT_REQUIRED_VALUE = 1502;
+  /**
+   * <pre>
+   * Dashboard Passkey Already Registered: the email already has a passkey, so it must log in with it.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_ALREADY_REGISTERED = 1503;</code>
+   */
+  public static final int ERROR_TYPE_DASHBOARD_PASSKEY_ALREADY_REGISTERED_VALUE = 1503;
+  /**
+   * <pre>
+   * Dashboard Passkey Not Registered: the email has no passkey, so it must register one.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_NOT_REGISTERED = 1504;</code>
+   */
+  public static final int ERROR_TYPE_DASHBOARD_PASSKEY_NOT_REGISTERED_VALUE = 1504;
+  /**
+   * <pre>
+   * Dashboard Passkey Ceremony Expired: the passkey ceremony is gone (expired or used), so the client must start it again.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_CEREMONY_EXPIRED = 1505;</code>
+   */
+  public static final int ERROR_TYPE_DASHBOARD_PASSKEY_CEREMONY_EXPIRED_VALUE = 1505;
+  /**
+   * <pre>
+   * Dashboard Passkey Verification Failed: the passkey response did not verify.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_VERIFICATION_FAILED = 1506;</code>
+   */
+  public static final int ERROR_TYPE_DASHBOARD_PASSKEY_VERIFICATION_FAILED_VALUE = 1506;
+  /**
+   * <pre>
+   * Dashboard Passkey State Changed: the email's passkeys changed during the ceremony, so the user must start again.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_STATE_CHANGED = 1508;</code>
+   */
+  public static final int ERROR_TYPE_DASHBOARD_PASSKEY_STATE_CHANGED_VALUE = 1508;
 
 
   public final int getNumber() {
@@ -980,6 +1092,13 @@ public enum ErrorType
       case 1400: return ERROR_TYPE_BANK_ACCOUNT_NAME_MISMATCH;
       case 1401: return ERROR_TYPE_BANK_ACCOUNT_IN_REVIEW;
       case 1500: return ERROR_TYPE_DASHBOARD_OTP_EXPIRED;
+      case 1501: return ERROR_TYPE_DASHBOARD_PASSKEY_LOGIN_STATE_EXPIRED;
+      case 1502: return ERROR_TYPE_DASHBOARD_PASSKEY_NOT_REQUIRED;
+      case 1503: return ERROR_TYPE_DASHBOARD_PASSKEY_ALREADY_REGISTERED;
+      case 1504: return ERROR_TYPE_DASHBOARD_PASSKEY_NOT_REGISTERED;
+      case 1505: return ERROR_TYPE_DASHBOARD_PASSKEY_CEREMONY_EXPIRED;
+      case 1506: return ERROR_TYPE_DASHBOARD_PASSKEY_VERIFICATION_FAILED;
+      case 1508: return ERROR_TYPE_DASHBOARD_PASSKEY_STATE_CHANGED;
       default: return null;
     }
   }
