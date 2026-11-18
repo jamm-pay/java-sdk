@@ -521,12 +521,52 @@ public enum ErrorType
   ERROR_TYPE_DASHBOARD_PASSKEY_VERIFICATION_FAILED(1506),
   /**
    * <pre>
+   * Dashboard Passkey Step Up Required: adding or revoking a passkey needs a fresh passkey check for that action.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_STEP_UP_REQUIRED = 1507;</code>
+   */
+  ERROR_TYPE_DASHBOARD_PASSKEY_STEP_UP_REQUIRED(1507),
+  /**
+   * <pre>
    * Dashboard Passkey State Changed: the email's passkeys changed during the ceremony, so the user must start again.
    * </pre>
    *
    * <code>ERROR_TYPE_DASHBOARD_PASSKEY_STATE_CHANGED = 1508;</code>
    */
   ERROR_TYPE_DASHBOARD_PASSKEY_STATE_CHANGED(1508),
+  /**
+   * <pre>
+   * Dashboard Passkey Limit Reached: the email already has the maximum of 10 passkeys.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_LIMIT_REACHED = 1509;</code>
+   */
+  ERROR_TYPE_DASHBOARD_PASSKEY_LIMIT_REACHED(1509),
+  /**
+   * <pre>
+   * Dashboard Passkey Last Passkey: the email's only passkey can't be revoked; add another one first.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_LAST_PASSKEY = 1510;</code>
+   */
+  ERROR_TYPE_DASHBOARD_PASSKEY_LAST_PASSKEY(1510),
+  /**
+   * <pre>
+   * Dashboard Passkey Invalid Nickname: the nickname is empty, too long, or has control characters.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_INVALID_NICKNAME = 1511;</code>
+   */
+  ERROR_TYPE_DASHBOARD_PASSKEY_INVALID_NICKNAME(1511),
+  /**
+   * <pre>
+   * Dashboard Passkey Not Found: the email has no passkey with this ID.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_NOT_FOUND = 1512;</code>
+   */
+  ERROR_TYPE_DASHBOARD_PASSKEY_NOT_FOUND(1512),
   UNRECOGNIZED(-1),
   ;
 
@@ -1010,12 +1050,52 @@ public enum ErrorType
   public static final int ERROR_TYPE_DASHBOARD_PASSKEY_VERIFICATION_FAILED_VALUE = 1506;
   /**
    * <pre>
+   * Dashboard Passkey Step Up Required: adding or revoking a passkey needs a fresh passkey check for that action.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_STEP_UP_REQUIRED = 1507;</code>
+   */
+  public static final int ERROR_TYPE_DASHBOARD_PASSKEY_STEP_UP_REQUIRED_VALUE = 1507;
+  /**
+   * <pre>
    * Dashboard Passkey State Changed: the email's passkeys changed during the ceremony, so the user must start again.
    * </pre>
    *
    * <code>ERROR_TYPE_DASHBOARD_PASSKEY_STATE_CHANGED = 1508;</code>
    */
   public static final int ERROR_TYPE_DASHBOARD_PASSKEY_STATE_CHANGED_VALUE = 1508;
+  /**
+   * <pre>
+   * Dashboard Passkey Limit Reached: the email already has the maximum of 10 passkeys.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_LIMIT_REACHED = 1509;</code>
+   */
+  public static final int ERROR_TYPE_DASHBOARD_PASSKEY_LIMIT_REACHED_VALUE = 1509;
+  /**
+   * <pre>
+   * Dashboard Passkey Last Passkey: the email's only passkey can't be revoked; add another one first.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_LAST_PASSKEY = 1510;</code>
+   */
+  public static final int ERROR_TYPE_DASHBOARD_PASSKEY_LAST_PASSKEY_VALUE = 1510;
+  /**
+   * <pre>
+   * Dashboard Passkey Invalid Nickname: the nickname is empty, too long, or has control characters.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_INVALID_NICKNAME = 1511;</code>
+   */
+  public static final int ERROR_TYPE_DASHBOARD_PASSKEY_INVALID_NICKNAME_VALUE = 1511;
+  /**
+   * <pre>
+   * Dashboard Passkey Not Found: the email has no passkey with this ID.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_NOT_FOUND = 1512;</code>
+   */
+  public static final int ERROR_TYPE_DASHBOARD_PASSKEY_NOT_FOUND_VALUE = 1512;
 
 
   public final int getNumber() {
@@ -1098,7 +1178,12 @@ public enum ErrorType
       case 1504: return ERROR_TYPE_DASHBOARD_PASSKEY_NOT_REGISTERED;
       case 1505: return ERROR_TYPE_DASHBOARD_PASSKEY_CEREMONY_EXPIRED;
       case 1506: return ERROR_TYPE_DASHBOARD_PASSKEY_VERIFICATION_FAILED;
+      case 1507: return ERROR_TYPE_DASHBOARD_PASSKEY_STEP_UP_REQUIRED;
       case 1508: return ERROR_TYPE_DASHBOARD_PASSKEY_STATE_CHANGED;
+      case 1509: return ERROR_TYPE_DASHBOARD_PASSKEY_LIMIT_REACHED;
+      case 1510: return ERROR_TYPE_DASHBOARD_PASSKEY_LAST_PASSKEY;
+      case 1511: return ERROR_TYPE_DASHBOARD_PASSKEY_INVALID_NICKNAME;
+      case 1512: return ERROR_TYPE_DASHBOARD_PASSKEY_NOT_FOUND;
       default: return null;
     }
   }
