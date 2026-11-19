@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.0] - 2026-11-19
+
 ### Added
 
 - `RefundInfo.getAmountRefundedNetDiscounts()` (and `hasAmountRefundedNetDiscounts()`) on refund webhooks — the amount returned to the buyer for this refund (`getAmountRefunded()` minus its share of the charge discount). Sent on `REFUND_SUCCEEDED` only.
