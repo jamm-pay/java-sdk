@@ -567,6 +567,14 @@ public enum ErrorType
    * <code>ERROR_TYPE_DASHBOARD_PASSKEY_NOT_FOUND = 1512;</code>
    */
   ERROR_TYPE_DASHBOARD_PASSKEY_NOT_FOUND(1512),
+  /**
+   * <pre>
+   * Dashboard Passkey Recently Recovered: the email registered a passkey after a support reset less than 24 hours ago, so this setting is locked until then.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_RECENTLY_RECOVERED = 1513;</code>
+   */
+  ERROR_TYPE_DASHBOARD_PASSKEY_RECENTLY_RECOVERED(1513),
   UNRECOGNIZED(-1),
   ;
 
@@ -1096,6 +1104,14 @@ public enum ErrorType
    * <code>ERROR_TYPE_DASHBOARD_PASSKEY_NOT_FOUND = 1512;</code>
    */
   public static final int ERROR_TYPE_DASHBOARD_PASSKEY_NOT_FOUND_VALUE = 1512;
+  /**
+   * <pre>
+   * Dashboard Passkey Recently Recovered: the email registered a passkey after a support reset less than 24 hours ago, so this setting is locked until then.
+   * </pre>
+   *
+   * <code>ERROR_TYPE_DASHBOARD_PASSKEY_RECENTLY_RECOVERED = 1513;</code>
+   */
+  public static final int ERROR_TYPE_DASHBOARD_PASSKEY_RECENTLY_RECOVERED_VALUE = 1513;
 
 
   public final int getNumber() {
@@ -1184,6 +1200,7 @@ public enum ErrorType
       case 1510: return ERROR_TYPE_DASHBOARD_PASSKEY_LAST_PASSKEY;
       case 1511: return ERROR_TYPE_DASHBOARD_PASSKEY_INVALID_NICKNAME;
       case 1512: return ERROR_TYPE_DASHBOARD_PASSKEY_NOT_FOUND;
+      case 1513: return ERROR_TYPE_DASHBOARD_PASSKEY_RECENTLY_RECOVERED;
       default: return null;
     }
   }

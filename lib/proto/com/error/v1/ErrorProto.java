@@ -35,7 +35,7 @@ public final class ErrorProto extends com.google.protobuf.GeneratedFile {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024error/v1/error.proto\022\010error.v1*\330\024\n\tErr" +
+      "\n\024error/v1/error.proto\022\010error.v1*\216\025\n\tErr" +
       "orType\022\032\n\026ERROR_TYPE_UNSPECIFIED\020\000\022\032\n\026ER" +
       "ROR_TYPE_AUTH_FAILED\020\001\022\034\n\030ERROR_TYPE_AUT" +
       "H_REJECTED\020\002\022&\n\"ERROR_TYPE_ACCOUNT_CREAT" +
@@ -102,10 +102,11 @@ public final class ErrorProto extends com.google.protobuf.GeneratedFile {
       "RD_PASSKEY_LAST_PASSKEY\020\346\013\0222\n-ERROR_TYPE" +
       "_DASHBOARD_PASSKEY_INVALID_NICKNAME\020\347\013\022+" +
       "\n&ERROR_TYPE_DASHBOARD_PASSKEY_NOT_FOUND" +
-      "\020\350\013B~\n\014com.error.v1B\nErrorProtoP\001Z\037api/p" +
-      "roto/gen/error/v1;error_v1\242\002\003EXX\252\002\010Error" +
-      ".V1\312\002\tError_\\V1\342\002\025Error_\\V1\\GPBMetadata\352" +
-      "\002\tError::V1b\006proto3"
+      "\020\350\013\0224\n/ERROR_TYPE_DASHBOARD_PASSKEY_RECE" +
+      "NTLY_RECOVERED\020\351\013B~\n\014com.error.v1B\nError" +
+      "ProtoP\001Z\037api/proto/gen/error/v1;error_v1" +
+      "\242\002\003EXX\252\002\010Error.V1\312\002\tError_\\V1\342\002\025Error_\\V" +
+      "1\\GPBMetadata\352\002\tError::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
